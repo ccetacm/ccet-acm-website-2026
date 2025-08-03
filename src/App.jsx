@@ -1,35 +1,38 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// src/App.jsx
+import React, { useState } from "react";
+import Loader from "./components/loader";
 
-function App() {
-  const [count, setCount] = useState(0)
+export default function App() {
+  const [showContent, setShowContent] = useState(false);
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      {!showContent && <Loader onFinish={() => setShowContent(true)} />}
+      <div
+        id="website-content"
+        className={`website-content ${
+          showContent ? "website-content-visible" : "website-content-hidden"
+        }`}
+        style={{
+          padding: 20,
+          textAlign: "center",
+          fontSize: "1.2em",
+          color: "#333",
+        }}
+      >
+        <h1>Welcome to your website!</h1>
+        <div
+          style={{
+            height: 1000,
+            backgroundColor: "#f0f8ff",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <p>More content here to test scrolling!</p>
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
-  )
+  );
 }
-
-export default App
