@@ -1,14 +1,18 @@
-/* src/loader.css */
+html,
+body {
+  height: 100%; /* Ensure html and body take full height */
+  margin: 0;
+  padding: 0;
+}
 
-@keyframes fadeTextIn {
-  0% {
-    opacity: 0;
-    transform: translateY(12px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #e3f2fd; /* Very light blue background */
+  overflow: hidden; /* Hide scrollbars initially to prevent content flash */
+  font-family: "Poppins", sans-serif; /* Applied Poppins font */
+  color: #2196f3; /* Main text color, a vibrant blue */
 }
 
 /* Loader Overlay */
@@ -18,121 +22,67 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #e3f2fd;
+  background-color: #e3f2fd; /* Match body background */
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 9999;
+  z-index: 9999; /* Ensure it's on top of everything */
   opacity: 1;
-  transition: opacity 0.5s ease-out;
+  transition: opacity 0.5s ease-out; /* Smooth fade out */
 }
 
 .loader-overlay.fade-out {
   opacity: 0;
 }
 
-/* Loader Container */
 .loader-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: column; /* Stack logo and text vertically */
   align-items: center;
-  width: 250px;
-  height: auto;
+  justify-content: center;
+  width: 250px; /* Overall container width */
+  height: 200px; /* Overall container height */
+  position: relative;
 }
 
-/* Logo Wrapper */
 .logo-wrapper {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
   align-items: center;
+  justify-content: flex-end;
   width: 100%;
-  height: 150px;
+  height: 150px; /* Space for SVG and its bounce */
   position: relative;
-  margin-bottom: 24px;
 }
 
-/* Loader SVG */
 .loader-svg {
   width: 100%;
   height: auto;
   transform-origin: bottom center;
-  animation: bounce 1.5s infinite ease-in-out;
+  animation: bounce 1.5s infinite ease-in-out; /* Apply bounce directly */
 }
 
-/* Loader Shadow */
 .loader-shadow {
   width: 80%;
   height: 10px;
-  background-color: rgba(33, 150, 243, 0.3);
+  background-color: rgba(33, 150, 243, 0.3); /* Blue shade for shadow */
   border-radius: 50%;
   position: absolute;
   bottom: 0;
   filter: blur(5px);
-  animation: shadow-pulse 1.5s infinite ease-in-out;
+  animation: shadow-pulse 1.5s infinite ease-in-out; /* Apply shadow pulse directly */
 }
 
-/* Progress bar container */
-.progress-container {
-  width: 250px;
-  height: 8px;
-  background-color: #e0e0e0;
-  border-radius: 4px;
-  overflow: hidden;
-  margin-bottom: 24px;
-  box-sizing: border-box;
-  opacity: 1;
-  transition: opacity 0.5s ease;
-}
-
-/* Progress fill bar */
-.progress-fill {
-  height: 100%;
-  background-color: #2196f3;
-  border-radius: 4px 0 0 4px;
-  width: 0%;
-  transition: width 1.5s linear;
-  box-sizing: border-box;
-}
-
-/* Loading footer container */
-.loading-footer {
-  width: 100%;
-  font-size: 18px;
-  color: #055a72;
-  text-align: center;
-  font-weight: 500;
-  letter-spacing: 0.4px;
-  user-select: none;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  min-height: 30px;
-  opacity: 0.97;
-  transition: opacity 0.5s ease;
-}
-
-.loading-footer.fade-out {
-  opacity: 0;
-}
-
-/* Loading message */
-.loading-message {
-  display: inline-block;
-  animation: fadeTextIn 0.5s forwards;
-  min-height: 24px;
-}
-
-/* Bounce keyframes for SVG */
 @keyframes bounce {
   0%,
   100% {
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-50px);
+    transform: translateY(-50px); /* Bounce height */
   }
 }
 
-/* Shadow pulse keyframes */
 @keyframes shadow-pulse {
   0%,
   100% {
@@ -144,85 +94,98 @@
     opacity: 0.6;
   }
 }
-/* Add these media queries to your loader.css */
 
-/* Small mobile devices portrait (width up to 480px) */
-@media (max-width: 480px) {
+/* Loading Text Container */
+.loading-text-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6em; /* Slightly larger font */
+  font-weight: 600; /* Medium-bold for Poppins */
+  letter-spacing: 0.05em; /* Improved letter spacing */
+  white-space: nowrap; /* Keep text on one line */
+  overflow: hidden; /* Hide overflow for typing effect */
+  margin-top: 20px; /* Space between logo and text */
+  color: #1976d2; /* Darker blue for text for contrast */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Subtle text shadow */
+}
+
+/* Blinking Cursor */
+.blinking-cursor {
+  font-weight: 400; /* Lighter weight for cursor */
+  animation: blink-caret .75s step-end infinite;
+  margin-left: 2px;
+  display: none; /* Hidden by default, shown by JS during typing */
+  color: #1976d2; /* Match text color */
+}
+
+@keyframes blink-caret {
+  from,
+  to {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Website Content (initially hidden, then visible) */
+#website-content {
+  padding: 20px;
+  text-align: center;
+  font-size: 1.2em;
+  color: #333;
+  /* Ensure content takes up space but is invisible */
+  position: absolute; /* Position it to not affect loader layout */
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100%; /* Ensure it can scroll if content is long */
+  box-sizing: border-box; /* Include padding in width/height */
+}
+
+.website-content-hidden {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease-out, visibility 0.5s;
+  pointer-events: none; /* Prevent interaction when hidden */
+}
+
+.website-content-visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto; /* Allow interaction when visible */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
   .loader-container {
-    width: 180px;
+    width: 200px;
+    height: 150px;
   }
   .logo-wrapper {
     height: 100px;
-    margin-bottom: 16px;
   }
-  .loader-svg {
-    animation-duration: 1.2s;
+  .loader-shadow {
+    height: 8px;
   }
-  .progress-container {
-    width: 180px;
-    height: 6px;
-    margin-bottom: 16px;
-    border-radius: 3px;
-  }
-  .progress-fill {
-    border-radius: 3px 0 0 3px;
-  }
-  .loading-footer {
-    font-size: 14px;
-    min-height: 24px;
-    letter-spacing: 0.3px;
-  }
-  .loading-message {
-    min-height: 20px;
+  .loading-text-container {
+    font-size: 1.3em;
   }
 }
 
-/* Landscape phones & larger phones (width between 481px and 768px) */
-@media (min-width: 481px) and (max-width: 768px) {
+@media (max-width: 480px) {
   .loader-container {
-    width: 210px;
-  }
-  .logo-wrapper {
+    width: 150px;
     height: 120px;
-    margin-bottom: 20px;
-  }
-  .loader-svg {
-    animation-duration: 1.35s;
-  }
-  .progress-container {
-    width: 210px;
-    height: 7px;
-    margin-bottom: 20px;
-    border-radius: 3.5px;
-  }
-  .progress-fill {
-    border-radius: 3.5px 0 0 3.5px;
-  }
-  .loading-footer {
-    font-size: 16px;
-    min-height: 26px;
-    letter-spacing: 0.35px;
-  }
-  .loading-message {
-    min-height: 22px;
-  }
-}
-
-/* For phones held in landscape where height is small */
-@media (max-height: 480px) {
-  .loader-container {
-    width: 180px;
   }
   .logo-wrapper {
-    height: 90px;
-    margin-bottom: 12px;
+    height: 80px;
   }
-  .progress-container {
-    width: 180px;
+  .loader-shadow {
     height: 6px;
-    margin-bottom: 12px;
   }
-  .loading-footer {
-    font-size: 14px;
+  .loading-text-container {
+    font-size: 1.1em;
   }
 }
