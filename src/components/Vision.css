@@ -1,0 +1,150 @@
+/* src/App.css */
+
+:root {
+  --blue-1: #000066;
+  --blue-2: #002080;
+  --blue-3: #0047b3;
+  --blue-4: #0066cc;
+  --blue-5: #0099cc;
+  --blue-6: #00cfff;
+  --blue-7: #40e0ff;
+  --blue-8: #80f0ff;
+  --blue-9: #b3faff;
+  --blue-10: #e0ffff;
+  --cyan-1: #004d4d;
+  --cyan-2: #006666;
+  --cyan-3: #009999;
+  --cyan-4: #00cccc;
+  --cyan-5: #1affff;
+  --cyan-6: #66ffff;
+  --cyan-7: #b3ffff;
+  --cyan-8: #e6ffff;
+  --color: #005f73;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--blue-10);
+}
+
+
+/* === Layout === */
+.page-background {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px 20px;
+}
+
+/* === Stats Section === */
+.stats-section {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: linear-gradient(to right, var(--cyan-3), var(--cyan-5));
+  color: white;
+  padding: 50px 20px;
+  border-radius: 0 0 30px 30px;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 1850px;   
+  margin: 0 auto;      
+  box-sizing: border-box;
+}
+
+.stat-box {
+  text-align: center;
+  margin: 20px;
+  min-width: 150px;
+}
+
+.icon {
+  font-size: 75px;
+  margin-bottom: 10px;
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.stat-label {
+  font-size: 1.3rem;
+  margin-top: 5px;
+}
+
+/* === Vision Section === */
+.vision-card {
+  background-color: var(--cyan-8); /* Light pastel blue */
+  color: #003366; /* Deep navy for text */
+  border-radius: 25px;
+  padding: 50px;
+  max-width: 1150px;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0, 51, 102, 0.15);
+  border: 2px solid var(--cyan-4);
+  margin: 50px auto;
+  display: block;
+}
+
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.vision-heading {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: var(--cyan-1); /* Bold ocean blue */
+}
+
+
+.vision-text {
+  font-size: 1.7rem;
+  line-height: 1.6;
+  margin-bottom: 40px;
+  color: var(--cyan-2); /* Slightly soft navy */
+}
+
+/* === Buttons === */
+.button-group {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.join-button {
+  padding: 15px 30px;
+  font-size: 1rem;
+  background: linear-gradient(90deg, var(--cyan-1), var(--cyan-4));
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.learn-button {
+  padding: 15px 30px;
+  font-size: 1rem;
+  background-color: transparent;
+  color: var(--cyan-1);
+  border: 2px solid var(--cyan-4);
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.learn-button:hover {
+  background-color: var(--cyan-6);
+  color: white;
+}
