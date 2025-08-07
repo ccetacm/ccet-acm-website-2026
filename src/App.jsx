@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import Loader from "./components/loader";
 import Initiatives from "./components/Initiatives";
+import Vision from "./components/Vision";
+import Footer from "./components/Footer";
+import MagazineScroller from "./components/MagazineScroller";
 
 const App = () => {
   const [loading, setLoading] = useState(true);
 
-  
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
@@ -19,14 +21,17 @@ const App = () => {
       {loading ? (
         <Loader />
       ) : (
-        <Initiatives />
+        <div>
+          <Initiatives />
+          <MagazineScroller />
+          <Vision />
+        </div>
       )}
     </div>
   );
 };
 
 export default App;
-
 
 // import React from "react";
 // import Initiatives from "./components/Initiatives";
@@ -39,4 +44,3 @@ export default App;
 //   )
 // }
 // export default App;
-

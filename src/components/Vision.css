@@ -1,32 +1,43 @@
 /* src/App.css */
 
 :root {
-  --blue-1: #000066;
-  --blue-2: #002080;
-  --blue-3: #0047b3;
-  --blue-4: #0066cc;
-  --blue-5: #0099cc;
-  --blue-6: #00cfff;
-  --blue-7: #40e0ff;
-  --blue-8: #80f0ff;
-  --blue-9: #b3faff;
-  --blue-10: #e0ffff;
-  --cyan-1: #004d4d;
-  --cyan-2: #006666;
-  --cyan-3: #009999;
-  --cyan-4: #00cccc;
-  --cyan-5: #1affff;
-  --cyan-6: #66ffff;
-  --cyan-7: #b3ffff;
-  --cyan-8: #e6ffff;
-  --color: #005f73;
+  /* Custom Blue Theme */
+  --blue-heading: #00296b;
+  --blue-light-bg: #CAF0F8;
+  --blue-white: #F5FCFF;
+  --blue-white-2: #EDF6FB;
+  --light-box-bg: #e8f8ff; /* soft pastel blue */
+
+  --blue-1: #023E8A;
+  --blue-2: #0077B6;
+  --blue-3: #0096C7;
+  --blue-4: #00B4D8;
+  --blue-5: #48CAE4;
+  --blue-6: #90E0EF;
+  --blue-7: #ADE8F4;
+  --blue-8: #CAF0F8;
+  --blue-9: #E0FBFC;
+  --blue-10: #F0FAFF;
+
+  --cyan-1: #0077B6;
+  --cyan-2: #023E8A;
+  --cyan-3: #0096C7;
+  --cyan-4: #00B4D8;
+  --cyan-5: #48CAE4;
+  --cyan-6: #90E0EF;
+  --cyan-7: #ADE8F4;
+  --cyan-8: #CAF0F8;
+
+  --text-dark: #03045E;
 }
 
-body, html {
+body,
+html {
+  background-color: var(--blue-light-bg);
   margin: 0;
   padding: 0;
   font-family: 'Segoe UI', sans-serif;
-  background-color: var(--blue-10);
+  color: var(--text-dark);
 }
 
 
@@ -36,22 +47,27 @@ body, html {
   flex-direction: column;
   align-items: center;
   padding: 50px 20px;
+  background: linear-gradient(to bottom, var(--blue-white), var(--blue-10));
 }
+
 
 /* === Stats Section === */
 .stats-section {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background: linear-gradient(to right, var(--cyan-3), var(--cyan-5));
-  color: white;
-  padding: 50px 20px;
-  border-radius: 0 0 30px 30px;
   flex-wrap: wrap;
+  gap: 40px;
+  padding: 60px 40px;
   width: 100%;
-  max-width: 1850px;   
-  margin: 0 auto;      
+  max-width: 1600px;
+  margin: -150px auto;
   box-sizing: border-box;
+  background: var(--light-box-bg); /* new soft pastel blue */
+  border: 1.5px solid var(--cyan-5);
+  border-radius: 30px;
+  box-shadow: 0 8px 20px rgba(0, 123, 255, 0.08);
+  backdrop-filter: blur(4px);
 }
 
 .stat-box {
@@ -68,6 +84,7 @@ body, html {
 .stat-number {
   font-size: 2.5rem;
   font-weight: bold;
+  color: var(--blue-heading);
 }
 
 .stat-label {
@@ -75,18 +92,18 @@ body, html {
   margin-top: 5px;
 }
 
+
 /* === Vision Section === */
 .vision-card {
-  background-color: var(--cyan-8); /* Light pastel blue */
-  color: #003366; /* Deep navy for text */
+  background-color: var(--light-box-bg); /* lighter blue background */
+  color: var(--blue-heading); /* heading color */
   border-radius: 25px;
   padding: 50px;
   max-width: 1150px;
   text-align: center;
-  box-shadow: 0 0 20px rgba(0, 51, 102, 0.15);
-  border: 2px solid var(--cyan-4);
+  box-shadow: 0 10px 25px rgba(0, 123, 255, 0.08);
+  border: 1.5px solid var(--cyan-4);
   margin: 50px auto;
-  display: block;
 }
 
 @keyframes fadeSlideIn {
@@ -99,20 +116,21 @@ body, html {
     transform: translateY(0);
   }
 }
+
 .vision-heading {
   font-size: 3.5rem;
   font-weight: 700;
   margin-bottom: 20px;
-  color: var(--cyan-1); /* Bold ocean blue */
+  color: var(--blue-heading); /* updated */
 }
-
 
 .vision-text {
   font-size: 1.7rem;
   line-height: 1.6;
   margin-bottom: 40px;
-  color: var(--cyan-2); /* Slightly soft navy */
+  color: var(--cyan-2); /* deep blue text */
 }
+
 
 /* === Buttons === */
 .button-group {
@@ -133,10 +151,14 @@ body, html {
   transition: all 0.3s ease;
 }
 
+.join-button:hover {
+  background: linear-gradient(90deg, var(--cyan-2), var(--cyan-3));
+}
+
 .learn-button {
   padding: 15px 30px;
   font-size: 1rem;
-  background-color: transparent;
+  background-color: white;
   color: var(--cyan-1);
   border: 2px solid var(--cyan-4);
   border-radius: 25px;
@@ -147,4 +169,5 @@ body, html {
 .learn-button:hover {
   background-color: var(--cyan-6);
   color: white;
+  border-color: var(--cyan-2);
 }

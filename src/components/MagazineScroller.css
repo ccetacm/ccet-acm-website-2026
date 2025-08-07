@@ -1,11 +1,41 @@
-body {
-  /* Now handled in index.css */
+/* --- Refined Color Variables for a beautiful #CAF0F8 blue-white theme --- */
+:root {
+  --body-bg-color: hsl(185, 67%, 83%); /* This is #CAF0F8 */
+
+  --primary-blue: hsl(205, 70%, 30%); /* Deeper, clean blue for strong accents/text */
+  --secondary-blue: hsl(200, 60%, 45%); /* Mid-tone, vibrant blue for highlights */
+  --light-blue: hsl(200, 80%, 96%); /* Very light blue, for backgrounds like .rect (distinct from body) */
+  --soft-white: hsl(0, 0%, 99.5%); /* Near-pure white for subtle backgrounds */
+  --border-light-blue: hsl(190, 30%, 88%); /* Very subtle, light blue for borders, harmonizes with body */
+  --shadow-soft-blue: hsla(200, 15%, 20%, 0.1); /* Soft, diffused blue-grey shadow */
+  --text-primary: hsl(205, 20%, 20%); /* Dark, slightly blue-tinted text for readability */
+  --text-secondary: hsl(205, 10%, 45%); /* Lighter blue-tinted text for secondary info */
+
+  /* Mapping to original variable names for consistency */
+  --blue-white: var(--light-blue); /* This is the rect background, kept light and distinct */
+  --cyan-6: var(--border-light-blue); /* Border color, now very subtle and harmonious */
+  --blue-white-2: var(--soft-white); /* Browser bar background, very clean */
+  --blue-2: hsl(210, 70%, 65%); /* Dot color 1 - slightly brighter */
+  --blue-3: hsl(210, 70%, 55%); /* Dot color 2 - balanced */
+  --blue-4: hsl(210, 70%, 45%); /* Dot color 3 - slightly deeper */
+  --blue-1: var(--primary-blue); /* Strong readable blue, used for some elements */
 }
 
+/* --- Global Body Styles for overall aesthetic --- */
+body {
+  font-family: 'Inter', sans-serif; /* Modern sans-serif for general text */
+  color: var(--text-primary);
+  background-color: var(--body-bg-color); /* NEW: Set to #CAF0F8 */
+  line-height: 1.65; /* Slightly more generous line-height */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* --- Container Styles --- */
 .container {
   display: flex;
   flex-direction: column;
-  max-width: 980px;
+  max-width: 1553px;
   width: 100%;
   margin: 0 auto;
   margin-bottom: 500px;
@@ -13,22 +43,22 @@ body {
   padding-left: 20px;
   padding-right: 20px;
   box-sizing: border-box;
-  /* No background here */
 }
 
+/* --- Rect (Sticky Card) Styles --- */
 .rect {
-  width: 400px;
-  height: 420px;
-  background-color: white;
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
+  width: 500px;
+  height: 600px;
+  background-color: var(--blue-white); /* KEPT SAME: soft white-blue background (hsl(200, 80%, 96%)) */
+  border: 1.5px solid var(--cyan-6); /* Uses new, very subtle border color */
+  border-radius: 16px; /* Slightly more rounded for a softer look */
   position: sticky;
   will-change: transform;
   top: 100px;
   margin-left: 30px;
   transform: skew(-7deg, 5deg);
-  transition: all .18s cubic-bezier(.47,1.64,.41,.8);
-  box-shadow: 0 4px 20px rgba(0,0,0,0.10);
+  transition: all .3s cubic-bezier(.25, 0.8, .25, 1); /* Smoother, more natural transition */
+  box-shadow: 0 12px 40px var(--shadow-soft-blue); /* Softer, more diffused shadow */
   overflow: visible;
   z-index: 4;
   display: flex;
@@ -37,85 +67,95 @@ body {
   padding-top: 0;
 }
 
-/* Fake browser bar with palette dots */
+/* --- Browser Bar Styles --- */
 .mag-browserbar {
   width: 100%;
-  height: 32px;
-  background: #fff;
-  border-bottom: 1px solid #f0f0f0;
-  border-radius: 8px 8px 0 0;
+  height: 38px; /* Slightly taller for better visual weight */
+  background: var(--blue-white-2); /* Uses new very clean soft white */
+  border-bottom: 1px solid var(--cyan-6); /* Uses new subtle border color */
+  border-radius: 16px 16px 0 0; /* Matches rect border-radius */
   display: flex;
   align-items: center;
   position: relative;
   z-index: 2;
 }
 
-/* Three palette dots – same palette as before */
 .mag-browserbar .button {
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  border: 1.2px solid #fff;
-  margin-left: 8px;
-  margin-top: 0;
-  margin-bottom: 0;
+  border: 1.5px solid var(--soft-white); /* Slightly thicker white border for dots */
+  margin-left: 12px; /* More space for dots */
   display: inline-block;
 }
+.mag-browserbar .dot1 { background-color: var(--blue-2); }
+.mag-browserbar .dot2 { background-color: var(--blue-3); }
+.mag-browserbar .dot3 { background-color: var(--blue-4); }
 
-/* Palette-matched buttons */
-.mag-browserbar .dot1 { background-color: #070758; }
-.mag-browserbar .dot2 { background-color: #054097; }
-.mag-browserbar .dot3 { background-color: #0674ba; }
-
+/* --- Small Rect (Inner Card) Styles --- */
 .rect .small {
-  width: 260px;
-  height: 360px;
+  width: 372px;
+  height: 524px;
   position: relative;
-  background-color: #FFB6C1;
+  background-color: var(--secondary-blue); /* Changed to a more prominent secondary blue */
   margin-top: 22px;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-  opacity: 0.96;
-  background-size: cover;
+  border-radius: 12px; /* Slightly more rounded */
+  box-shadow: 0 6px 20px var(--shadow-soft-blue); /* Softer shadow */
+  opacity: 0.98; /* Slightly less transparent */
+  background-size: cover; /* Changed to cover for better image fitting */
   background-position: center;
-  border: 1.5px solid white;   /* Thin, clean border */
+  border: 2px solid var(--soft-white); /* Thicker white border for inner card */
   z-index: 1;
 }
 
-/* Magazine info text with professional font style */
+/* --- Text Columns Grid Container --- */
+.text-columns {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 120px; /* Increased horizontal space */
+  row-gap: 300px; /* Increased vertical space between rows for MORE SPACE */
+  min-width: 400px;
+  margin-bottom: 100px;
+}
+
+/* --- Individual Text Block Styling --- */
 .text {
+  /* No background color as requested */
   width: 40%;
-  margin-top: 450px;
-  color: #454545;
-  font-family: 'Georgia', serif;          /* Classic professional serif font */
-  font-size: 1.1rem;                      /* Slightly larger for readability */
-  line-height: 1.6;                       /* Generous line spacing */
-  font-weight: 400;                       /* Normal weight */
-  letter-spacing: 0.02em;                 /* Slight spacing for elegance */
+  margin-top: 50px;
+  color: var(--text-primary); /* Uses new primary text color */
+ font-family: 'Playfair Display', serif;  font-size: 26px; /* Slightly larger font size for impact */
+  line-height: 1.75; /* More generous line-height for readability */
+  font-weight: 400;
+  letter-spacing: 0.005em; /* Fine-tuned letter-spacing for Georgia */
   font-style: normal;
   font-variant-ligatures: common-ligatures;
+  max-width: 100%;
+  padding: 50px; /* Increased padding for more breathing room */
+  border-radius: 20px; /* More rounded corners for a softer look */
+  box-shadow: 0 10px 35px var(--shadow-soft-blue); /* Softer, deeper shadow */
+  position: relative;
+  min-height: 450px; /* Increased min-height */
+  min-width: 320px; /* Increased min-width */
+  margin-bottom: 350px; /* Increased bottom margin for more spacing */
+  z-index: 1;
+  transition: transform 0.4s cubic-bezier(.25, 0.8, .25, 1); /* Smoother, more natural transition */
 }
 
-/* Keep existing positional styles */
+/* --- Alignment Helpers --- */
 .text.left {
+  justify-self: start;
   margin-right: auto;
-  margin-left: 600px;
+  margin-left: 0;
 }
-
 .text.right {
-  margin-right: 600px;
+  justify-self: end;
   margin-left: auto;
+  margin-right: 0;
 }
 
-.text.first {
-  margin-top: -150px;
-}
-
-.text.last {
-  margin-bottom: 150px;
-}
-
-/* Responsive tweaks for tablets and smaller screens */
+/* --- Responsive Adjustments --- */
 @media (max-width: 1024px) {
   .container {
     max-width: 90%;
@@ -130,17 +170,18 @@ body {
     width: 350px;
     height: 300px;
   }
-  .text.left {
-    margin-left: 500px;
-  }
-  .text.right {
-    margin-right: 500px;
+  .text {
+    font-size: 22px; /* Adjust font size for smaller screens */
+    padding: 40px;
+    min-height: 350px;
   }
 }
 
 /* For tablets and large mobiles */
 @media (max-width: 768px) {
   .container {
+    flex-direction: column;
+    padding: 40px 20px 400px;
     max-width: 95%;
     padding-left: 10px;
     padding-right: 10px;
@@ -153,24 +194,32 @@ body {
     font-size: 16px;
   }
   .rect {
-    width: 300px;
-    height: 260px;
+    position: relative;
+    top: auto;
+    width: 100%;
+    height: 300px;
     margin-left: 20px;
+    margin-bottom: 40px;
   }
   .rect .small {
     width: 100px;
     height: 200px;
     margin-top: 10px;
   }
+  .text-columns {
+    grid-template-columns: 1fr;
+    gap: 150px 0; /* Increased gap for mobile */
+    min-width: 100%;
+  }
   .text {
-    width: 45%;
-    margin-top: 280px;
-  }
-  .text.left {
-    margin-left: 400px;
-  }
-  .text.right {
-    margin-right: 400px;
+    width: auto;
+    margin-top: 0;
+    min-height: auto;
+    max-width: 100%;
+    justify-self: stretch !important;
+    margin-bottom: 150px; /* Adjusted for mobile spacing */
+    font-size: 18px; /* Further adjust font size */
+    padding: 30px;
   }
 }
 
@@ -199,18 +248,11 @@ body {
     margin-top: 8px;
   }
   .text {
-    width: 50%;
-    margin-top: 260px;
-    font-size: 14px;
-  }
-  .text.left {
-    margin-left: 320px;
-  }
-  .text.right {
-    margin-right: 320px;
-  }
-  .text.first {
-    margin-top: -100px;
+    width: auto;
+    margin-top: 0;
+    font-size: 16px; /* Final font size adjustment for small mobiles */
+    margin-bottom: 100px; /* Adjusted for mobile spacing */
+    padding: 25px;
   }
 }
 
@@ -223,11 +265,5 @@ body {
   .rect .small {
     width: 70px;
     height: 140px;
-  }
-  .text.left {
-    margin-left: 300px;
-  }
-  .text.right {
-    margin-right: 300px;
   }
 }
