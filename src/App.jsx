@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import Loader from "./components/loader";
 import Initiatives from "./components/Initiatives";
+import Header_Hero_SocialMedia from "./components/Header_Hero_SocialMedia.jsx"; // Import your home component
 
 const App = () => {
   const [loading, setLoading] = useState(true);
 
-  
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
@@ -15,28 +15,17 @@ const App = () => {
   }, []);
 
   return (
-    <div>
-      {loading ? (
-        <Loader />
-      ) : (
-        <Initiatives />
-      )}
-    </div>
+      <div>
+        {loading ? (
+            <Loader />
+        ) : (
+            <div>
+              <Header_Hero_SocialMedia />
+              <Initiatives />
+            </div>
+        )}
+      </div>
   );
 };
 
 export default App;
-
-
-// import React from "react";
-// import Initiatives from "./components/Initiatives";
-
-// const App=()=>{
-//   return(
-// <div>
-// <Initiatives />
-// </div>
-//   )
-// }
-// export default App;
-
