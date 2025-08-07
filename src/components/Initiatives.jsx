@@ -1,4 +1,4 @@
-// Initiatives.jsx
+
 import React, { useEffect, useRef } from 'react';
 import './Initiatives.css';
 
