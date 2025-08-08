@@ -102,6 +102,12 @@
   color: #1976d2; /* Match text color */
 }
 
+.loader-overlay.fade-out {
+  opacity: 0;
+  pointer-events: none; /* allow scrolling & clicks */
+}
+
+
 @keyframes blink-caret {
   from,
   to {

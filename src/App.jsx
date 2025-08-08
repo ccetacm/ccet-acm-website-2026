@@ -4,48 +4,70 @@ import Initiatives from "./components/Initiatives";
 import Vision from "./components/Vision";
 import Footer from "./components/Footer";
 import MagazineScroller from "./components/MagazineScroller";
-import Header_Hero_SocialMedia from "./components/Header_Hero_SocialMedia.jsx"; // Import your home component
+import Header_Hero_SocialMedia from "./components/Header_Hero_SocialMedia.jsx";
 import TestimonialsCarousel from "./components/testimonials.jsx";
 
 const App = () => {
-  const [loading, setLoading] = useState(true);
+  const [fadeOut, setFadeOut] = useState(false);
+  const [hideLoader, setHideLoader] = useState(false);
+  const [startHeroAnimation, setStartHeroAnimation] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 3000); // 3 seconds
+    // Disable all scroll while loader is visible
+    document.body.style.overflow = "hidden";
 
-    return () => clearTimeout(timer); // Clean up
+    const timer1 = setTimeout(() => {
+      setFadeOut(true); // fade out loader
+    }, 2500);
+
+    const timer2 = setTimeout(() => {
+      setHideLoader(true);
+
+      // Enable only vertical scroll, prevent horizontal scroll permanently
+      document.body.style.overflowX = "hidden";
+      document.body.style.overflowY = "auto";
+
+      setStartHeroAnimation(true); // start hero animation now
+    }, 3000);
+
+    return () => {
+      clearTimeout(timer1);
+      clearTimeout(timer2);
+    };
   }, []);
 
   return (
     <div>
-      {loading ? (
-        <Loader />
-      ) : (
-        <div>
-          <Header_Hero_SocialMedia />
-          <Initiatives />
-          <MagazineScroller />
-          <Vision />
-          <TestimonialsCarousel />
-          <Footer />
+      {/* Loader */}
+      {!hideLoader && (
+        <div
+          className={`loader-overlay-wrapper ${fadeOut ? "fade-out" : ""}`}
+          style={{
+            position: "fixed",
+            inset: 0,
+            backgroundColor: "#CAF0F8",
+            zIndex: 9999,
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            opacity: fadeOut ? 0 : 1,
+            pointerEvents: fadeOut ? "none" : "auto",
+            transition: "opacity 0.5s ease-out",
+          }}
+        >
+          <Loader />
         </div>
       )}
+
+      {/* Main content */}
+      <Header_Hero_SocialMedia startAnimation={startHeroAnimation} />
+      <Initiatives />
+      <MagazineScroller />
+      <Vision />
+      <TestimonialsCarousel />
+      <Footer />
     </div>
   );
 };
 
 export default App;
-
-// import React from "react";
-// import Initiatives from "./components/Initiatives";
-
-// const App=()=>{
-//   return(
-// <div>
-// <Initiatives />
-// </div>
-//   )
-// }
-// export default App;
