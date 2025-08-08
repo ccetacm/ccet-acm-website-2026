@@ -42,7 +42,6 @@
   grid-template-rows: auto;
   align-items: stretch;
   outline: var(--outline-width) solid blue;
-
   --start-range: calc(var(--index0) / var(--numcards) * 100%);
   --end-range: calc((var(--index)) / var(--numcards) * 100%);
   animation: linear scale forwards;
@@ -173,20 +172,16 @@ main .btn:nth-child(12) { filter: hue-rotate(260deg); }
     --card-margin: 6vw;
     --card-top-offset: 1em;
   }
-
   header {
     font-size: 30px;
     height: 60vh;
   }
-
   main h1 {
     font-size: 2.5em;
   }
-
   main h2 {
     font-size: 2em;
   }
-
   .card__content {
     grid-template-areas:
       "img"
@@ -195,24 +190,20 @@ main .btn:nth-child(12) { filter: hue-rotate(260deg); }
     grid-template-rows: auto auto;
     padding: 1em;
   }
-
   .card__content > figure > img {
     padding: 20px;
     height: auto;
   }
-
   .card__content > div {
     width: 90%;
     text-align: center;
     place-items: center;
   }
-
   .animation-container {
     width: 100%;
     height: auto;
     padding: 10px;
   }
-
   main .btn {
     width: 100%;
     max-width: 200px;
@@ -228,31 +219,25 @@ main .btn:nth-child(12) { filter: hue-rotate(260deg); }
     --card-height: 90vw;
     --card-margin: 8vw;
   }
-
   header {
     font-size: 24px;
     height: 50vh;
     padding: 1em;
   }
-
   main h1 {
     font-size: 2em;
   }
-
   main h2 {
     font-size: 1.5em;
   }
-
   main p {
     font-size: 1em;
     text-align: center;
     padding: 0 10px;
   }
-
   .card__content {
     border-radius: 0.5em;
   }
-
   .card__content > figure > img {
     padding: 10px;
   }

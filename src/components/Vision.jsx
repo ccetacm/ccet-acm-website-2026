@@ -1,38 +1,45 @@
-import React from 'react';
-import CountUp from 'react-countup';
-import { motion } from 'framer-motion';
-import Footer from './Footer'; 
-import './Vision.css';
+"use client";
+import React from "react";
+import CountUp from "react-countup";
+import { useInView } from "react-intersection-observer";
+import { motion } from "framer-motion";
+import Footer from "./Footer";
+import "./Vision.css";
 
-function App() {
+function Vision() {
+  const { ref, inView } = useInView({
+    triggerOnce: true, // Animate only once
+    threshold: 0.3, // Trigger when 30% of the section is visible
+  });
+
   return (
     <div className="App">
-  
       {/* === Stats Section === */}
       <motion.section
+        ref={ref}
         className="stats-section"
         initial={{ opacity: 0, y: -50 }}
-        animate={{ opacity: 1, y: 0 }}
+        animate={inView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 1 }}
       >
         <div className="stat-box">
           <div className="icon">📝</div>
           <div className="stat-number">
-            <CountUp end={2015} duration={2} separator="" />
+            {inView && <CountUp end={2015} duration={2} separator="" />}
           </div>
           <div className="stat-label">Year of Establishment</div>
         </div>
         <div className="stat-box">
           <div className="icon">🧑‍🎓</div>
           <div className="stat-number">
-            <CountUp end={113} duration={2} />
+            {inView && <CountUp end={113} duration={2} />}
           </div>
           <div className="stat-label">Number of Students</div>
         </div>
         <div className="stat-box">
           <div className="icon">📰</div>
           <div className="stat-number">
-            <CountUp end={97} duration={2} />
+            {inView && <CountUp end={97} duration={2} />}
           </div>
           <div className="stat-label">Events</div>
         </div>
@@ -49,7 +56,9 @@ function App() {
         <motion.h2 className="vision-heading">Our Vision</motion.h2>
 
         <motion.p className="vision-text">
-          To produce self-motivated and globally competent technocrats equipped with computing, innovation, and human values for ever changing world and shape them towards serving the society.
+          To produce self-motivated and globally competent technocrats equipped
+          with computing, innovation, and human values for ever changing world
+          and shape them towards serving the society.
         </motion.p>
 
         <motion.div className="button-group">
@@ -61,10 +70,8 @@ function App() {
           </motion.button>
         </motion.div>
       </motion.section>
-
-    <Footer />
     </div>
   );
 }
 
-export default App;
+export default Vision;
