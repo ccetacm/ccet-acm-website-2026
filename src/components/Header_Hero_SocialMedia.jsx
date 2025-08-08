@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import backgroundVideo from "../assets/Header_Main/background_video.mp4";
 import logoImg from "../assets/Header_Main/logo.png";
 import nepImg from "../assets/Header_Main/NEP_2020.png";
 
-const Header_Hero_SocialMedia = () => {
+const Header_Hero_SocialMedia = ({ startAnimation }) => {
+  const [animate, setAnimate] = useState(false);
+
+  useEffect(() => {
+    if (startAnimation) {
+      setAnimate(true);
+    }
+  }, [startAnimation]);
+
   return (
     <>
       {/* Font and Icon imports - using link tags in head equivalent */}
@@ -11,7 +19,6 @@ const Header_Hero_SocialMedia = () => {
         @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Anton&family=Alex+Brush&family=Allura&family=Dancing+Script:wght@400;700&family=Great+Vibes&family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&display=swap");
         @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css");
       `}</style>
-
       <style jsx>{`
         :root {
           /* Updated color palette */
@@ -20,10 +27,8 @@ const Header_Hero_SocialMedia = () => {
           --dark-violet: #9201cb;
           --hollywood-cerise: #f715ab;
           --fluorescent-cyan: #34edf3;
-
           /* Additional colors */
           --light: #f9fbfc;
-
           /* Header specific - Updated for darker neon blue transparent */
           --header-bg: rgba(52, 237, 243, 0.25);
           --highlight-color: #f715ab;
@@ -42,6 +47,8 @@ const Header_Hero_SocialMedia = () => {
           background: white;
           color: var(--oxford-blue);
           padding-top: 0;
+          overflow-x: hidden; /* Prevent horizontal scrollbar */
+          overflow-y: hidden; /* Prevent vertical scrollbar during animations */
         }
 
         /* Fixed Header Styles - Improved spacing and fonts */
@@ -60,6 +67,14 @@ const Header_Hero_SocialMedia = () => {
           backdrop-filter: blur(15px);
           border-bottom: 1px solid rgba(52, 237, 243, 0.3);
           min-height: 70px;
+          opacity: 0;
+          transform: translateY(-100%);
+          transition: all 0.8s ease-out;
+        }
+
+        .navbar.animate {
+          opacity: 1;
+          transform: translateY(0);
         }
 
         /* Logo container styles */
@@ -75,6 +90,14 @@ const Header_Hero_SocialMedia = () => {
           width: auto;
           filter: drop-shadow(0 0 8px rgba(7, 15, 52, 0.3));
           transition: all 0.3s ease;
+          opacity: 0;
+          transform: scale(0.8);
+        }
+
+        .navbar.animate .logo-img {
+          opacity: 1;
+          transform: scale(1);
+          transition-delay: 0.3s;
         }
 
         .logo-img:hover {
@@ -109,6 +132,42 @@ const Header_Hero_SocialMedia = () => {
           flex-shrink: 1;
           min-width: 0;
           text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+
+        .navbar.animate .nav-links a {
+          opacity: 1;
+          transform: translateY(0);
+          transition-delay: calc(0.5s + var(--delay, 0) * 0.1s);
+        }
+
+        .nav-links a:nth-child(1) {
+          --delay: 1;
+        }
+        .nav-links a:nth-child(2) {
+          --delay: 2;
+        }
+        .nav-links a:nth-child(3) {
+          --delay: 3;
+        }
+        .nav-links a:nth-child(4) {
+          --delay: 4;
+        }
+        .nav-links a:nth-child(5) {
+          --delay: 5;
+        }
+        .nav-links a:nth-child(6) {
+          --delay: 6;
+        }
+        .nav-links a:nth-child(7) {
+          --delay: 7;
+        }
+        .nav-links a:nth-child(8) {
+          --delay: 8;
+        }
+        .nav-links a:nth-child(9) {
+          --delay: 9;
         }
 
         .nav-links a:hover {
@@ -179,6 +238,14 @@ const Header_Hero_SocialMedia = () => {
           width: auto;
           transition: all 0.3s ease;
           filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+          opacity: 0;
+          transform: scale(0.8);
+        }
+
+        .navbar.animate .nep-img {
+          opacity: 1;
+          transform: scale(1);
+          transition-delay: 0.4s;
         }
 
         .nep-img:hover {
@@ -186,15 +253,28 @@ const Header_Hero_SocialMedia = () => {
           filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
         }
 
-        /* Hero Section */
+        /* Hero Section - Fixed overflow issues */
         .hero-container {
           position: relative;
           height: 100vh;
           display: flex;
           align-items: center;
           justify-content: center;
-          overflow: hidden;
+          overflow: hidden; /* Prevent content from extending beyond container */
           margin-top: 0;
+        }
+
+        .hero-container.animate {
+          animation: heroFadeIn 1s ease-out forwards;
+        }
+
+        @keyframes heroFadeIn {
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+          }
         }
 
         .background-video {
@@ -206,11 +286,14 @@ const Header_Hero_SocialMedia = () => {
           object-fit: cover;
           opacity: 0.2;
           z-index: 1;
-          /* Slow down the video playback */
-          animation: slowMotion 20s infinite linear;
         }
 
-        /* Animation to create slow motion effect */
+        /* Synchronized video animation with text animations */
+        .hero-container.animate .background-video {
+          animation: slowMotion 20s ease-in-out infinite;
+          animation-delay: 0s; /* Start immediately when animate class is added */
+        }
+
         @keyframes slowMotion {
           0% {
             transform: scale(1.05);
@@ -230,12 +313,19 @@ const Header_Hero_SocialMedia = () => {
           width: 100%;
           margin-top: 0px;
           padding: 0 5%;
+          /* Constrain hero content within viewport */
+          max-height: 100vh;
+          overflow: hidden;
         }
 
-        /* Animated Text Styles from text anime.html */
+        /* Animated Text Styles - Fixed positioning to prevent overflow */
         .text-container {
           text-align: center;
           z-index: 10;
+          position: relative;
+          max-height: calc(100vh - 100px); /* Increased available space */
+          overflow: visible; /* Changed from hidden to visible */
+          padding: 60px 0; /* Added padding to ensure text has space */
         }
 
         .main-title {
@@ -245,54 +335,77 @@ const Header_Hero_SocialMedia = () => {
           font-weight: 900;
           line-height: 1;
           margin-bottom: 0px;
-          margin-top: 40px;
+          margin-top: 60px; /* Increased top margin */
           color: var(--oxford-blue);
           text-transform: uppercase;
           letter-spacing: -4px;
           transform: perspective(500px) rotateX(15deg);
-          animation: titleFloat 6s ease-in-out infinite;
+          max-width: 100%;
+          overflow: visible; /* Changed from hidden to visible */
+        }
+
+        /* Synchronized floating animation for all text elements */
+        .hero-container.animate .main-title {
+          animation: titleFloat 20s ease-in-out infinite;
+          animation-delay: 0s; /* Start immediately when animate class is added */
         }
 
         .ccet-text {
           position: absolute;
-          top: -30px;
-          right: 70%;
+          top: -65px; /* Positioned above the ACM text */
+          left: -40px; /* Positioned above the "A" in ACM */
           font-size: 3.1rem;
-          font-weight: 700;
+          font-weight: 600;
           color: var(--zaffre);
           text-transform: uppercase;
           letter-spacing: 1px;
-         
-            3px 3px 3px rgba(0, 0, 0, 0.15);
+          // text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.15);
           opacity: 0;
           transform: translateX(-50px) translateY(20px);
-          animation: titleFloat 6s ease-in-out infinite,
+          will-change: transform, opacity;
+          z-index: 10;
+        }
+
+        .hero-container.animate .ccet-text {
+          animation: titleFloat 20s ease-in-out infinite,
             slideInCCET 1.2s ease-out 0.3s forwards;
+          animation-delay: 0s, 0.3s; /* Sync floating with video, delay slide-in */
         }
 
         .acm-text {
           display: inline-block;
           opacity: 0;
           transform: scale(0.5) rotateY(90deg);
-          animation: titleFloat 6s ease-in-out infinite,
+          will-change: transform, opacity;
+        }
+
+        .hero-container.animate .acm-text {
+          animation: titleFloat 20s ease-in-out infinite,
             slideInACM 1.5s ease-out 0.8s forwards;
+          animation-delay: 0s, 0.8s; /* Sync floating with video, delay slide-in */
         }
 
         .student-chapter-text {
           position: absolute;
-          bottom: -67px;
-          right: -120px;
+          bottom: -60px; /* Positioned below the ACM text */
+          left: 80%; /* Centered horizontally */
+          transform: translateX(-50%); /* Center alignment */
           font-size: 2.8rem;
           font-weight: 600;
           color: var(--zaffre);
           text-transform: uppercase;
           letter-spacing: 1px;
-          
-            3px 3px 3px rgba(0, 0, 0, 0.15);
+          text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.15);
           opacity: 0;
-          transform: translateX(50px) translateY(-20px);
-          animation: titleFloat 6s ease-in-out infinite,
+          will-change: transform, opacity;
+          z-index: 10;
+          white-space: nowrap; /* Ensure it stays on one line */
+        }
+
+        .hero-container.animate .student-chapter-text {
+          animation: titleFloat 20s ease-in-out infinite,
             slideInStudent 1.2s ease-out 1.5s forwards;
+          animation-delay: 0s, 1.5s; /* Sync floating with video, delay slide-in */
         }
 
         .hero p {
@@ -302,24 +415,30 @@ const Header_Hero_SocialMedia = () => {
           margin-top: 30px;
           font-weight: 600;
           opacity: 0;
-          animation: fadeInUp 1s ease-out 2s forwards;
           text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
           letter-spacing: 0.3em;
+        }
+
+        .hero-container.animate .hero p {
+          animation: fadeInUp 1s ease-out 2s forwards;
         }
 
         .subtitle {
           font-size: 1.2rem;
           color: var(--zaffre);
-          margin-top: 80px;
-          
+          margin-top: 90px;
           margin-bottom: 10px;
           font-weight: 900;
           opacity: 0;
-          animation: fadeInUp 1s ease-out 2.8s forwards;
           letter-spacing: 0.15em;
           line-height: 1.4;
         }
 
+        .hero-container.animate .subtitle {
+          animation: fadeInUp 1s ease-out 2.8s forwards;
+        }
+
+        /* Updated animations to match video timing (20s cycle) */
         @keyframes titleFloat {
           0%,
           100% {
@@ -333,7 +452,7 @@ const Header_Hero_SocialMedia = () => {
         @keyframes slideInCCET {
           0% {
             opacity: 0;
-            transform: translateX(-50px) translateY(20px) rotateZ(-10deg);
+            transform: translateX(-30px) translateY(10px) rotateZ(-5deg);
           }
           100% {
             opacity: 1;
@@ -344,12 +463,12 @@ const Header_Hero_SocialMedia = () => {
         @keyframes slideInACM {
           0% {
             opacity: 0;
-            transform: scale(0.5) rotateY(90deg) perspective(500px)
+            transform: scale(0.5) rotateY(45deg) perspective(500px)
               rotateX(15deg);
           }
           50% {
             opacity: 0.5;
-            transform: scale(0.8) rotateY(45deg) perspective(500px)
+            transform: scale(0.8) rotateY(22deg) perspective(500px)
               rotateX(15deg);
           }
           100% {
@@ -361,18 +480,18 @@ const Header_Hero_SocialMedia = () => {
         @keyframes slideInStudent {
           0% {
             opacity: 0;
-            transform: translateX(50px) translateY(-20px) rotateZ(10deg);
+            transform: translateX(-50%) translateY(-10px) rotateZ(5deg);
           }
           100% {
             opacity: 1;
-            transform: translateX(0) translateY(0) rotateZ(0deg);
+            transform: translateX(-50%) translateY(0) rotateZ(0deg);
           }
         }
 
         @keyframes fadeInUp {
           from {
             opacity: 0;
-            transform: translateY(30px);
+            transform: translateY(20px);
           }
           to {
             opacity: 1;
@@ -391,6 +510,9 @@ const Header_Hero_SocialMedia = () => {
           transition: all 0.3s;
           box-shadow: 0 4px 10px rgba(3, 19, 166, 0.2);
           opacity: 0;
+        }
+
+        .hero-container.animate .cta-btn {
           animation: fadeInUp 1s ease-out 2.5s forwards;
         }
 
@@ -400,7 +522,7 @@ const Header_Hero_SocialMedia = () => {
           box-shadow: 0 6px 15px rgba(146, 1, 203, 0.3);
         }
 
-        /* Updated Social Sidebar with Icons */
+        /* Updated Social Sidebar - Fixed positioning */
         .social-sidebar {
           position: fixed;
           right: 2rem;
@@ -410,6 +532,15 @@ const Header_Hero_SocialMedia = () => {
           flex-direction: column;
           gap: 1rem;
           z-index: 1500;
+          opacity: 0;
+          transform: translateX(30px) translateY(-50%); /* Reduced movement */
+          transition: all 0.8s ease-out;
+        }
+
+        .social-sidebar.animate {
+          opacity: 1;
+          transform: translateX(0) translateY(-50%);
+          transition-delay: 1.5s;
         }
 
         .social-icon {
@@ -479,7 +610,15 @@ const Header_Hero_SocialMedia = () => {
           padding: 1rem 0;
           overflow: hidden;
           position: relative;
-          opacity: 1 !important;
+          opacity: 0;
+          transform: translateY(30px); /* Reduced movement */
+          transition: all 0.8s ease-out;
+        }
+
+        .breaking-bar.animate {
+          opacity: 1;
+          transform: translateY(0);
+          transition-delay: 2s;
         }
 
         .scrolling-text {
@@ -513,84 +652,63 @@ const Header_Hero_SocialMedia = () => {
           font-size: 1.1rem;
         }
 
-        @media (max-width: 768px) {
-          .bar-text {
-            font-size: 0.95rem;
-            letter-spacing: 0.1em;
-          }
-
-          .bar-separator {
-            font-size: 0.95rem;
-            margin: 0 1.5rem;
-          }
+        /* Main container to control overall overflow */
+        .main-container {
+          width: 100%;
+          overflow-x: hidden;
+          overflow-y: hidden; /* Prevent vertical scrollbar during animations */
+          position: relative;
+          height: 100vh; /* Constrain to viewport height */
         }
 
-        @media (max-width: 480px) {
-          .breaking-bar {
-            padding: 0.8rem 0;
-          }
-
-          .bar-text {
-            font-size: 0.85rem;
-            letter-spacing: 0.08em;
-          }
-
-          .bar-separator {
-            font-size: 0.85rem;
-            margin: 0 1rem;
-          }
+        /* Re-enable scrolling after animations complete */
+        .main-container.animations-complete {
+          overflow-y: auto;
+          height: auto;
         }
 
-        /* Responsive Design */
+        /* Responsive Design - Updated with overflow fixes */
         @media (max-width: 1400px) {
           .nav-links {
             gap: 1.2rem;
           }
-
           .nav-links a {
             font-size: 0.8rem;
             padding: 0.5rem 0.7rem;
             letter-spacing: 0.06em;
           }
-
           .social-sidebar {
             right: 1.5rem;
           }
         }
 
         @media (max-width: 1200px) {
+          .ccet-text {
+            font-size: 2.8rem;
+            top: -70px;
+            left: -250px;
+          }
+          .student-chapter-text {
+            font-size: 2.5rem;
+            bottom: -70px;
+          }
           .nav-links {
             gap: 1rem;
           }
-
           .nav-links a {
             font-size: 0.75rem;
             padding: 0.5rem 0.6rem;
             letter-spacing: 0.05em;
           }
-
           .main-title {
             font-size: 9rem;
           }
-
-          .ccet-text {
-            font-size: 2.8rem;
-            top: -27px;
-          }
-
-          .student-chapter-text {
-            font-size: 2.5rem;
-            bottom: -58px;
-          }
-
           .subtitle {
             font-size: 1.1rem;
           }
-
           .social-sidebar {
             right: 1rem;
           }
-
           .social-icon {
             width: 45px;
             height: 45px;
@@ -602,30 +720,24 @@ const Header_Hero_SocialMedia = () => {
           .navbar {
             padding: 0.5rem 3%;
           }
-
           .nav-links {
             gap: 0.8rem;
             margin: 0 0.5rem;
           }
-
           .nav-links a {
             font-size: 0.7rem;
             padding: 0.4rem 0.5rem;
             letter-spacing: 0.04em;
           }
-
           .logo-img {
             height: 40px;
           }
-
           .nep-img {
             height: 40px;
           }
-
           .social-sidebar {
             right: 0.8rem;
           }
-
           .social-icon {
             width: 40px;
             height: 40px;
@@ -634,12 +746,20 @@ const Header_Hero_SocialMedia = () => {
         }
 
         @media (max-width: 768px) {
+          .ccet-text {
+            font-size: 2.3rem;
+            top: -60px;
+            left: -200px;
+          }
+          .student-chapter-text {
+            font-size: 2rem;
+            bottom: -60px;
+          }
           .navbar {
             padding: 0.5rem 2%;
             flex-wrap: wrap;
             justify-content: space-between;
           }
-
           .nav-links {
             order: 3;
             flex-basis: 100%;
@@ -648,50 +768,29 @@ const Header_Hero_SocialMedia = () => {
             margin: 0.5rem 0 0 0;
             flex-wrap: wrap;
           }
-
           .nav-links a {
             font-size: 0.65rem;
             padding: 0.3rem 0.5rem;
             letter-spacing: 0.03em;
           }
-
           .logo-img {
             height: 35px;
           }
-
           .nep-img {
             height: 35px;
           }
-
           .main-title {
             font-size: 6rem;
             letter-spacing: -2px;
           }
-
-          .ccet-text {
-            font-size: 2.3rem;
-            top: -23px;
-          }
-
-          .student-chapter-text {
-            font-size: 2rem;
-            bottom: -47px;
-          }
-
           .subtitle {
             font-size: 1rem;
             margin-top: 30px;
           }
-
-          body {
-            padding-top: 0;
-          }
-
           .social-sidebar {
             right: 0.5rem;
             gap: 0.8rem;
           }
-
           .social-icon {
             width: 38px;
             height: 38px;
@@ -700,55 +799,43 @@ const Header_Hero_SocialMedia = () => {
         }
 
         @media (max-width: 480px) {
+          .ccet-text {
+            font-size: 1.8rem;
+            top: -50px;
+            left: -150px;
+          }
+          .student-chapter-text {
+            font-size: 1.65rem;
+            bottom: -50px;
+          }
           .navbar {
             padding: 0.4rem 2%;
             min-height: 100px;
           }
-
           .nav-links {
             gap: 0.3rem;
             margin: 0.3rem 0 0 0;
           }
-
           .nav-links a {
             font-size: 0.6rem;
             padding: 0.25rem 0.4rem;
             letter-spacing: 0.02em;
           }
-
           .main-title {
             font-size: 4.5rem;
           }
-
-          .ccet-text {
-            font-size: 1.8rem;
-            top: -18px;
-          }
-
-          .student-chapter-text {
-            font-size: 1.65rem;
-            bottom: -43px;
-          }
-
           .subtitle {
             font-size: 0.9rem;
             margin-top: 25px;
             letter-spacing: 0.1em;
           }
-
           .nep-img {
             height: 30px;
           }
-
-          body {
-            padding-top: 0;
-          }
-
           .social-sidebar {
             right: 0.3rem;
             gap: 0.6rem;
           }
-
           .social-icon {
             width: 35px;
             height: 35px;
@@ -756,11 +843,17 @@ const Header_Hero_SocialMedia = () => {
           }
         }
       `}</style>
-
-      <div style={{ background: "white", color: "var(--oxford-blue)" }}>
-        <nav className="navbar">
+      <div
+        className="main-container"
+        style={{ background: "white", color: "var(--oxford-blue)" }}
+      >
+        <nav className={`navbar ${animate ? "animate" : ""}`}>
           <div className="logo">
-            <img src={logoImg} alt="CCET ACM" className="logo-img" />
+            <img
+              src={logoImg || "/placeholder.svg"}
+              alt="CCET ACM"
+              className="logo-img"
+            />
           </div>
           <div className="nav-links">
             <a href="#">HOME</a>
@@ -774,12 +867,16 @@ const Header_Hero_SocialMedia = () => {
             <a href="#">GALLERY</a>
           </div>
           <div className="nep-container">
-            <img src={nepImg} alt="NEP" className="nep-img" />
+            <img
+              src={nepImg || "/placeholder.svg"}
+              alt="NEP"
+              className="nep-img"
+            />
           </div>
         </nav>
 
         {/* Hero Section with Video Background and Animated Text */}
-        <div className="hero-container">
+        <div className={`hero-container ${animate ? "animate" : ""}`}>
           {/* Background Video */}
           <video className="background-video" autoPlay muted loop>
             <source src={backgroundVideo} type="video/mp4" />
@@ -794,7 +891,6 @@ const Header_Hero_SocialMedia = () => {
                 <span className="acm-text">ACM</span>
                 <span className="student-chapter-text">STUDENT CHAPTER</span>
               </h1>
-
               <div className="subtitle">
                 <div>Association for Computing Machinery</div>
                 <div>Chandigarh College of Engineering & Technology</div>
@@ -804,7 +900,7 @@ const Header_Hero_SocialMedia = () => {
         </div>
 
         {/* Breaking Bar */}
-        <div className="breaking-bar">
+        <div className={`breaking-bar ${animate ? "animate" : ""}`}>
           <div className="scrolling-text">
             <span className="bar-text">Innovation in Computing</span>
             <span className="bar-separator">•</span>
@@ -822,7 +918,7 @@ const Header_Hero_SocialMedia = () => {
         </div>
 
         {/* Social Media Sidebar with Icons */}
-        <div className="social-sidebar">
+        <div className={`social-sidebar ${animate ? "animate" : ""}`}>
           <a
             href="https://www.facebook.com/acmccet/"
             target="_blank"

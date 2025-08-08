@@ -1,0 +1,4 @@
+html, body {
+  overflow-x: hidden; /* Stop horizontal scrolling */
+  width: 100%; /* Ensure it never exceeds viewport width */
+}
