@@ -5,6 +5,7 @@ import Vision from "./components/Vision";
 import Footer from "./components/Footer";
 import MagazineScroller from "./components/MagazineScroller";
 import Header_Hero_SocialMedia from "./components/Header_Hero_SocialMedia.jsx"; // Import your home component
+import TestimonialsCarousel from "./components/testimonials.jsx";
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -25,6 +26,10 @@ const App = () => {
         <div>
           <Header_Hero_SocialMedia />
           <Initiatives />
+          <MagazineScroller />
+          <Vision />
+          <TestimonialsCarousel />
+          <Footer />
         </div>
       )}
     </div>

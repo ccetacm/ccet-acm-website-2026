@@ -19,21 +19,33 @@ const magazineImages = [
 
 const magazineData = [
   {
-    text: "This issue explores Ethereum blockchain, smart contracts, and Solidity programming, highlighting their role in revolutionizing decentralized applications and promoting transparency in digital transactions This issue explores Ethereum blockchain, smart contracts, and Solidity programming, highlighting their role in revolutionizing decentralized applications and promoting transparency in digital transactions.",
+    volume: "I",
+    month: "Jan-Feb",
+    text: "This issue explores Ethereum blockchain, smart contracts, and Solidity programming, highlighting their role in revolutionizing decentralized applications and promoting transparency in digital transactions.",
   },
   {
-    text: "Focusing on AI hallucination, this edition examines the risks of AI-generated misinformation in scientific writing and emphasizes the need for careful verification to maintain academic integrity This issue explores Ethereum blockchain, smart contracts, and Solidity programming, highlighting their role in revolutionizing decentralized applications and promoting transparency in digital transactions..",
+    volume: "II",
+    month: "Mar–Apr",
+    text: "Focusing on AI hallucination, this edition examines the risks of AI-generated misinformation in scientific writing and emphasizes the need for careful verification to maintain academic integrity.",
   },
   {
-    text: "Covering Explainable AI (XAI) techniques like LIME and SHAP, this issue discusses improving AI transparency across industries and introduces Mojo, a high-performance programming language for AI and HPCThis issue explores Ethereum blockchain, smart contracts, and Solidity programming, highlighting their role in revolutionizing decentralized applications and promoting transparency in digital transactions..",
+    volume: "III",
+    month: "Jun–Jul",
+    text: "Covering Explainable AI (XAI) techniques like LIME and SHAP, this issue discusses improving AI transparency across industries and introduces Mojo, a high-performance programming language for AI and HPC.",
   },
   {
-    text: "This issue reviews Advanced Persistent Threats (APTs) in cybersecurity, detailing their tactics, motivations, and case studies, while advocating layered defense strategies enhanced by AI This issue explores Ethereum blockchain, smart contracts, and Solidity programming, highlighting their role in revolutionizing decentralized applications and promoting transparency in digital transactions.",
+    volume: "IV",
+    month: "Aug–Sep",
+    text: "This issue reviews Advanced Persistent Threats (APTs) in cybersecurity, detailing their tactics, motivations, and case studies, while advocating layered defense strategies enhanced by AI.",
   },
   {
-    text: "Examining AI’s dual role in cybersecurity, it highlights how AI improves defenses but also enables sophisticated cyberattacks like targeted phishing and synthetic media fraud This issue explores Ethereum blockchain, smart contracts, and Solidity programming, highlighting their role in revolutionizing decentralized applications and promoting transparency in digital transactions..",
+    volume: "V",
+    month: "Sep–Oct",
+    text: "Examining AI’s dual role in cybersecurity, it highlights how AI improves defenses but also enables sophisticated cyberattacks like targeted phishing and synthetic media fraud.",
   },
   {
+    volume: "VI",
+    month: "Nov–Dec",
     text: "Focused on AI innovations in gaming and smart homes, this edition discusses adaptive NPCs, dynamic narratives, and privacy/security challenges in AI-integrated living environments.",
   },
 ];
@@ -110,39 +122,58 @@ const MagazineScroller = () => {
   }, []);
 
   return (
-    <div
-      className="container"
-      ref={containerRef}
-      style={{ paddingBottom: "400px" }}
-    >
-      <div className="rect" ref={stickyRef}>
-        <div className="mag-browserbar">
-          <div className="button dot1"></div>
-          <div className="button dot2"></div>
-          <div className="button dot3"></div>
+    <>
+      <h2
+        style={{
+          height: "20vh",
+          display: "grid",
+          placeItems: "center",
+          fontSize: "80px",
+          color: "#00296b",
+          fontWeight: "bold",
+          letterSpacing: "2px",
+        }}
+      >
+        DIGITAL OUTLET
+      </h2>
+
+      <div
+        className="container"
+        ref={containerRef}
+        style={{ paddingBottom: "400px" }}
+      >
+        <div className="rect" ref={stickyRef}>
+          <div className="mag-browserbar">
+            <div className="button dot1"></div>
+            <div className="button dot2"></div>
+            <div className="button dot3"></div>
+          </div>
+          <div
+            className="small"
+            ref={smallScreenRef}
+            style={{
+              backgroundImage: `url(${
+                magazineImages[cardIdx % magazineImages.length]
+              })`,
+            }}
+          ></div>
         </div>
-        <div
-          className="small"
-          ref={smallScreenRef}
-          style={{
-            backgroundImage: `url(${
-              magazineImages[cardIdx % magazineImages.length]
-            })`,
-          }}
-        ></div>
+
+        {magazineData.map((mag, idx) => (
+          <div
+            className={`magzine-text text ${idx % 2 === 0 ? "right" : "left"}${
+              idx === 0 ? " first" : ""
+            }${idx === magazineData.length - 1 ? " last" : ""}`}
+            key={idx}
+            ref={(el) => (textRefs.current[idx] = el)}
+          >
+            <p className="volume">{mag.volume}</p>
+            <p className="month">{mag.month}</p>
+            <p className="magzine-text-content">{mag.text}</p>
+          </div>
+        ))}
       </div>
-      {magazineData.map((mag, idx) => (
-        <div
-          className={`text ${idx % 2 === 0 ? "right" : "left"}${
-            idx === 0 ? " first" : ""
-          }${idx === magazineData.length - 1 ? " last" : ""}`}
-          key={idx}
-          ref={(el) => (textRefs.current[idx] = el)}
-        >
-          <p>{mag.text}</p>
-        </div>
-      ))}
-    </div>
+    </>
   );
 };
 

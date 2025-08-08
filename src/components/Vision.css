@@ -61,13 +61,14 @@ html {
   padding: 60px 40px;
   width: 100%;
   max-width: 1600px;
-  margin: -150px auto;
+  margin: 0px auto;
   box-sizing: border-box;
   background: var(--light-box-bg); /* new soft pastel blue */
   border: 1.5px solid var(--cyan-5);
   border-radius: 30px;
   box-shadow: 0 8px 20px rgba(0, 123, 255, 0.08);
   backdrop-filter: blur(4px);
+  margin-top: -150px;
 }
 
 .stat-box {
