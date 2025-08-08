@@ -4,6 +4,7 @@ import Initiatives from "./components/Initiatives";
 import Vision from "./components/Vision";
 import Footer from "./components/Footer";
 import MagazineScroller from "./components/MagazineScroller";
+import Header_Hero_SocialMedia from "./components/Header_Hero_SocialMedia.jsx"; // Import your home component
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -22,9 +23,8 @@ const App = () => {
         <Loader />
       ) : (
         <div>
+          <Header_Hero_SocialMedia />
           <Initiatives />
-          <MagazineScroller />
-          <Vision />
         </div>
       )}
     </div>
