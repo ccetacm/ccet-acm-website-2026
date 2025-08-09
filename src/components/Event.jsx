@@ -1,12 +1,20 @@
 import React, { useEffect, useRef } from 'react';
 import './Event.css';
 
-const imageFiles = [
-  "1 (1).jpg", "1 (2).jpg", "1 (3).jpg", "1 (4).jpg",
-  "1 (5).jpg", "1 (6).jpg", "1 (7).jpg", "1 (8).jpg", "1 (9).JPG"
-];
+// Import images directly from src/assets
+import img1 from '../assets/1 (1).jpg';
+import img2 from '../assets/1 (2).jpg';
+import img3 from '../assets/1 (3).jpg';
+import img4 from '../assets/1 (4).jpg';
+import img5 from '../assets/1 (5).jpg';
+import img6 from '../assets/1 (6).jpg';
+import img7 from '../assets/1 (7).jpg';
+import img8 from '../assets/1 (8).jpg';
+import img9 from '../assets/1 (9).JPG';
 
-function App() {
+const imageFiles = [img1, img2, img3, img4, img5, img6, img7, img8, img9];
+
+function Event() {
   const carouselRef = useRef(null);
   const containerRef = useRef(null);
 
@@ -20,6 +28,7 @@ function App() {
     const itemWidth = items[0]?.offsetWidth + gap;
     const cloneCount = 2;
 
+    // Clone for infinite effect
     for (let i = 0; i < cloneCount; i++) {
       carousel.appendChild(items[i].cloneNode(true));
       carousel.insertBefore(items[itemCount - 1 - i].cloneNode(true), carousel.firstChild);
@@ -76,7 +85,7 @@ function App() {
       <ul className="carousel" ref={carouselRef}>
         {imageFiles.map((file, index) => (
           <li key={index}>
-            <img src={`/assets/${file}`} alt={`Cover ${index + 1}`} />
+            <img src={file} alt={`Cover ${index + 1}`} />
           </li>
         ))}
       </ul>
@@ -84,4 +93,4 @@ function App() {
   );
 }
 
-export default App;
+export default Event;
