@@ -1,4 +1,6 @@
-import React, { useState, useEffect, useRef } from "react";
+"use client";
+
+import { useState, useEffect, useRef, useCallback } from "react";
 import "./testimonials.css";
 
 // Import all testimonial images
@@ -29,6 +31,7 @@ import aadityaImage from "../assets/testimonials/aditya.jpg";
 const TestimonialsCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const trackRef = useRef(null);
   const autoPlayRef = useRef(null);
   const containerRef = useRef(null);
@@ -206,51 +209,76 @@ const TestimonialsCarousel = () => {
 
   const totalSlides = testimonials.length;
 
-  const updateCarousel = (newIndex) => {
-    if (isAnimating) return;
-    setIsAnimating(true);
+  const updateCarousel = useCallback(
+    (newIndex) => {
+      if (isAnimating) return;
+      setIsAnimating(true);
+      const translateX = -newIndex * 100;
+      if (trackRef.current) {
+        trackRef.current.style.transform = `translateX(${translateX}%)`;
+      }
+      setCurrentIndex(newIndex);
+      setTimeout(() => {
+        setIsAnimating(false);
+      }, 1000);
+    },
+    [isAnimating]
+  );
 
-    const translateX = -newIndex * 100;
-    if (trackRef.current) {
-      trackRef.current.style.transform = `translateX(${translateX}%)`;
-    }
-
-    setCurrentIndex(newIndex);
-
-    setTimeout(() => {
-      setIsAnimating(false);
-    }, 1000);
-  };
-
-  const nextSlide = () => {
+  const nextSlide = useCallback(() => {
     if (isAnimating) return;
     const newIndex = (currentIndex + 1) % totalSlides;
     updateCarousel(newIndex);
-  };
+  }, [currentIndex, totalSlides, updateCarousel, isAnimating]);
 
-  const prevSlide = () => {
+  const prevSlide = useCallback(() => {
     if (isAnimating) return;
     const newIndex = (currentIndex - 1 + totalSlides) % totalSlides;
     updateCarousel(newIndex);
-  };
+  }, [currentIndex, totalSlides, updateCarousel, isAnimating]);
 
-  const goToSlide = (index) => {
-    if (isAnimating || index === currentIndex) return;
-    updateCarousel(index);
-  };
+  const goToSlide = useCallback(
+    (index) => {
+      if (isAnimating || index === currentIndex) return;
+      updateCarousel(index);
+    },
+    [currentIndex, updateCarousel, isAnimating]
+  );
 
-  const startAutoPlay = () => {
-    autoPlayRef.current = setInterval(() => {
-      nextSlide();
-    }, 7000);
-  };
+  const stopAutoPlay = useCallback(() => {
+    if (autoPlayRef.current) {
+      clearInterval(autoPlayRef.current);
+      autoPlayRef.current = null;
+    }
+    setIsAutoPlaying(false);
+  }, []);
 
-  const stopAutoPlay = () => {
+  const startAutoPlay = useCallback(() => {
     if (autoPlayRef.current) {
       clearInterval(autoPlayRef.current);
     }
-  };
+    setIsAutoPlaying(true);
+    autoPlayRef.current = setInterval(() => {
+      setCurrentIndex((prevIndex) => {
+        const newIndex = (prevIndex + 1) % totalSlides;
+        const translateX = -newIndex * 100;
+        if (trackRef.current) {
+          trackRef.current.style.transform = `translateX(${translateX}%)`;
+        }
+        return newIndex;
+      });
+    }, 7000);
+  }, [totalSlides]);
 
+  // Auto-play effect - runs only once on mount
+  useEffect(() => {
+    startAutoPlay();
+    return () => {
+      stopAutoPlay();
+    };
+  }, []); // Empty dependency array - runs only on mount/unmount
+
+  // Keyboard navigation effect
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === "ArrowLeft") prevSlide();
@@ -258,13 +286,10 @@ const TestimonialsCarousel = () => {
     };
 
     document.addEventListener("keydown", handleKeyDown);
-    startAutoPlay();
-
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
-      stopAutoPlay();
     };
-  }, [currentIndex, isAnimating]);
+  }, [prevSlide, nextSlide]);
 
   // Touch/Swipe support
   useEffect(() => {
@@ -285,10 +310,8 @@ const TestimonialsCarousel = () => {
 
     const handleTouchEnd = () => {
       if (!isDragging || isAnimating) return;
-
       const diffX = startX - currentX;
       const threshold = 80;
-
       if (Math.abs(diffX) > threshold) {
         if (diffX > 0) {
           nextSlide();
@@ -296,14 +319,15 @@ const TestimonialsCarousel = () => {
           prevSlide();
         }
       }
-
       isDragging = false;
     };
 
     const track = trackRef.current;
     if (track) {
-      track.addEventListener("touchstart", handleTouchStart);
-      track.addEventListener("touchmove", handleTouchMove);
+      track.addEventListener("touchstart", handleTouchStart, {
+        passive: false,
+      });
+      track.addEventListener("touchmove", handleTouchMove, { passive: false });
       track.addEventListener("touchend", handleTouchEnd);
     }
 
@@ -314,7 +338,7 @@ const TestimonialsCarousel = () => {
         track.removeEventListener("touchend", handleTouchEnd);
       }
     };
-  }, [currentIndex, isAnimating]);
+  }, [nextSlide, prevSlide, isAnimating]);
 
   return (
     <div className="testimonials-container">
@@ -325,7 +349,6 @@ const TestimonialsCarousel = () => {
           through the voices of our community members.
         </p>
       </div>
-
       <div
         className="carousel-container"
         ref={containerRef}
@@ -340,7 +363,6 @@ const TestimonialsCarousel = () => {
           >
             ‹
           </button>
-
           <div className="carousel-track" ref={trackRef}>
             {testimonials.map((testimonial, index) => (
               <div
@@ -351,15 +373,13 @@ const TestimonialsCarousel = () => {
               >
                 <div className="role-badge">{testimonial.role}</div>
                 <div className="quote-mark">"</div>
-
                 <div className="comment-box">
                   <p className="testimonial-text">{testimonial.text}</p>
                 </div>
-
                 <div className="author">
                   <div className="author-avatar">
                     <img
-                      src={testimonial.image}
+                      src={testimonial.image || "/placeholder.svg"}
                       alt={testimonial.name}
                       className="student-image"
                     />
@@ -372,7 +392,6 @@ const TestimonialsCarousel = () => {
               </div>
             ))}
           </div>
-
           <button
             className="nav-button next"
             aria-label="Next testimonial"
