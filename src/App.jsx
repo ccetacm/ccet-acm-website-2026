@@ -6,6 +6,7 @@ import Footer from "./components/Footer";
 import MagazineScroller from "./components/MagazineScroller";
 import Header_Hero_SocialMedia from "./components/Header_Hero_SocialMedia.jsx";
 import TestimonialsCarousel from "./components/testimonials.jsx";
+import Mentors from "./components/Mentors.jsx";
 
 const App = () => {
   const [fadeOut, setFadeOut] = useState(false);
@@ -64,6 +65,7 @@ const App = () => {
       <Initiatives />
       <MagazineScroller />
       <Vision />
+      <Mentors/>
       <TestimonialsCarousel />
       <Footer />
     </div>
