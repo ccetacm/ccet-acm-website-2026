@@ -1,16 +1,23 @@
-import React, { useEffect, useState } from "react";
+"use client";
+
+import { useEffect, useState } from "react";
 import backgroundVideo from "../assets/Header_Main/background_video.mp4";
 import logoImg from "../assets/Header_Main/logo.png";
 import nepImg from "../assets/Header_Main/NEP_2020.png";
 
 const Header_Hero_SocialMedia = ({ startAnimation }) => {
   const [animate, setAnimate] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     if (startAnimation) {
       setAnimate(true);
     }
   }, [startAnimation]);
+
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
+  };
 
   return (
     <>
@@ -35,14 +42,12 @@ const Header_Hero_SocialMedia = ({ startAnimation }) => {
           --highlight-glow: 0 0 10px rgba(247, 21, 171, 0.7);
           --accent-color: #34edf3;
         }
-
         * {
           margin: 0;
           padding: 0;
           box-sizing: border-box;
           font-family: "Montserrat", sans-serif;
         }
-
         body {
           background: white;
           color: var(--oxford-blue);
@@ -50,7 +55,10 @@ const Header_Hero_SocialMedia = ({ startAnimation }) => {
           overflow-x: hidden; /* Prevent horizontal scrollbar */
           overflow-y: hidden; /* Prevent vertical scrollbar during animations */
         }
-
+        body {
+          overflow-x: hidden;
+          overflow-y: hidden;
+        }
         /* Fixed Header Styles - Improved spacing and fonts */
         .navbar {
           display: flex;
@@ -71,12 +79,10 @@ const Header_Hero_SocialMedia = ({ startAnimation }) => {
           transform: translateY(-100%);
           transition: all 0.8s ease-out;
         }
-
         .navbar.animate {
           opacity: 1;
           transform: translateY(0);
         }
-
         /* Logo container styles */
         .logo {
           display: flex;
@@ -84,7 +90,6 @@ const Header_Hero_SocialMedia = ({ startAnimation }) => {
           height: 50px;
           flex-shrink: 0;
         }
-
         .logo-img {
           height: 45px;
           width: auto;
@@ -93,16 +98,134 @@ const Header_Hero_SocialMedia = ({ startAnimation }) => {
           opacity: 0;
           transform: scale(0.8);
         }
-
         .navbar.animate .logo-img {
           opacity: 1;
           transform: scale(1);
           transition-delay: 0.3s;
         }
-
         .logo-img:hover {
           transform: scale(1.05);
           filter: drop-shadow(0 0 12px rgba(7, 15, 52, 0.5));
+        }
+
+        /* Hamburger Menu Button */
+        .hamburger-menu {
+          display: none;
+          flex-direction: column;
+          cursor: pointer;
+          padding: 0.5rem;
+          z-index: 1001;
+          background: none;
+          border: none;
+          transition: all 0.3s ease;
+        }
+
+        .hamburger-line {
+          width: 25px;
+          height: 3px;
+          background: var(--oxford-blue);
+          margin: 3px 0;
+          transition: all 0.3s ease;
+          border-radius: 2px;
+        }
+
+        .hamburger-menu.active .hamburger-line:nth-child(1) {
+          transform: rotate(45deg) translate(6px, 6px);
+        }
+
+        .hamburger-menu.active .hamburger-line:nth-child(2) {
+          opacity: 0;
+        }
+
+        .hamburger-menu.active .hamburger-line:nth-child(3) {
+          transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        /* Mobile Menu Overlay */
+        .mobile-menu-overlay {
+          display: none;
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100vh;
+          background: #caf0f8;
+          backdrop-filter: blur(10px);
+          z-index: 999;
+          opacity: 0;
+          visibility: hidden;
+          transition: all 0.3s ease;
+        }
+
+        .mobile-menu-overlay.active {
+          opacity: 1;
+          visibility: visible;
+        }
+
+        .mobile-menu {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          height: 100%;
+          gap: 2rem;
+        }
+
+        .mobile-menu a {
+          color: #00296b;
+          text-decoration: none;
+          font-size: 1.2rem;
+          font-weight: 600;
+          font-family: "Orbitron", monospace;
+          letter-spacing: 0.1em;
+          text-transform: uppercase;
+          padding: 1rem 2rem;
+          border: 2px solid transparent;
+          border-radius: 8px;
+          transition: all 0.3s ease;
+          transform: translateY(20px);
+          opacity: 0;
+        }
+
+        .mobile-menu-overlay.active .mobile-menu a {
+          transform: translateY(0);
+          opacity: 1;
+          transition-delay: calc(0.1s * var(--delay, 0));
+        }
+
+        .mobile-menu a:nth-child(1) {
+          --delay: 1;
+        }
+        .mobile-menu a:nth-child(2) {
+          --delay: 2;
+        }
+        .mobile-menu a:nth-child(3) {
+          --delay: 3;
+        }
+        .mobile-menu a:nth-child(4) {
+          --delay: 4;
+        }
+        .mobile-menu a:nth-child(5) {
+          --delay: 5;
+        }
+        .mobile-menu a:nth-child(6) {
+          --delay: 6;
+        }
+        .mobile-menu a:nth-child(7) {
+          --delay: 7;
+        }
+        .mobile-menu a:nth-child(8) {
+          --delay: 8;
+        }
+        .mobile-menu a:nth-child(9) {
+          --delay: 9;
+        }
+
+        .mobile-menu a:hover {
+          color: var(--fluorescent-cyan);
+          border-color: var(--fluorescent-cyan);
+          background: rgba(52, 237, 243, 0.1);
+          text-shadow: 0 0 10px rgba(52, 237, 243, 0.5);
         }
 
         /* Fixed navigation links */
@@ -115,7 +238,6 @@ const Header_Hero_SocialMedia = ({ startAnimation }) => {
           margin: 0 1rem;
           overflow: hidden;
         }
-
         .nav-links a {
           text-decoration: none;
           color: var(--oxford-blue);
@@ -135,13 +257,11 @@ const Header_Hero_SocialMedia = ({ startAnimation }) => {
           opacity: 0;
           transform: translateY(-20px);
         }
-
         .navbar.animate .nav-links a {
           opacity: 1;
           transform: translateY(0);
           transition-delay: calc(0.5s + var(--delay, 0) * 0.1s);
         }
-
         .nav-links a:nth-child(1) {
           --delay: 1;
         }
@@ -169,7 +289,6 @@ const Header_Hero_SocialMedia = ({ startAnimation }) => {
         .nav-links a:nth-child(9) {
           --delay: 9;
         }
-
         .nav-links a:hover {
           color: var(--zaffre);
           text-shadow: 0 0 15px rgba(3, 19, 166, 0.8),
@@ -181,7 +300,6 @@ const Header_Hero_SocialMedia = ({ startAnimation }) => {
           box-shadow: 0 4px 15px rgba(3, 19, 166, 0.2);
           letter-spacing: 0.12em;
         }
-
         .nav-links a::after {
           content: "";
           position: absolute;
@@ -198,7 +316,6 @@ const Header_Hero_SocialMedia = ({ startAnimation }) => {
           transition: width 0.3s ease;
           border-radius: 1px;
         }
-
         .nav-links a::before {
           content: "";
           position: absolute;
@@ -218,21 +335,17 @@ const Header_Hero_SocialMedia = ({ startAnimation }) => {
           transition: opacity 0.3s ease;
           z-index: -1;
         }
-
         .nav-links a:hover::after {
           width: 80%;
           box-shadow: 0 0 10px rgba(3, 19, 166, 0.7);
         }
-
         .nav-links a:hover::before {
           opacity: 1;
         }
-
         /* NEP Image styles */
         .nep-container {
           flex-shrink: 0;
         }
-
         .nep-img {
           height: 50px;
           width: auto;
@@ -241,33 +354,28 @@ const Header_Hero_SocialMedia = ({ startAnimation }) => {
           opacity: 0;
           transform: scale(0.8);
         }
-
         .navbar.animate .nep-img {
           opacity: 1;
           transform: scale(1);
           transition-delay: 0.4s;
         }
-
         .nep-img:hover {
           transform: scale(1.05);
           filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
         }
-
         /* Hero Section - Fixed overflow issues */
         .hero-container {
           position: relative;
-          height: 100vh;
+          min-height: 100vh;
           display: flex;
           align-items: center;
           justify-content: center;
           overflow: hidden; /* Prevent content from extending beyond container */
           margin-top: 0;
         }
-
         .hero-container.animate {
           animation: heroFadeIn 1s ease-out forwards;
         }
-
         @keyframes heroFadeIn {
           from {
             opacity: 0;
@@ -276,7 +384,6 @@ const Header_Hero_SocialMedia = ({ startAnimation }) => {
             opacity: 1;
           }
         }
-
         .background-video {
           position: absolute;
           top: 0;
@@ -287,13 +394,11 @@ const Header_Hero_SocialMedia = ({ startAnimation }) => {
           opacity: 0.2;
           z-index: 1;
         }
-
         /* Synchronized video animation with text animations */
         .hero-container.animate .background-video {
           animation: slowMotion 20s ease-in-out infinite;
           animation-delay: 0s; /* Start immediately when animate class is added */
         }
-
         @keyframes slowMotion {
           0% {
             transform: scale(1.05);
@@ -305,7 +410,6 @@ const Header_Hero_SocialMedia = ({ startAnimation }) => {
             transform: scale(1.05);
           }
         }
-
         .hero {
           position: relative;
           text-align: center;
@@ -317,17 +421,16 @@ const Header_Hero_SocialMedia = ({ startAnimation }) => {
           max-height: 100vh;
           overflow: hidden;
         }
-
         /* Animated Text Styles - Fixed positioning to prevent overflow */
         .text-container {
           text-align: center;
           z-index: 10;
+          overflow: visible;
           position: relative;
           max-height: calc(100vh - 100px); /* Increased available space */
           overflow: visible; /* Changed from hidden to visible */
           padding: 60px 0; /* Added padding to ensure text has space */
         }
-
         .main-title {
           position: relative;
           display: inline-block;
@@ -343,13 +446,11 @@ const Header_Hero_SocialMedia = ({ startAnimation }) => {
           max-width: 100%;
           overflow: visible; /* Changed from hidden to visible */
         }
-
         /* Synchronized floating animation for all text elements */
         .hero-container.animate .main-title {
           animation: titleFloat 20s ease-in-out infinite;
           animation-delay: 0s; /* Start immediately when animate class is added */
         }
-
         .ccet-text {
           position: absolute;
           top: -65px; /* Positioned above the ACM text */
@@ -365,26 +466,22 @@ const Header_Hero_SocialMedia = ({ startAnimation }) => {
           will-change: transform, opacity;
           z-index: 10;
         }
-
         .hero-container.animate .ccet-text {
           animation: titleFloat 20s ease-in-out infinite,
             slideInCCET 1.2s ease-out 0.3s forwards;
           animation-delay: 0s, 0.3s; /* Sync floating with video, delay slide-in */
         }
-
         .acm-text {
           display: inline-block;
           opacity: 0;
           transform: scale(0.5) rotateY(90deg);
           will-change: transform, opacity;
         }
-
         .hero-container.animate .acm-text {
           animation: titleFloat 20s ease-in-out infinite,
             slideInACM 1.5s ease-out 0.8s forwards;
           animation-delay: 0s, 0.8s; /* Sync floating with video, delay slide-in */
         }
-
         .student-chapter-text {
           position: absolute;
           bottom: -60px; /* Positioned below the ACM text */
@@ -401,13 +498,11 @@ const Header_Hero_SocialMedia = ({ startAnimation }) => {
           z-index: 10;
           white-space: nowrap; /* Ensure it stays on one line */
         }
-
         .hero-container.animate .student-chapter-text {
           animation: titleFloat 20s ease-in-out infinite,
             slideInStudent 1.2s ease-out 1.5s forwards;
           animation-delay: 0s, 1.5s; /* Sync floating with video, delay slide-in */
         }
-
         .hero p {
           font-size: 1.5rem;
           color: var(--dark-violet);
@@ -418,11 +513,9 @@ const Header_Hero_SocialMedia = ({ startAnimation }) => {
           text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
           letter-spacing: 0.3em;
         }
-
         .hero-container.animate .hero p {
           animation: fadeInUp 1s ease-out 2s forwards;
         }
-
         .subtitle {
           font-size: 1.2rem;
           color: var(--zaffre);
@@ -433,11 +526,9 @@ const Header_Hero_SocialMedia = ({ startAnimation }) => {
           letter-spacing: 0.15em;
           line-height: 1.4;
         }
-
         .hero-container.animate .subtitle {
           animation: fadeInUp 1s ease-out 2.8s forwards;
         }
-
         /* Updated animations to match video timing (20s cycle) */
         @keyframes titleFloat {
           0%,
@@ -448,7 +539,6 @@ const Header_Hero_SocialMedia = ({ startAnimation }) => {
             transform: perspective(500px) rotateX(15deg) translateY(-10px);
           }
         }
-
         @keyframes slideInCCET {
           0% {
             opacity: 0;
@@ -459,7 +549,6 @@ const Header_Hero_SocialMedia = ({ startAnimation }) => {
             transform: translateX(0) translateY(0) rotateZ(0deg);
           }
         }
-
         @keyframes slideInACM {
           0% {
             opacity: 0;
@@ -476,7 +565,6 @@ const Header_Hero_SocialMedia = ({ startAnimation }) => {
             transform: scale(1) rotateY(0deg) perspective(500px) rotateX(15deg);
           }
         }
-
         @keyframes slideInStudent {
           0% {
             opacity: 0;
@@ -487,7 +575,6 @@ const Header_Hero_SocialMedia = ({ startAnimation }) => {
             transform: translateX(-50%) translateY(0) rotateZ(0deg);
           }
         }
-
         @keyframes fadeInUp {
           from {
             opacity: 0;
@@ -498,7 +585,6 @@ const Header_Hero_SocialMedia = ({ startAnimation }) => {
             transform: translateY(0);
           }
         }
-
         .cta-btn {
           display: inline-block;
           padding: 1rem 2.5rem;
@@ -511,17 +597,14 @@ const Header_Hero_SocialMedia = ({ startAnimation }) => {
           box-shadow: 0 4px 10px rgba(3, 19, 166, 0.2);
           opacity: 0;
         }
-
         .hero-container.animate .cta-btn {
           animation: fadeInUp 1s ease-out 2.5s forwards;
         }
-
         .cta-btn:hover {
           background: var(--dark-violet);
           transform: translateY(-3px);
           box-shadow: 0 6px 15px rgba(146, 1, 203, 0.3);
         }
-
         /* Updated Social Sidebar - Fixed positioning */
         .social-sidebar {
           position: fixed;
@@ -536,13 +619,11 @@ const Header_Hero_SocialMedia = ({ startAnimation }) => {
           transform: translateX(30px) translateY(-50%); /* Reduced movement */
           transition: all 0.8s ease-out;
         }
-
         .social-sidebar.animate {
           opacity: 1;
           transform: translateX(0) translateY(-50%);
           transition-delay: 1.5s;
         }
-
         .social-icon {
           width: 50px;
           height: 50px;
@@ -557,22 +638,18 @@ const Header_Hero_SocialMedia = ({ startAnimation }) => {
           font-size: 1.2rem;
           box-shadow: 0 4px 15px rgba(3, 19, 166, 0.3);
         }
-
         .social-icon i {
           transition: all 0.3s ease;
         }
-
         .social-icon:hover {
           transform: translateY(-3px) scale(1.1);
           box-shadow: 0 8px 25px rgba(3, 19, 166, 0.4);
         }
-
         /* Individual social media brand colors on hover */
         .social-icon.facebook:hover {
           background: #1877f2;
           box-shadow: 0 8px 25px rgba(24, 119, 242, 0.4);
         }
-
         .social-icon.instagram:hover {
           background: linear-gradient(
             45deg,
@@ -585,24 +662,20 @@ const Header_Hero_SocialMedia = ({ startAnimation }) => {
           );
           box-shadow: 0 8px 25px rgba(225, 48, 108, 0.4);
         }
-
         .social-icon.linkedin:hover {
           background: #0a66c2;
           box-shadow: 0 8px 25px rgba(10, 102, 194, 0.4);
         }
-
         .social-icon.twitter:hover {
           background: #1da1f2;
           box-shadow: 0 8px 25px rgba(29, 161, 242, 0.4);
         }
-
         .social-icon:hover i {
           transform: scale(1.1);
         }
-
         /* Breaking Bar Styles */
         .breaking-bar {
-          z-index: 1000;
+          z-index: 1000; /* Keep this lower than mobile menu */
           margin-top: -55px;
           background: var(--oxford-blue) !important;
           border-top: 1px solid rgba(52, 237, 243, 0.3);
@@ -611,22 +684,19 @@ const Header_Hero_SocialMedia = ({ startAnimation }) => {
           overflow: hidden;
           position: relative;
           opacity: 0;
-          transform: translateY(30px); /* Reduced movement */
+          transform: translateY(30px);
           transition: all 0.8s ease-out;
         }
-
         .breaking-bar.animate {
           opacity: 1;
           transform: translateY(0);
           transition-delay: 2s;
         }
-
         .scrolling-text {
           display: flex;
           white-space: nowrap;
           animation: scrollRight 25s linear infinite;
         }
-
         @keyframes scrollRight {
           0% {
             transform: translateX(100%);
@@ -635,7 +705,6 @@ const Header_Hero_SocialMedia = ({ startAnimation }) => {
             transform: translateX(-100%);
           }
         }
-
         .bar-text {
           color: white;
           font-size: 1.1rem;
@@ -645,13 +714,11 @@ const Header_Hero_SocialMedia = ({ startAnimation }) => {
           font-family: "Montserrat", sans-serif;
           padding-right: 3rem;
         }
-
         .bar-separator {
           color: var(--fluorescent-cyan);
           margin: 0 2rem;
           font-size: 1.1rem;
         }
-
         /* Main container to control overall overflow */
         .main-container {
           width: 100%;
@@ -660,13 +727,11 @@ const Header_Hero_SocialMedia = ({ startAnimation }) => {
           position: relative;
           height: 100vh; /* Constrain to viewport height */
         }
-
         /* Re-enable scrolling after animations complete */
         .main-container.animations-complete {
           overflow-y: auto;
           height: auto;
         }
-
         /* Responsive Design - Updated with overflow fixes */
         @media (max-width: 1400px) {
           .nav-links {
@@ -681,7 +746,6 @@ const Header_Hero_SocialMedia = ({ startAnimation }) => {
             right: 1.5rem;
           }
         }
-
         @media (max-width: 1200px) {
           .ccet-text {
             font-size: 2.8rem;
@@ -715,7 +779,6 @@ const Header_Hero_SocialMedia = ({ startAnimation }) => {
             font-size: 1.1rem;
           }
         }
-
         @media (max-width: 992px) {
           .navbar {
             padding: 0.5rem 3%;
@@ -744,60 +807,65 @@ const Header_Hero_SocialMedia = ({ startAnimation }) => {
             font-size: 1rem;
           }
         }
-
         @media (max-width: 768px) {
-          .ccet-text {
-            font-size: 2.3rem;
-            top: -60px;
-            left: -200px;
+          .hamburger-menu {
+            display: flex;
+            order: 3; /* Move hamburger to the right */
           }
-          .student-chapter-text {
-            font-size: 2rem;
-            bottom: -60px;
+
+          .mobile-menu-overlay {
+            display: block;
+            z-index: 2000; /* Increase z-index to be above breaking bar */
           }
+
+          .mobile-menu {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start; /* Change from center to flex-start */
+            align-items: center;
+            height: 100%;
+            gap: 2rem;
+            padding: 100px 20px 50px; /* Add padding for scrollable content */
+            overflow-y: auto; /* Make menu scrollable */
+            max-height: 100vh; /* Ensure it doesn't exceed viewport */
+          }
+
+          .mobile-menu::-webkit-scrollbar {
+            width: 4px;
+          }
+
+          .mobile-menu::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+          }
+
+          .mobile-menu::-webkit-scrollbar-thumb {
+            background: rgba(52, 237, 243, 0.5);
+            border-radius: 2px;
+          }
+
+          .mobile-menu::-webkit-scrollbar-thumb:hover {
+            background: rgba(52, 237, 243, 0.8);
+          }
+
+          .nav-links {
+            display: none;
+          }
+
           .navbar {
             padding: 0.5rem 2%;
-            flex-wrap: wrap;
             justify-content: space-between;
+            display: flex;
+            align-items: center;
           }
-          .nav-links {
-            order: 3;
-            flex-basis: 100%;
-            justify-content: center;
-            gap: 0.5rem;
-            margin: 0.5rem 0 0 0;
-            flex-wrap: wrap;
+
+          .logo {
+            order: 1; /* Keep logo on the left */
           }
-          .nav-links a {
-            font-size: 0.65rem;
-            padding: 0.3rem 0.5rem;
-            letter-spacing: 0.03em;
-          }
-          .logo-img {
-            height: 35px;
-          }
-          .nep-img {
-            height: 35px;
-          }
-          .main-title {
-            font-size: 6rem;
-            letter-spacing: -2px;
-          }
-          .subtitle {
-            font-size: 1rem;
-            margin-top: 30px;
-          }
-          .social-sidebar {
-            right: 0.5rem;
-            gap: 0.8rem;
-          }
-          .social-icon {
-            width: 38px;
-            height: 38px;
-            font-size: 0.9rem;
+
+          .nep-container {
+            order: 2; /* NEP image in the middle */
           }
         }
-
         @media (max-width: 480px) {
           .ccet-text {
             font-size: 1.8rem;
@@ -810,16 +878,7 @@ const Header_Hero_SocialMedia = ({ startAnimation }) => {
           }
           .navbar {
             padding: 0.4rem 2%;
-            min-height: 100px;
-          }
-          .nav-links {
-            gap: 0.3rem;
-            margin: 0.3rem 0 0 0;
-          }
-          .nav-links a {
-            font-size: 0.6rem;
-            padding: 0.25rem 0.4rem;
-            letter-spacing: 0.02em;
+            min-height: 70px;
           }
           .main-title {
             font-size: 4.5rem;
@@ -841,6 +900,114 @@ const Header_Hero_SocialMedia = ({ startAnimation }) => {
             height: 35px;
             font-size: 0.8rem;
           }
+          @media (max-width: 768px) {
+            .main-title {
+              font-size: 4rem; /* or smaller as needed */
+              letter-spacing: normal; /* reduce negative spacing if it helps */
+            }
+            .ccet-text {
+              font-size: 1.5rem;
+              left: -20px;
+              top: -40px;
+            }
+            .student-chapter-text {
+              font-size: 1.2rem;
+              bottom: -40px;
+              left: 50%;
+            }
+          }
+          @media (max-width: 768px) {
+            .main-title {
+              font-size: 4rem;
+              letter-spacing: normal;
+            }
+            .ccet-text {
+              font-size: 1.5rem;
+              left: -20px;
+              top: -40px;
+            }
+            .student-chapter-text {
+              font-size: 1.2rem;
+              bottom: -40px;
+              left: 50%;
+            }
+            .social-sidebar {
+              display: none; /* hide sidebar icons on small screens */
+            }
+            .nav-links {
+              overflow-x: auto; /* allow horizontal scroll if needed or change to hamburger menu */
+            }
+            .hero-container {
+              height: auto; /* or min-height: 100vh */
+            }
+          }
+          .main-container {
+            width: 100%;
+            overflow-x: hidden;
+            overflow-y: hidden; /* Prevent vertical scrollbar during animations */
+            position: relative;
+            height: 100vh; /* Constrain to viewport height */
+          }
+          .scrolling-text {
+            display: flex;
+            white-space: nowrap;
+            animation: scrollRight 25s linear infinite;
+          }
+          .social-sidebar {
+            position: fixed;
+            right: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            z-index: 1500;
+            opacity: 0;
+            transform: translateX(30px) translateY(-50%);
+            transition: all 0.8s ease-out;
+          }
+          .background-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+          *,
+          *::before,
+          *::after {
+            box-sizing: border-box;
+          }
+          html,
+          body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden; /* prevent horizontal scroll globally */
+            width: 100%;
+          }
+        }
+        /* Mobile adjustments */
+        @media (max-width: 768px) {
+          .ccet-text {
+            position: relative;
+            top: 0;
+            left: 0;
+            font-size: 1rem;
+            margin-bottom: 3rem;
+          }
+          .acm-text {
+            font-size: 2.5rem;
+            display: block;
+            margin-bottom: 0.5rem;
+          }
+          .student-chapter-text {
+            position: relative;
+            bottom: 31px;
+            left: 0;
+            transform: none;
+            font-size: 1.2rem;
+          }
+          .text-container {
+            padding: 20px;
+          }
         }
       `}</style>
       <div
@@ -855,6 +1022,8 @@ const Header_Hero_SocialMedia = ({ startAnimation }) => {
               className="logo-img"
             />
           </div>
+
+          {/* Desktop Navigation Links */}
           <div className="nav-links">
             <a href="#">HOME</a>
             <a href="#">ABOUT</a>
@@ -866,6 +1035,18 @@ const Header_Hero_SocialMedia = ({ startAnimation }) => {
             <a href="#">TEAM</a>
             <a href="#">GALLERY</a>
           </div>
+
+          {/* Hamburger Menu Button */}
+          <button
+            className={`hamburger-menu ${mobileMenuOpen ? "active" : ""}`}
+            onClick={toggleMobileMenu}
+            aria-label="Toggle mobile menu"
+          >
+            <div className="hamburger-line"></div>
+            <div className="hamburger-line"></div>
+            <div className="hamburger-line"></div>
+          </button>
+
           <div className="nep-container">
             <img
               src={nepImg || "/placeholder.svg"}
@@ -875,6 +1056,41 @@ const Header_Hero_SocialMedia = ({ startAnimation }) => {
           </div>
         </nav>
 
+        {/* Mobile Menu Overlay */}
+        <div
+          className={`mobile-menu-overlay ${mobileMenuOpen ? "active" : ""}`}
+        >
+          <div className="mobile-menu">
+            <a href="#" onClick={toggleMobileMenu}>
+              HOME
+            </a>
+            <a href="#" onClick={toggleMobileMenu}>
+              ABOUT
+            </a>
+            <a href="#" onClick={toggleMobileMenu}>
+              ACTIVITIES
+            </a>
+            <a href="#" onClick={toggleMobileMenu}>
+              EVENTS
+            </a>
+            <a href="#" onClick={toggleMobileMenu}>
+              RESEARCH LAB
+            </a>
+            <a href="#" onClick={toggleMobileMenu}>
+              PROJECTS
+            </a>
+            <a href="#" onClick={toggleMobileMenu}>
+              DIGITAL OUTLET
+            </a>
+            <a href="#" onClick={toggleMobileMenu}>
+              TEAM
+            </a>
+            <a href="#" onClick={toggleMobileMenu}>
+              GALLERY
+            </a>
+          </div>
+        </div>
+
         {/* Hero Section with Video Background and Animated Text */}
         <div className={`hero-container ${animate ? "animate" : ""}`}>
           {/* Background Video */}
@@ -882,7 +1098,6 @@ const Header_Hero_SocialMedia = ({ startAnimation }) => {
             <source src={backgroundVideo} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
-
           {/* Hero Content with Animated Text */}
           <section className="hero">
             <div className="text-container">
@@ -898,7 +1113,6 @@ const Header_Hero_SocialMedia = ({ startAnimation }) => {
             </div>
           </section>
         </div>
-
         {/* Breaking Bar */}
         <div className={`breaking-bar ${animate ? "animate" : ""}`}>
           <div className="scrolling-text">
@@ -916,7 +1130,6 @@ const Header_Hero_SocialMedia = ({ startAnimation }) => {
             <span className="bar-separator">•</span>
           </div>
         </div>
-
         {/* Social Media Sidebar with Icons */}
         <div className={`social-sidebar ${animate ? "animate" : ""}`}>
           <a
