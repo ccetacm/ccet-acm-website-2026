@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Loader from "./components/loader";
 import Initiatives from "./components/Initiatives";
-import Initiatives from "./components/Event";
+import Event from "./components/Event";
 import Vision from "./components/Vision";
 import Footer from "./components/Footer";
 import MagazineScroller from "./components/MagazineScroller";
