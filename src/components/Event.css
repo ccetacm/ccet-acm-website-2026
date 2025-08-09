@@ -1,23 +1,27 @@
 html, body {
   margin: 0;
   padding: 0;
-  background: #000;
+  background: #121212; /* Dark theme background */
   height: 100%;
 }
+
 body {
   min-height: 100vh;
   overflow-x: hidden;
 }
+
 .carousel-container {
   width: 90vw;
-  margin: 0 auto;
+  margin: 60px auto; /* Space from top component */
   overflow-x: scroll;
   scroll-snap-type: x mandatory;
   padding: 40px 0;
-  background: #000;
+  background: linear-gradient(to bottom, #121212, #1c1c1c); /* Soft gradient */
   white-space: nowrap;
   box-sizing: border-box;
+  border-radius: 12px;
 }
+
 .carousel {
   display: flex;
   gap: 2em;
@@ -25,6 +29,7 @@ body {
   padding: 0;
   margin: 0;
 }
+
 .carousel li {
   scroll-snap-align: center;
   flex: 0 0 300px;
@@ -35,31 +40,37 @@ body {
   position: relative;
   perspective: 1000px;
 }
+
 .carousel img {
   width: 100%;
   height: auto;
-  box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.4); /* Keep same shadow */
   transition: transform 0.4s, box-shadow 0.4s, opacity 0.4s;
   -webkit-box-reflect: below 0.5em linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.5));
   background: #222;
   border-radius: 16px;
 }
+
 .carousel li.active img {
   transform: scale(1.2) rotateY(0deg);
   box-shadow: 0 30px 50px rgba(0,0,0,0.6);
   opacity: 1;
 }
+
 .carousel li:not(.active):has(~ .active) img {
   transform: scale(0.8) rotateY(35deg);
   opacity: 0.7;
 }
+
 .carousel li.active ~ li img {
   transform: scale(0.8) rotateY(-35deg);
   opacity: 0.7;
 }
+
 .carousel-container::-webkit-scrollbar {
   display: none;
 }
+
 .carousel-container {
   -ms-overflow-style: none;
   scrollbar-width: none;
