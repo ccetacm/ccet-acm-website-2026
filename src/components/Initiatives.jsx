@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from 'react';
 import './Initiatives.css';
 
@@ -79,11 +78,7 @@ export default function Initiatives() {
         </div>
       </header>
       <main>
-        <ul
-  id="cards"
-  style={{ '--numcards': initiativesData.length }}
->
-
+        <ul id="cards" style={{ '--numcards': initiativesData.length }}>
           {initiativesData.map(({ id, title, description, lottieSrc }, index) => (
             <li
               className="card"
