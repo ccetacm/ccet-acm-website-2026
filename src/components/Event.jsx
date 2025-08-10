@@ -120,7 +120,7 @@ export default function Event() {
   }, []);
 
   return (
-    <div>
+    <div >
       <h2 className="event-heading">EVENTS</h2>
       <div className="carousel-viewport" ref={containerRef}>
         <ul className="carousel" ref={carouselRef}>
