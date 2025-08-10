@@ -1,96 +1,136 @@
-import React, { useEffect, useRef } from 'react';
-import './Event.css';
+import React, { useEffect, useRef } from "react";
+import "./Event.css";
 
-// Import images directly from src/assets
-import img1 from '../assets/1 (1).jpg';
-import img2 from '../assets/1 (2).jpg';
-import img3 from '../assets/1 (3).jpg';
-import img4 from '../assets/1 (4).jpg';
-import img5 from '../assets/1 (5).jpg';
-import img6 from '../assets/1 (6).jpg';
-import img7 from '../assets/1 (7).jpg';
-import img8 from '../assets/1 (8).jpg';
-import img9 from '../assets/1 (9).JPG';
+import img1 from "../assets/1 (1).jpg";
+import img2 from "../assets/1 (2).jpg";
+import img3 from "../assets/1 (3).jpg";
+import img4 from "../assets/1 (4).jpg";
+import img5 from "../assets/1 (5).jpg";
+import img6 from "../assets/1 (6).jpg";
+import img7 from "../assets/1 (7).jpg";
+import img8 from "../assets/1 (8).jpg";
+import img9 from "../assets/1 (9).JPG";
 
 const imageFiles = [img1, img2, img3, img4, img5, img6, img7, img8, img9];
 
-function Event() {
-  const carouselRef = useRef(null);
+export default function Event() {
   const containerRef = useRef(null);
+  const carouselRef = useRef(null);
 
   useEffect(() => {
-    const carousel = carouselRef.current;
     const container = containerRef.current;
+    const carousel = carouselRef.current;
+    if (!container || !carousel) return;
 
-    const items = Array.from(carousel.querySelectorAll('li'));
-    const itemCount = items.length;
-    const gap = 32;
-    const itemWidth = items[0]?.offsetWidth + gap;
-    const cloneCount = 2;
+    let items = Array.from(carousel.querySelectorAll("li"));
+    const origCount = items.length;
+    let gap = parseFloat(getComputedStyle(carousel).gap) || 20;
+    let visibleCount = window.innerWidth < 768 ? 1 : 3;
+    const cloneCount = visibleCount;
 
-    // Clone for infinite effect
+    // Clone items at start and end
     for (let i = 0; i < cloneCount; i++) {
       carousel.appendChild(items[i].cloneNode(true));
-      carousel.insertBefore(items[itemCount - 1 - i].cloneNode(true), carousel.firstChild);
+      carousel.insertBefore(
+        items[origCount - 1 - i].cloneNode(true),
+        carousel.firstChild
+      );
     }
 
-    const allItems = carousel.querySelectorAll('li');
+    items = Array.from(carousel.querySelectorAll("li"));
+    let itemWidth = 0;
+    let intervalId = null;
+
+    function calculateWidth() {
+      gap = parseFloat(getComputedStyle(carousel).gap) || 20;
+      visibleCount = window.innerWidth < 768 ? 1 : 3;
+      const rect = items[0]?.getBoundingClientRect();
+      itemWidth = (rect ? rect.width : 300) + gap;
+    }
 
     function setInitialScroll() {
-      container.scrollLeft = itemWidth * cloneCount;
+      carousel.scrollLeft = itemWidth * cloneCount;
     }
 
     function setActive() {
       const containerRect = container.getBoundingClientRect();
-      const center = containerRect.left + containerRect.width / 2;
-      let closest = null;
+      const centerX = containerRect.left + containerRect.width / 2;
+      let closestIndex = 0;
       let closestDist = Infinity;
-
-      allItems.forEach(item => {
-        const rect = item.getBoundingClientRect();
+      items.forEach((it, idx) => {
+        const rect = it.getBoundingClientRect();
         const itemCenter = rect.left + rect.width / 2;
-        const dist = Math.abs(center - itemCenter);
+        const dist = Math.abs(centerX - itemCenter);
         if (dist < closestDist) {
           closestDist = dist;
-          closest = item;
+          closestIndex = idx;
         }
       });
 
-      allItems.forEach(item => item.classList.remove('active'));
-      if (closest) closest.classList.add('active');
+      items.forEach((it) => it.classList.remove("active", "left", "right"));
+      const leftIndex = closestIndex - 1;
+      const rightIndex = closestIndex + 1;
+
+      if (items[closestIndex]) items[closestIndex].classList.add("active");
+      if (items[leftIndex]) items[leftIndex].classList.add("left");
+      if (items[rightIndex]) items[rightIndex].classList.add("right");
     }
 
-    container.addEventListener('scroll', () => {
-      if (container.scrollLeft <= 0) {
-        container.scrollLeft = itemWidth * itemCount;
-      } else if (container.scrollLeft >= itemWidth * (itemCount + cloneCount)) {
-        container.scrollLeft = itemWidth * cloneCount;
+    function loopScroll() {
+      // Forward reset
+      if (carousel.scrollLeft >= itemWidth * (origCount + cloneCount)) {
+        carousel.scrollLeft -= itemWidth * origCount;
+      }
+      // Backward reset
+      else if (carousel.scrollLeft <= 0) {
+        carousel.scrollLeft += itemWidth * origCount;
       }
       setActive();
+    }
+
+    Promise.all(
+      Array.from(carousel.querySelectorAll("img")).map(
+        (img) =>
+          new Promise((resolve) => {
+            if (img.complete) resolve();
+            else img.onload = resolve;
+          })
+      )
+    ).then(() => {
+      calculateWidth();
+      setInitialScroll();
+      setActive();
+
+      intervalId = setInterval(() => {
+        carousel.scrollBy({ left: itemWidth, behavior: "smooth" });
+        setTimeout(loopScroll, 400); // check & reset after animation
+      }, 3000);
+
+      window.addEventListener("resize", () => {
+        calculateWidth();
+        setInitialScroll();
+        setActive();
+      });
     });
 
-    setInitialScroll();
-    setActive();
-    setTimeout(setActive, 100);
-
-    const interval = setInterval(() => {
-      container.scrollLeft += itemWidth;
-    }, 3000);
-
-    return () => clearInterval(interval);
+    return () => {
+      if (intervalId) clearInterval(intervalId);
+      window.removeEventListener("resize", calculateWidth);
+    };
   }, []);
 
   return (
-    <div className="carousel-container" ref={containerRef}>
-      <ul className="carousel" ref={carouselRef}>
-        {imageFiles.map((file, index) => (
-          <li key={index}>
-            <img src={file} alt={`Cover ${index + 1}`} />
-          </li>
-        ))}
-      </ul>
+    <div>
+      <h2 className="event-heading">EVENTS</h2>
+      <div className="carousel-viewport" ref={containerRef}>
+        <ul className="carousel" ref={carouselRef}>
+          {imageFiles.map((file, i) => (
+            <li key={i}>
+              <img src={file} alt={`Cover ${i + 1}`} />
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }
-
-export default Event;
