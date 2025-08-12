@@ -221,6 +221,7 @@ body {
     width: 100px;
     height: 200px;
     margin-top: 10px;
+    
   }
   .text-columns {
     grid-template-columns: 1fr;
@@ -235,7 +236,10 @@ body {
     justify-self: stretch !important;
     margin-bottom: 150px; /* Adjusted for mobile spacing */
     font-size: 18px; /* Further adjust font size */
-    padding: 30px;
+    padding:50px;
+    background-color: var(--light-box-bg);
+    border: 1.5px solid var(--cyan-4);
+
   }
 }
 
