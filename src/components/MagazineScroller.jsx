@@ -123,19 +123,21 @@ const MagazineScroller = () => {
 
   return (
     <>
-      <h2
-        style={{
-          height: "20vh",
-          display: "grid",
-          placeItems: "center",
-          fontSize: "80px",
-          color: "#00296b",
-          fontWeight: "bold",
-          letterSpacing: "2px",
-        }}
-      >
-        DIGITAL OUTLET
-      </h2>
+    <h2
+  style={{
+    height: window.innerWidth <= 768 ? "15vh" : "20vh", // smaller height on mobile
+    display: "grid",
+    placeItems: "center",
+    fontSize: window.innerWidth <= 768 ? "40px" : "80px", // smaller text on mobile
+    marginTop: window.innerWidth <= 768 ? "160px":"",
+    color: "#00296b",
+    fontWeight: "bold",
+    letterSpacing: "2px",
+  }}
+>
+  DIGITAL OUTLET
+</h2>
+
 
       <div
         className="container"
