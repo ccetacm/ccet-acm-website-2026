@@ -5,6 +5,7 @@ import backgroundVideo from "../assets/Header_Main/background_video.mp4";
 import logoImg from "../assets/Header_Main/logo.png";
 import nepImg from "../assets/Header_Main/NEP_2020.png";
 
+
 const Header_Hero_SocialMedia = ({ startAnimation }) => {
   const [animate, setAnimate] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -17,6 +18,7 @@ const Header_Hero_SocialMedia = ({ startAnimation }) => {
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
+
   };
 
   return (
@@ -1009,6 +1011,8 @@ const Header_Hero_SocialMedia = ({ startAnimation }) => {
             padding: 20px;
           }
         }
+          
+          
       `}</style>
       <div
         className="main-container"
