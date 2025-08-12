@@ -1,12 +1,11 @@
-/* src/App.css */
 
 :root {
-  /* Custom Blue Theme */
+
   --blue-heading: #00296b;
   --blue-light-bg: #CAF0F8;
   --blue-white: #F5FCFF;
   --blue-white-2: #EDF6FB;
-  --light-box-bg: #e8f8ff; /* soft pastel blue */
+  --light-box-bg: #e8f8ff; 
 
   --blue-1: #023E8A;
   --blue-2: #0077B6;
@@ -63,7 +62,7 @@ html {
   max-width: 1600px;
   margin: 0px auto;
   box-sizing: border-box;
-  background: var(--light-box-bg); /* new soft pastel blue */
+  background: var(--light-box-bg); 
   border: 1.5px solid var(--cyan-5);
   border-radius: 30px;
   box-shadow: 0 8px 20px rgba(0, 123, 255, 0.08);
@@ -96,8 +95,8 @@ html {
 
 /* === Vision Section === */
 .vision-card {
-  background-color: var(--light-box-bg); /* lighter blue background */
-  color: var(--blue-heading); /* heading color */
+  background-color: var(--light-box-bg);
+  color: var(--blue-heading); 
   border-radius: 25px;
   padding: 50px;
   max-width: 1150px;
@@ -122,14 +121,14 @@ html {
   font-size: 3.5rem;
   font-weight: 700;
   margin-bottom: 20px;
-  color: var(--blue-heading); /* updated */
+  color: var(--blue-heading); 
 }
 
 .vision-text {
   font-size: 1.7rem;
   line-height: 1.6;
   margin-bottom: 40px;
-  color: var(--cyan-2); /* deep blue text */
+  color: var(--cyan-2);
 }
 
 
@@ -180,7 +179,7 @@ html {
     flex-direction: column;
     gap: 20px;
     padding: 30px 20px;
-    margin-top: 20px; /* reduce negative margin for mobile */
+    margin-top: 20px; 
   }
 
   .stat-box {
