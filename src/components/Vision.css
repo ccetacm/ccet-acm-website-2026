@@ -172,3 +172,72 @@ html {
   color: white;
   border-color: var(--cyan-2);
 }
+
+/* === Mobile Responsiveness === */
+@media (max-width: 768px) {
+  /* Stats Section */
+  .stats-section {
+    flex-direction: column;
+    gap: 20px;
+    padding: 30px 20px;
+    margin-top: 20px; /* reduce negative margin for mobile */
+  }
+
+  .stat-box {
+    min-width: auto;
+    width: 100%;
+  }
+
+  .icon {
+    font-size: 50px;
+  }
+
+  .stat-number {
+    font-size: 2rem;
+  }
+
+  .stat-label {
+    font-size: 1rem;
+  }
+
+  /* Vision Card */
+  .vision-card {
+    padding: 20px;
+    margin: 20px;
+  }
+
+  .vision-heading {
+    font-size: 2rem;
+  }
+
+  .vision-text {
+    font-size: 1rem;
+    line-height: 1.4;
+    margin-bottom: 20px;
+  }
+
+  /* Buttons */
+  .button-group {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .join-button,
+  .learn-button {
+    width: 100%;
+    font-size: 1rem;
+    padding: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .vision-heading {
+    font-size: 1.8rem;
+  }
+  .vision-text {
+    font-size: 0.95rem;
+  }
+  .icon {
+    font-size: 45px;
+  }
+}
