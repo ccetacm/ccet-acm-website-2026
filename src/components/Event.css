@@ -12,8 +12,8 @@ html, body {
   text-align: center;
   margin-top: 20px;
   color: RGB(0,41,107);
-    margin-top: 180px;  /* pushes it down */
-  margin-bottom: 10px; /* keeps images close */
+    margin-top: 180px;  
+  margin-bottom: 10px; 
   letter-spacing: 2px;
   font-size: clamp(32px, 6vw, 80px);
 }
@@ -23,15 +23,13 @@ html, body {
 /* carousel container */
 .carousel-viewport {
   width: 100%;
-  max-width: 1700px; /* prevent it from being too wide */
+  max-width: 1700px; 
   margin: 40px auto;
   padding: 20px;
   background: #CAF0F8;
   border-radius: 12px;
   box-sizing: border-box;
   overflow: hidden;
-
-
 }
 
 /* the scrolling element */
@@ -52,7 +50,7 @@ html, body {
 
 /* item sizing */
 .carousel li {
-  flex: 0 0 clamp(200px, 28vw, 300px); /* responsive width */
+  flex: 0 0 clamp(200px, 28vw, 300px); 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -71,7 +69,6 @@ html, body {
   -webkit-box-reflect: below 0.5em linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.5));
   object-fit: cover;
   transform-origin: center center;
-
 }
 
 /* center (active) image */
