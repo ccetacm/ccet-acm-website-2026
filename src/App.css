@@ -2,3 +2,22 @@ html, body {
   overflow-x: hidden; /* Stop horizontal scrolling */
   width: 100%; /* Ensure it never exceeds viewport width */
 }
+@media (max-width: 768px) {
+  /* Make DIGITAL OUTLET text fully visible */
+  .digital-outlet-heading {
+    font-size: 1.8rem; /* smaller so it doesn't get cut off */
+    line-height: 1.2;
+    text-align: center;
+  }
+
+  /* Hide the phone mockup & social icons */
+  .phone-mockup-section {
+    display: none;
+  }
+
+  /* Remove extra space caused by hidden section */
+  .header-hero-socialmedia {
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+}
