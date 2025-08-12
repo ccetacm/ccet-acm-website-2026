@@ -7,8 +7,8 @@ import "./Vision.css";
 
 function Vision() {
   const { ref, inView } = useInView({
-    triggerOnce: true, // Animate only once
-    threshold: 0.3, // Trigger when 30% of the section is visible
+    triggerOnce: true, 
+    threshold: 0.3, 
   });
 
   return (
