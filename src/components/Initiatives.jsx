@@ -1,3 +1,4 @@
+
 import React, { useEffect, useRef } from 'react';
 import './Initiatives.css';
 
@@ -74,7 +75,14 @@ export default function Initiatives() {
     <>
       <header>
         <div>
-          <h1>Our Initiatives</h1>
+          <h1 
+           style={{
+    
+    
+    fontSize:window.innerWidth<=768 ? "40px" : "0",
+    textAlign: "center",
+   
+      }}>Our Initiatives</h1>
         </div>
       </header>
       <main>

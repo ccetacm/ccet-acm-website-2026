@@ -103,7 +103,7 @@ export default function Event() {
 
       intervalId = setInterval(() => {
         carousel.scrollBy({ left: itemWidth, behavior: "smooth" });
-        setTimeout(loopScroll, 400); // check & reset after animation
+        setTimeout(loopScroll, 400); 
       }, 3000);
 
       window.addEventListener("resize", () => {

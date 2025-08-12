@@ -59,7 +59,7 @@ const colors = [
   "#69defa",
 ];
 
-const OVERLAP_BUFFER = 100; // Smaller buffer for less overlap
+const OVERLAP_BUFFER = 100; 
 const TRIGGER_RATIO = -1; // Trigger when 80% of text block passed
 
 const MagazineScroller = () => {
@@ -109,7 +109,7 @@ const MagazineScroller = () => {
         el.style.marginLeft = "30px";
       } else {
         el.style.transform = "skew(-7deg, 5deg)";
-        el.style.marginLeft = "calc(60% + 50px)"; // pushed further right
+        el.style.marginLeft = "calc(60% + 50px)"; 
       }
 
       smallScreen.style.backgroundColor = colors[currentIdx % colors.length];
@@ -123,19 +123,21 @@ const MagazineScroller = () => {
 
   return (
     <>
-      <h2
-        style={{
-          height: "20vh",
-          display: "grid",
-          placeItems: "center",
-          fontSize: "80px",
-          color: "#00296b",
-          fontWeight: "bold",
-          letterSpacing: "2px",
-        }}
-      >
-        DIGITAL OUTLET
-      </h2>
+    <h2
+  style={{
+    height: window.innerWidth <= 768 ? "15vh" : "20vh", 
+    display: "grid",
+    placeItems: "center",
+    fontSize: window.innerWidth <= 768 ? "40px" : "80px", 
+    marginTop: window.innerWidth <= 768 ? "160px":"",
+    color: "#00296b",
+    fontWeight: "bold",
+    letterSpacing: "2px",
+  }}
+>
+  DIGITAL OUTLET
+</h2>
+
 
       <div
         className="container"

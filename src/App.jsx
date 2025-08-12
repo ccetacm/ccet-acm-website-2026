@@ -15,21 +15,19 @@ const App = () => {
   const [startHeroAnimation, setStartHeroAnimation] = useState(false);
 
   useEffect(() => {
-    // Disable all scroll while loader is visible
     document.body.style.overflow = "hidden";
 
     const timer1 = setTimeout(() => {
-      setFadeOut(true); // fade out loader
+      setFadeOut(true); 
     }, 2500);
 
     const timer2 = setTimeout(() => {
       setHideLoader(true);
 
-      // Enable only vertical scroll, prevent horizontal scroll permanently
       document.body.style.overflowX = "hidden";
       document.body.style.overflowY = "auto";
 
-      setStartHeroAnimation(true); // start hero animation now
+      setStartHeroAnimation(true); 
     }, 3000);
 
     return () => {

@@ -236,3 +236,36 @@
 .footer-logo2:hover {
   transform: scale(1.05);
 }
+@media (max-width: 768px) {
+  /* Keep footer-center columns side-by-side */
+  .footer-center {
+    display: flex;
+    flex-direction: row !important;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 30px;
+    flex-wrap: nowrap; 
+    overflow-x: auto; 
+    padding-bottom: 10px;
+  }
+
+  /* Make each column the same style */
+  .footer-column {
+    min-width: 120px;
+    text-align: left;
+  }
+
+  /* Adjust heading and links for mobile */
+  .footer-column h4 {
+    font-size: 1rem;
+  }
+
+  .footer-column li {
+    font-size: 0.9rem;
+  }
+
+  /* Prevent weird wrapping in narrow view */
+  .footer-column ul {
+    white-space: nowrap;
+  }
+}

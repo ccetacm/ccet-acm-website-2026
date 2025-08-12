@@ -6,17 +6,16 @@
 }
 
 :root {
-  /* 10-step blue palette from your image */
-  --blue-darkest: #001451;   /* Darkest navy */
-  --blue-dark: #002874;      /* Dark blue */
-  --blue-medium: #003d97;    /* Medium blue */     
-  --blue-primary: #0052ba;   /* Primary blue */
-  --blue-bright: #0067dd;    /* Bright blue */
-  --blue-sky: #007cff;       /* Sky blue */
-  --blue-light: #3399ff;     /* Light blue */
-  --blue-pale: #66b3ff;      /* Pale blue */
-  --blue-lighter: #99ccff;   /* Lighter blue */
-  --blue-lightest: #ccf0ff;  /* Lightest blue */
+  --blue-darkest: #001451;   
+  --blue-dark: #002874;     
+  --blue-medium: #003d97;        
+  --blue-primary: #0052ba;   
+  --blue-bright: #0067dd;   
+  --blue-sky: #007cff;       
+  --blue-light: #3399ff;     
+  --blue-pale: #66b3ff;      
+  --blue-lighter: #99ccff;   
+  --blue-lightest: #ccf0ff;  
     
   /* Theme assignments for clean look */
   --primary-blue: var(--blue-primary);
@@ -406,6 +405,60 @@ body {
 }
 
 @media (max-width: 768px) {
+   .carousel-container {
+    padding: 10px;
+  }
+
+  .carousel-slide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100% !important; 
+    min-height: auto !important; 
+    padding: 15px;
+    box-sizing: border-box;
+  }
+
+  .comment-box {
+    background: #d5f3fb; 
+    border-radius: 12px;
+    padding: 15px;
+    width: 100%;
+    min-height: auto; 
+    text-align: left;
+    margin-bottom:15px;
+  }
+
+  .testimonial-text {
+    font-size: 14px;
+    line-height: 1.5;
+    word-wrap: break-word;
+  }
+
+  .author {
+    
+    text-align: center;
+    align-items:center;
+  }
+  .role-badge{
+    display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+   margin-left: -18%;
+  }
+
+  .nav-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  /* Hide social floating bar on mobile */
+  .social-floating-bar {
+    display: none;
+  }
+
+
   .carousel-wrapper {
     padding: 0 60px;
   }
@@ -421,14 +474,12 @@ body {
     right: 12px;
   }
   .title {
-    font-size: 2.5rem;
+    padding-bottom:0px;
+    font-size:38px;
+    
   }
-  .carousel-container {
-    padding: 2rem 0;
-  }
-  .carousel-slide {
-    padding: 4rem 1.5rem;
-  }
+ 
+  
   .testimonial-text {
     font-size: 1.3rem;
   }
@@ -437,6 +488,7 @@ body {
     height: 100px;
     font-size: 1.6rem;
   }
+
 }
 
 @media (max-width: 600px) {

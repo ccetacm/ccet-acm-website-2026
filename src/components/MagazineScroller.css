@@ -1,30 +1,30 @@
 /* --- Refined Color Variables for a beautiful #CAF0F8 blue-white theme --- */
 :root {
-  --body-bg-color: hsl(185, 67%, 83%); /* This is #CAF0F8 */
-  --primary-blue: hsl(205, 70%, 30%); /* Deeper, clean blue for strong accents/text */
-  --secondary-blue: hsl(200, 60%, 45%); /* Mid-tone, vibrant blue for highlights */
-  --light-blue: hsl(200, 80%, 96%); /* Very light blue, for backgrounds like .rect (distinct from body) */
-  --soft-white: hsl(0, 0%, 99.5%); /* Near-pure white for subtle backgrounds */
-  --border-light-blue: hsl(190, 30%, 88%); /* Very subtle, light blue for borders, harmonizes with body */
-  --shadow-soft-blue: hsla(200, 15%, 20%, 0.1); /* Soft, diffused blue-grey shadow */
-  --text-primary: hsl(205, 20%, 20%); /* Dark, slightly blue-tinted text for readability */
-  --text-secondary: hsl(205, 10%, 45%); /* Lighter blue-tinted text for secondary info */
+  --body-bg-color: hsl(185, 67%, 83%); 
+  --primary-blue: hsl(205, 70%, 30%); 
+  --secondary-blue: hsl(200, 60%, 45%); 
+  --light-blue: hsl(200, 80%, 96%); 
+  --soft-white: hsl(0, 0%, 99.5%); 
+  --border-light-blue: hsl(190, 30%, 88%); 
+  --shadow-soft-blue: hsla(200, 15%, 20%, 0.1); 
+  --text-primary: hsl(205, 20%, 20%); 
+  --text-secondary: hsl(205, 10%, 45%); 
   /* Mapping to original variable names for consistency */
-  --blue-white: var(--light-blue); /* This is the rect background, kept light and distinct */
-  --cyan-6: var(--border-light-blue); /* Border color, now very subtle and harmonious */
-  --blue-white-2: var(--soft-white); /* Browser bar background, very clean */
-  --blue-2: hsl(210, 70%, 65%); /* Dot color 1 - slightly brighter */
-  --blue-3: hsl(210, 70%, 55%); /* Dot color 2 - balanced */
-  --blue-4: hsl(210, 70%, 45%); /* Dot color 3 - slightly deeper */
-  --blue-1: var(--primary-blue); /* Strong readable blue, used for some elements */
+  --blue-white: var(--light-blue);
+  --cyan-6: var(--border-light-blue); 
+  --blue-white-2: var(--soft-white);
+  --blue-2: hsl(210, 70%, 65%); 
+  --blue-3: hsl(210, 70%, 55%); 
+  --blue-4: hsl(210, 70%, 45%); 
+  --blue-1: var(--primary-blue); 
 }
 
 /* --- Global Body Styles for overall aesthetic --- */
 body {
-  font-family: 'Inter', sans-serif; /* Modern sans-serif for general text */
+  font-family: 'Inter', sans-serif; 
   color: var(--text-primary);
-  background-color: var(--body-bg-color); /* NEW: Set to #CAF0F8 */
-  line-height: 1.65; /* Slightly more generous line-height */
+  background-color: var(--body-bg-color); 
+  line-height: 1.65; 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -47,16 +47,16 @@ body {
 .rect {
   width: 500px;
   height: 600px;
-  background-color: #CAF0F8; /* KEPT SAME: soft white-blue background (hsl(200, 80%, 96%)) */
-  border: 1.5px solid var(--cyan-6); /* Uses new, very subtle border color */
-  border-radius: 16px; /* Slightly more rounded for a softer look */
+  background-color: #CAF0F8; 
+  border: 1.5px solid var(--cyan-6); 
+  border-radius: 16px; 
   position: sticky;
   will-change: transform;
   top: 100px;
   margin-left: 30px;
   transform: skew(-7deg, 5deg);
-  transition: all .3s cubic-bezier(.25, 0.8, .25, 1); /* Smoother, more natural transition */
-  box-shadow: 0 12px 40px var(--shadow-soft-blue); /* Softer, more diffused shadow */
+  transition: all .3s cubic-bezier(.25, 0.8, .25, 1); 
+  box-shadow: 0 12px 40px var(--shadow-soft-blue); 
   overflow: visible;
   z-index: 4;
   display: flex;
@@ -68,10 +68,10 @@ body {
 /* --- Browser Bar Styles --- */
 .mag-browserbar {
   width: 100%;
-  height: 38px; /* Slightly taller for better visual weight */
-  background: var(--blue-white-2); /* Uses new very clean soft white */
-  border-bottom: 1px solid var(--cyan-6); /* Uses new subtle border color */
-  border-radius: 16px 16px 0 0; /* Matches rect border-radius */
+  height: 38px; 
+  background: var(--blue-white-2); 
+  border-bottom: 1px solid var(--cyan-6); 
+  border-radius: 16px 16px 0 0;
   display: flex;
   align-items: center;
   position: relative;
@@ -82,8 +82,8 @@ body {
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  border: 1.5px solid var(--soft-white); /* Slightly thicker white border for dots */
-  margin-left: 12px; /* More space for dots */
+  border: 1.5px solid var(--soft-white); 
+  margin-left: 12px; 
   display: inline-block;
 }
 
@@ -96,14 +96,14 @@ body {
   width: 372px;
   height: 524px;
   position: relative;
-  background-color: var(--secondary-blue); /* Changed to a more prominent secondary blue */
+  background-color: var(--secondary-blue); 
   margin-top: 22px;
-  border-radius: 12px; /* Slightly more rounded */
-  box-shadow: 0 6px 20px var(--shadow-soft-blue); /* Softer shadow */
-  opacity: 0.98; /* Slightly less transparent */
-  background-size: cover; /* Changed to cover for better image fitting */
+  border-radius: 12px; 
+  box-shadow: 0 6px 20px var(--shadow-soft-blue); 
+  opacity: 0.98; 
+  background-size: cover; 
   background-position: center;
-  border: 2px solid var(--soft-white); /* Thicker white border for inner card */
+  border: 2px solid var(--soft-white); 
   z-index: 1;
 }
 
@@ -112,8 +112,8 @@ body {
   flex: 1;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  column-gap: 120px; /* Increased horizontal space */
-  row-gap: 300px; /* Increased vertical space between rows for MORE SPACE */
+  column-gap: 120px;
+  row-gap: 300px; 
   min-width: 400px;
   margin-bottom: 100px;
 }
@@ -123,24 +123,24 @@ body {
   background-color: #CAF0F8;
   width: 40%;
   margin-top: 50px;
-  color:#00296b ; /* Uses new primary text color */
+  color:#00296b ; 
   font-family: 'Playfair Display', serif;
-  font-size: 26px; /* Slightly larger font size for impact */
-  line-height: 1.75; /* More generous line-height for readability */
+  font-size: 26px; 
+  line-height: 1.75; 
   font-weight: 400;
-  letter-spacing: 0.005em; /* Fine-tuned letter-spacing for Georgia */
+  letter-spacing: 0.005em; 
   font-style: normal;
   font-variant-ligatures: common-ligatures;
   max-width: 100%;
-  padding: 50px; /* Increased padding for more breathing room */
-  border-radius: 20px; /* More rounded corners for a softer look */
-  box-shadow: 0 10px 35px var(--shadow-soft-blue); /* Softer, deeper shadow */
+  padding: 50px; 
+  border-radius: 20px; 
+  box-shadow: 0 10px 35px var(--shadow-soft-blue); 
   position: relative;
-  min-height: 450px; /* Increased min-height */
-  min-width: 320px; /* Increased min-width */
-  margin-bottom: 350px; /* Increased bottom margin for more spacing */
+  min-height: 450px; 
+  min-width: 320px; 
+  margin-bottom: 350px; 
   z-index: 1;
-  transition: transform 0.4s cubic-bezier(.25, 0.8, .25, 1); /* Smoother, more natural transition */
+  transition: transform 0.4s cubic-bezier(.25, 0.8, .25, 1); 
   text-align: center;
 }
 
@@ -187,7 +187,7 @@ body {
     height: 300px;
   }
   .text {
-    font-size: 22px; /* Adjust font size for smaller screens */
+    font-size: 22px; 
     padding: 40px;
     min-height: 350px;
   }
@@ -221,10 +221,11 @@ body {
     width: 100px;
     height: 200px;
     margin-top: 10px;
+    
   }
   .text-columns {
     grid-template-columns: 1fr;
-    gap: 150px 0; /* Increased gap for mobile */
+    gap: 150px 0;
     min-width: 100%;
   }
   .text {
@@ -233,9 +234,12 @@ body {
     min-height: auto;
     max-width: 100%;
     justify-self: stretch !important;
-    margin-bottom: 150px; /* Adjusted for mobile spacing */
-    font-size: 18px; /* Further adjust font size */
-    padding: 30px;
+    margin-bottom: 150px; 
+    font-size: 18px; 
+    padding:50px;
+    background-color: var(--light-box-bg);
+    border: 1.5px solid var(--cyan-4);
+
   }
 }
 
@@ -266,8 +270,8 @@ body {
   .text {
     width: auto;
     margin-top: 0;
-    font-size: 16px; /* Final font size adjustment for small mobiles */
-    margin-bottom: 100px; /* Adjusted for mobile spacing */
+    font-size: 16px; 
+    margin-bottom: 100px; 
     padding: 25px;
   }
 }

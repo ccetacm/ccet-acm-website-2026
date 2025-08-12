@@ -5,13 +5,13 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #CAF0F8; /* Match body background */
+  background-color: #CAF0F8; 
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 9999; /* Ensure it's on top of everything */
+  z-index: 9999; 
   opacity: 1;
-  transition: opacity 0.5s ease-out; /* Smooth fade out */
+  transition: opacity 0.5s ease-out; 
 }
 
 .loader-overlay.fade-out {
@@ -20,11 +20,11 @@
 
 .loader-container {
   display: flex;
-  flex-direction: column; /* Stack logo and text vertically */
+  flex-direction: column; 
   align-items: center;
   justify-content: center;
-  width: 150px; /* Overall container width */
-  height: 150px; /* Overall container height */
+  width: 150px; 
+  height: 150px; 
   position: relative;
 }
 
@@ -34,7 +34,7 @@
   align-items: center;
   justify-content: flex-end;
   width: 100%;
-  height: 85px; /* Space for SVG and its bounce */
+  height: 85px; 
   position: relative;
 }
 
@@ -42,18 +42,18 @@
   width: 100%;
   height: auto;
   transform-origin: bottom center;
-  animation: bounce 1.5s infinite ease-in-out; /* Apply bounce directly */
+  animation: bounce 1.5s infinite ease-in-out; 
 }
 
 .loader-shadow {
   width: 80%;
   height: 10px;
-  background-color: #90E0EF; /* Blue shade for shadow */
+  background-color: #90E0EF; 
   border-radius: 50%;
   position: absolute;
   bottom: 0;
   filter: blur(5px);
-  animation: shadow-pulse 1.5s infinite ease-in-out; /* Apply shadow pulse directly */
+  animation: shadow-pulse 1.5s infinite ease-in-out; 
 }
 
 @keyframes bounce {
@@ -62,7 +62,7 @@
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-50px); /* Bounce height */
+    transform: translateY(-50px);
   }
 }
 
@@ -83,28 +83,28 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.2em; /* Slightly larger font */
-  font-weight: 600; /* Medium-bold for Poppins */
-  letter-spacing: 0.05em; /* Improved letter spacing */
-  white-space: nowrap; /* Keep text on one line */
-  overflow: hidden; /* Hide overflow for typing effect */
-  margin-top: 20px; /* Space between logo and text */
-  color: #0077B6; /* Darker blue for text for contrast */
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Subtle text shadow */
+  font-size: 1.2em; 
+  font-weight: 600; 
+  letter-spacing: 0.05em; 
+  white-space: nowrap; 
+  overflow: hidden; 
+  margin-top: 20px; 
+  color: #0077B6; 
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); 
 }
 
 /* Blinking Cursor */
 .blinking-cursor {
-  font-weight: 400; /* Lighter weight for cursor */
+  font-weight: 400; 
   animation: blink-caret .75s step-end infinite;
   margin-left: 2px;
-  display: none; /* Hidden by default, shown by JS during typing */
-  color: #1976d2; /* Match text color */
+  display: none; 
+  color: #1976d2; 
 }
 
 .loader-overlay.fade-out {
   opacity: 0;
-  pointer-events: none; /* allow scrolling & clicks */
+  pointer-events: none; 
 }
 
 

@@ -174,10 +174,16 @@ main .btn:nth-child(12) { filter: hue-rotate(260deg); }
   }
   header {
     font-size: 30px;
-    height: 60vh;
+    height: 50px;
+    margin-top:-30px;
+    margin-bottom:-30px;
+    padding-top:-25px;
+    padding-bottom:-35px;
+    
   }
   main h1 {
     font-size: 2.5em;
+    ;
   }
   main h2 {
     font-size: 2em;
