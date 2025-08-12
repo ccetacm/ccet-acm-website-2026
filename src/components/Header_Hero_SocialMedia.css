@@ -3,15 +3,12 @@
         @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css");
 
         :root {
-          /* Updated color palette */
           --oxford-blue: #070f34;
           --zaffre: #0313a6;
           --dark-violet: #9201cb;
           --hollywood-cerise: #f715ab;
           --fluorescent-cyan: #34edf3;
-          /* Additional colors */
           --light: #f9fbfc;
-          /* Header specific - Updated for darker neon blue transparent */
           --header-bg: rgba(52, 237, 243, 0.25);
           --highlight-color: #f715ab;
           --highlight-glow: 0 0 10px rgba(247, 21, 171, 0.7);
@@ -27,8 +24,8 @@
           background: white;
           color: var(--oxford-blue);
           padding-top: 0;
-          overflow-x: hidden; /* Prevent horizontal scrollbar */
-          overflow-y: hidden; /* Prevent vertical scrollbar during animations */
+          overflow-x: hidden; 
+          overflow-y: hidden; 
         }
         body {
           overflow-x: hidden;
@@ -345,7 +342,7 @@
           display: flex;
           align-items: center;
           justify-content: center;
-          overflow: hidden; /* Prevent content from extending beyond container */
+          overflow: hidden; 
           margin-top: 0;
         }
         .hero-container.animate {
@@ -372,7 +369,7 @@
         /* Synchronized video animation with text animations */
         .hero-container.animate .background-video {
           animation: slowMotion 20s ease-in-out infinite;
-          animation-delay: 0s; /* Start immediately when animate class is added */
+          animation-delay: 0s; 
         }
         @keyframes slowMotion {
           0% {
@@ -392,7 +389,6 @@
           width: 100%;
           margin-top: 0px;
           padding: 0 5%;
-          /* Constrain hero content within viewport */
           max-height: 100vh;
           overflow: hidden;
         }
@@ -402,9 +398,9 @@
           z-index: 10;
           overflow: visible;
           position: relative;
-          max-height: calc(100vh - 100px); /* Increased available space */
-          overflow: visible; /* Changed from hidden to visible */
-          padding: 60px 0; /* Added padding to ensure text has space */
+          max-height: calc(100vh - 100px); 
+          overflow: visible; 
+          padding: 60px 0; 
         }
         .main-title {
           position: relative;
@@ -413,23 +409,23 @@
           font-weight: 900;
           line-height: 1;
           margin-bottom: 0px;
-          margin-top: 60px; /* Increased top margin */
+          margin-top: 60px; 
           color: var(--oxford-blue);
           text-transform: uppercase;
           letter-spacing: -4px;
           transform: perspective(500px) rotateX(15deg);
           max-width: 100%;
-          overflow: visible; /* Changed from hidden to visible */
+          overflow: visible; 
         }
         /* Synchronized floating animation for all text elements */
         .hero-container.animate .main-title {
           animation: titleFloat 20s ease-in-out infinite;
-          animation-delay: 0s; /* Start immediately when animate class is added */
+          animation-delay: 0s; 
         }
         .ccet-text {
           position: absolute;
-          top: -65px; /* Positioned above the ACM text */
-          left: -40px; /* Positioned above the "A" in ACM */
+          top: -65px; 
+          left: -40px; 
           font-size: 3.1rem;
           font-weight: 600;
           color: var(--zaffre);
@@ -444,7 +440,7 @@
         .hero-container.animate .ccet-text {
           animation: titleFloat 20s ease-in-out infinite,
             slideInCCET 1.2s ease-out 0.3s forwards;
-          animation-delay: 0s, 0.3s; /* Sync floating with video, delay slide-in */
+          animation-delay: 0s, 0.3s; 
         }
         .acm-text {
           display: inline-block;
@@ -455,13 +451,13 @@
         .hero-container.animate .acm-text {
           animation: titleFloat 20s ease-in-out infinite,
             slideInACM 1.5s ease-out 0.8s forwards;
-          animation-delay: 0s, 0.8s; /* Sync floating with video, delay slide-in */
+          animation-delay: 0s, 0.8s; 
         }
         .student-chapter-text {
           position: absolute;
-          bottom: -60px; /* Positioned below the ACM text */
-          left: 80%; /* Centered horizontally */
-          transform: translateX(-50%); /* Center alignment */
+          bottom: -60px; 
+          left: 80%;
+          transform: translateX(-50%); 
           font-size: 2.8rem;
           font-weight: 600;
           color: var(--zaffre);
@@ -471,12 +467,12 @@
           opacity: 0;
           will-change: transform, opacity;
           z-index: 10;
-          white-space: nowrap; /* Ensure it stays on one line */
+          white-space: nowrap; 
         }
         .hero-container.animate .student-chapter-text {
           animation: titleFloat 20s ease-in-out infinite,
             slideInStudent 1.2s ease-out 1.5s forwards;
-          animation-delay: 0s, 1.5s; /* Sync floating with video, delay slide-in */
+          animation-delay: 0s, 1.5s; 
         }
         .hero p {
           font-size: 1.5rem;
@@ -591,7 +587,7 @@
           gap: 1rem;
           z-index: 1500;
           opacity: 0;
-          transform: translateX(30px) translateY(-50%); /* Reduced movement */
+          transform: translateX(30px) translateY(-50%); 
           transition: all 0.8s ease-out;
         }
         .social-sidebar.animate {
@@ -650,7 +646,7 @@
         }
         /* Breaking Bar Styles */
         .breaking-bar {
-          z-index: 1000; /* Keep this lower than mobile menu */
+          z-index: 1000; 
           margin-top: -55px;
           background: var(--oxford-blue) !important;
           border-top: 1px solid rgba(52, 237, 243, 0.3);
@@ -698,9 +694,9 @@
         .main-container {
           width: 100%;
           overflow-x: hidden;
-          overflow-y: hidden; /* Prevent vertical scrollbar during animations */
+          overflow-y: hidden; 
           position: relative;
-          height: 100vh; /* Constrain to viewport height */
+          height: 100vh;
         }
         /* Re-enable scrolling after animations complete */
         .main-container.animations-complete {
@@ -785,24 +781,24 @@
         @media (max-width: 768px) {
           .hamburger-menu {
             display: flex;
-            order: 3; /* Move hamburger to the right */
+            order: 3; 
           }
 
           .mobile-menu-overlay {
             display: block;
-            z-index: 2000; /* Increase z-index to be above breaking bar */
+            z-index: 2000; 
           }
 
           .mobile-menu {
             display: flex;
             flex-direction: column;
-            justify-content: flex-start; /* Change from center to flex-start */
+            justify-content: flex-start; 
             align-items: center;
             height: 100%;
             gap: 2rem;
-            padding: 100px 20px 50px; /* Add padding for scrollable content */
-            overflow-y: auto; /* Make menu scrollable */
-            max-height: 100vh; /* Ensure it doesn't exceed viewport */
+            padding: 100px 20px 50px; 
+            overflow-y: auto; 
+            max-height: 100vh; 
           }
 
           .mobile-menu::-webkit-scrollbar {
@@ -834,11 +830,11 @@
           }
 
           .logo {
-            order: 1; /* Keep logo on the left */
+            order: 1; 
           }
 
           .nep-container {
-            order: 2; /* NEP image in the middle */
+            order: 2; 
           }
         }
         @media (max-width: 480px) {
@@ -877,8 +873,8 @@
           }
           @media (max-width: 768px) {
             .main-title {
-              font-size: 4rem; /* or smaller as needed */
-              letter-spacing: normal; /* reduce negative spacing if it helps */
+              font-size: 4rem; 
+              letter-spacing: normal; 
             }
             .ccet-text {
               font-size: 1.5rem;
@@ -907,21 +903,21 @@
               left: 50%;
             }
             .social-sidebar {
-              display: none; /* hide sidebar icons on small screens */
+              display: none; 
             }
             .nav-links {
-              overflow-x: auto; /* allow horizontal scroll if needed or change to hamburger menu */
+              overflow-x: auto; 
             }
             .hero-container {
-              height: auto; /* or min-height: 100vh */
+              height: auto; 
             }
           }
           .main-container {
             width: 100%;
             overflow-x: hidden;
-            overflow-y: hidden; /* Prevent vertical scrollbar during animations */
+            overflow-y: hidden; 
             position: relative;
-            height: 100vh; /* Constrain to viewport height */
+            height: 100vh; 
           }
           .scrolling-text {
             display: flex;
@@ -955,7 +951,7 @@
           body {
             margin: 0;
             padding: 0;
-            overflow-x: hidden; /* prevent horizontal scroll globally */
+            overflow-x: hidden; 
             width: 100%;
           }
         }
