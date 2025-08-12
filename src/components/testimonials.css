@@ -6,17 +6,16 @@
 }
 
 :root {
-  /* 10-step blue palette from your image */
-  --blue-darkest: #001451;   /* Darkest navy */
-  --blue-dark: #002874;      /* Dark blue */
-  --blue-medium: #003d97;    /* Medium blue */     
-  --blue-primary: #0052ba;   /* Primary blue */
-  --blue-bright: #0067dd;    /* Bright blue */
-  --blue-sky: #007cff;       /* Sky blue */
-  --blue-light: #3399ff;     /* Light blue */
-  --blue-pale: #66b3ff;      /* Pale blue */
-  --blue-lighter: #99ccff;   /* Lighter blue */
-  --blue-lightest: #ccf0ff;  /* Lightest blue */
+  --blue-darkest: #001451;   
+  --blue-dark: #002874;     
+  --blue-medium: #003d97;        
+  --blue-primary: #0052ba;   
+  --blue-bright: #0067dd;   
+  --blue-sky: #007cff;       
+  --blue-light: #3399ff;     
+  --blue-pale: #66b3ff;      
+  --blue-lighter: #99ccff;   
+  --blue-lightest: #ccf0ff;  
     
   /* Theme assignments for clean look */
   --primary-blue: var(--blue-primary);
@@ -407,25 +406,25 @@ body {
 
 @media (max-width: 768px) {
    .carousel-container {
-    padding: 10px; /* Prevent content from touching edges */
+    padding: 10px;
   }
 
   .carousel-slide {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100% !important; /* Fit mobile width */
-    min-height: auto !important; /* No forced height */
+    width: 100% !important; 
+    min-height: auto !important; 
     padding: 15px;
     box-sizing: border-box;
   }
 
   .comment-box {
-    background: #d5f3fb; /* same light blue as desktop */
+    background: #d5f3fb; 
     border-radius: 12px;
     padding: 15px;
     width: 100%;
-    min-height: auto; /* Let it grow with text */
+    min-height: auto; 
     text-align: left;
     margin-bottom:15px;
   }
@@ -448,7 +447,6 @@ body {
    margin-left: -18%;
   }
 
-  /* Move nav buttons closer */
   .nav-button {
     position: absolute;
     top: 50%;
