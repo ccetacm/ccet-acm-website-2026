@@ -1,289 +1,561 @@
-/* --- Refined Color Variables for a beautiful #CAF0F8 blue-white theme --- */
-:root {
-  --body-bg-color: hsl(185, 67%, 83%); 
-  --primary-blue: hsl(205, 70%, 30%); 
-  --secondary-blue: hsl(200, 60%, 45%); 
-  --light-blue: hsl(200, 80%, 96%); 
-  --soft-white: hsl(0, 0%, 99.5%); 
-  --border-light-blue: hsl(190, 30%, 88%); 
-  --shadow-soft-blue: hsla(200, 15%, 20%, 0.1); 
-  --text-primary: hsl(205, 20%, 20%); 
-  --text-secondary: hsl(205, 10%, 45%); 
-  /* Mapping to original variable names for consistency */
-  --blue-white: var(--light-blue);
-  --cyan-6: var(--border-light-blue); 
-  --blue-white-2: var(--soft-white);
-  --blue-2: hsl(210, 70%, 65%); 
-  --blue-3: hsl(210, 70%, 55%); 
-  --blue-4: hsl(210, 70%, 45%); 
-  --blue-1: var(--primary-blue); 
-}
+/* Removed FontAwesome import that was causing loading issues */
 
-/* --- Global Body Styles for overall aesthetic --- */
-body {
-  font-family: 'Inter', sans-serif; 
-  color: var(--text-primary);
-  background-color: var(--body-bg-color); 
-  line-height: 1.65; 
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-/* --- Container Styles --- */
-.container {
+.circle-cards-container {
+  --color: rgba(30, 30, 30);
+  --bgColor: #caf0f8;
+  min-height: 80vh;
   display: flex;
-  flex-direction: column;
-  max-width: 1553px;
-  width: 100%;
-  margin: 0 auto;
-  margin-bottom: 100px;
-  padding-bottom: 100px;
-  padding-left: 20px;
-  padding-right: 20px;
-  box-sizing: border-box;
-}
-
-/* --- Rect (Sticky Card) Styles --- */
-.rect {
-  width: 500px;
-  height: 600px;
-  background-color: #CAF0F8; 
-  border: 1.5px solid var(--cyan-6); 
-  border-radius: 16px; 
-  position: sticky;
-  will-change: transform;
-  top: 100px;
-  margin-left: 30px;
-  transform: skew(-7deg, 5deg);
-  transition: all .3s cubic-bezier(.25, 0.8, .25, 1); 
-  box-shadow: 0 12px 40px var(--shadow-soft-blue); 
-  overflow: visible;
-  z-index: 4;
-  display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  padding-top: 0;
+  padding: 4rem 2rem;
+  background: var(--bgColor);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", sans-serif;
+  color: var(--color);
+  position: relative; /* Added for more button positioning */
 }
 
-/* --- Browser Bar Styles --- */
-.mag-browserbar {
-  width: 100%;
-  height: 38px; 
-  background: var(--blue-white-2); 
-  border-bottom: 1px solid var(--cyan-6); 
-  border-radius: 16px 16px 0 0;
+.circle-cards-container h1 {
+  text-align: center;
+}
+
+.circle-cards-container ol {
+  margin-top: -300px;
   display: flex;
-  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  list-style: none;
+  counter-reset: stepnr;
+  justify-content: center;
+  overflow: visible; /* ensures first and last aren't cropped */
+}
+
+.circle-cards-container li:nth-child(6n + 1) {
+  --accent-color: #b8df4e;
+}
+.circle-cards-container li:nth-child(6n + 2) {
+  --accent-color: #4cbccb;
+}
+.circle-cards-container li:nth-child(6n + 3) {
+  --accent-color: #7197d3;
+}
+.circle-cards-container li:nth-child(6n + 4) {
+  --accent-color: #ae78cb;
+}
+.circle-cards-container li:nth-child(6n + 5) {
+  --accent-color: #7dc7a4;
+}
+.circle-cards-container li:nth-child(6n + 6) {
+  --accent-color: #f078c2;
+}
+
+.circle-cards-container ol li {
+  counter-increment: stepnr;
+  width: 15rem;
+  --borderS: 1rem;
+  aspect-ratio: 1;
   position: relative;
-  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem; /* space around circle */
 }
 
-.mag-browserbar .button {
-  width: 12px;
-  height: 12px;
+.circle-cards-container ol li::before,
+.circle-cards-container ol li::after {
+  inset: 0;
+  position: absolute;
   border-radius: 50%;
-  border: 1.5px solid var(--soft-white); 
-  margin-left: 12px; 
-  display: inline-block;
+  border: var(--borderS) solid var(--bgColor);
 }
 
-.mag-browserbar .dot1 { background-color: var(--blue-2); }
-.mag-browserbar .dot2 { background-color: var(--blue-3); }
-.mag-browserbar .dot3 { background-color: var(--blue-4); }
+.circle-cards-container ol li::before {
+  content: counter(stepnr);
+  color: transparent; /* hides number */
+}
 
-/* --- Small Rect (Inner Card) Styles --- */
-.rect .small {
-  width: 372px;
-  height: 524px;
+.circle-cards-container ol li::after {
+  content: "";
+  filter: drop-shadow(-0.25rem 0.25rem 0.0675rem rgba(0, 0, 0, 0.75)) blur(5px);
+}
+
+.circle-cards-container .circle-img {
+  width: 13rem; /* Increased size to fill more space in circle */
+  height: 13rem;
+  border-radius: 50%;
+  overflow: hidden;
   position: relative;
-  background-color: var(--secondary-blue); 
-  margin-top: 22px;
-  border-radius: 12px; 
-  box-shadow: 0 6px 20px var(--shadow-soft-blue); 
-  opacity: 0.98; 
-  background-size: cover; 
-  background-position: center;
-  border: 2px solid var(--soft-white); 
   z-index: 1;
 }
 
-/* --- Text Columns Grid Container --- */
-.text-columns {
-  flex: 1;
+.circle-cards-container .circle-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%; /* Ensure image follows circular shape */
+}
+
+.circle-cards-container .circle-cards-heading {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: #1e1e1e;
+}
+
+.sections {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  column-gap: 120px;
-  row-gap: 300px; 
-  min-width: 400px;
-  margin-bottom: 100px;
+  place-items: center;
+  font-size: 80px;
+  color: #00296b;
+  margin-bottom: 1rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", sans-serif;
 }
 
-/* --- Individual Text Block Styling --- */
-.magzine-text {
-  background-color: #CAF0F8;
-  width: 40%;
-  margin-top: 50px;
-  color:#00296b ; 
-  font-family: 'Playfair Display', serif;
-  font-size: 26px; 
-  line-height: 1.75; 
-  font-weight: 400;
-  letter-spacing: 0.005em; 
-  font-style: normal;
-  font-variant-ligatures: common-ligatures;
-  max-width: 100%;
-  padding: 50px; 
-  border-radius: 20px; 
-  box-shadow: 0 10px 35px var(--shadow-soft-blue); 
+/* Updated trending subtitle styles for typewriter effect */
+.trending-subtitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 3rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", sans-serif;
+  animation: fadeInTitle 1s ease-in-out;
+}
+
+.trending-box {
+  background: linear-gradient(135deg, rgba(173, 216, 230, 0.9), rgba(135, 206, 235, 0.8)),
+    linear-gradient(135deg, #4a90e2, #5ba3f5, #3d7bd8, #2c5aa0);
+  background-size: 400% 400%;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  box-shadow: 0 8px 32px rgba(74, 144, 226, 0.4), 0 0 0 3px rgba(255, 255, 255, 0.3), inset 0 1px 0
+    rgba(255, 255, 255, 0.2);
+  animation: trendingGlow 2s ease-in-out infinite;
   position: relative;
-  min-height: 450px; 
-  min-width: 320px; 
-  margin-bottom: 350px; 
-  z-index: 1;
-  transition: transform 0.4s cubic-bezier(.25, 0.8, .25, 1); 
-  text-align: center;
+  overflow: hidden;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(10px);
 }
 
-/* --- Alignment Helpers --- */
-.text.left {
-  justify-self: start;
-  margin-right: auto;
-  margin-left: 0;
+.trending-box::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  animation: shimmer 3s linear infinite;
+  pointer-events: none;
 }
 
-.text.right {
-  justify-self: end;
-  margin-left: auto;
-  margin-right: 0;
+.trending-box::after {
+  content: "🔥";
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  font-size: 1.2rem;
+  animation: bounce 1s ease-in-out infinite;
 }
 
-.volume {
-  text-align: center;
-  color: #00296b;
-  font-size: 50px;
-  font-weight: bolder;
+.trending-text {
+  color: #1a1a1a;
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
-.month {
-  text-align: center;
-  color: #00296b;
-  font-size: 30px;
-  font-weight: bolder;
+.trending-label {
+  opacity: 0.9;
 }
 
-/* --- Responsive Adjustments --- */
-@media (max-width: 1024px) {
-  .container {
-    max-width: 90%;
-    padding-left: 15px;
-    padding-right: 15px;
+.typewriter-text {
+  display: inline-block;
+  min-height: 1em;
+  position: relative;
+  font-weight: 800;
+  color: #2c2c2c;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.3);
+}
+
+/* Added more button styles */
+.more-button {
+  position: absolute;
+  right: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: linear-gradient(135deg, #4a90e2, #5ba3f5);
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3);
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.more-button:hover {
+  background: linear-gradient(135deg, #3d7bd8, #4a90e2);
+  transform: translateY(-50%) translateY(-2px);
+  box-shadow: 0 6px 20px rgba(74, 144, 226, 0.4);
+}
+
+.more-button:active {
+  transform: translateY(-50%) translateY(0px);
+  box-shadow: 0 2px 10px rgba(74, 144, 226, 0.3);
+}
+
+/* Circle animation styles */
+.circle-item {
+  transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.circle-item.hidden {
+  opacity: 0;
+  transform: scale(0) rotate(180deg);
+}
+
+.circle-item.visible {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+  animation: bounceIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* Keyframe animations */
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0) rotate(180deg);
   }
-  h1 {
-    font-size: 36px;
-    line-height: 400px;
+  50% {
+    opacity: 0.8;
+    transform: scale(1.1) rotate(-10deg);
   }
-  .rect {
-    width: 350px;
-    height: 300px;
-  }
-  .text {
-    font-size: 22px; 
-    padding: 40px;
-    min-height: 350px;
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
   }
 }
 
-/* For tablets and large mobiles */
+@keyframes fadeInTitle {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes trendingPulse {
+  0%,
+  100% {
+    background-position: 0% 50%;
+    transform: scale(1);
+  }
+  50% {
+    background-position: 100% 50%;
+    transform: scale(1.02);
+  }
+}
+
+@keyframes hotTrending {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes trendingGlow {
+  0%,
+  100% {
+    background-position: 0% 50%;
+    box-shadow: 0 8px 32px rgba(74, 144, 226, 0.4), 0 0 0 3px rgba(255, 255, 255, 0.3), inset 0 1px 0
+      rgba(255, 255, 255, 0.2);
+  }
+  50% {
+    background-position: 100% 50%;
+    box-shadow: 0 12px 40px rgba(74, 144, 226, 0.6), 0 0 0 4px rgba(255, 255, 255, 0.4), inset 0 1px 0
+      rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%) translateY(-100%) rotate(45deg);
+  }
+  100% {
+    transform: translateX(100%) translateY(100%) rotate(45deg);
+  }
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-3px) rotate(10deg);
+  }
+}
+
+/* Enhanced circle hover effects */
+.circle-item:hover {
+  transform: scale(1.02); /* Reduced scale effect */
+  transition: all 0.3s ease;
+}
+
+/* Responsive adjustments */
 @media (max-width: 768px) {
-  .container {
-    flex-direction: column;
-    padding: 40px 20px 400px;
-    max-width: 95%;
-    padding-left: 10px;
-    padding-right: 10px;
+  .sections {
+    font-size: 60px;
   }
-  h1 {
-    font-size: 28px;
-    line-height: 300px;
-  }
-  h1 span {
-    font-size: 16px;
-  }
-  .rect {
-    position: relative;
-    top: auto;
-    width: 100%;
-    height: 300px;
-    margin-left: 20px;
-    margin-bottom: 40px;
-  }
-  .rect .small {
-    width: 100px;
-    height: 200px;
-    margin-top: 10px;
-    
-  }
-  .text-columns {
-    grid-template-columns: 1fr;
-    gap: 150px 0;
-    min-width: 100%;
-  }
-  .text {
-    width: auto;
-    margin-top: 0;
-    min-height: auto;
-    max-width: 100%;
-    justify-self: stretch !important;
-    margin-bottom: 150px; 
-    font-size: 18px; 
-    padding:50px;
-    background-color: var(--light-box-bg);
-    border: 1.5px solid var(--cyan-4);
 
+  .trending-box {
+    padding: 0.8rem 1.5rem;
+  }
+
+  .trending-text {
+    font-size: 1.4rem;
+  }
+
+  .circle-cards-container ol {
+    margin-top: -200px;
+    gap: 1.5rem;
+  }
+
+  .circle-cards-container ol li {
+    width: 12rem;
+  }
+
+  .circle-cards-container .circle-img {
+    width: 10rem; /* Increased mobile size for better visibility */
+    height: 10rem;
+  }
+
+  /* Mobile responsive more button */
+  .more-button {
+    right: 1rem;
+    padding: 0.6rem 1.2rem;
+    font-size: 0.8rem;
   }
 }
-
-/* For mobile phones */
-@media (max-width: 480px) {
-  .container {
-    max-width: 100%;
-    padding-left: 5px;
-    padding-right: 5px;
-  }
-  h1 {
-    font-size: 24px;
-    line-height: 200px;
-  }
-  h1 span {
-    font-size: 14px;
-  }
-  .rect {
-    width: 280px;
-    height: 240px;
-    margin-left: 10px;
-  }
-  .rect .small {
-    width: 80px;
-    height: 160px;
-    margin-top: 8px;
-  }
-  .text {
-    width: auto;
-    margin-top: 0;
-    font-size: 16px; 
-    margin-bottom: 100px; 
-    padding: 25px;
-  }
+/* ====== Base Container Styling ====== */
+.circle-cards-container {
+  --color: #1e1e1e;
+  --bgColor: #caf0f8;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column; /* Allows heading and cards to stack properly */
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 2rem;
+  background: var(--bgColor);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", sans-serif;
+  color: var(--color);
+  position: relative;
 }
 
-/* For very small phones */
-@media (max-width: 360px) {
-  .rect {
-    width: 260px;
-    height: 220px;
+.circle-cards-container h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  color: var(--color);
+  margin-bottom: 3rem;
+}
+
+/* ====== Circle List Layout ====== */
+.circle-cards-container ol {
+  margin-top: -300px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  list-style: none;
+  counter-reset: stepnr;
+  justify-content: center;
+  overflow: visible;
+}
+
+.circle-cards-container ol li {
+  counter-increment: stepnr;
+  width: 15rem;
+  --borderS: 1rem;
+  aspect-ratio: 1;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.circle-cards-container ol li:hover {
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
+}
+
+/* ====== Circle Number & Shadow ====== */
+.circle-cards-container ol li::before,
+.circle-cards-container ol li::after {
+  inset: 0;
+  position: absolute;
+  border-radius: 50%;
+}
+
+.circle-cards-container ol li::before {
+  content: counter(stepnr);
+  color: transparent;
+}
+
+.circle-cards-container ol li::after {
+  content: "";
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.15));
+}
+
+/* ====== Image Styles ====== */
+.circle-cards-container .circle-img {
+  width: 13rem;
+  height: 13rem;
+  border-radius: 50%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.circle-cards-container .circle-img img {
+  width: 100%;
+  height: 100%;
+  object-fit:fill;
+  transition: transform 0.4s ease;
+  background-color: #caf0f8;
+}
+
+.circle-cards-container .circle-img img:hover {
+  transform: scale(1.05);
+}
+
+/* ====== Heading & Subheading ====== */
+.circle-cards-container .circle-cards-heading {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: var(--color);
+}
+
+.sections {
+  display: grid;
+  place-items: center;
+  font-size: clamp(2rem, 5vw, 4rem);
+  color: #00296b;
+  margin-bottom: 1rem;
+}
+
+/* ====== Trending Box ====== */
+.trending-subtitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 3rem;
+  animation: fadeInTitle 1s ease-in-out;
+}
+
+.trending-box {
+  background: linear-gradient(135deg, rgba(173, 216, 230, 0.9), rgba(135, 206, 235, 0.8));
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  box-shadow: 0 6px 20px rgba(74, 144, 226, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(8px);
+  position: relative;
+  overflow: hidden;
+}
+
+.trending-text {
+  color: #1a1a1a;
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.typewriter-text {
+  font-weight: 800;
+  color: #2c2c2c;
+}
+
+/* ====== More Button ====== */
+.more-button {
+  position: absolute;
+  right: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: linear-gradient(135deg, #4a90e2, #5ba3f5);
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3);
+  transition: all 0.3s ease;
+}
+
+.more-button:hover {
+  background: linear-gradient(135deg, #3d7bd8, #4a90e2);
+  box-shadow: 0 6px 20px rgba(74, 144, 226, 0.4);
+}
+
+.more-button:active {
+  transform: translateY(-50%) scale(0.98);
+}
+
+/* ====== Animations ====== */
+@keyframes fadeInTitle {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ====== Responsive ====== */
+@media (max-width: 768px) {
+  .circle-cards-container ol {
+    margin-top: -200px;
+    gap: 1.5rem;
   }
-  .rect .small {
-    width: 70px;
-    height: 140px;
+  .circle-cards-container ol li {
+    width: 12rem;
+  }
+  .circle-cards-container .circle-img {
+    width: 10rem;
+    height: 10rem;
+  }
+  .more-button {
+    right: 1rem;
+    padding: 0.6rem 1.2rem;
+    font-size: 0.8rem;
   }
 }
