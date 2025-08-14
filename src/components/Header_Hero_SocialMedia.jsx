@@ -8,6 +8,7 @@ import ccetImg from "../assets/Header_Main/ccetLogo.png";
 import sdgImg from "../assets/Header_Main/SDG.png";
 import puImg from "../assets/Header_Main/pu-logo.png";
 import acmImg from "../assets/Header_Main/acmlogo.png";
+import acmw from "../assets/Header_Main/acmw.png";
 
 const Header_Hero_SocialMedia = ({ startAnimation }) => {
   const [animate, setAnimate] = useState(false);
@@ -53,6 +54,7 @@ const Header_Hero_SocialMedia = ({ startAnimation }) => {
     { src: sdgImg || "/placeholder.svg", alt: "CCET" },
     { src: puImg || "/placeholder.svg", alt: "CCET" },
     { src: acmImg || "/placeholder.svg", alt: "CCET" },
+     { src: acmw || "/placeholder.svg", alt: "CCET" },
   ];
 
   useEffect(() => {
@@ -572,6 +574,7 @@ const Header_Hero_SocialMedia = ({ startAnimation }) => {
         }
 
         .acm-card-container {
+          margin-top: 100px;
           position: relative;
           width: 400px;
           height: 500px;
