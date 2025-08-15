@@ -102,7 +102,7 @@ export default function CircleCards() {
   const currentTopic = trendingTopics[currentTopicIndex];
 
   return (
-    <div>
+      <div className="magazine-scroller-wrapper">
       <h1 className="sections">DIGITAL OUTLET</h1>
       <div className="trending-subtitle">
         <div className="trending-box">

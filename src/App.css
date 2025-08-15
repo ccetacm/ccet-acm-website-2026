@@ -2,7 +2,17 @@ html, body {
   overflow-x: hidden; 
   width: 100%; 
 }
+
+.acm-main-container {
+  padding-top: 80px;
+}
+
+
 @media (max-width: 768px) {
+  .acm-main-container {
+    padding-top: 70px;
+  }
+
   .digital-outlet-heading {
     font-size: 1.8rem; 
     line-height: 1.2;
