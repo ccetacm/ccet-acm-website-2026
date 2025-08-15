@@ -5,6 +5,7 @@ import { useInView } from "react-intersection-observer";
 import { motion } from "framer-motion";
 import "./Vision.css";
 
+
 function Vision() {
   const { ref, inView } = useInView({
     triggerOnce: true, 
@@ -22,7 +23,9 @@ function Vision() {
         transition={{ duration: 1 }}
       >
         <div className="stat-box">
-          <div className="icon">📝</div>
+         <div className="icon">
+  <img className="establishment-icon" src="/establishment.png" alt="icon" />
+</div>
           <div className="stat-number">
             {inView && <CountUp end={2015} duration={2} separator="" />}
           </div>
@@ -36,7 +39,9 @@ function Vision() {
           <div className="stat-label">Number of Students</div>
         </div>
         <div className="stat-box">
-          <div className="icon">📰</div>
+         <div className="icon">
+  <img className="event-icon" src="/event-list.png" alt="icon" />
+</div>
           <div className="stat-number">
             {inView && <CountUp end={97} duration={2} />}
           </div>
