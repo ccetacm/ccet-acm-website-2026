@@ -2,7 +2,7 @@
 html, body {
   margin: 0;
   padding: 0;
-  background: #121212;
+  background: #CAF0F8;
   height: 100%;
   font-family: sans-serif;
 }
@@ -10,15 +10,12 @@ html, body {
 /* heading styling */
 .event-heading {
   text-align: center;
-  margin-top: 20px;
-  color: RGB(0,41,107);
-    margin-top: 180px;  
+  margin-top: 180px;  
   margin-bottom: 10px; 
+  color: RGB(0,41,107);
   letter-spacing: 2px;
   font-size: clamp(32px, 6vw, 80px);
 }
-
-
 
 /* carousel container */
 .carousel-viewport {
@@ -38,7 +35,7 @@ html, body {
   gap: clamp(12px, 3vw, 32px);
   list-style: none;
   padding: 0;
-  margin-top:0;
+  margin-top: 0;
   overflow-x: auto;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
@@ -48,9 +45,13 @@ html, body {
 .carousel::-webkit-scrollbar { display: none; }
 .carousel { -ms-overflow-style: none; scrollbar-width: none; }
 
-/* item sizing */
+/* item sizing — desktop: exactly 3 visible */
 .carousel li {
-  flex: 0 0 clamp(200px, 28vw, 300px); 
+  flex: 0 0 clamp(
+    250px,
+    calc((100% - (2 * clamp(12px, 3vw, 32px))) / 3),
+    350px
+  );
   display: flex;
   justify-content: center;
   align-items: center;
@@ -60,7 +61,7 @@ html, body {
 
 /* image styling */
 .carousel img {
-  width: 100%;
+  width: 80%;
   height: auto;
   border-radius: 16px;
   background: #222;
@@ -100,14 +101,25 @@ html, body {
   z-index: 0;
 }
 
-/* small screen adjustments */
+/* tablet: 2 cards visible */
+@media (max-width: 1024px) {
+  .carousel li {
+    flex: 0 0 clamp(
+      200px,
+      calc((100% - (1 * clamp(12px, 3vw, 32px))) / 2),
+      320px
+    );
+  }
+}
+
+/* mobile: 1 card visible */
 @media (max-width: 768px) {
   .event-heading {
     letter-spacing: 1px;
   }
 
   .carousel li {
-    flex: 0 0 clamp(150px, 45vw, 220px);
+    flex: 0 0 clamp(150px, 80vw, 250px);
   }
 
   .carousel img {
