@@ -49,12 +49,12 @@ const Header_Hero_SocialMedia = ({ startAnimation }) => {
 
   const logos = [
     { src: logoImg || "/placeholder.svg", alt: "CCET ACM" },
-    { src: nepImg || "/placeholder.svg", alt: "NEP" },
+    { src: nepImg || "/placeholder.svg", alt: "NEP", className: "NEP1" },
     { src: ccetImg || "/placeholder.svg", alt: "CCET" },
     { src: sdgImg || "/placeholder.svg", alt: "CCET" },
     { src: puImg || "/placeholder.svg", alt: "CCET" },
     { src: acmImg || "/placeholder.svg", alt: "CCET" },
-     { src: acmw || "/placeholder.svg", alt: "CCET" },
+    { src: acmw || "/placeholder.svg", alt: "CCET" },
   ];
 
   useEffect(() => {
@@ -122,7 +122,7 @@ const Header_Hero_SocialMedia = ({ startAnimation }) => {
 
         .acm-main-container {
           position: relative;
-          min-height: 100vh;
+          min-height: 55vh;
           overflow: hidden;
         }
 
@@ -136,7 +136,7 @@ const Header_Hero_SocialMedia = ({ startAnimation }) => {
           display: flex;
           justify-content: space-between;
           align-items: center;
-          padding: 15px 50px;
+          padding: 5px 30px;
           background: var(--header-bg);
           backdrop-filter: blur(10px);
           border-bottom: 1px solid rgba(52, 237, 243, 0.3);
@@ -171,8 +171,8 @@ const Header_Hero_SocialMedia = ({ startAnimation }) => {
         }
 
         .acm-logo-switcher {
-          height: 80px;
-          width: 100px;
+          height: 50px;
+          width: 80px;
           position: relative;
           transition: all 0.3s ease;
         }
@@ -209,7 +209,7 @@ const Header_Hero_SocialMedia = ({ startAnimation }) => {
           color: var(--oxford-blue);
           text-decoration: none;
           font-weight: 600;
-          font-size: 20px;
+          font-size: 12px;
           letter-spacing: 1px;
           position: relative;
           transition: all 0.3s ease;
@@ -223,17 +223,13 @@ const Header_Hero_SocialMedia = ({ startAnimation }) => {
           left: 0;
           width: 0;
           height: 2px;
-          background: linear-gradient(
-            90deg,
-            var(--hollywood-cerise),
-            var(--fluorescent-cyan)
-          );
+          background: linear-gradient(90deg, #1e40af, #3b82f6);
           transition: width 0.3s ease;
         }
 
         .acm-nav-links a:hover {
-          color: var(--hollywood-cerise);
-          text-shadow: var(--highlight-glow);
+          color: #1e40af;
+          text-shadow: 0 0 10px rgba(30, 64, 175, 0.5);
         }
 
         .acm-nav-links a:hover::after {
@@ -324,7 +320,7 @@ const Header_Hero_SocialMedia = ({ startAnimation }) => {
         /* Hero Container */
         .acm-hero-container {
           position: relative;
-          height: 100vh;
+          height: 93vh;
           display: flex;
           align-items: center;
           justify-content: space-between;
@@ -341,6 +337,9 @@ const Header_Hero_SocialMedia = ({ startAnimation }) => {
           object-fit: cover;
           opacity: 0.2;
           z-index: 1;
+          transform: scale(
+            1.05
+          ); // Set initial scale to match animation start to prevent size jump
         }
 
         .acm-hero-container.animate .acm-background-video {
@@ -404,7 +403,7 @@ const Header_Hero_SocialMedia = ({ startAnimation }) => {
           font-weight: 900;
           line-height: 1;
           margin-bottom: 0px;
-          margin-top: 60px;
+          margin-top: 70px;
           color: var(--oxford-blue);
           text-transform: uppercase;
           letter-spacing: -4px;
@@ -423,13 +422,12 @@ const Header_Hero_SocialMedia = ({ startAnimation }) => {
 
         .acm-ccet-text {
           position: relative;
-          font-size: 3.1rem;
+          font-size: 2.2rem;
           font-weight: 600;
           color: var(--zaffre);
           text-transform: uppercase;
           letter-spacing: 1px;
           opacity: 0;
-          will-change: transform, opacity;
           z-index: 10;
           order: 1;
         }
@@ -442,10 +440,9 @@ const Header_Hero_SocialMedia = ({ startAnimation }) => {
 
         .acm-acm-text {
           position: relative;
-          font-size: 12rem;
+          font-size: 8rem;
           opacity: 0;
           transform: scale(0.5) rotateY(90deg);
-          will-change: transform, opacity;
           order: 2;
         }
 
@@ -457,14 +454,13 @@ const Header_Hero_SocialMedia = ({ startAnimation }) => {
 
         .acm-student-chapter-text {
           position: relative;
-          font-size: 2.8rem;
+          font-size: 2.2rem;
           font-weight: 600;
           color: var(--zaffre);
           text-transform: uppercase;
           letter-spacing: 1px;
           text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.15);
           opacity: 0;
-          will-change: transform, opacity;
           z-index: 10;
           white-space: nowrap;
           order: 3;
@@ -477,7 +473,7 @@ const Header_Hero_SocialMedia = ({ startAnimation }) => {
         }
 
         .acm-hero p {
-          font-size: 1.5rem;
+          font-size: 1.2rem;
           color: var(--zaffre);
           margin-bottom: 15px;
           margin-top: 30px;
@@ -492,9 +488,9 @@ const Header_Hero_SocialMedia = ({ startAnimation }) => {
         }
 
         .acm-subtitle {
-          font-size: 1.2rem;
+          font-size: 0.8rem;
           color: var(--zaffre);
-          margin-top: 90px;
+          margin-top: 30px;
           margin-bottom: 10px;
           font-weight: 900;
           opacity: 0;
@@ -521,11 +517,11 @@ const Header_Hero_SocialMedia = ({ startAnimation }) => {
         @keyframes acm-slideInCCET {
           0% {
             opacity: 0;
-            transform: translateX(-5%) translateY(20px);
+            transform: translateY(20px);
           }
           100% {
             opacity: 1;
-            transform: translateX(-5%) translateY(0);
+            transform: translateY(0);
           }
         }
 
@@ -543,11 +539,11 @@ const Header_Hero_SocialMedia = ({ startAnimation }) => {
         @keyframes acm-slideInStudent {
           0% {
             opacity: 0;
-            transform: translateX(-3%) translateY(20px);
+            transform: translateY(20px);
           }
           100% {
             opacity: 1;
-            transform: translateX(-3%) translateY(0);
+            transform: translateY(0);
           }
         }
 
@@ -574,10 +570,10 @@ const Header_Hero_SocialMedia = ({ startAnimation }) => {
         }
 
         .acm-card-container {
-          margin-top: 100px;
+          margin-top: 80px;
           position: relative;
-          width: 400px;
-          height: 500px;
+          width: 270px;
+          height: 370px;
           perspective: 1000px;
         }
 
@@ -594,9 +590,10 @@ const Header_Hero_SocialMedia = ({ startAnimation }) => {
           transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
           transform: translateX(100%) rotateY(90deg);
           opacity: 0;
-          background-size: contain;
+          background-size: cover;
           background-repeat: no-repeat;
           background-position: center;
+          overflow: hidden;
         }
 
         .acm-card.active {
@@ -624,7 +621,7 @@ const Header_Hero_SocialMedia = ({ startAnimation }) => {
           position: relative;
           background: linear-gradient(90deg, var(--oxford-blue), var(--zaffre));
           color: var(--light);
-          padding: 15px 0;
+          padding: 8px 0;
           overflow: hidden;
           z-index: 100;
           transform: translateY(100%);
@@ -635,7 +632,7 @@ const Header_Hero_SocialMedia = ({ startAnimation }) => {
         .acm-breaking-bar.animate {
           transform: translateY(0);
           opacity: 1;
-          animation: acm-breakingBarSlide 0.8s cubic-bezier(0.4, 0, 0.2, 1) 1.4s
+          animation: acm-breakingBarSlide 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.2s
             forwards;
         }
 
@@ -690,12 +687,9 @@ const Header_Hero_SocialMedia = ({ startAnimation }) => {
           gap: 20px;
           z-index: 1000;
           opacity: 0;
-          transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .acm-social-sidebar.animate {
-          transform: translateY(-50%) translateX(0);
-          opacity: 1;
           animation: acm-sidebarSlide 0.8s cubic-bezier(0.4, 0, 0.2, 1) 1s
             forwards;
         }
@@ -712,8 +706,8 @@ const Header_Hero_SocialMedia = ({ startAnimation }) => {
         }
 
         .acm-social-icon {
-          width: 50px;
-          height: 50px;
+          width: 33px;
+          height: 33px;
           border-radius: 50%;
           display: flex;
           align-items: center;
@@ -735,13 +729,16 @@ const Header_Hero_SocialMedia = ({ startAnimation }) => {
           background: linear-gradient(135deg, #1877f2, #42a5f5);
         }
         .acm-instagram {
-          background: linear-gradient(135deg, #e4405f, #f77737, #fccc63);
+          background: linear-gradient(135deg, #2196f3, #64b5f6);
         }
         .acm-linkedin {
           background: linear-gradient(135deg, #0077b5, #00a0dc);
         }
         .acm-twitter {
           background: linear-gradient(135deg, #1da1f2, #0d8bd9);
+        }
+        .acm-youtube {
+          background: linear-gradient(135deg, #1565c0, #1976d2);
         }
 
         /* Responsive Design */
@@ -780,15 +777,42 @@ const Header_Hero_SocialMedia = ({ startAnimation }) => {
             font-size: clamp(2rem, 12vw, 4rem);
           }
 
+          /* Move social sidebar to bottom and make horizontal on mobile */
           .acm-social-sidebar {
-            left: 20px;
-            gap: 15px;
+            position: fixed;
+            left: 50%;
+            top: 800px;
+            bottom: 20px;
+            transform: translateX(-50%);
+            flex-direction: row;
+            gap: 12px;
+            // background: rgba(0, 0, 0, 0.8);
+            padding: 8px 16px;
+            border-radius: 25px;
+            // backdrop-filter: blur(10px);
+          }
+
+          .acm-social-sidebar.animate {
+            animation: acm-sidebarSlideBottom 0.8s cubic-bezier(0.4, 0, 0.2, 1)
+              1s forwards;
           }
 
           .acm-social-icon {
-            width: 40px;
-            height: 40px;
-            font-size: 16px;
+            width: 32px;
+            height: 32px;
+            font-size: 14px;
+          }
+        }
+
+        /* Add new animation for bottom slide on mobile */
+        @keyframes acm-sidebarSlideBottom {
+          0% {
+            transform: translateX(-50%) translateY(100px);
+            opacity: 0;
+          }
+          100% {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
           }
         }
 
@@ -797,16 +821,60 @@ const Header_Hero_SocialMedia = ({ startAnimation }) => {
             padding: 10px 15px;
           }
 
-          .acm-logo {
-            height: 45px;
-          }
-
-          .acm-nep-container {
+          .acm-logo-switcher {
             height: 40px;
+            width: 65px;
           }
 
-          .acm-hero {
-            padding: 0 15px;
+          /* Make social icons even more compact on very small screens */
+          .acm-social-sidebar {
+            bottom: 15px;
+            gap: 8px;
+            padding: 6px 12px;
+          }
+
+          .acm-social-icon {
+            width: 28px;
+            height: 28px;
+            font-size: 12px;
+          }
+        }
+
+        /* Add ultra-small screen support */
+        @media (max-width: 360px) {
+          .acm-social-sidebar {
+            gap: 6px;
+            padding: 4px 8px;
+          }
+
+          .acm-social-icon {
+            width: 24px;
+            height: 24px;
+            font-size: 10px;
+          }
+        }
+
+        @media (max-width: 320px) {
+          .acm-navbar {
+            padding: 8px 12px;
+          }
+
+          .acm-logo-switcher {
+            height: 35px;
+            width: 55px;
+          }
+
+          .acm-navbar-left {
+            gap: 8px;
+          }
+
+          .acm-hamburger-menu {
+            padding: 4px;
+          }
+
+          .acm-hamburger-line {
+            width: 20px;
+            height: 2px;
           }
 
           .acm-main-title {
@@ -817,10 +885,37 @@ const Header_Hero_SocialMedia = ({ startAnimation }) => {
           .acm-subtitle {
             font-size: clamp(0.9rem, 4vw, 1.1rem);
           }
+        }
 
-          .acm-social-sidebar {
-            left: 15px;
-            gap: 12px;
+        @media (max-width: 280px) {
+          .acm-navbar {
+            padding: 5px 8px;
+          }
+
+          .acm-logo-switcher {
+            height: 28px;
+            width: 42px;
+          }
+
+          .acm-navbar-left {
+            gap: 4px;
+          }
+
+          .acm-hamburger-menu {
+            padding: 2px;
+          }
+
+          .acm-hamburger-line {
+            width: 16px;
+            height: 2px;
+          }
+
+          .acm-main-title {
+            font-size: clamp(1.5rem, 18vw, 2.5rem);
+          }
+
+          .acm-subtitle {
+            font-size: clamp(0.8rem, 5vw, 1rem);
           }
         }
       `}</style>
@@ -1005,6 +1100,15 @@ const Header_Hero_SocialMedia = ({ startAnimation }) => {
             aria-label="Twitter"
           >
             <i className="fab fa-twitter"></i>
+          </a>
+          <a
+            href="#"
+            className="acm-social-icon acm-youtube"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="YouTube"
+          >
+            <i className="fab fa-youtube"></i>
           </a>
         </div>
       </div>
