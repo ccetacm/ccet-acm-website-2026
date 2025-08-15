@@ -1,5 +1,77 @@
  /* Removed FontAwesome import that was causing loading issues */
 
+ .magazine-scroller-wrapper {
+   padding-top: 2rem;
+   padding-bottom: 2rem;
+ }
+
+ @media (max-width: 768px) {
+   .magazine-scroller-wrapper {
+     padding-top: 1rem;
+     padding-bottom: 1rem;
+   }
+
+   .circle-cards-container {
+     min-height: auto;
+     padding: 2rem 1rem;
+   }
+
+   .circle-cards-container ol {
+     margin-top: 0;
+     gap: 1rem;
+   }
+
+   .circle-cards-container ol li {
+     width: 10rem;
+   }
+
+   .circle-cards-container .circle-img {
+     width: 8rem;
+     height: 8rem;
+   }
+
+   .sections {
+     font-size: 2.5rem;
+     margin-bottom: 0.5rem;
+   }
+
+   .trending-box {
+     padding: 0.5rem 1rem;
+   }
+
+   .trending-text {
+     font-size: 1rem;
+   }
+
+   .more-button {
+     position: relative;
+     right: auto;
+     top: auto;
+     transform: none;
+     margin-top: 1rem;
+     margin-bottom: 1rem;
+   }
+ }
+
+ @media (max-width: 480px) {
+   .sections {
+     font-size: 2rem;
+   }
+
+   .circle-cards-container ol li {
+     width: 8rem;
+   }
+
+   .circle-cards-container .circle-img {
+     width: 6rem;
+     height: 6rem;
+   }
+
+   .trending-text {
+     font-size: 0.9rem;
+   }
+ }
+
 .circle-cards-container {
   --color: rgba(30, 30, 30);
   --bgColor: #caf0f8;

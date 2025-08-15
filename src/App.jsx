@@ -60,7 +60,7 @@ const App = () => {
             )}
 
             {/* Main container */}
-            <div className="acm-main-container" style={{ background: "white", color: "var(--oxford-blue)" }}>
+            <div className="acm-main-container" style={{ background: "white", color: "var(--oxford-blue)" , paddingTop: '80px' }}>
                 <Header startAnimation={startHeroAnimation} />
                 <Hero startAnimation={startHeroAnimation} />
                 <SocialMedia startAnimation={startHeroAnimation} />

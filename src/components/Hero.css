@@ -184,7 +184,7 @@
 .acm-subtitle {
     font-size: 1.2rem;
     color: var(--zaffre);
-    margin-top: 90px;
+    margin-top: 30px;
     margin-bottom: 10px;
     font-weight: 900;
     opacity: 0;
@@ -359,40 +359,59 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    .acm-hero-container {
+        flex-direction: column;
+        height: auto;
+        min-height: 100vh;
+    }
+
     .acm-hero {
         max-width: 100%;
-        padding: 0 20px;
-        text-align: center;
+        padding: 2rem;
+        margin-top: 80px; /* Space for header */
     }
 
-    .acm-text-container {
-        transform: translateX(0);
+    .acm-main-title {
+        font-size: 4rem;
+        margin-top: 0;
     }
 
-    .acm-hero-container.animate .acm-text-container {
-        transform: translateX(0);
+    .acm-ccet-text {
+        font-size: 1.5rem;
+    }
+
+    .acm-acm-text {
+        font-size: 4rem;
+    }
+
+    .acm-student-chapter-text {
+        font-size: 1.5rem;
+    }
+
+    .acm-hero p {
+        font-size: 1rem;
+    }
+
+    .acm-subtitle {
+        font-size: 0.9rem;
+        margin-top: 2rem;
     }
 
     .acm-card-section {
         display: none;
     }
-
-    .acm-main-title {
-        font-size: clamp(2rem, 12vw, 4rem);
-    }
 }
 
 @media (max-width: 480px) {
-    .acm-hero {
-        padding: 0 15px;
-    }
-
     .acm-main-title {
-        font-size: clamp(1.8rem, 15vw, 3rem);
-        margin-bottom: 20px;
+        font-size: 3rem;
     }
 
-    .acm-subtitle {
-        font-size: clamp(0.9rem, 4vw, 1.1rem);
+    .acm-acm-text {
+        font-size: 3rem;
+    }
+
+    .acm-hero {
+        padding: 1rem;
     }
 }
