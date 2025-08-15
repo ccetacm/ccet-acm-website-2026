@@ -4,9 +4,9 @@ import Initiatives from "./components/Initiatives";
 import Event from "./components/Event";
 import Vision from "./components/Vision";
 import Footer from "./components/Footer";
-import MagazineScroller from "./components/MagazineScroller";
+// import MagazineScroller from "./components/MagazineScroller";
 import Header_Hero_SocialMedia from "./components/Header_Hero_SocialMedia.jsx";
-import TestimonialsCarousel from "./components/testimonials.jsx";
+// import TestimonialsCarousel from "./components/testimonials.jsx";
 import Mentors from "./components/Mentors.jsx";
 
 const App = () => {
@@ -18,7 +18,7 @@ const App = () => {
     document.body.style.overflow = "hidden";
 
     const timer1 = setTimeout(() => {
-      setFadeOut(true); 
+      setFadeOut(true);
     }, 2500);
 
     const timer2 = setTimeout(() => {
@@ -27,7 +27,7 @@ const App = () => {
       document.body.style.overflowX = "hidden";
       document.body.style.overflowY = "auto";
 
-      setStartHeroAnimation(true); 
+      setStartHeroAnimation(true);
     }, 3000);
 
     return () => {
@@ -63,10 +63,10 @@ const App = () => {
       <Header_Hero_SocialMedia startAnimation={startHeroAnimation} />
       <Initiatives />
       <Event />
-      <MagazineScroller />
+      {/* <MagazineScroller /> */}
       <Vision />
-      <Mentors/>
-      <TestimonialsCarousel />
+      <Mentors />
+      {/* <TestimonialsCarousel /> */}
       <Footer />
     </div>
   );
