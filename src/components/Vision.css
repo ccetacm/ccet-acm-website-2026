@@ -175,11 +175,13 @@ html {
     flex-direction: column;
     gap: 40px;
     margin-right:20px;
+        width: 90%;
+
   }
 
   .stat-box {
     min-width: auto;
-    width: 100%;
+    width: 90%;
   }
 
   .icon {
