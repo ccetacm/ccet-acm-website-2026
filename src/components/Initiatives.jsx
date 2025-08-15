@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Player } from "@lottiefiles/react-lottie-player";
 import "./Initiatives.css";
@@ -7,7 +8,7 @@ const Gallery = () => {
     {
       anim: "/animations/career.json",
       title: "International Research & Sponsored Projects",
-      link: "#research", // placeholder link
+      link: "#research",
     },
     {
       anim: "/animations/Code typing concept.json",
@@ -38,24 +39,20 @@ const Gallery = () => {
 
   return (
     <div className="ouracts-container">
-      <h2 className="ouracts-heading">OUR ACTS</h2>
-      <div className="gallery-wrapper">
-        <div className="gallery">
-          {cards.map((card, index) => (
-            <span key={index} style={{ "--i": index + 1 }}>
-              <div className="card">
-                <div className="card-animation">
-                  <Player autoplay loop src={card.anim} />
-                </div>
-                <div className="card-title">
-                  <a href={card.link} className="card-link">
-                    {card.title}
-                  </a>
-                </div>
-              </div>
-            </span>
-          ))}
-        </div>
+      <h2 className="ouracts-heading">CORE ACTS</h2>
+      <div className="cards-grid">
+        {cards.map((card, index) => (
+          <div className="card" key={index}>
+            <div className="card-animation">
+              <Player autoplay loop src={card.anim} />
+            </div>
+            <div className="card-title">
+              <a href={card.link} className="card-link">
+                {card.title}
+              </a>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );

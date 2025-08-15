@@ -184,3 +184,41 @@
   font-size: 1rem;
   color: #555;
 }
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  grid-auto-rows: 380px; /* Fixed equal height for all rows */
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  height: 100%; /* Fill the grid cell */
+}
+
+.card-animation {
+  flex: 0 0 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-title {
+  flex: 0 0 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-align: center;
+}
