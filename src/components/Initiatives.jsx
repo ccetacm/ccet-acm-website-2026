@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Player } from "@lottiefiles/react-lottie-player";
 import "./Initiatives.css";
@@ -8,31 +7,37 @@ const Gallery = () => {
     {
       anim: "/animations/career.json",
       title: "International Research & Sponsored Projects",
+      desc: "Cross-border collaboration and funding in fostering innovation and Research.",
       link: "#research",
     },
     {
       anim: "/animations/Code typing concept.json",
       title: "Code For Cause",
+      desc: "Code for Cause unites tech and NGOs to tackle social issues.",
       link: "#code-for-cause",
     },
     {
       anim: "/animations/Coding.json",
       title: "Talk with Techies",
+      desc: "Engaging conversations with tech experts to inspire and inform.",
       link: "#talk-with-techies",
     },
     {
       anim: "/animations/Man and robot with computers sitting together in workplace.json",
       title: "Code for Technology",
+      desc: "Code for Technology empowers coding for leading tech giants.",
       link: "#code-for-technology",
     },
     {
       anim: "/animations/coding for cause.json",
       title: "Career Pathways",
+      desc: "Exploring pathways to internships and career opportunities.",
       link: "#career-pathways",
     },
     {
       anim: "/animations/Online Teaching.json",
       title: "Healthy Byte",
+      desc: "Empowering you with essential skills for a healthier tomorrow.",
       link: "#healthy-byte",
     },
   ];
@@ -46,11 +51,11 @@ const Gallery = () => {
             <div className="card-animation">
               <Player autoplay loop src={card.anim} />
             </div>
-            <div className="card-title">
-              <a href={card.link} className="card-link">
-                {card.title}
-              </a>
-            </div>
+            <div className="card-title">{card.title}</div>
+            <p className="card-desc">{card.desc}</p>
+            <a href={card.link} className="learn-more-btn">
+              Learn More
+            </a>
           </div>
         ))}
       </div>
