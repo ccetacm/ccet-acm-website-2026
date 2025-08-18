@@ -1,34 +1,107 @@
-"use client";
 
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
+import "./Mentors.css";
 
 const mentorsData = [
   {
     name: "Dr. Manpreet Singh",
     title: "Principal CCET Degree Wing",
     imgSrc: "/mentors/mentor1.png",
+    additionalImg: "",
     about: "Expert in Academic Leadership and Institutional Development.",
     skills: ["Administration", "Policy Making", "Faculty Development"],
     education: [],
     publications: {},
     phdTeam: [],
     btechTeam: [],
+     social: {
+      email: "mailto:principal@ccet.ac.in",
+      
+      
+    }
   },
   {
     name: "Dr. Sunil K. Singh",
     title: "Professor and HOD, CSE Faculty",
     imgSrc: "/mentors/mentor-2.png",
+    additionalImg: "/mentors/sks-additional.png",
     about: "Passionate about teaching and research in computer science.",
-    skills: ["AI", "Cybersecurity", "IoT"],
-    education: [],
-    publications: {},
+    skills: [
+      "High Performance Computing",
+     "Linux/Unix", 
+     "NLP", 
+     "Internet of Things", 
+     "Machine Learning",
+     "Cyber Security",
+     "Computer Architecture & Organization",
+     "Computer Networks"
+    ],
+    education: [
+      {
+        degree: "Ph.D. in Computer Science",
+        institution: "Uttrakhand Technical University, Dehradun",
+        date: "2013",
+        
+      },
+      {
+        degree: "M.Tech in Computer Science",
+        institution: "Delhi Technological University (Formerly DCE), Delhi",
+        date: "2005",
+        
+      },
+      {
+        degree: "B.Tech in Computer Science",
+        institution: "Madan Mohan Malaviya University of Technology ( Formerly MMMEC), Gorakhpur (U.P.)",
+        date: "2001",
+        
+      }
+      
+    ],
+
+   publications: {
+
+},
     phdTeam: [],
     btechTeam: [],
+
+     social: {
+      email: "mailto:sksingh@ccet.ac.in",
+      linkedin: "https://in.linkedin.com/in/drsks",        // sample
+                              
+      scholar: "https://scholar.google.com/citations?user=EDpdqjwAAAAJ&hl=en",
+      orcid: "https://orcid.org/0000-0003-4876-7190"                  // optional
+    },
+
+    achievements: [
+      {
+        title: "IEEE Professional Member",
+        organization: "IEEE",
+        year: "2021–present",
+        description: "Active member, Consumer Technology Society."
+      },
+      {
+        title: "ACM Professional Member",
+        organization: "ACM",
+        year: "2014–present",
+        description: "Contributions to computing research and education."
+      },
+
+      {
+        title: "Institution of Engineers of India (IEI), Member",
+        organization: "Institution of Engineers of India (IEI), Kolkata",
+        year: "2011–present",
+        description: "Active member"
+      },
+    ]
+    
+
   },
+  
   {
     name: "Dr. Sudhakar Kumar",
     title: "Assistant Professor, CSE Faculty",
     imgSrc: "/mentors/mentor3.png",
+    additionalImg: "/mentors/sudhakar-additional.png",
     about:
       "Dr. Sudhakar Kumar is a leading researcher in artificial intelligence, machine learning, and computational intelligence with over 10 years of academic experience. His work spans across scalable architectures, optimization techniques, and the application of AI in cybersecurity.",
     skills: [
@@ -62,32 +135,29 @@ const mentorsData = [
     ],
     publications: {
       2025: [
-        {
-          title:
-            "Leveraging Dynamic Embeddings and Reinforcement Learning with Bayesian Networks for Ransomware Resiliences",
-          authors:
-            " Sudhakar Kumar , Sunil K. Singh , Saket Sarin , Chandra Kumari Subba , Varsha Arya , N. Nandhini , Brij B. Gupta , Kwok Tai Chui ",
-          journal: "Cyber Security and Applications",
-          doi: "10.1016/j.csa.2025.100095",
-          type: "Article",
-          impact: "High Impact",
-        },
+       {
+  title:
+    "Leveraging Dynamic Embeddings and Reinforcement Learning with Bayesian Networks for Ransomware Resiliences",
+  authors:
+    " Sudhakar Kumar , Sunil K. Singh , Saket Sarin , Chandra Kumari Subba , Varsha Arya , N. Nandhini , Brij B. Gupta , Kwok Tai Chui ",
+  journal: "Cyber Security and Applications",
+  doi: "10.1016/j.csa.2025.100095",
+  type: "Article",
+  impact: "High Impact",
+},
 
         {
           title:
             "Advancements in secure quantum communication and robust key distribution techniques for cybersecurity applications",
-          authors:
-            "Sunil K. Singh, Sudhakar Kumar, Anureet Chhabra, Akash Sharma, Varsha Arya, M. Srinivasan, Brij B. Gupta",
+          authors:"Sunil K. Singh, Sudhakar Kumar, Anureet Chhabra, Akash Sharma, Varsha Arya, M. Srinivasan, Brij B. Gupta",
           journal: "Cyber Security and Applications",
           doi: "10.1016/j.csa.2025.100089",
           type: "Article",
           impact: "High Impact",
         },
         {
-          title:
-            "Advanced Techniques and Best Practices for Phishing Detection",
-          authors:
-            "Ravina Mittal, Sunil K. Singh, Sudhakar Kumar, Trannum Khullar, Rakesh Kumar, Brij B. Gupta, Konstantinos Psannis",
+          title: "Advanced Techniques and Best Practices for Phishing Detection",
+          authors: "Ravina Mittal, Sunil K. Singh, Sudhakar Kumar, Trannum Khullar, Rakesh Kumar, Brij B. Gupta, Konstantinos Psannis",
           journal: "IGI Global",
           doi: "10.4018/979-8-3693-8784-9.ch008",
           type: "Book Chapter",
@@ -95,28 +165,23 @@ const mentorsData = [
         },
         {
           title: "Advanced Tools and Technologies for Phishing Prevention",
-          authors:
-            "Kashish Preet Kaur, Sunil K. Singh, Sudhakar Kumar, Ishita Mehra, Shavi Bansal, Kwok Tai Chui, Vandana Sharma, Sunil Kumar Sharma",
+          authors: "Kashish Preet Kaur, Sunil K. Singh, Sudhakar Kumar, Ishita Mehra, Shavi Bansal, Kwok Tai Chui, Vandana Sharma, Sunil Kumar Sharma",
           journal: "IGI Global",
           doi: "10.4018/979-8-3693-8784-9.ch009",
           type: "Book Chapter",
           impact: "Medium Impact",
         },
         {
-          title:
-            "AI-Driven Green Computing for Sustainable Information Security",
-          authors:
-            "Rajneesh Kumar, Sudhakar Kumar, Sunil K. Singh, Yash Rawat, Chunjia Han, Brij B. Gupta, Nadia Nedjah, Archit Jain",
+          title: "AI-Driven Green Computing for Sustainable Information Security",
+          authors: "Rajneesh Kumar, Sudhakar Kumar, Sunil K. Singh, Yash Rawat, Chunjia Han, Brij B. Gupta, Nadia Nedjah, Archit Jain",
           journal: "IGI Global",
           doi: "10.4018/979-8-3693-8034-5.ch005",
           type: "Book Chapter",
           impact: "Medium Impact",
         },
         {
-          title:
-            "Challenges and Opportunities in Sustainable AI and Information Systems",
-          authors:
-            "Vanshika Singla, Sunil K. Singh, Sudhakar Kumar, Amit Chhabra, Shabeg Singh Gill, Varsha Arya, Archit Jain",
+          title: "Challenges and Opportunities in Sustainable AI and Information Systems",
+          authors: "Vanshika Singla, Sunil K. Singh, Sudhakar Kumar, Amit Chhabra, Shabeg Singh Gill, Varsha Arya, Archit Jain",
           journal: "IGI Global",
           doi: "10.4018/979-8-3693-8034-5.ch004",
           type: "Book Chapter",
@@ -124,8 +189,7 @@ const mentorsData = [
         },
         {
           title: "Foundations of Phishing Defense",
-          authors:
-            "Raj Kanwar, Sumit Bawa, Sunil K. Singh, Sudhakar Kumar, Chandra Kumari Subba, Varsha Arya, Abhay Ratnaparkhi",
+          authors: "Raj Kanwar, Sumit Bawa, Sunil K. Singh, Sudhakar Kumar, Chandra Kumari Subba, Varsha Arya, Abhay Ratnaparkhi",
           journal: "IGI Global",
           doi: "10.4018/979-8-3693-8784-9.ch001",
           type: "Book Chapter",
@@ -133,8 +197,7 @@ const mentorsData = [
         },
         {
           title: "Future Trends in AI-Driven Green Computing and Security",
-          authors:
-            "Avinash Mishra, Sudhakar Kumar, Sunil K. Singh, Deepak Bhattarai, Amit Chhabra, Shabeg Singh Gill, Varsha Arya, Archit Jain",
+          authors: "Avinash Mishra, Sudhakar Kumar, Sunil K. Singh, Deepak Bhattarai, Amit Chhabra, Shabeg Singh Gill, Varsha Arya, Archit Jain",
           journal: "IGI Global",
           doi: "10.4018/979-8-3693-8034-5.ch003",
           type: "Book Chapter",
@@ -142,18 +205,15 @@ const mentorsData = [
         },
         {
           title: "Legal and Ethical Considerations in Phishing Defense",
-          authors:
-            "Janvi Sharma, Suni K. Singh, Sudhakar Kumar, Anish Sharma, Chandra Kumari Subba, Varsha Arya, Achin Jain, Arun Kumar Dubey",
+          authors: "Janvi Sharma, Suni K. Singh, Sudhakar Kumar, Anish Sharma, Chandra Kumari Subba, Varsha Arya, Achin Jain, Arun Kumar Dubey",
           journal: "IGI Global",
           doi: "10.4018/979-8-3693-8034-5.ch020",
           type: "Book Chapter",
           impact: "Medium Impact",
         },
         {
-          title:
-            "Leveraging Artificial Intelligence for Cyber Defense in Space Missions",
-          authors:
-            "Japjot Singh Nanda, Sunil K. Singh, Sudhakar Kumar, Dikshant Rajput, Chunjia Han, Brij B. Gupta, Nadia Nedjah",
+          title: "Leveraging Artificial Intelligence for Cyber Defense in Space Missions",
+          authors: "Japjot Singh Nanda, Sunil K. Singh, Sudhakar Kumar, Dikshant Rajput, Chunjia Han, Brij B. Gupta, Nadia Nedjah",
           journal: "IGI Global",
           doi: "10.4018/979-8-3693-7939-4.ch006",
           type: "Book Chapter",
@@ -161,28 +221,23 @@ const mentorsData = [
         },
         {
           title: "Phishing Prevention Solutions and Mechanisms",
-          authors:
-            "Abhavya Muku, Sunil K. Singh, Sudhakar Kumar, Ankita Sharma, Pooja Rai, Biraj Upadhyaya, Sunil Kumar Sharma, Vandana Sharma",
+          authors: "Abhavya Muku, Sunil K. Singh, Sudhakar Kumar, Ankita Sharma, Pooja Rai, Biraj Upadhyaya, Sunil Kumar Sharma, Vandana Sharma",
           journal: "IGI Global",
           doi: "10.4018/979-8-3693-8784-9.ch003",
           type: "Book Chapter",
           impact: "Medium Impact",
         },
         {
-          title:
-            "Reducing the Carbon Footprint in Machine Learning With Eco-Friendly AI Training",
-          authors:
-            "Tanish Aggarwal, Sudhakar Kumar, Sunil K. Singh, Chandra Kumari Subba, Biraj Upadhyaya, Varsha Arya, Abhay Ratnaparkhi, Sunil Kumar Sharma",
+          title: "Reducing the Carbon Footprint in Machine Learning With Eco-Friendly AI Training",
+          authors: "Tanish Aggarwal, Sudhakar Kumar, Sunil K. Singh, Chandra Kumari Subba, Biraj Upadhyaya, Varsha Arya, Abhay Ratnaparkhi, Sunil Kumar Sharma",
           journal: "IGI Global",
           doi: "10.4018/979-8-3693-8034-5.ch010",
           type: "Book Chapter",
           impact: "Medium Impact",
         },
         {
-          title:
-            "Resilient and Trusted Communication Frameworks for Space Missions",
-          authors:
-            "Shaurya Katna, Sudhakar Kumar, Sunil K. Singh, Abhishek Goyal, Animesh Singh, Lalit Kumar Vashishtha",
+          title: "Resilient and Trusted Communication Frameworks for Space Missions",
+          authors: "Shaurya Katna, Sudhakar Kumar, Sunil K. Singh, Abhishek Goyal, Animesh Singh, Lalit Kumar Vashishtha",
           journal: "IGI Global",
           doi: "10.4018/979-8-3693-7939-4.ch007",
           type: "Book Chapter",
@@ -190,8 +245,7 @@ const mentorsData = [
         },
         {
           title: "Robust and Secure Communication Protocols for Space Missions",
-          authors:
-            "Harmanjot Singh, Sudhakar Kumar, Sunil K. Singh, Anoop Pant, Chandra Kumari Subba, Brij B. Gupta, Konstantinos Psannis",
+          authors: "Harmanjot Singh, Sudhakar Kumar, Sunil K. Singh, Anoop Pant, Chandra Kumari Subba, Brij B. Gupta, Konstantinos Psannis",
           journal: "IGI Global",
           doi: "10.4018/979-8-3693-7939-4.ch008",
           type: "Book Chapter",
@@ -199,18 +253,15 @@ const mentorsData = [
         },
         {
           title: "Securing Cyber-Physical Systems in Space Missions",
-          authors:
-            "Anubhav Singh, Sunil K. Singh, Sudhakar Kumar, Sumit Kumar, Shavi Bansal, Lalit Kumar Vashishtha, Arun Kumar Dubey, Achin Jain",
+          authors: "Anubhav Singh, Sunil K. Singh, Sudhakar Kumar, Sumit Kumar, Shavi Bansal, Lalit Kumar Vashishtha, Arun Kumar Dubey, Achin Jain",
           journal: "IGI Global",
           doi: "10.4018/979-8-3693-7939-4.ch005",
           type: "Book Chapter",
           impact: "Medium Impact",
         },
         {
-          title:
-            "The Influence of AI on Social Interactions and Community Dynamics",
-          authors:
-            "Jasjeet Singh, Sunil K. Singh, Sudhakar Kumar, Samar Pratap Singh, Rakesh Kumar, Shavi Bansal, Kwok Tai Chui",
+          title: "The Influence of AI on Social Interactions and Community Dynamics",
+          authors: "Jasjeet Singh, Sunil K. Singh, Sudhakar Kumar, Samar Pratap Singh, Rakesh Kumar, Shavi Bansal, Kwok Tai Chui",
           journal: "IGI Global",
           doi: "10.4018/979-8-3693-8628-6.ch010",
           type: "Book Chapter",
@@ -219,8 +270,7 @@ const mentorsData = [
         {
           title:
             "Transforming User Experience in the Metaverse Through Emotional Intelligence and Affective Computing",
-          authors:
-            "Manvi Saini, Sudhakar Kumar, Sunil K. Singh, Aditi Bansal, Chunjia Han, Brij B. Gupta, Konstantinos Psannis",
+          authors: "Manvi Saini, Sudhakar Kumar, Sunil K. Singh, Aditi Bansal, Chunjia Han, Brij B. Gupta, Konstantinos Psannis",
           journal: "IGI Global",
           doi: "10.4018/979-8-3693-8628-6.ch015",
           type: "Book Chapter",
@@ -228,8 +278,7 @@ const mentorsData = [
         },
         {
           title: "Understanding Cyber Threats in Modern Space Missions",
-          authors:
-            "Anoop Pant, Sudhakar Kumar, Sunil K. Singh, Harmanjot Singh, Chandra Kumari Subba, Shavi Bansal, Kwok Tai Chui",
+          authors: "Anoop Pant, Sudhakar Kumar, Sunil K. Singh, Harmanjot Singh, Chandra Kumari Subba, Shavi Bansal, Kwok Tai Chui",
           journal: "IGI Global",
           doi: "10.4018/979-8-3693-7939-4.ch002",
           type: "Book Chapter",
@@ -237,8 +286,7 @@ const mentorsData = [
         },
         {
           title: "Virtual Economies and Social Structures in the Metaverse",
-          authors:
-            "Jaiveer Singh, Sudhakar Kumar, Sunil K. Singh, Deependra Singh, Animesh Singh, Varsha Arya, Abhay Ratnaparkhi",
+          authors: "Jaiveer Singh, Sudhakar Kumar, Sunil K. Singh, Deependra Singh, Animesh Singh, Varsha Arya, Abhay Ratnaparkhi",
           journal: "IGI Global",
           doi: "10.4018/979-8-3693-8628-6.ch006",
           type: "Book Chapter",
@@ -246,8 +294,7 @@ const mentorsData = [
         },
         {
           title: "Virtual Identity and Self-Expression in the Metaverse",
-          authors:
-            "Aditi Sharma, Sudhakar Kumar, Sunil K. Singh, Shashi Jawla, Varsha Arya, Kwok Tai Chui",
+          authors: "Aditi Sharma, Sudhakar Kumar, Sunil K. Singh, Shashi Jawla, Varsha Arya, Kwok Tai Chui",
           journal: "IGI Global",
           doi: "10.4018/979-8-3693-8628-6.ch005",
           type: "Book Chapter",
@@ -255,28 +302,23 @@ const mentorsData = [
         },
         {
           title: "Communication Systems for Drone Swarms and Remote Operations",
-          authors:
-            "Shaurya Katna, Sunil K. Singh, Sudhakar Kumar, Divyansh Manro, Amit Chhabra, Sunil Kumar Sharma",
+          authors: "Shaurya Katna, Sunil K. Singh, Sudhakar Kumar, Divyansh Manro, Amit Chhabra, Sunil Kumar Sharma",
           journal: "IGI Global",
           doi: "10.4018/979-8-3693-2707-4.ch006",
           type: "Book Chapter",
           impact: "Medium Impact",
         },
         {
-          title:
-            "Drones and Unmanned Aerial Vehicles Automation Using Reinforcement Learning",
-          authors:
-            "Jaskirat Kaur, Sudhakar Kumar, Sunil K. Singh, Ruchika Thakur, Shavi Bansal, Varsha Arya",
+          title: "Drones and Unmanned Aerial Vehicles Automation Using Reinforcement Learning",
+          authors: "Jaskirat Kaur, Sudhakar Kumar, Sunil K. Singh, Ruchika Thakur, Shavi Bansal, Varsha Arya",
           journal: "IGI Global",
           doi: "10.4018/979-8-3693-2707-4.ch011",
           type: "Book Chapter",
           impact: "Medium Impact",
         },
         {
-          title:
-            "Enhancing Autonomous System Security With AI and Secure Computation Technologies",
-          authors:
-            "Tushar Singh, Sudhakar Kumar, Sunil K. Singh, Priyanshu, Brij B. Gupta, Jinsong Wu, Arcangelo Castiglione",
+          title: "Enhancing Autonomous System Security With AI and Secure Computation Technologies",
+          authors: "Tushar Singh, Sudhakar Kumar, Sunil K. Singh, Priyanshu, Brij B. Gupta, Jinsong Wu, Arcangelo Castiglione",
           journal: "IGI Global",
           doi: "10.4018/979-8-3693-2707-4.ch008",
           type: "Book Chapter",
@@ -285,8 +327,7 @@ const mentorsData = [
         {
           title:
             "Multi-Modal Sensor Fusion With CRNNs for Robust Object Detection and Simultaneous Localization and Mapping (SLAM) in Agile Industrial Drones",
-          authors:
-            "Ujjwal Thakur, Sunil K. Singh, Sudhakar Kumar, Anubhav Singh, Varsha Arya, Kwok Tai Chui",
+          authors: "Ujjwal Thakur, Sunil K. Singh, Sudhakar Kumar, Anubhav Singh, Varsha Arya, Kwok Tai Chui",
           journal: "IGI Global",
           doi: "10.4018/979-8-3693-2707-4.ch012",
           type: "Book Chapter",
@@ -295,67 +336,54 @@ const mentorsData = [
         {
           title:
             "Enhancing smart grid reliability through cross-domain optimization of IoT sensor placement and communication links",
-          authors:
-            "Saket Sarin, Sunil K. Singh, Sudhakar Kumar, Shivam Goyal, Brij B. Gupta, Varsha Arya, Razaz Waheeb Attar, Shavi Bansal, Ahmed Alhomoud",
+          authors: "Saket Sarin, Sunil K. Singh, Sudhakar Kumar, Shivam Goyal, Brij B. Gupta, Varsha Arya, Razaz Waheeb Attar, Shavi Bansal, Ahmed Alhomoud",
           journal: "Telecommunication Systems",
           doi: "10.1007/s11235-024-01235-1",
           type: "Article",
           impact: "High Impact",
         },
         {
-          title:
-            "Variance-driven security optimisation in industrial IoT sensors",
-          authors:
-            "Hardik Gupta, Sunil K. Singh, Sudhakar Kumar, Karan Sharma, Hardeep Saini, Brij B. Gupta, Varsha Arya, Kwok Tai Chui",
+          title: "Variance-driven security optimisation in industrial IoT sensors",
+          authors: "Hardik Gupta, Sunil K. Singh, Sudhakar Kumar, Karan Sharma, Hardeep Saini, Brij B. Gupta, Varsha Arya, Kwok Tai Chui",
           journal: "IET Networks",
           doi: "10.1049/ntw2.12139",
           type: "Article",
           impact: "High Impact",
         },
         {
-          title:
-            "AN IoT Based Smart Healthcare Gadget: Attempt to Promote the Idea of Smart Healthcare System",
-          authors:
-            "Aishita Sharma, Sunil K. Singh, Soumya Sharma, Sunil Kumar, Kartik Dalal & Anureet Chhabra ",
+          title: "AN IoT Based Smart Healthcare Gadget: Attempt to Promote the Idea of Smart Healthcare System",
+          authors: "Aishita Sharma, Sunil K. Singh, Soumya Sharma, Sunil Kumar, Kartik Dalal & Anureet Chhabra ",
           journal: "Advances in Intelligent Systems and Computing",
           doi: "10.1007/978-3-031-40905-9_11",
           type: "Article",
           impact: "Medium Impact",
         },
         {
-          title:
-            "Application of Green IoT in Digital Oilfields for Achieving Sustainability in the OnG Industry",
-          authors:
-            "Soumya Sharma, Sunil K. Singh, Sudhakar Kumar, Krish Kathuria, Tarun Vats",
+          title: "Application of Green IoT in Digital Oilfields for Achieving Sustainability in the OnG Industry",
+          authors: "Soumya Sharma, Sunil K. Singh, Sudhakar Kumar, Krish Kathuria, Tarun Vats",
           journal: "Springer",
           doi: "10.1007/978-3-031-40905-9_13",
           type: "Book Chapter",
           impact: "Medium Impact",
         },
         {
-          title:
-            "Automatic parallelization for multicore architectures: Role, importance, and opportunities",
-          authors:
-            "Sudhakar Kumar, Sunil K. Singh, Naveen Aggarwal, Shabeg Singh Gill",
-          journal:
-            "Uncertainty in Computational Intelligence-Based Decision Making",
+          title: "Automatic parallelization for multicore architectures: Role, importance, and opportunities",
+          authors: "Sudhakar Kumar, Sunil K. Singh, Naveen Aggarwal, Shabeg Singh Gill",
+          journal: "Uncertainty in Computational Intelligence-Based Decision Making",
           doi: "10.1016/b978-0-443-21475-2.00006-0",
           type: "Book Chapter",
           impact: "Medium Impact",
         },
         {
-          title:
-            "Blockchain Based Election System Using Fingerprint Recognition",
-          authors:
-            "Uday Madan, Sunil K. Singh, Sudhakar Kumar, Mehak Preet, Akash Sharma, Himanshu Setia",
+          title: "Blockchain Based Election System Using Fingerprint Recognition",
+          authors: "Uday Madan, Sunil K. Singh, Sudhakar Kumar, Mehak Preet, Akash Sharma, Himanshu Setia",
           journal: "Springer",
           doi: "10.1007/978-3-031-40905-9_6",
           type: "Book Chapter",
           impact: "Medium Impact",
         },
         {
-          title:
-            "Computational intelligence in decision support: Scope and techniques",
+          title: "Computational intelligence in decision support: Scope and techniques",
           authors: "Sudhakar Kumar, Sunil K. Singh, Leema Nelson",
           journal: "Elsevier",
           doi: "10.1016/B978-0-443-21475-2.00019-9",
@@ -365,10 +393,8 @@ const mentorsData = [
         {
           title:
             "Enhancing DDoS Attack Detection in SDN with a Stacked Model Framework Utilizing Deep Neural Networks",
-          authors:
-            "Aishita Sharma, Sunil K. Singh, Sudhakar Kumar, Shin Hung Pan, Brij B. Gupta, Kwok Tai Chui",
-          journal:
-            "IEEE International Conference on Consumer Electronics (ICCE)",
+          authors: "Aishita Sharma, Sunil K. Singh, Sudhakar Kumar, Shin Hung Pan, Brij B. Gupta, Kwok Tai Chui",
+          journal: "IEEE International Conference on Consumer Electronics (ICCE)",
           doi: "10.1109/ICCE63647.2025.10929828",
           type: "Conference Paper",
           impact: "Medium Impact",
@@ -376,8 +402,7 @@ const mentorsData = [
         {
           title:
             "Geospectra: leveraging quantum-SAR and deep learning for enhanced geolocation in urban environments",
-          authors:
-            "Saket Sarin, Sunil K. Singh, Sudhakar Kumar & Shivam Goyal ",
+          authors: "Saket Sarin, Sunil K. Singh, Sudhakar Kumar & Shivam Goyal ",
           journal: "The Journal of Supercomputing",
           doi: "10.1007/s11227-024-06619-3",
           type: "Article",
@@ -386,8 +411,7 @@ const mentorsData = [
         {
           title:
             "Neoteric Threat Intelligence Ensuring Digital Sovereignty and Trust through ML-Infused Proactive Defense Analytics for NEXT-G and Beyond Ecosystems",
-          authors:
-            "Sudhakar Kumar, Sunil K. Singh, Rakesh Kumar, Chandra Kumari Subba, Kwok Tai Chui, Brij B. Gupta",
+          authors: "Sudhakar Kumar, Sunil K. Singh, Rakesh Kumar, Chandra Kumari Subba, Kwok Tai Chui, Brij B. Gupta",
           journal: "Procedia Computer Science",
           doi: "10.1016/j.procs.2025.02.062",
           type: "Conference Paper",
@@ -396,8 +420,7 @@ const mentorsData = [
         {
           title:
             "Neural Network Architectures for Machine Translation: Enhancing Quality Education Through Improved Access to Multilingual Resources",
-          authors:
-            "Ayushi, Sudhakar Kumar, Sunil K. Singh, Samar Pratap Singh, Pooja Rai, Kwok Tai Chui, Brij B. Gupta",
+          authors: "Ayushi, Sudhakar Kumar, Sunil K. Singh, Samar Pratap Singh, Pooja Rai, Kwok Tai Chui, Brij B. Gupta",
           journal: "Springer",
           doi: "10.1007/978-3-031-88039-1_18",
           type: "Book Chapter",
@@ -407,8 +430,7 @@ const mentorsData = [
           title:
             "Secure and cost-effective key management scheme for the Internet of Things-supported WSN",
           authors: "Rakesh Kumar, Sunil K. Singh, D.K. Lobiyal, Sudhakar Kumar",
-          journal:
-            "Uncertainty in Computational Intelligence-Based Decision Making",
+          journal: "Uncertainty in Computational Intelligence-Based Decision Making",
           doi: "10.1016/b978-0-443-21475-2.00012-6",
           type: "Book Chapter",
           impact: "Medium Impact",
@@ -416,10 +438,8 @@ const mentorsData = [
         {
           title:
             "Security Enhancement in Consumer Enterprises Using Neural Nets Within the SIEM Framework",
-          authors:
-            "Saksham Arora, Sudhakar Kumar, Sunil K. Singh, Sahil Garg, Brij B. Gupta, Shavi Bansal, Kwok Tai Chui",
-          journal:
-            "IEEE International Conference on Consumer Electronics (ICCE)",
+          authors: "Saksham Arora, Sudhakar Kumar, Sunil K. Singh, Sahil Garg, Brij B. Gupta, Shavi Bansal, Kwok Tai Chui",
+          journal: "IEEE International Conference on Consumer Electronics (ICCE)",
           doi: "10.1109/ICCE63647.2025.10930094",
           type: "Conference Paper",
           impact: "Medium Impact",
@@ -431,8 +451,7 @@ const mentorsData = [
           title:
             "Advanced Evaluation of Propagation Models and Routing Protocols in Vehicular Ad-Hoc Networks",
           authors: "Kumar, S. et al.",
-          journal:
-            "2024 IEEE Cyber Science and Technology Congress (CyberSciTech)",
+          journal: "2024 IEEE Cyber Science and Technology Congress (CyberSciTech)",
           doi: "10.1109/cyberscitech64112202400070",
           type: "Conference Paper",
           impact: "Medium Impact",
@@ -447,8 +466,7 @@ const mentorsData = [
           impact: "Medium Impact",
         },
         {
-          title:
-            "Applying Visual Cryptography to Decrypt Data Using Human Senses",
+          title: "Applying Visual Cryptography to Decrypt Data Using Human Senses",
           authors: "Kumar, S. et al.",
           journal: "IGI Global",
           doi: "10.4018/979-8-3693-5330-1.ch016",
@@ -529,8 +547,7 @@ const mentorsData = [
           title:
             "Revolutionizing Healthcare Systems: Synergistic Multimodal Ensemble Learning & Knowledge Transfer for Lung Cancer Delineation & Taxonomy",
           authors: "Kumar, S. et al.",
-          journal:
-            "2024 IEEE International Conference on Consumer Electronics (ICCE)",
+          journal: "2024 IEEE International Conference on Consumer Electronics (ICCE)",
           doi: "10.1109/icce59016.2024.10444476",
           type: "Conference Paper",
           impact: "Medium Impact",
@@ -539,8 +556,7 @@ const mentorsData = [
           title:
             "Towards Sustainable Consumer Electronics: DL-based SoH and RUL Prediction for E-Waste Reduction",
           authors: "Kumar, S. et al.",
-          journal:
-            "2024 IEEE International Conference on Consumer Electronics (ICCE)",
+          journal: "2024 IEEE International Conference on Consumer Electronics (ICCE)",
           doi: "10.1109/icce59016.2024.10444466",
           type: "Conference Paper",
           impact: "Medium Impact",
@@ -555,7 +571,8 @@ const mentorsData = [
           impact: "Medium Impact",
         },
         {
-          title: "IoT-enabled smart farming with Industry 5.0",
+          title:
+            "IoT-enabled smart farming with Industry 5.0",
           authors: "Kumar, S. et al.",
           journal: "Journal of High Speed Networks",
           doi: "10.3233/JHS-230258",
@@ -610,8 +627,7 @@ const mentorsData = [
       ],
       2023: [
         {
-          title:
-            "Enhancing Haemorrhage Detection in Head CT Scans Using Deep Learning",
+          title: "Enhancing Haemorrhage Detection in Head CT Scans Using Deep Learning",
           authors: "Kumar, S. et al.",
           journal:
             "2023 3rd International Conference on Smart Generation Computing, Communication and Networking (SMART GENCON)",
@@ -620,8 +636,7 @@ const mentorsData = [
           impact: "Medium Impact",
         },
         {
-          title:
-            "A novel hybrid model integrating MFCC and acoustic parameters for voice disorder detection",
+          title: "A novel hybrid model integrating MFCC and acoustic parameters for voice disorder detection",
           authors: "Kumar, S. et al.",
           journal: "Scientific Reports",
           doi: "10.1038/s41598-023-49869-6",
@@ -632,15 +647,13 @@ const mentorsData = [
           title:
             "A Novel Deep Federated Learning-Based Model to Enhance Privacy in Critical Infrastructure Systems",
           authors: "Kumar, S. et al.",
-          journal:
-            "International Journal of Software Science and Computational Intelligence",
+          journal: "International Journal of Software Science and Computational Intelligence",
           doi: "10.4018/ijssci.334711",
           type: "Article",
           impact: "High Impact",
         },
         {
-          title:
-            "Exploring Advanced Neural Networks For Cross-Corpus Fake News Detection",
+          title: "Exploring Advanced Neural Networks For Cross-Corpus Fake News Detection",
           authors: "Kumar, S. et al.",
           journal: "ACM Conference",
           doi: "10.1145/3647444.3652457",
@@ -666,8 +679,7 @@ const mentorsData = [
           impact: "Medium Impact",
         },
         {
-          title:
-            "Fuzzy Based Clustering of Consumers Big Data in Industrial Applications",
+          title: "Fuzzy Based Clustering of Consumers Big Data in Industrial Applications",
           authors: "Kumar, S. et al.",
           journal: "IEEE ICCE",
           doi: "10.1109/ICCE56470.2023.10043451",
@@ -702,20 +714,25 @@ const mentorsData = [
       { name: "Sahil Garg", img: "/mentors/team3.png" },
       { name: "Japjot Singh Nanda", img: "/mentors/team4.png" },
     ],
-  },
-];
 
-const achievements = [
+     social: {
+      email: "mailto:sudhakar@ccet.ac.in",
+      linkedin: "https://in.linkedin.com/in/sudhakarkumar5",        // sample
+      twitter: "",
+      scholar: "https://scholar.google.co.in/citations?user=vsLPXb4AAAAJ&hl=en",
+      orcid: "https://orcid.org/0000-0001-7928-4234"                  // optional
+    },
+
+    achievements: [
+  
   {
-    title:
-      "IEEE Professional Member (Computer Science and Engineering) Membership",
+    title: "IEEE Professional Member (Computer Science and Engineering) Membership",
     organization: "IEEE: New York, NY, US",
     year: "2020 to present",
     description: "",
   },
   {
-    title:
-      "IEEE Consumer Technology Society Membership (Computer Science and Engineering)",
+    title: "IEEE Consumer Technology Society Membership (Computer Science and Engineering)",
     organization: "IEEE: New York, NY, US",
     year: "2020 to present",
     description: "",
@@ -726,675 +743,15 @@ const achievements = [
     year: "2016 to present",
     description: "",
   },
+ 
+]
+  },
 ];
 
+
+
 // Scoped styles for Mentors component only - no global body override
-const styles = `
-.mentors-section {
-  background: caf0f8;
-  background-attachment: fixed;
-  padding: 3rem 2dvw;
-  font-family: 'Segoe UI', sans-serif;
-  margin: 200px;
-  margin-left: 0;
-  color: #222c3d;
-  min-height: 100vh;
-  width: 100%;
-}
 
-.mentors-section h1 {
-  text-align: center;
-  color: #274472;
-  margin-bottom: 2rem;
-  font-weight: 700;
-  font-size: 2.5em;
-  letter-spacing: 0.06em;
-}
-
-.mentors-section .card__container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2.5rem;
-  justify-content: center;
-  padding: 2rem 0;
-}
-
-.mentors-section .card {
-  background-color: white;
-  border: 8px solid transparent;
-  border-radius: 12px;
-  box-shadow: 0 0 24px 0 #4169bb;
-  opacity: 0.85;
-  transition: all 0.3s ease;
-  width: 320px;  /* wider card */
-  height: 420px; /* taller card */
-  position: relative;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 25px 20px;
-  box-sizing: border-box;
-  overflow: hidden;
-}
-
-.mentors-section .card img {
-  border-radius: 50%;
-  width: 180px;
-  height: 180px;
-  object-fit: cover;
-  margin-bottom: 20px;
-  box-shadow: 0 4px 12px rgba(68, 105, 166, 0.4);
-  flex-shrink: 0;
-}
-
-.mentors-section .card:hover {
-  opacity: 1;
-  border-color: #4a90e2;
-  box-shadow: 0 0 100px #3a67a5;
-  transform: scale(1.05);
-  z-index: 2;
-}
-
-.mentors-section .card__content {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 1rem 1.2rem;
-  background:#ade8f4;   //ye hai
-  color: #f0f5ff;
-  border-radius: 0 0 12px 12px;
-  text-align: center;
-  font-weight: 600;
-  box-sizing: border-box;
-}
-
-.mentors-section .card__content h2 {
-  margin: 0 0 6px 0;
-  font-size: 1.3rem;
-  text-shadow: 0 1px 5px rgba(0, 52, 102, 0.7);
-  line-height: 1.3;
-}
-
-.mentors-section .card__content p {
-  margin: 0;
-  font-size: 1rem;
-  opacity: 0.95;
-  line-height: 1.4;
-}
-#profileCard {
-  display: none;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 999;
-  width: 90vw;
-  height: 84vh;
-  background: white; /* White background */
-  color: #003366; /* Base blue text color */
-  border-radius: 12px;
-  padding: 30px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  overflow: auto;
-  display: flex;
-  gap: 30px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-.profile {
-  width: 250px;
-  flex-shrink: 0;
-  text-align: center;
-}
-
-.profile img {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  border: 3px solid #3399ff;
-  object-fit: cover;
-  margin-bottom: 10px;
-}
-
-.profile h2 {
-  font-size: 22px;
-  font-weight: 700;
-  color: #0059b3; /* Darker blue */
-}
-
-.profile .title {
-  font-size: 16px;
-  color: #3399ff; /* Lighter blue */
-}
-
-.profile p {
-  font-size: 14px;
-  color: #336699;
-}
-
-.social-icons {
-  margin-top: 15px;
-  margin-bottom:8px;
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-}
-
-.social-icons i {
-  font-size: 18px;
-  color: #0059b3;
-  cursor: pointer;
-}
-
-.info {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  overflow-y: auto;
-}
-
-.info h3 {
-  font-size: 18px;
-  color: #004080;
-}
-
-.info p {
-  font-size: 14px;
-  color: #336699;
-}
-
-.specializations span {
-  background-color: #e6f2ff; /* Light blue background */
-  padding: 6px 14px;
-  border-radius: 16px;
-  font-size: 13px;
-  color: #004080;
-}
-
-.tabs {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-
-.tab {
-  padding: 6px 14px;
-  background-color: #e6f2ff;
-  border: none;
-  border-radius: 16px;
-  color: #004080;
-  cursor: pointer;
-  font-size: 13px;
-}
-
-.tab.active {
-  background-color: #004080;
-  color: white;
-}
-
-.tab-content {
-  display: none;
-}
-
-.tab-content.active {
-  display: block;
-}
-
-.close-btn {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  background-color: #e6f2ff;
-  border: none;
-  border-radius: 50%;
-  width: 32px;
-  height: 32px;
-  font-size: 18px;
-  color: #004080;
-  cursor: pointer;
-}
-
-.close-btn:hover {
-  background-color: #cce6ff;
-}
-
-.publication-card {
-  background: #f9fbffcc;
-  border-radius: 14px;
-  padding: 1.2rem 1.4rem;
-  margin: 0.9rem 0;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.07);
-  transition: transform 0.2s ease, box-shadow 0.25s ease;
-  color: #0f2a5b;
-}
-
-.publication-card:hover {
-  transform: scale(1.02);
-  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.12);
-}
-
-.pub-title {
-  font-size: 1.15rem;
-  font-weight: 700;
-  color: #144a9f;
-  line-height: 1.3;
-}
-
-.pub-authors {
-  font-size: 0.9rem;
-  color: #23385e;
-  margin-bottom: 0.25rem;
-  font-weight: 600;
-}
-
-.pub-journal {
-  color: #2a6bcc;
-  font-size: 0.9rem;
-  font-weight: 600;
-  margin-bottom: 0.35rem;
-}
-
-.pub-meta {
-  margin-top: 0.5rem;
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  align-items: center;
-  font-size: 0.87rem;
-  font-weight: 600;
-  color: #3d71d7;
-}
-
-.pub-type,
-.pub-impact {
-  background-color: #e5eeff;
-  padding: 4px 10px;
-  border-radius: 20px;
-  font-weight: 700;
-  user-select: none;
-  box-shadow: inset 0 0 7px rgba(26, 102, 255, 0.3);
-}
-
-.pub-impact.high-impact {
-  background-color: #dff5dc;
-  color: #2a672d;
-  box-shadow: inset 0 0 7px rgba(60, 145, 60, 0.35);
-}
-
-.pub-impact.medium-impact {
-  background-color: #e4f0fe;
-  color: #2a5699;
-  box-shadow: inset 0 0 7px rgba(42, 86, 153, 0.4);
-}
-
-.pub-impact.normal {
-  background-color: #e4f0fe;
-  color: #2a5699;
-}
-
-.pub-link {
-  margin-left: auto;
-  text-decoration: none;
-  font-weight: 700;
-  color: #3a5dba;
-  user-select: none;
-  transition: color 0.25s ease;
-}
-
-.pub-link:hover {
-  color: #2552a1;
-}
-
-.year-header {
-  cursor: pointer;
-  font-size: 1.22rem;
-  font-weight: 700;
-  margin-top: 1.6rem;
-  user-select: none;
-  color: #133b76;
-  display: flex;
-  align-items: center;
-  gap: 0.28rem;
-  transition: color 0.25s ease;
-}
-
-.year-header:hover {
-  color: var(--highlight);
-}
-
-.pub-count {
-  font-weight: 500;
-  color: #6a7083;
-  font-size: 1rem;
-}
-
-.pub-list {
-  margin-left: 1.1rem;
-  margin-top: 0.6rem;
-}
-
-.activities-grid {
-  display: grid;
-  gap: 20px;
-  margin-top: 20px;
-}
-
-@media (min-width: 600px) {
-  .activities-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-.activity-card {
-  background-color: #f8fbffcc;
-  color: #0a2f67;
-  padding: 20px;
-  border-radius: 14px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
-  font-weight: 600;
-  transition: box-shadow 0.25s ease;
-}
-
-.activity-card:hover {
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
-}
-
-#professionalActivities h4 {
-  color: #0b2d60;
-}
-
-#professionalActivities p {
-  color: #2b3d61;
-}
-
-.team-member {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 140px;
-  padding: 16px 14px;
-  border-radius: 18px;
-  background: rgba(255, 255, 255, 0.18);
-  backdrop-filter: blur(6px);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.14);
-  transition: transform 0.3s ease;
-  margin: 0 8px 8px 0;
-  color: #eaf2ff;
-  user-select: none;
-  font-weight: 700;
-  text-shadow: 0 0 5px rgba(50, 111, 190, 0.7);
-}
-
-.team-member:hover {
-  transform: translateY(-6px);
-}
-
-.team-member img {
-  width: 100px;
-  height: 100px;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 3px solid #c0dcff;
-  margin-bottom: 10px;
-  box-shadow: 0 0 10px rgba(114, 159, 255, 0.85);
-}
-
-.team-member p {
-  font-size: 1rem;
-  text-align: center;
-  margin: 0;
-  color: #176fe3ff;
-}
-
-.specializations {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 24px;
-  margin-top: 20px;
-  padding: 0 10px;
-}
-
-.profile .additional-img {
-  width: 220px;      
-  height: 260px;     
-  border: 3px solid #3399ff; 
-  object-fit: cover;
-  margin: 40px auto 0 auto;
-  display: block;
-  border-radius: 0; /* Make sure it's not circular */
-}
-
-/* Enhanced responsive design for better tab section spacing and mobile layout */
-
-/* Tablet and small desktop */
-@media (max-width: 1024px) {
-  #profileCard {
-    width: 95vw;
-    height: 90vh;
-    padding: 25px;
-    gap: 25px;
-  }
-  
-  .profile {
-    width: 220px;
-  }
-  
-  .tabs {
-    gap: 6px;
-    margin-bottom: 20px;
-  }
-  
-  .tab {
-    padding: 8px 12px;
-    font-size: 12px;
-  }
-  
-  .tab-content {
-    padding: 15px 0;
-  }
-}
-
-/* Large mobile and tablet */
-@media (max-width: 768px) {
-  .mentors-section .card__container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .mentors-section .card {
-    width: 90vw;
-    height: auto;
-    min-height: 350px;
-  }
-
-  #profileCard {
-    flex-direction: column;
-    height: 95vh;
-    width: 96vw;
-    padding: 20px;
-    gap: 20px;
-    overflow-y: scroll;
-  }
-
-  .profile {
-    width: 100%;
-    margin-bottom: 15px;
-  }
-  
-  .profile .additional-img {
-    width: 180px;
-    height: 220px;
-    margin: 30px auto 0 auto;
-  }
-
-  .info {
-    width: 100%;
-    gap: 20px;
-  }
-
-  .tabs {
-    justify-content: center;
-    gap: 15px;
-    margin-bottom: 8px;
-    padding: 15px 10px;
-    flex-wrap: wrap;
-  }
-  
-  .tab {
-    padding: 14px 20px;
-    font-size: 14px;
-    min-width: 90px;
-    text-align: center;
-    border-radius: 20px;
-  }
-  
-  .tab-content {
-    padding: 12px 15px;
-    margin: 0 -5px;
-  }
-}
-
-/* Small mobile */
-@media (max-width: 480px) {
-  .mentors-section .card {
-    width: 95vw;
-    min-height: 320px;
-  }
-
-  #profileCard {
-    width: 98vw;
-    height: 96vh;
-    padding: 15px;
-    gap: 15px;
-  }
-  
-  .profile .additional-img {
-    width: 150px;
-    height: 180px;
-    margin: 25px auto 0 auto;
-  }
-  
-  .tabs {
-    flex-direction: column;
-    gap: 12px;
-    margin-bottom: 6px;
-    padding: 0px 0px;
-    align-items: stretch;
-  }
-  
-  .tab {
-    padding: 16px 24px;
-    font-size: 15px;
-    min-width: auto;
-    width: 100%;
-    text-align: center;
-    border-radius: 25px;
-  }
-  
-  .tab-content {
-    padding: 10px 15px;
-    margin: 0 -5px;
-  }
-
-/* Extra small mobile */
-@media (max-width: 360px) {
-  .tabs {
-    gap: 4px;
-  }
-  
-  .tab {
-    padding: 6px 8px;
-    font-size: 10px;
-    min-width: 60px;
-  }
-  
-  .tab-content {
-    padding: 12px 8px;
-  }
-  
-  .publication-card {
-    padding: 10px 12px;
-  }
-  
-  .activity-card {
-    padding: 12px;
-  }
-}
-
-/* Hide additional image on mobile to give tabs more space */
-@media (max-width: 768px) {
-  .profile .additional-img {
-    display: none;
-  }
-}
-
-/* Hide image until 773px width and move content upwards */
-@media (max-width: 773px), (max-height: 997px) {
-  .profile .additional-img {
-    display: none;
-  }
-  
-  /* Move content upwards when image is hidden */
-  .profile p {
-    margin-top: 25px;
-  }
-}
-
-.tabs {
-  display: flex;
-  gap: 6px;
-  flex-wrap: wrap;
-  justify-content: center;
-  max-width: 250px; /* Match profile width */
-}
-
-.tab {
-  padding: 6px 12px; /* Slightly smaller padding for better fit */
-  background-color: #e6f2ff;
-  border: none;
-  border-radius: 16px;
-  color: #004080;
-  cursor: pointer;
-  font-size: 11px; /* Smaller font size to fit better */
-  flex: 1;
-  min-width: 70px; /* Ensure minimum width for readability */
-  text-align: center;
-}
-
-/* Enhanced mobile responsive styles for tabs in profile section */
-@media (max-width: 768px) {
-  .tabs {
-    gap: 4px;
-    max-width: 100%;
-    margin: 5px 0;
-  }
-  
-  .tab {
-    padding: 8px 10px;
-    font-size: 10px;
-    min-width: 60px;
-    flex: 1;
-  }
-}
-
-@media (max-width: 480px) {
-  .tabs {
-    gap: 3px;
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-  
-  .tab {
-    padding: 6px 8px;
-    font-size: 9px;
-    min-width: 50px;
-    max-width: calc(50% - 2px); /* Ensure maximum 2 tabs per row */
-  }
-}
-`;
 
 function MentorCard({ mentor, onClick }) {
   return (
@@ -1482,6 +839,7 @@ function YearPublications({ year, publications }) {
   );
 }
 
+
 function TeamMembers({ title, members }) {
   if (!members || members.length === 0) return null;
   return (
@@ -1499,45 +857,61 @@ function TeamMembers({ title, members }) {
   );
 }
 
-function ProfessionalActivities() {
+function ProfessionalActivities({ items }) {
+  if (!items || items.length === 0) return null;
+
   return (
     <div
       id="professionalActivities"
       className="activities-grid"
       aria-label="Professional Activities"
     >
-      {achievements.map((activity, i) => (
+      {items.map((activity, i) => (
         <div className="activity-card" key={i}>
           <h4>{activity.title}</h4>
           <p style={{ color: "#184ba7", margin: "4px 0" }}>
             <strong>{activity.organization}</strong>
           </p>
-          <p style={{ fontSize: "0.9rem", opacity: 0.8 }}>📅 {activity.year}</p>
+          {activity.year && (
+            <p style={{ fontSize: "0.9rem", opacity: 0.8 }}>📅 {activity.year}</p>
+          )}
+          {activity.description && (
+            <p style={{ fontSize: "0.9rem", color: "#2b3d61" }}>
+              {activity.description}
+            </p>
+          )}
         </div>
       ))}
     </div>
   );
 }
 
+
 function MentorProfile({ mentor, onClose }) {
   const [activeTab, setActiveTab] = useState("about");
+  
 
-  const sortedYears = Object.keys(mentor.publications || {}).sort(
-    (a, b) => b - a
-  );
+
+  const sortedYears = Object.keys(mentor.publications || {}).sort((a, b) => b - a);
   useEffect(() => {
-    const navbar = document.querySelector("nav"); // adjust selector to your navbar
-    if (navbar) navbar.style.display = "none";
+  const navbar = document.querySelector("nav"); // adjust selector to your navbar
+  if (navbar) navbar.style.display = "none";
 
-    return () => {
-      if (navbar) navbar.style.display = ""; // restore on close/unmount
-    };
-  }, []);
+ 
+
+  return () => {
+    if (navbar) navbar.style.display = ""; // restore on close/unmount
+  };
+}, []);
+
 
   useEffect(() => {
     setActiveTab("about");
   }, [mentor]);
 
+   const hasTeam =
+  (mentor.phdTeam && mentor.phdTeam.length > 0) ||
+  (mentor.btechTeam && mentor.btechTeam.length > 0);
   return (
     <div
       id="profileCard"
@@ -1547,70 +921,68 @@ function MentorProfile({ mentor, onClose }) {
       aria-labelledby="profileName"
     >
       <div className="profile">
-        <img
-          id="profileImg"
-          src={mentor.imgSrc || "/placeholder.svg"}
-          alt={mentor.name}
-        />
+        <img id="profileImg" src={mentor.imgSrc || "/placeholder.svg"} alt={mentor.name} />
         <h2 id="profileName">{mentor.name}</h2>
         <div className="title" id="profileTitle">
           {mentor.title}
         </div>
         <p>Department of CSE</p>
-
         <div
-          className="social-icons"
-          aria-label="Social media icons"
-          role="list"
-          style={{ gap: "12px" }}
-        >
-          <i
-            className="fas fa-envelope"
-            title="Email"
-            role="listitem"
-            tabIndex={0}
-            aria-label="Email"
-          ></i>
-          <i
-            className="fab fa-linkedin-in"
-            title="Linkedin"
-            role="listitem"
-            tabIndex={0}
-            aria-label="Linkedin"
-          ></i>
-          <i
-            className="fab fa-twitter"
-            title="Twitter"
-            role="listitem"
-            tabIndex={0}
-            aria-label="Twitter"
-          ></i>
-        </div>
+  className="social-icons"
+  aria-label="Social media icons"
+  role="list"
+  style={{ gap: "12px" }}
+>
+  {mentor.social?.email && (
+    <a href={mentor.social.email} target="_blank" rel="noopener noreferrer" role="listitem" aria-label="Email">
+      <i className="fas fa-envelope" title="Email"></i>
+    </a>
+  )}
 
-        <img
-          className="additional-img"
-          src="/mentors/book-chapter-image.png"
-          alt="Additional"
-        />
-        <p
-          style={{
-            marginTop: "-8rem",
-            textAlign: "left",
-            color: "transparent",
-            paddingLeft: "29px",
-          }}
-        >
+  {mentor.social?.linkedin && (
+    <a href={mentor.social.linkedin} target="_blank" rel="noopener noreferrer" role="listitem" aria-label="LinkedIn">
+      <i className="fab fa-linkedin-in" title="LinkedIn"></i>
+    </a>
+  )}
+
+  {mentor.social?.twitter && (
+    <a href={mentor.social.twitter} target="_blank" rel="noopener noreferrer" role="listitem" aria-label="Twitter">
+      <i className="fab fa-twitter" title="Twitter"></i>
+    </a>
+  )}
+
+  {mentor.social?.scholar && (
+    <a href={mentor.social.scholar} target="_blank" rel="noopener noreferrer" role="listitem" aria-label="Google Scholar" title="Google Scholar">
+      <span className="fab icon-scholar fa-lg"></span>
+    </a>
+  )}
+
+   {mentor.social?.orcid && (
+    <a href={mentor.social.orcid} target="_blank" rel="noopener noreferrer" role="listitem" aria-label="orcid" title = "orcid" >
+      <span className="fab icon-orcid fa-lg" ></span>
+    </a>
+  )}
+
+ 
+</div>
+
+ {mentor.additionalImg && (
+  <img
+    className="additional-img"
+    src={mentor.additionalImg}
+    
+  />
+)}
+
+
+        <p style={{ marginTop: "1rem", textAlign: "left", color: "white", paddingLeft: "29px" }}>
           {mentor.about}
         </p>
+       
       </div>
 
       <div className="info">
-        <nav
-          className="tabs"
-          aria-label="Profile Tabs"
-          role="tablist"
-          style={{ marginBottom: "8px" }}
-        >
+        <nav className="tabs" aria-label="Profile Tabs" role="tablist">
           <button
             className={`tab ${activeTab === "about" ? "active" : ""}`}
             onClick={() => setActiveTab("about")}
@@ -1624,7 +996,19 @@ function MentorProfile({ mentor, onClose }) {
           </button>
           <button
             className={`tab ${activeTab === "publications" ? "active" : ""}`}
-            onClick={() => setActiveTab("publications")}
+            onClick={() => {
+              // Only redirect for Dr. Sunil K. Singh
+              if (
+                mentor.name === "Dr. Sunil K. Singh" &&
+                mentor.social?.scholar
+              ) {
+                window.open(mentor.social.scholar, "_blank", "noopener,noreferrer");
+                // Optionally keep the in-app tab selection in sync if wanted:
+                // setActiveTab("publications");
+              } else {
+                setActiveTab("publications");
+              }
+            }}
             role="tab"
             aria-selected={activeTab === "publications"}
             id="tab-publications"
@@ -1633,6 +1017,7 @@ function MentorProfile({ mentor, onClose }) {
           >
             Publications
           </button>
+
           <button
             className={`tab ${activeTab === "activities" ? "active" : ""}`}
             onClick={() => setActiveTab("activities")}
@@ -1655,24 +1040,27 @@ function MentorProfile({ mentor, onClose }) {
           >
             Projects
           </button>
-          <button
-            className={`tab ${activeTab === "team" ? "active" : ""}`}
-            onClick={() => setActiveTab("team")}
-            role="tab"
-            aria-selected={activeTab === "team"}
-            id="tab-team"
-            aria-controls="team"
-            tabIndex={activeTab === "team" ? 0 : -1}
-          >
-            Team
-          </button>
+          {hasTeam && (
+    <button
+      className={`tab ${activeTab === "team" ? "active" : ""}`}
+      onClick={() => setActiveTab("team")}
+      role="tab"
+      aria-selected={activeTab === "team"}
+      id="tab-team"
+      aria-controls="team"
+      tabIndex={activeTab === "team" ? 0 : -1}
+    >
+      Team
+    </button>
+  )}
         </nav>
 
-        <div
+        <section
           className={`tab-content ${activeTab === "about" ? "active" : ""}`}
           id="about"
           role="tabpanel"
           aria-labelledby="tab-about"
+          tabIndex={0}
         >
           <h3>About Me</h3>
           <p id="profileAbout">{mentor.about || "Bio goes here..."}</p>
@@ -1736,19 +1124,17 @@ function MentorProfile({ mentor, onClose }) {
               </div>
             </>
           )}
-        </div>
+        </section>
 
         <section
-          className={`tab-content ${
-            activeTab === "publications" ? "active" : ""
-          }`}
+          className={`tab-content ${activeTab === "publications" ? "active" : ""}`}
           id="publications"
           role="tabpanel"
           aria-labelledby="tab-publications"
+          tabIndex={0}
         >
           <h3>Publications</h3>
-          {mentor.publications &&
-          Object.keys(mentor.publications).length > 0 ? (
+          {mentor.publications && Object.keys(mentor.publications).length > 0 ? (
             <>
               {sortedYears.map((year) => (
                 <YearPublications
@@ -1764,36 +1150,41 @@ function MentorProfile({ mentor, onClose }) {
         </section>
 
         <section
-          className={`tab-content ${
-            activeTab === "activities" ? "active" : ""
-          }`}
-          id="activities"
-          role="tabpanel"
-          aria-labelledby="tab-activities"
-        >
-          <h3>Professional Activities</h3>
-          <ProfessionalActivities />
-        </section>
+  className={`tab-content ${activeTab === "activities" ? "active" : ""}`}
+  id="activities"
+  role="tabpanel"
+  aria-labelledby="tab-activities"
+  tabIndex={0}
+>
+  <h3>Professional Activities</h3>
+  <ProfessionalActivities items={mentor.achievements} />
+</section>
+
 
         <section
           className={`tab-content ${activeTab === "projects" ? "active" : ""}`}
           id="projects"
           role="tabpanel"
           aria-labelledby="tab-projects"
+          tabIndex={0}
         >
           <h3>Projects</h3>
           <p>No projects available.</p>
         </section>
 
-        <section
-          className={`tab-content ${activeTab === "team" ? "active" : ""}`}
-          id="team"
-          role="tabpanel"
-          aria-labelledby="tab-team"
-        >
-          <TeamMembers title="Ph.D. Scholars" members={mentor.phdTeam} />
-          <TeamMembers title="B.Tech Students" members={mentor.btechTeam} />
-        </section>
+       {hasTeam && (
+  <section
+    className={`tab-content ${activeTab === "team" ? "active" : ""}`}
+    id="team"
+    role="tabpanel"
+    aria-labelledby="tab-team"
+    tabIndex={0}
+  >
+    <TeamMembers title="Ph.D. Scholars" members={mentor.phdTeam} />
+    <TeamMembers title="B.Tech Students" members={mentor.btechTeam} />
+  </section>
+)}
+
 
         <button
           className="close-btn"
@@ -1822,7 +1213,7 @@ export default function Mentors() {
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
       />
-      <style>{styles}</style>
+      
 
       <h1>Mentors</h1>
 
