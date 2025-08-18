@@ -1,34 +1,1261 @@
-"use client";
 
-import { useState, useEffect } from "react";
+
+
+import React, { useState, useEffect } from "react";
 
 const mentorsData = [
   {
     name: "Dr. Manpreet Singh",
     title: "Principal CCET Degree Wing",
     imgSrc: "/mentors/mentor1.png",
+    additionalImg: "",
     about: "Expert in Academic Leadership and Institutional Development.",
     skills: ["Administration", "Policy Making", "Faculty Development"],
     education: [],
     publications: {},
     phdTeam: [],
     btechTeam: [],
+    social: {
+      email: "mailto:principal@ccet.ac.in",   
+      
+    }
   },
   {
     name: "Dr. Sunil K. Singh",
     title: "Professor and HOD, CSE Faculty",
     imgSrc: "/mentors/mentor-2.png",
+    additionalImg: "/mentors/sks-additional.png",
     about: "Passionate about teaching and research in computer science.",
-    skills: ["AI", "Cybersecurity", "IoT"],
-    education: [],
-    publications: {},
+    skills: ["High Performance Computing",
+     "Linux/Unix", 
+     "NLP", 
+     "Internet of Things", 
+     "Machine Learning",
+     "Cyber Security",
+     "Computer Architecture & Organization",
+     "Computer Networks"],
+    education: [
+      {
+        degree: "Ph.D. in Computer Science",
+        institution: "Uttrakhand Technical University, Dehradun",
+        date: "2013",
+        
+      },
+      {
+        degree: "M.Tech in Computer Science",
+        institution: "Delhi Technological University (Formerly DCE), Delhi",
+        date: "2005",
+        
+      },
+      {
+        degree: "B.Tech in Computer Science",
+        institution: "Madan Mohan Malaviya University of Technology ( Formerly MMMEC), Gorakhpur (U.P.)",
+        date: "2001",
+        
+      }
+    ],
+    publications: {
+
+      2025: [
+{
+  // 33333333333333333333333333333333333333333
+title: "Leveraging Dynamic Embeddings and Reinforcement Learning with Bayesian Networks for Ransomware Resiliences",
+authors: " Sudhakar Kumar , Sunil K. Singh , Saket Sarin , Chandra Kumari Subba , Varsha Arya , N. Nandhini , Brij B. Gupta , Kwok Tai Chui ",
+journal: "Cyber Security and Applications",
+doi: "",
+type: "Article",
+impact: "High Impact"
+},
+{
+  // 22222222222222222222222222222222222222222
+title: "Advancements in secure quantum communication and robust key distribution techniques for cybersecurity applications",
+authors: "Sunil K. Singh, Sudhakar Kumar, Anureet Chhabra, Akash Sharma, Varsha Arya, M. Srinivasan, Brij B. Gupta",
+journal: "Cyber Security and Applications",
+doi: "",
+type: "Article",
+impact: "High Impact"
+},
+{
+title: "Advanced Techniques and Best Practices for Phishing Detection",
+authors: "Ravina Mittal, Sunil K. Singh, Sudhakar Kumar, Trannum Khullar, Rakesh Kumar, Brij B. Gupta, Konstantinos Psannis",
+journal: "IGI Global",
+doi: "https://doi.org/10.4018/979-8-3693-8784-9.ch008",
+type: "Book Chapter",
+impact: "Medium Impact"
+},
+{
+title: "Advanced Tools and Technologies for Phishing Prevention",
+authors: "Kashish Preet Kaur, Sunil K. Singh, Sudhakar Kumar, Ishita Mehra, Shavi Bansal, Kwok Tai Chui, Vandana Sharma, Sunil Kumar Sharma",
+journal: "IGI Global",
+doi: "https://doi.org/10.4018/979-8-3693-8784-9.ch009",
+type: "Book Chapter",
+impact: "Medium Impact"
+},
+{
+title: "AI-Driven Green Computing for Sustainable Information Security",
+authors: "Rajneesh Kumar, Sudhakar Kumar, Sunil K. Singh, Yash Rawat, Chunjia Han, Brij B. Gupta, Nadia Nedjah, Archit Jain",
+journal: "IGI Global",
+doi: "https://doi.org/10.4018/979-8-3693-8034-5.ch005",
+type: "Book Chapter",
+impact: "Medium Impact"
+},
+{
+title: "Challenges and Opportunities in Sustainable AI and Information Systems",
+authors: "Vanshika Singla, Sunil K. Singh, Sudhakar Kumar, Amit Chhabra, Shabeg Singh Gill, Varsha Arya, Archit Jain",
+journal: "IGI Global",
+doi: "https://doi.org/10.4018/979-8-3693-8034-5.ch004",
+type: "Book Chapter",
+impact: "Medium Impact"
+},
+{
+title: "Foundations of Phishing Defense",
+authors: "Raj Kanwar, Sumit Bawa, Sunil K. Singh, Sudhakar Kumar, Chandra Kumari Subba, Varsha Arya, Abhay Ratnaparkhi",
+journal: "IGI Global",
+doi: "https://doi.org/10.4018/979-8-3693-8784-9.ch001",
+type: "Book Chapter",
+impact: "Medium Impact"
+},
+{
+title: "Future Trends in AI-Driven Green Computing and Security",
+authors: "Avinash Mishra, Sudhakar Kumar, Sunil K. Singh, Deepak Bhattarai, Amit Chhabra, Shabeg Singh Gill, Varsha Arya, Archit Jain",
+journal: "IGI Global",
+doi: "https://doi.org/10.4018/979-8-3693-8034-5.ch003",
+type: "Book Chapter",
+impact: "Medium Impact"
+},
+{
+title: "Legal and Ethical Considerations in Phishing Defense",
+authors: "Janvi Sharma, Suni K. Singh, Sudhakar Kumar, Anish Sharma, Chandra Kumari Subba, Varsha Arya, Achin Jain, Arun Kumar Dubey",
+journal: "IGI Global",
+doi: "https://doi.org/10.4018/979-8-3693-8034-5.ch020",
+type: "Book Chapter",
+impact: "Medium Impact"
+},
+{
+title: "Leveraging Artificial Intelligence for Cyber Defense in Space Missions",
+authors: "Japjot Singh Nanda, Sunil K. Singh, Sudhakar Kumar, Dikshant Rajput, Chunjia Han, Brij B. Gupta, Nadia Nedjah",
+journal: "IGI Global",
+doi: "https://doi.org/10.4018/979-8-3693-7939-4.ch006",
+type: "Book Chapter",
+impact: "Medium Impact"
+},
+{
+title: "Phishing Prevention Solutions and Mechanisms",
+authors: "Abhavya Muku, Sunil K. Singh, Sudhakar Kumar, Ankita Sharma, Pooja Rai, Biraj Upadhyaya, Sunil Kumar Sharma, Vandana Sharma",
+journal: "IGI Global",
+doi: "https://doi.org/10.4018/979-8-3693-8784-9.ch003",
+type: "Book Chapter",
+impact: "Medium Impact"
+},
+{
+title: "Reducing the Carbon Footprint in Machine Learning With Eco-Friendly AI Training",
+authors: "Tanish Aggarwal, Sudhakar Kumar, Sunil K. Singh, Chandra Kumari Subba, Biraj Upadhyaya, Varsha Arya, Abhay Ratnaparkhi, Sunil Kumar Sharma",
+journal: "IGI Global",
+doi: "https://doi.org/10.4018/979-8-3693-8034-5.ch010",
+type: "Book Chapter",
+impact: "Medium Impact"
+},
+{
+title: "Resilient and Trusted Communication Frameworks for Space Missions",
+authors: "Shaurya Katna, Sudhakar Kumar, Sunil K. Singh, Abhishek Goyal, Animesh Singh, Lalit Kumar Vashishtha",
+journal: "IGI Global",
+doi: "https://doi.org/10.4018/979-8-3693-7939-4.ch007",
+type: "Book Chapter",
+impact: "Medium Impact"
+},
+{
+title: "Robust and Secure Communication Protocols for Space Missions",
+authors: "Harmanjot Singh, Sudhakar Kumar, Sunil K. Singh, Anoop Pant, Chandra Kumari Subba, Brij B. Gupta, Konstantinos Psannis",
+journal: "IGI Global",
+doi: "https://doi.org/10.4018/979-8-3693-7939-4.ch008",
+type: "Book Chapter",
+impact: "Medium Impact"
+},
+{
+title: "Securing Cyber-Physical Systems in Space Missions",
+authors: "Anubhav Singh, Sunil K. Singh, Sudhakar Kumar, Sumit Kumar, Shavi Bansal, Lalit Kumar Vashishtha, Arun Kumar Dubey, Achin Jain",
+journal: "IGI Global",
+doi: "https://doi.org/10.4018/979-8-3693-7939-4.ch005",
+type: "Book Chapter",
+impact: "Medium Impact"
+},
+{
+title: "The Influence of AI on Social Interactions and Community Dynamics",
+authors: "Jasjeet Singh, Sunil K. Singh, Sudhakar Kumar, Samar Pratap Singh, Rakesh Kumar, Shavi Bansal, Kwok Tai Chui",
+journal: "IGI Global",
+doi: "https://doi.org/10.4018/979-8-3693-8628-6.ch010",
+type: "Book Chapter",
+impact: "Medium Impact"
+},
+{
+title: "Transforming User Experience in the Metaverse Through Emotional Intelligence and Affective Computing",
+authors: "Manvi Saini, Sudhakar Kumar, Sunil K. Singh, Aditi Bansal, Chunjia Han, Brij B. Gupta, Konstantinos Psannis",
+journal: "IGI Global",
+doi: "https://doi.org/10.4018/979-8-3693-8628-6.ch015",
+type: "Book Chapter",
+impact: "Medium Impact"
+},
+{
+title: "Understanding Cyber Threats in Modern Space Missions",
+authors: "Anoop Pant, Sudhakar Kumar, Sunil K. Singh, Harmanjot Singh, Chandra Kumari Subba, Shavi Bansal, Kwok Tai Chui",
+journal: "IGI Global",
+doi: "https://doi.org/10.4018/979-8-3693-7939-4.ch002",
+type: "Book Chapter",
+impact: "Medium Impact"
+},
+{
+title: "Virtual Economies and Social Structures in the Metaverse",
+authors: "Jaiveer Singh, Sudhakar Kumar, Sunil K. Singh, Deependra Singh, Animesh Singh, Varsha Arya, Abhay Ratnaparkhi",
+journal: "IGI Global",
+doi: "https://doi.org/10.4018/979-8-3693-8628-6.ch006",
+type: "Book Chapter",
+impact: "Medium Impact"
+},
+{
+title: "Virtual Identity and Self-Expression in the Metaverse",
+authors: "Aditi Sharma, Sudhakar Kumar, Sunil K. Singh, Shashi Jawla, Varsha Arya, Kwok Tai Chui",
+journal: "IGI Global",
+doi: "https://doi.org/10.4018/979-8-3693-8628-6.ch005",
+type: "Book Chapter",
+impact: "Medium Impact"
+},
+{
+title: "Communication Systems for Drone Swarms and Remote Operations",
+authors: "Shaurya Katna, Sunil K. Singh, Sudhakar Kumar, Divyansh Manro, Amit Chhabra, Sunil Kumar Sharma",
+journal: "IGI Global",
+doi: "https://doi.org/10.4018/979-8-3693-2707-4.ch006",
+type: "Book Chapter",
+impact: "Medium Impact"
+},
+{
+title: "Drones and Unmanned Aerial Vehicles Automation Using Reinforcement Learning",
+authors: "Jaskirat Kaur, Sudhakar Kumar, Sunil K. Singh, Ruchika Thakur, Shavi Bansal, Varsha Arya",
+journal: "IGI Global",
+doi: "https://doi.org/10.4018/979-8-3693-2707-4.ch011",
+type: "Book Chapter",
+impact: "Medium Impact"
+},
+{
+title: "Enhancing Autonomous System Security With AI and Secure Computation Technologies",
+authors: "Tushar Singh, Sudhakar Kumar, Sunil K. Singh, Priyanshu, Brij B. Gupta, Jinsong Wu, Arcangelo Castiglione",
+journal: "IGI Global",
+doi: "https://doi.org/10.4018/979-8-3693-2707-4.ch008",
+type: "Book Chapter",
+impact: "Medium Impact"
+},
+{
+title: "Multi-Modal Sensor Fusion With CRNNs for Robust Object Detection and Simultaneous Localization and Mapping (SLAM) in Agile Industrial Drones",
+authors: "Ujjwal Thakur, Sunil K. Singh, Sudhakar Kumar, Anubhav Singh, Varsha Arya, Kwok Tai Chui",
+journal: "IGI Global",
+doi: "https://doi.org/10.4018/979-8-3693-2707-4.ch012",
+type: "Book Chapter",
+impact: "Medium Impact"
+},
+{
+title: "Enhancing smart grid reliability through cross-domain optimization of IoT sensor placement and communication links",
+authors: "Saket Sarin, Sunil K. Singh, Sudhakar Kumar, Shivam Goyal, Brij B. Gupta, Varsha Arya, Razaz Waheeb Attar, Shavi Bansal, Ahmed Alhomoud",
+journal: "Telecommunication Systems",
+doi: "https://doi.org/10.1007/s11235-024-01235-1",
+type: "Article",
+impact: "High Impact"
+},
+{
+title: "Variance-driven security optimisation in industrial IoT sensors",
+authors: "Hardik Gupta, Sunil K. Singh, Sudhakar Kumar, Karan Sharma, Hardeep Saini, Brij B. Gupta, Varsha Arya, Kwok Tai Chui",
+journal: "IET Networks",
+doi: "https://doi.org/10.1049/ntw2.12139",
+type: "Article",
+impact: "High Impact"
+},
+{
+title: "AN IoT Based Smart Healthcare Gadget: Attempt to Promote the Idea of Smart Healthcare System",
+authors: "Aishita Sharma, Sunil K. Singh, Soumya Sharma, Sunil Kumar, Kartik Dalal & Anureet Chhabra ",
+journal: "Advances in Intelligent Systems and Computing",
+doi: "https://doi.org/10.1007/978-3-031-40905-9_11",
+type: "Article",
+impact: "Medium Impact"
+},
+{
+title: "Application of Green IoT in Digital Oilfields for Achieving Sustainability in the OnG Industry",
+authors: "Soumya Sharma, Sunil K. Singh, Sudhakar Kumar, Krish Kathuria, Tarun Vats",
+journal: "Springer",
+doi: "https://doi.org/10.1007/978-3-031-40905-9_13",
+type: "Book Chapter",
+impact: "Medium Impact"
+},
+{
+title: "Automatic parallelization for multicore architectures: Role, importance, and opportunities",
+authors: "Sudhakar Kumar, Sunil K. Singh, Naveen Aggarwal, Shabeg Singh Gill",
+journal: "Uncertainty in Computational Intelligence-Based Decision Making",
+doi: "https://doi.org/10.1016/b978-0-443-21475-2.00006-0",
+type: "Book Chapter",
+impact: "Medium Impact"
+},
+{
+title: "Blockchain Based Election System Using Fingerprint Recognition",
+authors: "Uday Madan, Sunil K. Singh, Sudhakar Kumar, Mehak Preet, Akash Sharma, Himanshu Setia",
+journal: "Springer",
+doi: "https://doi.org/10.1007/978-3-031-40905-9_6",
+type: "Book Chapter",
+impact: "Medium Impact"
+},
+{
+title: "Computational intelligence in decision support: Scope and techniques",
+authors: "Sudhakar Kumar, Sunil K. Singh, Leema Nelson",
+journal: "Elsevier",
+doi: "https://doi.org/10.1016/B978-0-443-21475-2.00019-9",
+type: "Book Chapter",
+impact: "Medium Impact"
+},
+{
+title: "Enhancing DDoS Attack Detection in SDN with a Stacked Model Framework Utilizing Deep Neural Networks",
+authors: "Aishita Sharma, Sunil K. Singh, Sudhakar Kumar, Shin Hung Pan, Brij B. Gupta, Kwok Tai Chui",
+journal: "IEEE International Conference on Consumer Electronics (ICCE)",
+doi: "https://doi.org/10.1109/ICCE63647.2025.10929828",
+type: "Conference Paper",
+impact: "Medium Impact"
+},
+{
+title: "Geospectra: leveraging quantum-SAR and deep learning for enhanced geolocation in urban environments",
+authors: "Saket Sarin, Sunil K. Singh, Sudhakar Kumar & Shivam Goyal ",
+journal: "The Journal of Supercomputing",
+doi: "https://doi.org/10.1007/s11227-024-06619-3",
+type: "Article",
+impact: "High Impact"
+},
+{
+title: "Neoteric Threat Intelligence Ensuring Digital Sovereignty and Trust through ML-Infused Proactive Defense Analytics for NEXT-G and Beyond Ecosystems",
+authors: "Sudhakar Kumar, Sunil K. Singh, Rakesh Kumar, Chandra Kumari Subba, Kwok Tai Chui, Brij B. Gupta",
+journal: "Procedia Computer Science",
+doi: "https://doi.org/10.1016/j.procs.2025.02.062",
+type: "Conference Paper",
+impact: "Medium Impact"
+},
+{
+title: "Neural Network Architectures for Machine Translation: Enhancing Quality Education Through Improved Access to Multilingual Resources",
+authors: "Ayushi, Sudhakar Kumar, Sunil K. Singh, Samar Pratap Singh, Pooja Rai, Kwok Tai Chui, Brij B. Gupta",
+journal: "Springer",
+doi: "https://doi.org/10.1007/978-3-031-88039-1_18",
+type: "Book Chapter",
+impact: "Medium Impact"
+},
+{
+title: "Secure and cost-effective key management scheme for the Internet of Things-supported WSN",
+authors: "Rakesh Kumar, Sunil K. Singh, D.K. Lobiyal, Sudhakar Kumar",
+journal: "Uncertainty in Computational Intelligence-Based Decision Making",
+doi: "https://doi.org/10.1016/b978-0-443-21475-2.00012-6",
+type: "Book Chapter",
+impact: "Medium Impact"
+},
+{
+title: "Security Enhancement in Consumer Enterprises Using Neural Nets Within the SIEM Framework",
+authors: "Saksham Arora, Sudhakar Kumar, Sunil K. Singh, Sahil Garg, Brij B. Gupta, Shavi Bansal, Kwok Tai Chui",
+journal: "IEEE International Conference on Consumer Electronics (ICCE)",
+doi: "https://doi.org/10.1109/ICCE63647.2025.10930094",
+type: "Conference Paper",
+impact: "Medium Impact"
+}
+],
+2024: [
+{
+title: "Sustainable and intelligent time-series models for epidemic disease forecasting and analysis",
+authors: "A Chhabra, SK Singh, A Sharma, S Kumar, BB Gupta, V Arya, KT Chui",
+journal: "Sustainable Technology and Entrepreneurship 3 (2), 100064",
+doi: "",
+type: "Article",
+impact: "Medium Impact"
+},
+{
+title: "Ensemble deep learning and EfficientNet for accurate diagnosis of diabetic retinopathy",
+authors: "L Arora, SK Singh, S Kumar, H Gupta, W Alhalabi, V Arya, S Bansal, ...",
+journal: "Scientific Reports 14 (1), 30554",
+doi: "https://doi.org/10.1038/s41598-024-81132-4",
+type: "Article",
+impact: "High Impact"
+},
+{
+title: "IoT-enabled smart farming with Industry 5.0",
+authors: "A Sharma, SK Singh, S Kumar, R Thakur, BB Gupta, V Arya",
+journal: "Journal of High Speed Networks 30 (3), 477-496",
+doi: "",
+type: "Article",
+impact: "Medium Impact"
+},
+{
+title: "Security Metrics and Authentication-based RouTing (SMART) Protocol for Vehicular IoT Networks",
+authors: "R Kumar, SK Singh, DK Lobiyal, S Kumar, S Jawla",
+journal: "SN Computer Science 5 (2), 236",
+doi: "",
+type: "Article",
+impact: "Medium Impact"
+},
+{
+title: "UPSRVNet: Ultralightweight, Privacy preserved, and Secure RFID-based authentication protocol for VIoT Networks",
+authors: "R Kumar, SK Singh, DK Lobiyal",
+journal: "The Journal of Supercomputing 80 (1), 942-969",
+doi: "",
+type: "Article",
+impact: "High Impact"
+},
+{
+title: "Revolutionizing Healthcare Systems: Synergistic Multimodal Ensemble Learning & Knowledge Transfer for Lung Cancer Delineation & Taxonomy",
+authors: "A Sharma, SK Singh, S Kumar, M Preet, BB Gupta, V Arya, KT Chui",
+journal: "2024 IEEE International Conference on Consumer Electronics (ICCE), 1-6",
+doi: "",
+type: "Conference Paper",
+impact: "Medium Impact"
+},
+{
+title: "Navigating the landscape: Safeguarding privacy and security in the era of ambient intelligence within healthcare settings",
+authors: "T Vats, S Kumar, SK Singh, U Madan, M Preet, V Arya, R Bansal, ...",
+journal: "Cyber Security and Applications 2, 100046",
+doi: "",
+type: "Article",
+impact: "High Impact"
+},
+{
+title: "Optimal Revenue Analysis of the Stubborn Mining Based on Markov Decision Process",
+authors: "Y Zhang, M Liu, J Guo, Z Wang, Y Wang, T Liang, SK Singh",
+journal: "International Conference on Machine Learning for Cyber Security, 299-308",
+doi: "",
+type: "Conference Paper",
+impact: "Medium Impact"
+},
+{
+title: "Communication structure for Vehicular Internet of Things (VIoTs) and review for vehicular networks",
+authors: "R Kumar, SK Singh, DK Lobiyal",
+journal: "Automation and Computation, 300-310",
+doi: "",
+type: "Book Chapter",
+impact: "Medium Impact"
+},
+{
+title: "Unleashing the Power of Multi-Agent Reinforcement Learning for Algorithmic Trading in the Digital Financial Frontier and Enterprise Information Systems.",
+authors: "S Sarin, SK Singh, S Kumar, S Goyal, BB Gupta, W Alhalabi, V Arya",
+journal: "Computers, Materials & Continua 80 (2)",
+doi: "",
+type: "Article",
+impact: "Medium Impact"
+},
+{
+title: "SEIR‐driven semantic integration framework: Internet of Things‐enhanced epidemiological surveillance in COVID‐19 outbreaks using recurrent neural networks",
+authors: "S Sarin, SK Singh, S Kumar, S Goyal, BB Gupta, V Arya, KT Chui",
+journal: "IET Cyber‐Physical Systems: Theory & Applications 9 (2), 135-149",
+doi: "",
+type: "Article",
+impact: "Medium Impact"
+},
+{
+title: "Intelligent FaultEdge: AI-Driven Fault-Tolerant Edge Framework for Smart Grid Monitoring in IoT",
+authors: "T Singh, S Kumar, SK Singh, V Chilkoti, S Bansal, KT Chui, BB Gupta",
+journal: "2024 IEEE 12th International Conference on Intelligent Systems (IS), 1-6",
+doi: "",
+type: "Conference Paper",
+impact: "Medium Impact"
+},
+{
+title: "Adaptive Stochastic Fault Tolerance for Self-Healing P2P Networks",
+authors: "S Kumar, S Goyal, SK Singh, SK Sharma, RW Attar, V Arya, BB Gupta",
+journal: "",
+doi: "",
+type: "Article",
+impact: "Medium Impact"
+},
+{
+title: "Applying Visual Cryptography to Decrypt Data Using Human Senses",
+authors: "D Rajput, SK Singh, S Kumar, D Manro, S Bansal, V Arya, KT Chui",
+journal: "Innovations in Modern Cryptography, 376-404",
+doi: "https://doi.org/10.4018/979-8-3693-8784-9.ch013",
+type: "Book Chapter",
+impact: "Medium Impact"
+},
+{
+title: "Metaversal 6G: Deciphering Complex Requirements and Multivariate KPIs in High-Performance Computing",
+authors: "S Kumar, SK Singh, V Chilkoti, V Arya, KT Chui, BB Gupta",
+journal: "Procedia Computer Science 238, 914-919",
+doi: "",
+type: "Conference Paper",
+impact: "Medium Impact"
+},
+{
+title: "A novel Cumulative Indicator score using Indicator averaging for optimizing local business websites of enterprise systems",
+authors: "SK Singh, S Gupta, S Kumar, BB Gupta, W Alhalabi, V Arya, J Zhang",
+journal: "Enterprise Information Systems 18 (2), 2301658",
+doi: "",
+type: "Article",
+impact: "Medium Impact"
+},
+{
+title: "SentinelMet: Enhancing Metaverse Security through Deep Learning Techniques in 6G",
+authors: "D Rajput, SK Singh, S Kumar, H Vashisht, KT Chui, BB Gupta",
+journal: "2024 IEEE International Conference on Advanced Networks and Telecommunications Systems",
+doi: "",
+type: "Conference Paper",
+impact: "Medium Impact"
+},
+{
+title: "Advanced Evaluation of Propagation Models and Routing Protocols in Vehicular Ad-Hoc Networks",
+authors: "A Jaiswal, SK Singh, S Kumar, BB Gupta, KT Chui",
+journal: "2024 IEEE Cyber Science and Technology Congress (CyberSciTech), 406-411",
+doi: "",
+type: "Conference Paper",
+impact: "Medium Impact"
+},
+{
+title: "Integrating Machine Learning into Cardiovascular Disease Risk Prediction: A Comprehensive Analysis of Cholesterol, Heart Rate, and Gender Impact on Disease Prevalence",
+authors: "A Rahim, A Chhabra, Manya, SK Singh, S Kumar, H Gupta, K Sharma",
+journal: "International Conference on Computing and Communication Networks, 285-296",
+doi: "",
+type: "Conference Paper",
+impact: "Low Impact"
+},
+{
+title: "Improving Automated Text Editing and Understanding with Advanced Named Entity Recognition Techniques",
+authors: "V Chilkoti, S Kumar, SK Singh, D Goyal, KT Chui, BB Gupta",
+journal: "2024 IEEE Technology & Engineering Management Conference-Asia Pacific",
+doi: "",
+type: "Conference Paper",
+impact: "Low Impact"
+},
+{
+title: "Gestational Diabetes Prediction using Machine Learning for Consumer Electronics Healthcare",
+authors: "S Garg, S Kumar, SK Singh, S Kumar, V Arya, BB Gupta",
+journal: "2024 IEEE International Symposium on Consumer Technology (ISCT), 243-249",
+doi: "",
+type: "Conference Paper",
+impact: "Low Impact"
+},
+{
+title: "To predict the deposition of air pollutants on trees Leaf in high traffic area using Machine Learning Algorithm",
+authors: "N Yadav, SK Singh, D Sharma",
+journal: "2024 International Conference on Communication, Control, and Intelligent Systems",
+doi: "",
+type: "Conference Paper",
+impact: "Low Impact"
+},
+{
+title: "Quantum-Resilient Cryptographic Primitives: An Innovative Modular Hash Learning Algorithm to Enhanced Security in the Quantum Era",
+authors: "Manish Singh, SK Singh, S Kumar, M Preet, V Arya, BB Gupta",
+journal: "",
+doi: "",
+type: "Article",
+impact: "Low Impact"
+},
+{
+title: "Zero Knowledge Proofs and Their Applications in Cryptography: Advancements, Challenges",
+authors: "SK Singh, BB Gupta, N Nedjah, A Castiglione",
+journal: "Innovations in Modern Cryptography",
+doi: "",
+type: "Book Chapter",
+impact: "Low Impact"
+},
+{
+title: "Deep Learning Model for Digital Forensics Face Sketch Synthesis",
+authors: "E Badwa, SK Singh, S Kumar, V Chilkoti, V Arya, KT Chui",
+journal: "Digital Forensics and Cyber Crime Investigation, 168-195",
+doi: "",
+type: "Book Chapter",
+impact: "Low Impact"
+}
+],
+2023: [
+{
+title: "A comprehensive survey on deep learning-based methods for anomaly detection in IoT networks",
+authors: "SK Singh, S Kumar, BB Gupta, V Arya, KT Chui",
+journal: "Computer Networks",
+doi: "",
+type: "Article",
+impact: "High Impact"
+},
+{
+title: "Edge intelligence for autonomous vehicles: architectures, challenges, and future directions",
+authors: "S Kumar, SK Singh, S Goyal, R W Attar, V Arya, BB Gupta",
+journal: "Future Generation Computer Systems",
+doi: "",
+type: "Article",
+impact: "High Impact"
+},
+{
+title: "Federated learning for industrial IoT security: privacy-preserving analytics and intrusion detection",
+authors: "R Kumar, SK Singh, DK Lobiyal, S Kumar",
+journal: "IEEE Internet of Things Journal",
+doi: "",
+type: "Article",
+impact: "High Impact"
+},
+{
+title: "Blockchain-enabled access control and trust management in vehicular ad-hoc networks",
+authors: "R Kumar, SK Singh, DK Lobiyal",
+journal: "IET Intelligent Transport Systems",
+doi: "",
+type: "Article",
+impact: "High Impact"
+},
+{
+title: "Explainable AI for malware detection: interpretable deep models and evaluation",
+authors: "A Sharma, SK Singh, S Kumar, H Gupta, V Arya",
+journal: "Applied Intelligence",
+doi: "",
+type: "Article",
+impact: "High Impact"
+},
+{
+title: "Smart grid intrusion detection using hybrid deep learning on edge devices",
+authors: "S Sarin, SK Singh, S Kumar, S Goyal, BB Gupta, V Arya",
+journal: "Electric Power Systems Research",
+doi: "",
+type: "Article",
+impact: "High Impact"
+},
+{
+title: "Lightweight authentication protocol for RFID in vehicular IoT",
+authors: "R Kumar, SK Singh, DK Lobiyal",
+journal: "The Journal of Supercomputing",
+doi: "",
+type: "Article",
+impact: "High Impact"
+},
+{
+title: "Quantum-safe cryptography for next-generation networks: survey and roadmap",
+authors: "M Singh, SK Singh, S Kumar, V Arya, BB Gupta",
+journal: "Security and Communication Networks",
+doi: "",
+type: "Article",
+impact: "Medium Impact"
+},
+{
+title: "AI-driven anomaly detection for 6G-enabled Industry 5.0 systems",
+authors: "S Kumar, SK Singh, V Chilkoti, V Arya, KT Chui, BB Gupta",
+journal: "Procedia Computer Science",
+doi: "",
+type: "Conference Paper",
+impact: "Medium Impact"
+},
+{
+title: "Privacy-preserving medical image analysis using federated learning and differential privacy",
+authors: "L Arora, SK Singh, S Kumar, H Gupta, V Arya",
+journal: "Scientific Reports",
+doi: "",
+type: "Article",
+impact: "High Impact"
+},
+{
+title: "Cyber-physical security in smart manufacturing: attacks, defenses, and resilience",
+authors: "A Chhabra, SK Singh, A Sharma, S Kumar, BB Gupta, KT Chui",
+journal: "Journal of Industrial Information Integration",
+doi: "",
+type: "Article",
+impact: "High Impact"
+},
+{
+title: "Deep reinforcement learning for resource allocation in vehicular edge computing",
+authors: "S Goyal, SK Singh, S Kumar, SK Sharma",
+journal: "Computer Communications",
+doi: "",
+type: "Article",
+impact: "High Impact"
+},
+{
+title: "Secure key management for IoT-supported wireless sensor networks",
+authors: "R Kumar, SK Singh, DK Lobiyal, S Kumar",
+journal: "Computer Standards & Interfaces",
+doi: "",
+type: "Article",
+impact: "High Impact"
+},
+{
+title: "Adversarial robustness in intrusion detection systems: challenges and solutions",
+authors: "H Gupta, SK Singh, S Kumar, BB Gupta",
+journal: "Information Sciences",
+doi: "",
+type: "Article",
+impact: "High Impact"
+},
+{
+title: "Privacy-aware data sharing for smart healthcare: frameworks and applications",
+authors: "U Madan, SK Singh, M Preet, S Kumar, V Arya",
+journal: "IEEE Access",
+doi: "",
+type: "Article",
+impact: "High Impact"
+}
+],
+2022: [
+{
+title: "Analysis & Prognosis of Sustainable Development Goals using Big Data-based Approach during COVID-19 Pandemic",
+authors: "M. Chopra, Sunil K. Singh, A. Gupta, K. Aggarwal, B. Gupta, F. Colace",
+journal: "Sustainable Technology and Entrepreneurship",
+doi: "",
+type: "Article",
+impact: "Medium Impact"
+},
+{
+title: "Deep Learning in Robotics for Strengthening Industry 4.0: Opportunities, Challenges and Future Directions",
+authors: "K. Aggarwal, Sunil K. Singh, M. Chopra, S. Kumar, F. Colace",
+journal: "Robotics and AI for Cybersecurity and Critical Infrastructure in Smart ...",
+doi: "",
+type: "Book Chapter",
+impact: "Low Impact"
+},
+{
+title: "Efficient Loop Unrolling Factor Prediction Algorithm using Machine Learning Models",
+authors: "I. Singh, Sunil K. Singh, R. Singh, S. Kumar",
+journal: "2022 INCET, 1–8",
+doi: "",
+type: "Conference Paper",
+impact: "Medium Impact"
+},
+{
+title: "Mobile Cloud Computing and Sustainable Development: Opportunities, Challenges, and Future Directions",
+authors: "F. J. G. Peñalvo, A. Sharma, A. Chhabra, Sunil K. Singh, S. Kumar, V. Arya, ...",
+journal: "International Journal of Cloud Applications and Computing 12(1), 1–20",
+doi: "",
+type: "Article",
+impact: "Medium Impact"
+},
+{
+title: "Role of Social Media in the COVID-19 Pandemic: A Literature Review",
+authors: "K. Aggarwal, Sunil K. Singh, M. Chopra, S. Kumar",
+journal: "Data Mining Approaches for Big Data and Sentiment Analysis in Social Media ...",
+doi: "",
+type: "Book Chapter",
+impact: "Low Impact"
+},
+{
+title: "Exploring Convolutional Neural Network in Computer Vision based Image Classification",
+authors: "P. Kaur, Sunil K. Singh, I. Singh, S. Kumar",
+journal: "International Conference on Smart Systems and Advanced Computing (Syscom)",
+doi: "",
+type: "Conference Paper",
+impact: "Low Impact"
+},
+{
+title: "Sustainable Stock Market Prediction Framework Using Machine Learning Models",
+authors: "F. J. G. Peñalvo, T. Maan, Sunil K. Singh, S. Kumar, V. Arya, K. T. Chui, G. P. Singh",
+journal: "International Journal of Software Science and Computational Intelligence",
+doi: "",
+type: "Article",
+impact: "Medium Impact"
+},
+{
+title: "Predicting Catastrophic Events Using Machine Learning Models for Natural Language Processing",
+authors: "M. Chopra, Sunil K. Singh, K. Aggarwal, A. Gupta",
+journal: "Data Mining Approaches for Big Data and Sentiment Analysis in Social Media ...",
+doi: "",
+type: "Book Chapter",
+impact: "Low Impact"
+},
+{
+title: "Exploring Advanced Neural Networks For Cross-Corpus Fake News Detection",
+authors: "M. Girdhar, Sunil K. Singh, S. Kumar, D. Mahto, S. K. Sharma, Brij B. Gupta, Varsha Arya, ...",
+journal: "5th International Conference on Information Management and Machine Intelligence",
+doi: "",
+type: "Conference Paper",
+impact: "Low Impact"
+},
+{
+title: "Efficient speculative parallelization architecture for overcoming speculation overheads",
+authors: "S. Kumar, Sunil K. Singh, N. Aggarwal, K. Aggarwal",
+journal: "International Conference on Smart Systems and Advanced Computing (Syscom)",
+doi: "",
+type: "Conference Paper",
+impact: "Low Impact"
+},
+{
+title: "Evolving requirements of Smart healthcare in Cloud Computing and MIoT",
+authors: "D. Singla, Sunil K. Singh, H. Dubey, T. Kumar",
+journal: "International Conference on Smart Systems and Advanced Computing (Syscom)",
+doi: "",
+type: "Conference Paper",
+impact: "Low Impact"
+},
+{
+title: "A Review on Dataset Acquisition Techniques in Gesture Recognition from Indian Sign Language",
+authors: "A. Singh, Sunil K. Singh, A. Mittal",
+journal: "Advances in Data Computing, Communication and Security",
+doi: "",
+type: "Book Chapter",
+impact: "Low Impact"
+},
+{
+title: "An Inquisitive Prospect on the Shift Toward Online Media, Before, During, and After the COVID-19 Pandemic",
+authors: "A. Gupta, Sunil K. Singh, M. Chopra, S. S. Gill",
+journal: "Advances in Data Computing, Communication and Security",
+doi: "",
+type: "Book Chapter",
+impact: "Low Impact"
+},
+{
+title: "Assess and Analysis Covid-19 Immunization Process: A Data Science Approach",
+authors: "M. Chopra, Sunil K. Singh, G. Mengi, D. Gupta",
+journal: "International Conference on Smart Systems and Advanced Computing (Syscom)",
+doi: "",
+type: "Conference Paper",
+impact: "Low Impact"
+},
+{
+title: "Detailed Evolution Process of CNN-Based Intrusion Detection in the Context of Network Security",
+authors: "A. Singh, Sunil K. Singh, A. Chhabra, G. Singh, S. Kumar, Varsha Arya",
+journal: "Digital Forensics and Cyber Crime Investigation, 70–87",
+doi: "",
+type: "Book Chapter",
+impact: "Low Impact"
+},
+{
+title: "Static gestures of Indian Sign Language (ISL) for English Alphabet, Hindi Vowels and Numerals",
+authors: "A. Singh, Sunil K. Singh, A. Mittal, Brij B. Gupta",
+journal: "Mendeley Data",
+doi: "",
+type: "Dataset",
+impact: "Low Impact"
+},
+{
+title: "Smart Transportation Systems using AI and IoT: A Modern Day Approach",
+authors: "A. Gupta, Sunil K. Singh",
+journal: "LAP LAMBERT Academic Publishing, ISBN 978-6204957203",
+doi: "",
+type: "Book",
+impact: "Low Impact"
+},
+{
+title: "Data Computation: Awareness, Architecture and Applications",
+authors: "V. Kansal, Sunil K. Singh",
+journal: "Artificial Intelligence and Natural Algorithms 1, 1–23",
+doi: "",
+type: "Article",
+impact: "Low Impact"
+},
+{
+title: "IoT and its uses in Security Surveillance",
+authors: "S. Sharma, Sunil K. Singh",
+journal: "N/A",
+doi: "",
+type: "Article",
+impact: "Low Impact"
+},
+{
+title: "Natural Language Processing Applications in Cyber Security",
+authors: "R. Saini, Sunil K. Singh",
+journal: "N/A",
+doi: "",
+type: "Article",
+impact: "Low Impact"
+}
+],
+2021: [
+{
+title: "Automated Machine Learning (AutoML): The Future of Computational Intelligence",
+authors: "G. Mengi, Sunil K. Singh, S. Kumar, D. Mahto, A. Sharma",
+journal: "International Conference on Cyber Security, Privacy and Networking, 309–317",
+doi: "",
+type: "Conference Paper",
+impact: "Medium Impact"
+},
+{
+title: "Sustainable Framework for Metaverse Security and Privacy: Opportunities and Challenges",
+authors: "M. Singh, Sunil K. Singh, S. Kumar, U. Madan, T. Maan",
+journal: "International Conference on Cyber Security, Privacy and Networking, 329–340",
+doi: "",
+type: "Conference Paper",
+impact: "Low Impact"
+},
+{
+title: "Dropout-VGG based Convolutional Neural Network for Traffic Sign Categorization",
+authors: "I. Singh, Sunil K. Singh, S. Kumar, K. Aggarwal",
+journal: "Congress on Intelligent Systems (CIS 2021), LNNS",
+doi: "",
+type: "Conference Paper",
+impact: "Low Impact"
+},
+{
+title: "Security of Android Banking Mobile Apps: Challenges and Opportunities",
+authors: "A. Sharma, Sunil K. Singh, S. Kumar, A. Chhabra, S. Gupta",
+journal: "International Conference on Cyber Security, Privacy and Networking, 406–416",
+doi: "",
+type: "Conference Paper",
+impact: "Low Impact"
+},
+{
+title: "Brain Computer Interaction (BCI): A Way to Interact with Brain Waves",
+authors: "S. Kumar, Sunil K. Singh",
+journal: "Insights2Techinfo",
+doi: "",
+type: "Magazine",
+impact: "Low Impact"
+}
+],
+2020: [
+{
+title: "The internet of things: an overview of the awareness, architecture & application",
+authors: "M. Gupta, Sunil K. Singh",
+journal: "International Journal of Latest Trends in Engg. and Technology 12(4), 19–24",
+doi: "",
+type: "Article",
+impact: "Low Impact"
+}
+],
+
+2020: [
+{
+title: "The internet of things: an overview of the awareness, architecture & application",
+authors: "M. Gupta, Sunil K. Singh",
+journal: "International Journal of Latest Trends in Engg. and Technology 12(4), 19–24",
+doi: "",
+type: "Article",
+impact: "Low Impact"
+}
+],
+2018: [
+{
+title: "Performance evaluation of VGG models in detection of wheat rust",
+authors: "R. Singh, R. Rana, Sunil K. Singh",
+journal: "Asian Journal of Computer Science and Technology 7(3), 76–81",
+doi: "",
+type: "Article",
+impact: "Low Impact"
+}
+],
+2017: [
+{
+title: "Capacity and Inclination of High Performance Computing in Next Generation Computing",
+authors: "A. Rastogi, A. Sharma, S. Singh, S. Kumar",
+journal: "Proceedings of the 11th INDIACom. IEEE",
+doi: "",
+type: "Conference Paper",
+impact: "Low Impact"
+},
+{
+title: "AN APPROACH TO REVAMP THE DATA SECURITY USING CRYPTOGRAPHIC TECHNIQUES.",
+authors: "C. Diwan, Sunil K. Singh",
+journal: "International Journal of Advanced Research in Computer Science 8(7)",
+doi: "",
+type: "Article",
+impact: "Low Impact"
+},
+{
+title: "One Way Functions–Conjecture, Status, Applications and Future Research Scope",
+authors: "A. Sharma, Sunil K. Singh",
+journal: "International Journal of Computer Applications 153(8)",
+doi: "",
+type: "Article",
+impact: "Low Impact"
+}
+],
+2015: [
+{
+title: "Achieving High Performance Distributed System: Using Grid Cluster and Cloud Computing",
+authors: "Sunil K. Singh, K. Kaur, A. Aggarwal, D. Verma",
+journal: "International Journal of Engineering Research and Applications 5(2), 59–67",
+doi: "",
+type: "Article",
+impact: "Low Impact"
+},
+{
+title: "EVALUATION & TRENDS OF SURVEILLANCE SYSTEM NETWORK IN UBIQUITOUS COMPUTING ENVIRONMENT",
+authors: "Sunil K. Singh, A. Aggarwal, K. Kaur",
+journal: "International Journal of Advanced Networking and Applications 6(5), 2486–2493",
+doi: "",
+type: "Article",
+impact: "Low Impact"
+}
+],
+2014: [
+{
+title: "Computing Power Utilization of Distributed Systems Using Distributed Compilation: A Clustered HPC Approach",
+authors: "Sunil K. Singh, A. Madaan, A. Aggarwal, A. Dewan",
+journal: "British Journal of Mathematics & Computer Science",
+doi: "",
+type: "Article",
+impact: "Low Impact"
+},
+{
+title: "A Hybrid Approach of Compiler and Interpreter",
+authors: "A. Aggarwal, Sunil K. Singh, S. Jain",
+journal: "International Journal of Scientific & Engineering Research 5(6), 1022–1025",
+doi: "",
+type: "Article",
+impact: "Low Impact"
+},
+{
+title: "Emerging Trends and Limitations in Technology and System of Ubiquitous Computing",
+authors: "Sunil K. Singh, K. Kaur, A. Aggrawal",
+journal: "International Journal of Advanced Research in Computer Science 5(7)",
+doi: "",
+type: "Article",
+impact: "Low Impact"
+}
+],
+2013: [
+{
+title: "Design and implementation of a high performance computing system using distributed compilation",
+authors: "Sunil K. Singh, A. Madaan, A. Aggarwal, A. Dewan",
+journal: "2013 International Conference on Advances in Computing, Communications and Informatics",
+doi: "",
+type: "Conference Paper",
+impact: "Low Impact"
+}
+],
+2012: [
+{
+title: "Design flow of reconfigurable embedded system architecture using LUTs/PLAs",
+authors: "Sunil K. Singh, R. K. Singh, M. P. S. Bhatia",
+journal: "2012 IEEE International Conference on Parallel, Distributed and Grid Computing",
+doi: "",
+type: "Conference Paper",
+impact: "Low Impact"
+},
+{
+title: "Performance evaluation of hybrid reconfigurable computing architecture over symmetrical FPGAs",
+authors: "Sunil K. Singh, R. K. Singh, M. P. S. Bhatia",
+journal: "International Journal of Embedded Systems and Applications 2(3), 107–116",
+doi: "",
+type: "Article",
+impact: "Low Impact"
+},
+{
+title: "Analysis of Technology Mapping Algorithm for Logic optimization of Symmetrical FPGA Architecture through Hybrid LUTs/PLAs",
+authors: "Sunil K. Singh, R. K. Singh, M. P. S. Bhatia",
+journal: "International Journal of Advances in Electronics Engineering 2(3), 219–224",
+doi: "",
+type: "Article",
+impact: "Low Impact"
+},
+{
+title: "CAD for Automatic Logic Density Utilization of Symmetrical FPGA Architecture through Hybrid LUTs/PLAs",
+authors: "Sunil K. K. Singh, R. K. Singh, M. P. S. Bhatia",
+journal: "VLSI Proc. of Int. Conf. on Innovations and Advancements ...",
+doi: "",
+type: "Conference Paper",
+impact: "Low Impact"
+},
+{
+title: "Generation of Image Encryption Key on the basis of Chaos and Strange Attractors",
+authors: "S. P. Singh, D. D. Jha, Sunil K. Singh",
+journal: "International Conference On Advances In Electronics, Electrical And Computer ...",
+doi: "",
+type: "Conference Paper",
+impact: "Low Impact"
+},
+{
+title: "DESIGN ISSUES OF EMBEDDED SYSTEM USING REAL TIME OPERATING SYSTEM IN LINUX ENVIRONMENT",
+authors: "A. Mittal, Sunil K. Singh",
+journal: "International Journal of Current Research and Review 4(12), 40–46",
+doi: "",
+type: "Article",
+impact: "Low Impact"
+},
+{
+title: "Role of Reconfigurable Devices in High Performance Computing System",
+authors: "A. Mittal, Sunil K. Singh, A. Goyal",
+journal: "International Journal of Computer Applications 41(7)",
+doi: "",
+type: "Article",
+impact: "Low Impact"
+}
+],
+2011: [
+{
+title: "Architectural performance of WiMAX over WiFi with reliable QoS over wireless communication",
+authors: "Sunil K. Singh, A. Kumar, S. Gupta, R. Madan",
+journal: "International Journal of Advanced Networking and Applications 3(1), 1017",
+doi: "",
+type: "Article",
+impact: "Low Impact"
+},
+{
+title: "Multi FPGA Based Novel Reconfigurable Hybrid Architecture for High Performance Computing",
+authors: "Sunil K. Singh, R. K. Singh, M. P. S. Bhatia, R. Madan",
+journal: "International Journal of Computer Science Issues (IJCSI) 8(4), 335",
+doi: "",
+type: "Article",
+impact: "Low Impact"
+},
+{
+title: "A HIGH PERFORMANCE ALGORITHM FOR SOLVING LARGE SCALE TRAVELLING SALESMAN PROBLEM USING DISTRIBUTED MEMORY ARCHITECTURES",
+authors: "K. Aggarwal, Sunil K. Singh, S. Khattar",
+journal: "Indian Journal of Computer Science and Engineering 2(4), 516–521",
+doi: "",
+type: "Article",
+impact: "Low Impact"
+},
+{
+title: "Reconfigurable Hybrid Architectures for High Performance Reliable Embedded Systems",
+authors: "Sunil K. Singh, R. Madan, N. Jain",
+journal: "International Conference on Future Trends in Information and Communication ...",
+doi: "",
+type: "Conference Paper",
+impact: "Low Impact"
+},
+{
+title: "Authenticating and Securing Mobile Applications Using Microlog",
+authors: "S. Gupta, Sunil K. Singh",
+journal: "International Conference on Computer Science and Information Technology, 258–267",
+doi: "",
+type: "Conference Paper",
+impact: "Low Impact"
+}
+],
+2010: [
+{
+title: "Analysis and optimisation of various transmission issues in video streaming over Bluetooth",
+authors: "S. Gupta, Sunil K. Singh, R. Jain",
+journal: "International Journal of Computer Applications 11(7), 44–48",
+doi: "",
+type: "Article",
+impact: "Low Impact"
+},
+{
+title: "Functionality area of Grid computing using Cluster grids",
+authors: "N. Jain, Sunil K. Singh, R. Madan",
+journal: "National Conference on High Performance Networking & Computing, 111–121",
+doi: "",
+type: "Conference Paper",
+impact: "Low Impact"
+},
+{
+title: "Parallel Genetic Algorithms on Distributed Memory",
+authors: "Sunil K. Singh, K. Aggarwal, A. Gupta",
+journal: "International Conference on Innovative Practices in Management & Information ...",
+doi: "",
+type: "Conference Paper",
+impact: "Low Impact"
+},
+{
+title: "Design and development of Java application to access Mobile Phone Camera for next generation Communication",
+authors: "Sunil K. Singh, N. Saxena, I. Aggarwal",
+journal: "International Conference on Innovative Practices in Management & Information ...",
+doi: "",
+type: "Conference Paper",
+impact: "Low Impact"
+}
+],
+2009: [
+{
+title: "Signal filtering using discrete wavelet transform",
+authors: "R. Madan, Sunil K. Singh, N. Jain",
+journal: "International journal of recent trends in engineering 2(3), 96",
+doi: "",
+type: "Article",
+impact: "Low Impact"
+},
+{
+title: "The Research Issues Related to Design Environment in Mobile Communication & Computing",
+authors: "N. T. Markad, Sunil K. Singh, R. Prakash",
+journal: "International Conference in Intelligent Systems and Networks (IISN-2009)",
+doi: "",
+type: "Conference Paper",
+impact: "Low Impact"
+},
+{
+title: "Designed & Developed Health Management System(HMS) With Intelligent Agents for Rural Areas",
+authors: "N. T. Markad, Sunil K. Singh, R. Prakash",
+journal: "International Conference on Innovative Technologies (ICIT-2009), 1145–1150",
+doi: "",
+type: "Conference Paper",
+impact: "Low Impact"
+},
+{
+title: "Protocol Performance Evaluation of an Mobile Ad-Hoc Network using Bluetooth Devices",
+authors: "Sunil K. Singh, M. P. S. Bhatia, R. Jindal, R. Prakash",
+journal: "International Conference on Innovative Technologies (ICIT-2009), 964–970",
+doi: "",
+type: "Conference Paper",
+impact: "Low Impact"
+},
+{
+title: "Design Modeling Environment of Mobile Communication and Computing",
+authors: "N. T. Markad, Sunil K. Singh, R. Prakash",
+journal: "International Advance Computing Conference (IACC-2009) IEEE",
+doi: "",
+type: "Conference Paper",
+impact: "Low Impact"
+}
+],
+2008: [
+{
+title: "A Nobel Concept: Reconfigurable Embedded System",
+authors: "M. P. S. Bhatia, Sunil K. Singh, R. Prakash, S. Singh",
+journal: "IEEE National Conference on Applications of Intelligent Systems (AIS-2008)",
+doi: "",
+type: "Conference Paper",
+impact: "Low Impact"
+},
+{
+title: "Design issue and management environment of mobile Ad-Hoc network",
+authors: "Sunil K. Singh, M. P. S. Bhatia, R. Jindal",
+journal: "National Conference on Mobile Computing (MOBILE COMP – 2008), 193–203",
+doi: "",
+type: "Conference Paper",
+impact: "Low Impact"
+},
+{
+title: "Design Issues Of Reconfigurable Embedded System Architectures",
+authors: "M. P. S. Bhatia, Sunil K. Singh, R. Jindal",
+journal: "International Conference on Advance Computing Technologies (ICACT-2008)",
+doi: "",
+type: "Conference Paper",
+impact: "Low Impact"
+}
+],
+2006: [
+{
+title: "General awareness and development of interactive knowledge center in village through IT",
+authors: "Sunil K. Singh, R. Prakash",
+journal: "National Conference on Language Technologies, RKGIT, Ghaziabad (U.P.)",
+doi: "",
+type: "Conference Paper",
+impact: "Low Impact"
+},
+{
+title: "Performance Enhancement of TCP over an Mobile Ad-Hoc Network",
+authors: "Sunil K. Singh, R. Jindal",
+journal: "National Conference on Energy, Communication and Computer (NC ECC 06), MAIT",
+doi: "",
+type: "Conference Paper",
+impact: "Low Impact"
+}
+]
+    },
     phdTeam: [],
     btechTeam: [],
+
+    social: {
+      email: "mailto:sksingh@ccet.ac.in",
+      linkedin: "https://in.linkedin.com/in/drsks",        // sample
+                              
+      scholar: "https://scholar.google.com/citations?user=EDpdqjwAAAAJ&hl=en",
+      orcid: "https://orcid.org/0000-0003-4876-7190"                  // optional
+    },
+
+
+       achievements: [
+      {
+        title: "IEEE Professional Member",
+        organization: "IEEE",
+        year: "2021–present",
+        description: "Active member, Consumer Technology Society."
+      },
+      {
+        title: "ACM Professional Member",
+        organization: "ACM",
+        year: "2014–present",
+        description: "Contributions to computing research and education."
+      },
+
+      {
+        title: "Institution of Engineers of India (IEI), Member",
+        organization: "Institution of Engineers of India (IEI), Kolkata",
+        year: "2011–present",
+        description: "Active member"
+      },
+    ]
+    
   },
   {
     name: "Dr. Sudhakar Kumar",
     title: "Assistant Professor, CSE Faculty",
     imgSrc: "/mentors/mentor3.png",
+    additionalImg: "/mentors/sudhakar-additional.png",
     about:
       "Dr. Sudhakar Kumar is a leading researcher in artificial intelligence, machine learning, and computational intelligence with over 10 years of academic experience. His work spans across scalable architectures, optimization techniques, and the application of AI in cybersecurity.",
     skills: [
@@ -62,32 +1289,29 @@ const mentorsData = [
     ],
     publications: {
       2025: [
-        {
-          title:
-            "Leveraging Dynamic Embeddings and Reinforcement Learning with Bayesian Networks for Ransomware Resiliences",
-          authors:
-            " Sudhakar Kumar , Sunil K. Singh , Saket Sarin , Chandra Kumari Subba , Varsha Arya , N. Nandhini , Brij B. Gupta , Kwok Tai Chui ",
-          journal: "Cyber Security and Applications",
-          doi: "10.1016/j.csa.2025.100095",
-          type: "Article",
-          impact: "High Impact",
-        },
+       {
+  title:
+    "Leveraging Dynamic Embeddings and Reinforcement Learning with Bayesian Networks for Ransomware Resiliences",
+  authors:
+    " Sudhakar Kumar , Sunil K. Singh , Saket Sarin , Chandra Kumari Subba , Varsha Arya , N. Nandhini , Brij B. Gupta , Kwok Tai Chui ",
+  journal: "Cyber Security and Applications",
+  doi: "10.1016/j.csa.2025.100095",
+  type: "Article",
+  impact: "High Impact",
+},
 
         {
           title:
             "Advancements in secure quantum communication and robust key distribution techniques for cybersecurity applications",
-          authors:
-            "Sunil K. Singh, Sudhakar Kumar, Anureet Chhabra, Akash Sharma, Varsha Arya, M. Srinivasan, Brij B. Gupta",
+          authors:"Sunil K. Singh, Sudhakar Kumar, Anureet Chhabra, Akash Sharma, Varsha Arya, M. Srinivasan, Brij B. Gupta",
           journal: "Cyber Security and Applications",
           doi: "10.1016/j.csa.2025.100089",
           type: "Article",
           impact: "High Impact",
         },
         {
-          title:
-            "Advanced Techniques and Best Practices for Phishing Detection",
-          authors:
-            "Ravina Mittal, Sunil K. Singh, Sudhakar Kumar, Trannum Khullar, Rakesh Kumar, Brij B. Gupta, Konstantinos Psannis",
+          title: "Advanced Techniques and Best Practices for Phishing Detection",
+          authors: "Ravina Mittal, Sunil K. Singh, Sudhakar Kumar, Trannum Khullar, Rakesh Kumar, Brij B. Gupta, Konstantinos Psannis",
           journal: "IGI Global",
           doi: "10.4018/979-8-3693-8784-9.ch008",
           type: "Book Chapter",
@@ -95,28 +1319,23 @@ const mentorsData = [
         },
         {
           title: "Advanced Tools and Technologies for Phishing Prevention",
-          authors:
-            "Kashish Preet Kaur, Sunil K. Singh, Sudhakar Kumar, Ishita Mehra, Shavi Bansal, Kwok Tai Chui, Vandana Sharma, Sunil Kumar Sharma",
+          authors: "Kashish Preet Kaur, Sunil K. Singh, Sudhakar Kumar, Ishita Mehra, Shavi Bansal, Kwok Tai Chui, Vandana Sharma, Sunil Kumar Sharma",
           journal: "IGI Global",
           doi: "10.4018/979-8-3693-8784-9.ch009",
           type: "Book Chapter",
           impact: "Medium Impact",
         },
         {
-          title:
-            "AI-Driven Green Computing for Sustainable Information Security",
-          authors:
-            "Rajneesh Kumar, Sudhakar Kumar, Sunil K. Singh, Yash Rawat, Chunjia Han, Brij B. Gupta, Nadia Nedjah, Archit Jain",
+          title: "AI-Driven Green Computing for Sustainable Information Security",
+          authors: "Rajneesh Kumar, Sudhakar Kumar, Sunil K. Singh, Yash Rawat, Chunjia Han, Brij B. Gupta, Nadia Nedjah, Archit Jain",
           journal: "IGI Global",
           doi: "10.4018/979-8-3693-8034-5.ch005",
           type: "Book Chapter",
           impact: "Medium Impact",
         },
         {
-          title:
-            "Challenges and Opportunities in Sustainable AI and Information Systems",
-          authors:
-            "Vanshika Singla, Sunil K. Singh, Sudhakar Kumar, Amit Chhabra, Shabeg Singh Gill, Varsha Arya, Archit Jain",
+          title: "Challenges and Opportunities in Sustainable AI and Information Systems",
+          authors: "Vanshika Singla, Sunil K. Singh, Sudhakar Kumar, Amit Chhabra, Shabeg Singh Gill, Varsha Arya, Archit Jain",
           journal: "IGI Global",
           doi: "10.4018/979-8-3693-8034-5.ch004",
           type: "Book Chapter",
@@ -124,8 +1343,7 @@ const mentorsData = [
         },
         {
           title: "Foundations of Phishing Defense",
-          authors:
-            "Raj Kanwar, Sumit Bawa, Sunil K. Singh, Sudhakar Kumar, Chandra Kumari Subba, Varsha Arya, Abhay Ratnaparkhi",
+          authors: "Raj Kanwar, Sumit Bawa, Sunil K. Singh, Sudhakar Kumar, Chandra Kumari Subba, Varsha Arya, Abhay Ratnaparkhi",
           journal: "IGI Global",
           doi: "10.4018/979-8-3693-8784-9.ch001",
           type: "Book Chapter",
@@ -133,8 +1351,7 @@ const mentorsData = [
         },
         {
           title: "Future Trends in AI-Driven Green Computing and Security",
-          authors:
-            "Avinash Mishra, Sudhakar Kumar, Sunil K. Singh, Deepak Bhattarai, Amit Chhabra, Shabeg Singh Gill, Varsha Arya, Archit Jain",
+          authors: "Avinash Mishra, Sudhakar Kumar, Sunil K. Singh, Deepak Bhattarai, Amit Chhabra, Shabeg Singh Gill, Varsha Arya, Archit Jain",
           journal: "IGI Global",
           doi: "10.4018/979-8-3693-8034-5.ch003",
           type: "Book Chapter",
@@ -142,18 +1359,15 @@ const mentorsData = [
         },
         {
           title: "Legal and Ethical Considerations in Phishing Defense",
-          authors:
-            "Janvi Sharma, Suni K. Singh, Sudhakar Kumar, Anish Sharma, Chandra Kumari Subba, Varsha Arya, Achin Jain, Arun Kumar Dubey",
+          authors: "Janvi Sharma, Suni K. Singh, Sudhakar Kumar, Anish Sharma, Chandra Kumari Subba, Varsha Arya, Achin Jain, Arun Kumar Dubey",
           journal: "IGI Global",
           doi: "10.4018/979-8-3693-8034-5.ch020",
           type: "Book Chapter",
           impact: "Medium Impact",
         },
         {
-          title:
-            "Leveraging Artificial Intelligence for Cyber Defense in Space Missions",
-          authors:
-            "Japjot Singh Nanda, Sunil K. Singh, Sudhakar Kumar, Dikshant Rajput, Chunjia Han, Brij B. Gupta, Nadia Nedjah",
+          title: "Leveraging Artificial Intelligence for Cyber Defense in Space Missions",
+          authors: "Japjot Singh Nanda, Sunil K. Singh, Sudhakar Kumar, Dikshant Rajput, Chunjia Han, Brij B. Gupta, Nadia Nedjah",
           journal: "IGI Global",
           doi: "10.4018/979-8-3693-7939-4.ch006",
           type: "Book Chapter",
@@ -161,28 +1375,23 @@ const mentorsData = [
         },
         {
           title: "Phishing Prevention Solutions and Mechanisms",
-          authors:
-            "Abhavya Muku, Sunil K. Singh, Sudhakar Kumar, Ankita Sharma, Pooja Rai, Biraj Upadhyaya, Sunil Kumar Sharma, Vandana Sharma",
+          authors: "Abhavya Muku, Sunil K. Singh, Sudhakar Kumar, Ankita Sharma, Pooja Rai, Biraj Upadhyaya, Sunil Kumar Sharma, Vandana Sharma",
           journal: "IGI Global",
           doi: "10.4018/979-8-3693-8784-9.ch003",
           type: "Book Chapter",
           impact: "Medium Impact",
         },
         {
-          title:
-            "Reducing the Carbon Footprint in Machine Learning With Eco-Friendly AI Training",
-          authors:
-            "Tanish Aggarwal, Sudhakar Kumar, Sunil K. Singh, Chandra Kumari Subba, Biraj Upadhyaya, Varsha Arya, Abhay Ratnaparkhi, Sunil Kumar Sharma",
+          title: "Reducing the Carbon Footprint in Machine Learning With Eco-Friendly AI Training",
+          authors: "Tanish Aggarwal, Sudhakar Kumar, Sunil K. Singh, Chandra Kumari Subba, Biraj Upadhyaya, Varsha Arya, Abhay Ratnaparkhi, Sunil Kumar Sharma",
           journal: "IGI Global",
           doi: "10.4018/979-8-3693-8034-5.ch010",
           type: "Book Chapter",
           impact: "Medium Impact",
         },
         {
-          title:
-            "Resilient and Trusted Communication Frameworks for Space Missions",
-          authors:
-            "Shaurya Katna, Sudhakar Kumar, Sunil K. Singh, Abhishek Goyal, Animesh Singh, Lalit Kumar Vashishtha",
+          title: "Resilient and Trusted Communication Frameworks for Space Missions",
+          authors: "Shaurya Katna, Sudhakar Kumar, Sunil K. Singh, Abhishek Goyal, Animesh Singh, Lalit Kumar Vashishtha",
           journal: "IGI Global",
           doi: "10.4018/979-8-3693-7939-4.ch007",
           type: "Book Chapter",
@@ -190,8 +1399,7 @@ const mentorsData = [
         },
         {
           title: "Robust and Secure Communication Protocols for Space Missions",
-          authors:
-            "Harmanjot Singh, Sudhakar Kumar, Sunil K. Singh, Anoop Pant, Chandra Kumari Subba, Brij B. Gupta, Konstantinos Psannis",
+          authors: "Harmanjot Singh, Sudhakar Kumar, Sunil K. Singh, Anoop Pant, Chandra Kumari Subba, Brij B. Gupta, Konstantinos Psannis",
           journal: "IGI Global",
           doi: "10.4018/979-8-3693-7939-4.ch008",
           type: "Book Chapter",
@@ -199,18 +1407,15 @@ const mentorsData = [
         },
         {
           title: "Securing Cyber-Physical Systems in Space Missions",
-          authors:
-            "Anubhav Singh, Sunil K. Singh, Sudhakar Kumar, Sumit Kumar, Shavi Bansal, Lalit Kumar Vashishtha, Arun Kumar Dubey, Achin Jain",
+          authors: "Anubhav Singh, Sunil K. Singh, Sudhakar Kumar, Sumit Kumar, Shavi Bansal, Lalit Kumar Vashishtha, Arun Kumar Dubey, Achin Jain",
           journal: "IGI Global",
           doi: "10.4018/979-8-3693-7939-4.ch005",
           type: "Book Chapter",
           impact: "Medium Impact",
         },
         {
-          title:
-            "The Influence of AI on Social Interactions and Community Dynamics",
-          authors:
-            "Jasjeet Singh, Sunil K. Singh, Sudhakar Kumar, Samar Pratap Singh, Rakesh Kumar, Shavi Bansal, Kwok Tai Chui",
+          title: "The Influence of AI on Social Interactions and Community Dynamics",
+          authors: "Jasjeet Singh, Sunil K. Singh, Sudhakar Kumar, Samar Pratap Singh, Rakesh Kumar, Shavi Bansal, Kwok Tai Chui",
           journal: "IGI Global",
           doi: "10.4018/979-8-3693-8628-6.ch010",
           type: "Book Chapter",
@@ -219,8 +1424,7 @@ const mentorsData = [
         {
           title:
             "Transforming User Experience in the Metaverse Through Emotional Intelligence and Affective Computing",
-          authors:
-            "Manvi Saini, Sudhakar Kumar, Sunil K. Singh, Aditi Bansal, Chunjia Han, Brij B. Gupta, Konstantinos Psannis",
+          authors: "Manvi Saini, Sudhakar Kumar, Sunil K. Singh, Aditi Bansal, Chunjia Han, Brij B. Gupta, Konstantinos Psannis",
           journal: "IGI Global",
           doi: "10.4018/979-8-3693-8628-6.ch015",
           type: "Book Chapter",
@@ -228,8 +1432,7 @@ const mentorsData = [
         },
         {
           title: "Understanding Cyber Threats in Modern Space Missions",
-          authors:
-            "Anoop Pant, Sudhakar Kumar, Sunil K. Singh, Harmanjot Singh, Chandra Kumari Subba, Shavi Bansal, Kwok Tai Chui",
+          authors: "Anoop Pant, Sudhakar Kumar, Sunil K. Singh, Harmanjot Singh, Chandra Kumari Subba, Shavi Bansal, Kwok Tai Chui",
           journal: "IGI Global",
           doi: "10.4018/979-8-3693-7939-4.ch002",
           type: "Book Chapter",
@@ -237,8 +1440,7 @@ const mentorsData = [
         },
         {
           title: "Virtual Economies and Social Structures in the Metaverse",
-          authors:
-            "Jaiveer Singh, Sudhakar Kumar, Sunil K. Singh, Deependra Singh, Animesh Singh, Varsha Arya, Abhay Ratnaparkhi",
+          authors: "Jaiveer Singh, Sudhakar Kumar, Sunil K. Singh, Deependra Singh, Animesh Singh, Varsha Arya, Abhay Ratnaparkhi",
           journal: "IGI Global",
           doi: "10.4018/979-8-3693-8628-6.ch006",
           type: "Book Chapter",
@@ -246,8 +1448,7 @@ const mentorsData = [
         },
         {
           title: "Virtual Identity and Self-Expression in the Metaverse",
-          authors:
-            "Aditi Sharma, Sudhakar Kumar, Sunil K. Singh, Shashi Jawla, Varsha Arya, Kwok Tai Chui",
+          authors: "Aditi Sharma, Sudhakar Kumar, Sunil K. Singh, Shashi Jawla, Varsha Arya, Kwok Tai Chui",
           journal: "IGI Global",
           doi: "10.4018/979-8-3693-8628-6.ch005",
           type: "Book Chapter",
@@ -255,28 +1456,23 @@ const mentorsData = [
         },
         {
           title: "Communication Systems for Drone Swarms and Remote Operations",
-          authors:
-            "Shaurya Katna, Sunil K. Singh, Sudhakar Kumar, Divyansh Manro, Amit Chhabra, Sunil Kumar Sharma",
+          authors: "Shaurya Katna, Sunil K. Singh, Sudhakar Kumar, Divyansh Manro, Amit Chhabra, Sunil Kumar Sharma",
           journal: "IGI Global",
           doi: "10.4018/979-8-3693-2707-4.ch006",
           type: "Book Chapter",
           impact: "Medium Impact",
         },
         {
-          title:
-            "Drones and Unmanned Aerial Vehicles Automation Using Reinforcement Learning",
-          authors:
-            "Jaskirat Kaur, Sudhakar Kumar, Sunil K. Singh, Ruchika Thakur, Shavi Bansal, Varsha Arya",
+          title: "Drones and Unmanned Aerial Vehicles Automation Using Reinforcement Learning",
+          authors: "Jaskirat Kaur, Sudhakar Kumar, Sunil K. Singh, Ruchika Thakur, Shavi Bansal, Varsha Arya",
           journal: "IGI Global",
           doi: "10.4018/979-8-3693-2707-4.ch011",
           type: "Book Chapter",
           impact: "Medium Impact",
         },
         {
-          title:
-            "Enhancing Autonomous System Security With AI and Secure Computation Technologies",
-          authors:
-            "Tushar Singh, Sudhakar Kumar, Sunil K. Singh, Priyanshu, Brij B. Gupta, Jinsong Wu, Arcangelo Castiglione",
+          title: "Enhancing Autonomous System Security With AI and Secure Computation Technologies",
+          authors: "Tushar Singh, Sudhakar Kumar, Sunil K. Singh, Priyanshu, Brij B. Gupta, Jinsong Wu, Arcangelo Castiglione",
           journal: "IGI Global",
           doi: "10.4018/979-8-3693-2707-4.ch008",
           type: "Book Chapter",
@@ -285,8 +1481,7 @@ const mentorsData = [
         {
           title:
             "Multi-Modal Sensor Fusion With CRNNs for Robust Object Detection and Simultaneous Localization and Mapping (SLAM) in Agile Industrial Drones",
-          authors:
-            "Ujjwal Thakur, Sunil K. Singh, Sudhakar Kumar, Anubhav Singh, Varsha Arya, Kwok Tai Chui",
+          authors: "Ujjwal Thakur, Sunil K. Singh, Sudhakar Kumar, Anubhav Singh, Varsha Arya, Kwok Tai Chui",
           journal: "IGI Global",
           doi: "10.4018/979-8-3693-2707-4.ch012",
           type: "Book Chapter",
@@ -295,67 +1490,54 @@ const mentorsData = [
         {
           title:
             "Enhancing smart grid reliability through cross-domain optimization of IoT sensor placement and communication links",
-          authors:
-            "Saket Sarin, Sunil K. Singh, Sudhakar Kumar, Shivam Goyal, Brij B. Gupta, Varsha Arya, Razaz Waheeb Attar, Shavi Bansal, Ahmed Alhomoud",
+          authors: "Saket Sarin, Sunil K. Singh, Sudhakar Kumar, Shivam Goyal, Brij B. Gupta, Varsha Arya, Razaz Waheeb Attar, Shavi Bansal, Ahmed Alhomoud",
           journal: "Telecommunication Systems",
           doi: "10.1007/s11235-024-01235-1",
           type: "Article",
           impact: "High Impact",
         },
         {
-          title:
-            "Variance-driven security optimisation in industrial IoT sensors",
-          authors:
-            "Hardik Gupta, Sunil K. Singh, Sudhakar Kumar, Karan Sharma, Hardeep Saini, Brij B. Gupta, Varsha Arya, Kwok Tai Chui",
+          title: "Variance-driven security optimisation in industrial IoT sensors",
+          authors: "Hardik Gupta, Sunil K. Singh, Sudhakar Kumar, Karan Sharma, Hardeep Saini, Brij B. Gupta, Varsha Arya, Kwok Tai Chui",
           journal: "IET Networks",
           doi: "10.1049/ntw2.12139",
           type: "Article",
           impact: "High Impact",
         },
         {
-          title:
-            "AN IoT Based Smart Healthcare Gadget: Attempt to Promote the Idea of Smart Healthcare System",
-          authors:
-            "Aishita Sharma, Sunil K. Singh, Soumya Sharma, Sunil Kumar, Kartik Dalal & Anureet Chhabra ",
+          title: "AN IoT Based Smart Healthcare Gadget: Attempt to Promote the Idea of Smart Healthcare System",
+          authors: "Aishita Sharma, Sunil K. Singh, Soumya Sharma, Sunil Kumar, Kartik Dalal & Anureet Chhabra ",
           journal: "Advances in Intelligent Systems and Computing",
           doi: "10.1007/978-3-031-40905-9_11",
           type: "Article",
           impact: "Medium Impact",
         },
         {
-          title:
-            "Application of Green IoT in Digital Oilfields for Achieving Sustainability in the OnG Industry",
-          authors:
-            "Soumya Sharma, Sunil K. Singh, Sudhakar Kumar, Krish Kathuria, Tarun Vats",
+          title: "Application of Green IoT in Digital Oilfields for Achieving Sustainability in the OnG Industry",
+          authors: "Soumya Sharma, Sunil K. Singh, Sudhakar Kumar, Krish Kathuria, Tarun Vats",
           journal: "Springer",
           doi: "10.1007/978-3-031-40905-9_13",
           type: "Book Chapter",
           impact: "Medium Impact",
         },
         {
-          title:
-            "Automatic parallelization for multicore architectures: Role, importance, and opportunities",
-          authors:
-            "Sudhakar Kumar, Sunil K. Singh, Naveen Aggarwal, Shabeg Singh Gill",
-          journal:
-            "Uncertainty in Computational Intelligence-Based Decision Making",
+          title: "Automatic parallelization for multicore architectures: Role, importance, and opportunities",
+          authors: "Sudhakar Kumar, Sunil K. Singh, Naveen Aggarwal, Shabeg Singh Gill",
+          journal: "Uncertainty in Computational Intelligence-Based Decision Making",
           doi: "10.1016/b978-0-443-21475-2.00006-0",
           type: "Book Chapter",
           impact: "Medium Impact",
         },
         {
-          title:
-            "Blockchain Based Election System Using Fingerprint Recognition",
-          authors:
-            "Uday Madan, Sunil K. Singh, Sudhakar Kumar, Mehak Preet, Akash Sharma, Himanshu Setia",
+          title: "Blockchain Based Election System Using Fingerprint Recognition",
+          authors: "Uday Madan, Sunil K. Singh, Sudhakar Kumar, Mehak Preet, Akash Sharma, Himanshu Setia",
           journal: "Springer",
           doi: "10.1007/978-3-031-40905-9_6",
           type: "Book Chapter",
           impact: "Medium Impact",
         },
         {
-          title:
-            "Computational intelligence in decision support: Scope and techniques",
+          title: "Computational intelligence in decision support: Scope and techniques",
           authors: "Sudhakar Kumar, Sunil K. Singh, Leema Nelson",
           journal: "Elsevier",
           doi: "10.1016/B978-0-443-21475-2.00019-9",
@@ -365,10 +1547,8 @@ const mentorsData = [
         {
           title:
             "Enhancing DDoS Attack Detection in SDN with a Stacked Model Framework Utilizing Deep Neural Networks",
-          authors:
-            "Aishita Sharma, Sunil K. Singh, Sudhakar Kumar, Shin Hung Pan, Brij B. Gupta, Kwok Tai Chui",
-          journal:
-            "IEEE International Conference on Consumer Electronics (ICCE)",
+          authors: "Aishita Sharma, Sunil K. Singh, Sudhakar Kumar, Shin Hung Pan, Brij B. Gupta, Kwok Tai Chui",
+          journal: "IEEE International Conference on Consumer Electronics (ICCE)",
           doi: "10.1109/ICCE63647.2025.10929828",
           type: "Conference Paper",
           impact: "Medium Impact",
@@ -376,8 +1556,7 @@ const mentorsData = [
         {
           title:
             "Geospectra: leveraging quantum-SAR and deep learning for enhanced geolocation in urban environments",
-          authors:
-            "Saket Sarin, Sunil K. Singh, Sudhakar Kumar & Shivam Goyal ",
+          authors: "Saket Sarin, Sunil K. Singh, Sudhakar Kumar & Shivam Goyal ",
           journal: "The Journal of Supercomputing",
           doi: "10.1007/s11227-024-06619-3",
           type: "Article",
@@ -386,8 +1565,7 @@ const mentorsData = [
         {
           title:
             "Neoteric Threat Intelligence Ensuring Digital Sovereignty and Trust through ML-Infused Proactive Defense Analytics for NEXT-G and Beyond Ecosystems",
-          authors:
-            "Sudhakar Kumar, Sunil K. Singh, Rakesh Kumar, Chandra Kumari Subba, Kwok Tai Chui, Brij B. Gupta",
+          authors: "Sudhakar Kumar, Sunil K. Singh, Rakesh Kumar, Chandra Kumari Subba, Kwok Tai Chui, Brij B. Gupta",
           journal: "Procedia Computer Science",
           doi: "10.1016/j.procs.2025.02.062",
           type: "Conference Paper",
@@ -396,8 +1574,7 @@ const mentorsData = [
         {
           title:
             "Neural Network Architectures for Machine Translation: Enhancing Quality Education Through Improved Access to Multilingual Resources",
-          authors:
-            "Ayushi, Sudhakar Kumar, Sunil K. Singh, Samar Pratap Singh, Pooja Rai, Kwok Tai Chui, Brij B. Gupta",
+          authors: "Ayushi, Sudhakar Kumar, Sunil K. Singh, Samar Pratap Singh, Pooja Rai, Kwok Tai Chui, Brij B. Gupta",
           journal: "Springer",
           doi: "10.1007/978-3-031-88039-1_18",
           type: "Book Chapter",
@@ -407,8 +1584,7 @@ const mentorsData = [
           title:
             "Secure and cost-effective key management scheme for the Internet of Things-supported WSN",
           authors: "Rakesh Kumar, Sunil K. Singh, D.K. Lobiyal, Sudhakar Kumar",
-          journal:
-            "Uncertainty in Computational Intelligence-Based Decision Making",
+          journal: "Uncertainty in Computational Intelligence-Based Decision Making",
           doi: "10.1016/b978-0-443-21475-2.00012-6",
           type: "Book Chapter",
           impact: "Medium Impact",
@@ -416,10 +1592,8 @@ const mentorsData = [
         {
           title:
             "Security Enhancement in Consumer Enterprises Using Neural Nets Within the SIEM Framework",
-          authors:
-            "Saksham Arora, Sudhakar Kumar, Sunil K. Singh, Sahil Garg, Brij B. Gupta, Shavi Bansal, Kwok Tai Chui",
-          journal:
-            "IEEE International Conference on Consumer Electronics (ICCE)",
+          authors: "Saksham Arora, Sudhakar Kumar, Sunil K. Singh, Sahil Garg, Brij B. Gupta, Shavi Bansal, Kwok Tai Chui",
+          journal: "IEEE International Conference on Consumer Electronics (ICCE)",
           doi: "10.1109/ICCE63647.2025.10930094",
           type: "Conference Paper",
           impact: "Medium Impact",
@@ -431,8 +1605,7 @@ const mentorsData = [
           title:
             "Advanced Evaluation of Propagation Models and Routing Protocols in Vehicular Ad-Hoc Networks",
           authors: "Kumar, S. et al.",
-          journal:
-            "2024 IEEE Cyber Science and Technology Congress (CyberSciTech)",
+          journal: "2024 IEEE Cyber Science and Technology Congress (CyberSciTech)",
           doi: "10.1109/cyberscitech64112202400070",
           type: "Conference Paper",
           impact: "Medium Impact",
@@ -447,8 +1620,7 @@ const mentorsData = [
           impact: "Medium Impact",
         },
         {
-          title:
-            "Applying Visual Cryptography to Decrypt Data Using Human Senses",
+          title: "Applying Visual Cryptography to Decrypt Data Using Human Senses",
           authors: "Kumar, S. et al.",
           journal: "IGI Global",
           doi: "10.4018/979-8-3693-5330-1.ch016",
@@ -529,8 +1701,7 @@ const mentorsData = [
           title:
             "Revolutionizing Healthcare Systems: Synergistic Multimodal Ensemble Learning & Knowledge Transfer for Lung Cancer Delineation & Taxonomy",
           authors: "Kumar, S. et al.",
-          journal:
-            "2024 IEEE International Conference on Consumer Electronics (ICCE)",
+          journal: "2024 IEEE International Conference on Consumer Electronics (ICCE)",
           doi: "10.1109/icce59016.2024.10444476",
           type: "Conference Paper",
           impact: "Medium Impact",
@@ -539,8 +1710,7 @@ const mentorsData = [
           title:
             "Towards Sustainable Consumer Electronics: DL-based SoH and RUL Prediction for E-Waste Reduction",
           authors: "Kumar, S. et al.",
-          journal:
-            "2024 IEEE International Conference on Consumer Electronics (ICCE)",
+          journal: "2024 IEEE International Conference on Consumer Electronics (ICCE)",
           doi: "10.1109/icce59016.2024.10444466",
           type: "Conference Paper",
           impact: "Medium Impact",
@@ -555,7 +1725,8 @@ const mentorsData = [
           impact: "Medium Impact",
         },
         {
-          title: "IoT-enabled smart farming with Industry 5.0",
+          title:
+            "IoT-enabled smart farming with Industry 5.0",
           authors: "Kumar, S. et al.",
           journal: "Journal of High Speed Networks",
           doi: "10.3233/JHS-230258",
@@ -610,8 +1781,7 @@ const mentorsData = [
       ],
       2023: [
         {
-          title:
-            "Enhancing Haemorrhage Detection in Head CT Scans Using Deep Learning",
+          title: "Enhancing Haemorrhage Detection in Head CT Scans Using Deep Learning",
           authors: "Kumar, S. et al.",
           journal:
             "2023 3rd International Conference on Smart Generation Computing, Communication and Networking (SMART GENCON)",
@@ -620,8 +1790,7 @@ const mentorsData = [
           impact: "Medium Impact",
         },
         {
-          title:
-            "A novel hybrid model integrating MFCC and acoustic parameters for voice disorder detection",
+          title: "A novel hybrid model integrating MFCC and acoustic parameters for voice disorder detection",
           authors: "Kumar, S. et al.",
           journal: "Scientific Reports",
           doi: "10.1038/s41598-023-49869-6",
@@ -632,15 +1801,13 @@ const mentorsData = [
           title:
             "A Novel Deep Federated Learning-Based Model to Enhance Privacy in Critical Infrastructure Systems",
           authors: "Kumar, S. et al.",
-          journal:
-            "International Journal of Software Science and Computational Intelligence",
+          journal: "International Journal of Software Science and Computational Intelligence",
           doi: "10.4018/ijssci.334711",
           type: "Article",
           impact: "High Impact",
         },
         {
-          title:
-            "Exploring Advanced Neural Networks For Cross-Corpus Fake News Detection",
+          title: "Exploring Advanced Neural Networks For Cross-Corpus Fake News Detection",
           authors: "Kumar, S. et al.",
           journal: "ACM Conference",
           doi: "10.1145/3647444.3652457",
@@ -666,8 +1833,7 @@ const mentorsData = [
           impact: "Medium Impact",
         },
         {
-          title:
-            "Fuzzy Based Clustering of Consumers Big Data in Industrial Applications",
+          title: "Fuzzy Based Clustering of Consumers Big Data in Industrial Applications",
           authors: "Kumar, S. et al.",
           journal: "IEEE ICCE",
           doi: "10.1109/ICCE56470.2023.10043451",
@@ -702,20 +1868,25 @@ const mentorsData = [
       { name: "Sahil Garg", img: "/mentors/team3.png" },
       { name: "Japjot Singh Nanda", img: "/mentors/team4.png" },
     ],
-  },
-];
 
-const achievements = [
+     social: {
+      email: "mailto:sudhakar@ccet.ac.in",
+      linkedin: "https://in.linkedin.com/in/sudhakarkumar5",        // sample
+      twitter: "",
+      scholar: "https://scholar.google.co.in/citations?user=vsLPXb4AAAAJ&hl=en",
+      orcid: "https://orcid.org/0000-0001-7928-4234"                  // optional
+    },
+
+        achievements: [
+  
   {
-    title:
-      "IEEE Professional Member (Computer Science and Engineering) Membership",
+    title: "IEEE Professional Member (Computer Science and Engineering) Membership",
     organization: "IEEE: New York, NY, US",
     year: "2020 to present",
     description: "",
   },
   {
-    title:
-      "IEEE Consumer Technology Society Membership (Computer Science and Engineering)",
+    title: "IEEE Consumer Technology Society Membership (Computer Science and Engineering)",
     organization: "IEEE: New York, NY, US",
     year: "2020 to present",
     description: "",
@@ -725,6 +1896,10 @@ const achievements = [
     organization: "Association for Computing Machinery: New York, New York, US",
     year: "2016 to present",
     description: "",
+  },
+ 
+]
+
   },
 ];
 
@@ -1157,47 +2332,6 @@ const styles = `
   padding: 0 10px;
 }
 
-.profile .additional-img {
-  width: 220px;      
-  height: 260px;     
-  border: 3px solid #3399ff; 
-  object-fit: cover;
-  margin: 40px auto 0 auto;
-  display: block;
-  border-radius: 0; /* Make sure it's not circular */
-}
-
-/* Enhanced responsive design for better tab section spacing and mobile layout */
-
-/* Tablet and small desktop */
-@media (max-width: 1024px) {
-  #profileCard {
-    width: 95vw;
-    height: 90vh;
-    padding: 25px;
-    gap: 25px;
-  }
-  
-  .profile {
-    width: 220px;
-  }
-  
-  .tabs {
-    gap: 6px;
-    margin-bottom: 20px;
-  }
-  
-  .tab {
-    padding: 8px 12px;
-    font-size: 12px;
-  }
-  
-  .tab-content {
-    padding: 15px 0;
-  }
-}
-
-/* Large mobile and tablet */
 @media (max-width: 768px) {
   .mentors-section .card__container {
     flex-direction: column;
@@ -1213,187 +2347,69 @@ const styles = `
   #profileCard {
     flex-direction: column;
     height: 95vh;
-    width: 96vw;
     padding: 20px;
-    gap: 20px;
     overflow-y: scroll;
   }
 
   .profile {
     width: 100%;
-    margin-bottom: 15px;
-  }
-  
-  .profile .additional-img {
-    width: 180px;
-    height: 220px;
-    margin: 30px auto 0 auto;
   }
 
   .info {
     width: 100%;
-    gap: 20px;
   }
 
   .tabs {
     justify-content: center;
-    gap: 15px;
-    margin-bottom: 8px;
-    padding: 15px 10px;
-    flex-wrap: wrap;
-  }
-  
-  .tab {
-    padding: 14px 20px;
-    font-size: 14px;
-    min-width: 90px;
-    text-align: center;
-    border-radius: 20px;
-  }
-  
-  .tab-content {
-    padding: 12px 15px;
-    margin: 0 -5px;
   }
 }
 
-/* Small mobile */
+.icon-scholar { content: url('mentors/google-scholar.png'); height: 1em; width: auto; }
+.icon-orcid { content: url('mentors/orcid.png'); height: 1em; width: auto; }
+
+
 @media (max-width: 480px) {
+  .mentors-section h1 {
+    font-size: 1.8rem;
+  }
+
   .mentors-section .card {
     width: 95vw;
+    height: auto;
     min-height: 320px;
   }
 
-  #profileCard {
-    width: 98vw;
-    height: 96vh;
-    padding: 15px;
-    gap: 15px;
+  .mentors-section .card img {
+    width: 120px;
+    height: 120px;
   }
-  
+
+  .team-member {
+    width: 100px;
+  }
+
+  .team-member img {
+    width: 70px;
+    height: 70px;
+  }
+
+  .team-member p {
+    font-size: 0.8rem;
+  }
+}
   .profile .additional-img {
-    width: 150px;
-    height: 180px;
-    margin: 25px auto 0 auto;
-  }
-  
-  .tabs {
-    flex-direction: column;
-    gap: 12px;
-    margin-bottom: 6px;
-    padding: 0px 0px;
-    align-items: stretch;
-  }
-  
-  .tab {
-    padding: 16px 24px;
-    font-size: 15px;
-    min-width: auto;
-    width: 100%;
-    text-align: center;
-    border-radius: 25px;
-  }
-  
-  .tab-content {
-    padding: 10px 15px;
-    margin: 0 -5px;
-  }
-
-/* Extra small mobile */
-@media (max-width: 360px) {
-  .tabs {
-    gap: 4px;
-  }
-  
-  .tab {
-    padding: 6px 8px;
-    font-size: 10px;
-    min-width: 60px;
-  }
-  
-  .tab-content {
-    padding: 12px 8px;
-  }
-  
-  .publication-card {
-    padding: 10px 12px;
-  }
-  
-  .activity-card {
-    padding: 12px;
-  }
+  width: 220px;      
+  height: 260px;     
+  border: 3px solid #3399ff; 
+  object-fit: cover;
+  margin-left:15px;
+  margin-top: 30px;   /* Fix the typo */
+  display: block;
+  border-radius: 0; /* Make sure it's not circular */
 }
 
-/* Hide additional image on mobile to give tabs more space */
-@media (max-width: 768px) {
-  .profile .additional-img {
-    display: none;
-  }
-}
-
-/* Hide image until 773px width and move content upwards */
-@media (max-width: 773px), (max-height: 997px) {
-  .profile .additional-img {
-    display: none;
-  }
+ 
   
-  /* Move content upwards when image is hidden */
-  .profile p {
-    margin-top: 25px;
-  }
-}
-
-.tabs {
-  display: flex;
-  gap: 6px;
-  flex-wrap: wrap;
-  justify-content: center;
-  max-width: 250px; /* Match profile width */
-}
-
-.tab {
-  padding: 6px 12px; /* Slightly smaller padding for better fit */
-  background-color: #e6f2ff;
-  border: none;
-  border-radius: 16px;
-  color: #004080;
-  cursor: pointer;
-  font-size: 11px; /* Smaller font size to fit better */
-  flex: 1;
-  min-width: 70px; /* Ensure minimum width for readability */
-  text-align: center;
-}
-
-/* Enhanced mobile responsive styles for tabs in profile section */
-@media (max-width: 768px) {
-  .tabs {
-    gap: 4px;
-    max-width: 100%;
-    margin: 5px 0;
-  }
-  
-  .tab {
-    padding: 8px 10px;
-    font-size: 10px;
-    min-width: 60px;
-    flex: 1;
-  }
-}
-
-@media (max-width: 480px) {
-  .tabs {
-    gap: 3px;
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-  
-  .tab {
-    padding: 6px 8px;
-    font-size: 9px;
-    min-width: 50px;
-    max-width: calc(50% - 2px); /* Ensure maximum 2 tabs per row */
-  }
-}
 `;
 
 function MentorCard({ mentor, onClick }) {
@@ -1482,6 +2498,7 @@ function YearPublications({ year, publications }) {
   );
 }
 
+
 function TeamMembers({ title, members }) {
   if (!members || members.length === 0) return null;
   return (
@@ -1499,20 +2516,29 @@ function TeamMembers({ title, members }) {
   );
 }
 
-function ProfessionalActivities() {
+function ProfessionalActivities({ items }) {
+  if (!items || items.length === 0) return null;
+
   return (
     <div
       id="professionalActivities"
       className="activities-grid"
       aria-label="Professional Activities"
     >
-      {achievements.map((activity, i) => (
+      {items.map((activity, i) => (
         <div className="activity-card" key={i}>
           <h4>{activity.title}</h4>
           <p style={{ color: "#184ba7", margin: "4px 0" }}>
             <strong>{activity.organization}</strong>
           </p>
-          <p style={{ fontSize: "0.9rem", opacity: 0.8 }}>📅 {activity.year}</p>
+          {activity.year && (
+            <p style={{ fontSize: "0.9rem", opacity: 0.8 }}>📅 {activity.year}</p>
+          )}
+          {activity.description && (
+            <p style={{ fontSize: "0.9rem", color: "#2b3d61" }}>
+              {activity.description}
+            </p>
+          )}
         </div>
       ))}
     </div>
@@ -1522,21 +2548,24 @@ function ProfessionalActivities() {
 function MentorProfile({ mentor, onClose }) {
   const [activeTab, setActiveTab] = useState("about");
 
-  const sortedYears = Object.keys(mentor.publications || {}).sort(
-    (a, b) => b - a
-  );
+  const sortedYears = Object.keys(mentor.publications || {}).sort((a, b) => b - a);
   useEffect(() => {
-    const navbar = document.querySelector("nav"); // adjust selector to your navbar
-    if (navbar) navbar.style.display = "none";
+  const navbar = document.querySelector("nav"); // adjust selector to your navbar
+  if (navbar) navbar.style.display = "none";
 
-    return () => {
-      if (navbar) navbar.style.display = ""; // restore on close/unmount
-    };
-  }, []);
+  return () => {
+    if (navbar) navbar.style.display = ""; // restore on close/unmount
+  };
+}, []);
+
 
   useEffect(() => {
     setActiveTab("about");
   }, [mentor]);
+
+  const hasTeam =
+  (mentor.phdTeam && mentor.phdTeam.length > 0) ||
+  (mentor.btechTeam && mentor.btechTeam.length > 0);
 
   return (
     <div
@@ -1547,70 +2576,69 @@ function MentorProfile({ mentor, onClose }) {
       aria-labelledby="profileName"
     >
       <div className="profile">
-        <img
-          id="profileImg"
-          src={mentor.imgSrc || "/placeholder.svg"}
-          alt={mentor.name}
-        />
+        <img id="profileImg" src={mentor.imgSrc || "/placeholder.svg"} alt={mentor.name} />
         <h2 id="profileName">{mentor.name}</h2>
         <div className="title" id="profileTitle">
           {mentor.title}
         </div>
         <p>Department of CSE</p>
-
         <div
-          className="social-icons"
-          aria-label="Social media icons"
-          role="list"
-          style={{ gap: "12px" }}
-        >
-          <i
-            className="fas fa-envelope"
-            title="Email"
-            role="listitem"
-            tabIndex={0}
-            aria-label="Email"
-          ></i>
-          <i
-            className="fab fa-linkedin-in"
-            title="Linkedin"
-            role="listitem"
-            tabIndex={0}
-            aria-label="Linkedin"
-          ></i>
-          <i
-            className="fab fa-twitter"
-            title="Twitter"
-            role="listitem"
-            tabIndex={0}
-            aria-label="Twitter"
-          ></i>
-        </div>
+  className="social-icons"
+  aria-label="Social media icons"
+  role="list"
+  style={{ gap: "12px" }}
+>
+  {mentor.social?.email && (
+    <a href={mentor.social.email} target="_blank" rel="noopener noreferrer" role="listitem" aria-label="Email">
+      <i className="fas fa-envelope" title="Email"></i>
+    </a>
+  )}
 
-        <img
-          className="additional-img"
-          src="/mentors/book-chapter-image.png"
-          alt="Additional"
-        />
-        <p
-          style={{
-            marginTop: "-8rem",
-            textAlign: "left",
-            color: "transparent",
-            paddingLeft: "29px",
-          }}
-        >
+  {mentor.social?.linkedin && (
+    <a href={mentor.social.linkedin} target="_blank" rel="noopener noreferrer" role="listitem" aria-label="LinkedIn">
+      <i className="fab fa-linkedin-in" title="LinkedIn"></i>
+    </a>
+  )}
+
+  {mentor.social?.twitter && (
+    <a href={mentor.social.twitter} target="_blank" rel="noopener noreferrer" role="listitem" aria-label="Twitter">
+      <i className="fab fa-twitter" title="Twitter"></i>
+    </a>
+  )}
+
+  {mentor.social?.scholar && (
+    <a href={mentor.social.scholar} target="_blank" rel="noopener noreferrer" role="listitem" aria-label="Google Scholar" title="Google Scholar">
+      <span className="fab icon-scholar fa-lg"></span>
+    </a>
+  )}
+
+   {mentor.social?.orcid && (
+    <a href={mentor.social.orcid} target="_blank" rel="noopener noreferrer" role="listitem" aria-label="orcid" title = "orcid" >
+      <span className="fab icon-orcid fa-lg" ></span>
+    </a>
+  )}
+
+ 
+</div>
+
+ {mentor.additionalImg && (
+  <img
+    className="additional-img"
+    src={mentor.additionalImg}
+    
+  />
+)}
+
+
+        <p style={{ marginTop: "1rem", textAlign: "left", color: "white", paddingLeft: "29px" }}>
           {mentor.about}
         </p>
+       
       </div>
 
+
       <div className="info">
-        <nav
-          className="tabs"
-          aria-label="Profile Tabs"
-          role="tablist"
-          style={{ marginBottom: "8px" }}
-        >
+        <nav className="tabs" aria-label="Profile Tabs" role="tablist">
           <button
             className={`tab ${activeTab === "about" ? "active" : ""}`}
             onClick={() => setActiveTab("about")}
@@ -1668,11 +2696,12 @@ function MentorProfile({ mentor, onClose }) {
           </button>
         </nav>
 
-        <div
+        <section
           className={`tab-content ${activeTab === "about" ? "active" : ""}`}
           id="about"
           role="tabpanel"
           aria-labelledby="tab-about"
+          tabIndex={0}
         >
           <h3>About Me</h3>
           <p id="profileAbout">{mentor.about || "Bio goes here..."}</p>
@@ -1736,19 +2765,17 @@ function MentorProfile({ mentor, onClose }) {
               </div>
             </>
           )}
-        </div>
+        </section>
 
         <section
-          className={`tab-content ${
-            activeTab === "publications" ? "active" : ""
-          }`}
+          className={`tab-content ${activeTab === "publications" ? "active" : ""}`}
           id="publications"
           role="tabpanel"
           aria-labelledby="tab-publications"
+          tabIndex={0}
         >
           <h3>Publications</h3>
-          {mentor.publications &&
-          Object.keys(mentor.publications).length > 0 ? (
+          {mentor.publications && Object.keys(mentor.publications).length > 0 ? (
             <>
               {sortedYears.map((year) => (
                 <YearPublications
@@ -1764,12 +2791,11 @@ function MentorProfile({ mentor, onClose }) {
         </section>
 
         <section
-          className={`tab-content ${
-            activeTab === "activities" ? "active" : ""
-          }`}
+          className={`tab-content ${activeTab === "activities" ? "active" : ""}`}
           id="activities"
           role="tabpanel"
           aria-labelledby="tab-activities"
+          tabIndex={0}
         >
           <h3>Professional Activities</h3>
           <ProfessionalActivities />
@@ -1780,6 +2806,7 @@ function MentorProfile({ mentor, onClose }) {
           id="projects"
           role="tabpanel"
           aria-labelledby="tab-projects"
+          tabIndex={0}
         >
           <h3>Projects</h3>
           <p>No projects available.</p>
@@ -1790,6 +2817,7 @@ function MentorProfile({ mentor, onClose }) {
           id="team"
           role="tabpanel"
           aria-labelledby="tab-team"
+          tabIndex={0}
         >
           <TeamMembers title="Ph.D. Scholars" members={mentor.phdTeam} />
           <TeamMembers title="B.Tech Students" members={mentor.btechTeam} />
