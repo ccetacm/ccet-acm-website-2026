@@ -275,7 +275,7 @@ header h1 {
   font-size: clamp(2rem, 5vw, 4rem);
   color: #00296b;
   font-weight: 700;
-  margin-bottom: clamp(2rem, 4vw, 3rem);
+  margin-bottom: clamp(5rem, 4vw, 3rem);
   padding: 0 20px;
 }
 
