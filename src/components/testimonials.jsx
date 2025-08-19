@@ -1,408 +1,226 @@
 "use client";
 
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect } from "react";
+import { teamMembers } from "../data/teamMembers";
 import "./testimonials.css";
 
-// Import all testimonial images
-import jaiveerImage from "../assets/testimonials/jaiveer.jpg";
-import ritikaImage from "../assets/testimonials/ritika.jpg";
-import satvikImage from "../assets/testimonials/satvik.jpg";
-import samritiImage from "../assets/testimonials/samriti.jpg";
-import sanatanImage from "../assets/testimonials/sanatan.jpg";
-import simarImage from "../assets/testimonials/simar.jpg";
-import dhruvImage from "../assets/testimonials/dhruv.jpg";
-import khushiImage from "../assets/testimonials/khushi.jpg";
-import rohanImage from "../assets/testimonials/rohan.jpg";
-import bhavyaImage from "../assets/testimonials/bhavya.jpg";
-import sakshamImage from "../assets/testimonials/saksham.jpg";
-import eshmeetImage from "../assets/testimonials/eshmeet.jpg";
-import kritinImage from "../assets/testimonials/kritin.jpg";
-import ravinaImage from "../assets/testimonials/ravina.jpg";
-import vanshikaImage from "../assets/testimonials/vanshika.jpg";
-import aanshiImage from "../assets/testimonials/aanshi.jpg";
-import sahilImage from "../assets/testimonials/sahil.jpg";
-import bhumikaImage from "../assets/testimonials/bhumika.jpg";
-import maanitImage from "../assets/testimonials/maanit.jpg";
-import harshitaImage from "../assets/testimonials/harshita.jpg";
-import shivamImage from "../assets/testimonials/shivam.jpg";
-import mehakImage from "../assets/testimonials/mehak.jpg";
-import aadityaImage from "../assets/testimonials/aditya.jpg";
+const ArrowLeft = () => (
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+  </svg>
+);
 
-const TestimonialsCarousel = () => {
+const ArrowRight = () => (
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" />
+  </svg>
+);
+
+const GitHubIcon = () => (
+  <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.85 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+  </svg>
+);
+
+const LinkedInIcon = () => (
+  <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+  </svg>
+);
+
+const Button = ({ children, href, className = "" }) => {
+  const baseClasses =
+    "inline-flex items-center justify-center px-6 py-3 text-sm font-medium rounded-lg transition-all duration-200 bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2";
+
+  if (href) {
+    return (
+      <a href={href} className={`btn-primary ${className}`}>
+        {children}
+      </a>
+    );
+  }
+
+  return <button className={`btn-primary ${className}`}>{children}</button>;
+};
+
+const Section = ({ children }) => (
+  <section className="section-gradient">{children}</section>
+);
+
+const BottomLine = () => <div className="bottom-line" />;
+
+const Team = () => {
+  const defaultYear = "2025-26";
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isAnimating, setIsAnimating] = useState(false);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
-  const trackRef = useRef(null);
-  const autoPlayRef = useRef(null);
-  const containerRef = useRef(null);
+  const [isAnimating, setIsAnimating] = useState(false);
 
-  const testimonials = [
-    {
-      role: "Chairperson",
-      text: "CCET ACM Student chapter is a group of people with similar interests and goals in computer science. Together, this platform focuses on growth and development at not only personal but professional level also it has a unique learning environment. It provides everyone an opportunity to learn something new.",
-      name: "Jaiveer Singh",
-      position: "Chairperson, CCET ACM",
-      image: jaiveerImage,
-    },
-    {
-      role: "Chairperson",
-      text: "CCET ACM Student chapter is a group of people with similar interests and goals in computer science. Together, this platform focuses on growth and development at not only personal but professional level also it has a unique learning environment. It provides everyone an opportunity to learn something new.",
-      name: "Ritika Kalia",
-      position: "Chairperson, CCET ACM",
-      image: ritikaImage,
-    },
-    {
-      role: "Vice Chairperson",
-      text: "CCET ACM Student chapter is a group of people with similar interests and goals in computer science. Together, this platform focuses on growth and development at not only personal but professional level also it has a unique learning environment. It provides everyone an opportunity to learn something new.",
-      name: "Satvik Pathak",
-      position: "Vice Chairperson, CCET ACM",
-      image: satvikImage,
-    },
-    {
-      role: "Vice Chairperson",
-      text: "CCET ACM Student chapter is a group of people with similar interests and goals in computer science. Together, this platform focuses on growth and development at not only personal but professional level also it has a unique learning environment. It provides everyone an opportunity to learn something new.",
-      name: "Samriti Sharma",
-      position: "Vice Chairperson, CCET ACM",
-      image: samritiImage,
-    },
-    {
-      role: "Secretary",
-      text: "CCET ACM Student chapter is a group of people with similar interests and goals in computer science. Together, this platform focuses on growth and development at not only personal but professional level also it has a unique learning environment. It provides everyone an opportunity to learn something new.",
-      name: "Sanatan Sharma",
-      position: "Secretary, CCET ACM",
-      image: sanatanImage,
-    },
-    {
-      role: "Secretary",
-      text: "CCET ACM Student chapter is a group of people with similar interests and goals in computer science. Together, this platform focuses on growth and development at not only personal but professional level also it has a unique learning environment. It provides everyone an opportunity to learn something new.",
-      name: "Simar Atwal",
-      position: "Secretary, CCET ACM",
-      image: simarImage,
-    },
-    {
-      role: "Treasurer",
-      text: "CCET ACM Student chapter is a group of people with similar interests and goals in computer science. Together, this platform focuses on growth and development at not only personal but professional level also it has a unique learning environment. It provides everyone an opportunity to learn something new.",
-      name: "Dhruv Bali",
-      position: "Treasurer, CCET ACM",
-      image: dhruvImage,
-    },
-    {
-      role: "Treasurer",
-      text: "CCET ACM Student chapter is a group of people with similar interests and goals in computer science. Together, this platform focuses on growth and development at not only personal but professional level also it has a unique learning environment. It provides everyone an opportunity to learn something new.",
-      name: "Khushi Mittal",
-      position: "Treasurer, CCET ACM",
-      image: khushiImage,
-    },
-    {
-      role: "Web Master",
-      text: "CCET ACM Student chapter is a group of people with similar interests and goals in computer science. Together, this platform focuses on growth and development at not only personal but professional level also it has a unique learning environment. It provides everyone an opportunity to learn something new.",
-      name: "Rohan",
-      position: "Web Master, CCET ACM",
-      image: rohanImage,
-    },
-    {
-      role: "Web Master",
-      text: "CCET ACM Student chapter is a group of people with similar interests and goals in computer science. Together, this platform focuses on growth and development at not only personal but professional level also it has a unique learning environment. It provides everyone an opportunity to learn something new.",
-      name: "Bhavya",
-      position: "Web Master",
-      image: bhavyaImage,
-    },
-    {
-      role: "Design Head",
-      text: "CCET ACM Student chapter is a group of people with similar interests and goals in computer science. Together, this platform focuses on growth and development at not only personal but professional level also it has a unique learning environment. It provides everyone an opportunity to learn something new.",
-      name: "Saksham",
-      position: "Design Head, CCET ACM",
-      image: sakshamImage,
-    },
-    {
-      role: "Design Head",
-      text: "CCET ACM Student chapter is a group of people with similar interests and goals in computer science. Together, this platform focuses on growth and development at not only personal but professional level also it has a unique learning environment. It provides everyone an opportunity to learn something new.",
-      name: "Eshmeet Singh Bachu",
-      position: "Design Head, CCET ACM",
-      image: eshmeetImage,
-    },
-    {
-      role: "Executive Member Head",
-      text: "CCET ACM Student chapter is a group of people with similar interests and goals in computer science. Together, this platform focuses on growth and development at not only personal but professional level also it has a unique learning environment. It provides everyone an opportunity to learn something new.",
-      name: "Kritin",
-      position: "Executive Member Head, CCET ACM",
-      image: kritinImage,
-    },
-    {
-      role: "Executive Member Head",
-      text: "CCET ACM Student chapter is a group of people with similar interests and goals in computer science. Together, this platform focuses on growth and development at not only personal but professional level also it has a unique learning environment. It provides everyone an opportunity to learn something new.",
-      name: "Ravina Mittal",
-      position: "Executive Member Head, CCET ACM",
-      image: ravinaImage,
-    },
-    {
-      role: "Editorial Head",
-      text: "CCET ACM Student chapter is a group of people with similar interests and goals in computer science. Together, this platform focuses on growth and development at not only personal but professional level also it has a unique learning environment. It provides everyone an opportunity to learn something new.",
-      name: "Vanshika Singla",
-      position: "Editorial Head, CCET ACM",
-      image: vanshikaImage,
-    },
-    {
-      role: "Editorial Head",
-      text: "CCET ACM Student chapter is a group of people with similar interests and goals in computer science. Together, this platform focuses on growth and development at not only personal but professional level also it has a unique learning environment. It provides everyone an opportunity to learn something new.",
-      name: "Aanshi Bansal",
-      position: "Editorial Head, CCET ACM",
-      image: aanshiImage,
-    },
-    {
-      role: "Social Media Manager",
-      text: "CCET ACM Student chapter is a group of people with similar interests and goals in computer science. Together, this platform focuses on growth and development at not only personal but professional level also it has a unique learning environment. It provides everyone an opportunity to learn something new.",
-      name: "Sahil Kumar",
-      position: "Social Media Manager, CCET ACM",
-      image: sahilImage,
-    },
-    {
-      role: "Social Media Manager",
-      text: "CCET ACM Student chapter is a group of people with similar interests and goals in computer science. Together, this platform focuses on growth and development at not only personal but professional level also it has a unique learning environment. It provides everyone an opportunity to learn something new.",
-      name: "Bhumika Bijlwan",
-      position: "Social Media Manager, CCET ACM",
-      image: bhumikaImage,
-    },
-    {
-      role: "External PR Head",
-      text: "CCET ACM Student chapter is a group of people with similar interests and goals in computer science. Together, this platform focuses on growth and development at not only personal but professional level also it has a unique learning environment. It provides everyone an opportunity to learn something new.",
-      name: "Maanit",
-      position: "External PR Head, CCET ACM",
-      image: maanitImage,
-    },
-    {
-      role: "External PR Head",
-      text: "CCET ACM Student chapter is a group of people with similar interests and goals in computer science. Together, this platform focuses on growth and development at not only personal but professional level also it has a unique learning environment. It provides everyone an opportunity to learn something new.",
-      name: "Harshita Sharma",
-      position: "External PR Head, CCET ACM",
-      image: harshitaImage,
-    },
-    {
-      role: "Membership Chair",
-      text: "CCET ACM Student chapter is a group of people with similar interests and goals in computer science. Together, this platform focuses on growth and development at not only personal but professional level also it has a unique learning environment. It provides everyone an opportunity to learn something new.",
-      name: "Shivam Vats",
-      position: "Membership Chair, CCET ACM",
-      image: shivamImage,
-    },
-    {
-      role: "Membership Chair",
-      text: "CCET ACM Student chapter is a group of people with similar interests and goals in computer science. Together, this platform focuses on growth and development at not only personal but professional level also it has a unique learning environment. It provides everyone an opportunity to learn something new.",
-      name: "Mehak Negi",
-      position: "Membership Chair, CCET ACM",
-      image: mehakImage,
-    },
-    {
-      role: "Event Manager",
-      text: "CCET ACM Student chapter is a group of people with similar interests and goals in computer science. Together, this platform focuses on growth and development at not only personal but professional level also it has a unique learning environment. It provides everyone an opportunity to learn something new.",
-      name: "Aaditya",
-      position: "Event Manager, CCET ACM",
-      image: aadityaImage,
-    },
-    {
-      role: "Event Manager",
-      text: "CCET ACM Student chapter is a group of people with similar interests and goals in computer science. Together, this platform focuses on growth and development at not only personal but professional level also it has a unique learning environment. It provides everyone an opportunity to learn something new.",
-      name: "Simar Atwal",
-      position: "Event Manager, CCET ACM",
-      image: simarImage,
-    },
-  ];
+  const currentTeamData = teamMembers[defaultYear] || [];
+  const currentBatchMembers = currentTeamData;
 
-  const totalSlides = testimonials.length;
-
-  const updateCarousel = useCallback(
-    (newIndex) => {
-      if (isAnimating) return;
-      setIsAnimating(true);
-      const translateX = -newIndex * 100;
-      if (trackRef.current) {
-        trackRef.current.style.transform = `translateX(${translateX}%)`;
-      }
-      setCurrentIndex(newIndex);
-      setTimeout(() => {
-        setIsAnimating(false);
-      }, 1000);
-    },
-    [isAnimating]
-  );
-
-  const nextSlide = useCallback(() => {
-    if (isAnimating) return;
-    const newIndex = (currentIndex + 1) % totalSlides;
-    updateCarousel(newIndex);
-  }, [currentIndex, totalSlides, updateCarousel, isAnimating]);
-
-  const prevSlide = useCallback(() => {
-    if (isAnimating) return;
-    const newIndex = (currentIndex - 1 + totalSlides) % totalSlides;
-    updateCarousel(newIndex);
-  }, [currentIndex, totalSlides, updateCarousel, isAnimating]);
-
-  const goToSlide = useCallback(
-    (index) => {
-      if (isAnimating || index === currentIndex) return;
-      updateCarousel(index);
-    },
-    [currentIndex, updateCarousel, isAnimating]
-  );
-
-  const stopAutoPlay = useCallback(() => {
-    if (autoPlayRef.current) {
-      clearInterval(autoPlayRef.current);
-      autoPlayRef.current = null;
+  useEffect(() => {
+    let interval;
+    if (isAutoPlaying && currentBatchMembers.length > 0) {
+      interval = setInterval(() => {
+        setCurrentIndex((prevIndex) =>
+          prevIndex === currentBatchMembers.length - 1 ? 0 : prevIndex + 1
+        );
+      }, 3000);
     }
+    return () => clearInterval(interval);
+  }, [isAutoPlaying, currentBatchMembers.length]);
+
+  const handleNext = () => {
     setIsAutoPlaying(false);
-  }, []);
+    setIsAnimating(true);
+    setTimeout(() => setIsAnimating(false), 300);
+    setCurrentIndex((prevIndex) =>
+      prevIndex === currentBatchMembers.length - 1 ? 0 : prevIndex + 1
+    );
+  };
 
-  const startAutoPlay = useCallback(() => {
-    if (autoPlayRef.current) {
-      clearInterval(autoPlayRef.current);
-    }
-    setIsAutoPlaying(true);
-    autoPlayRef.current = setInterval(() => {
-      setCurrentIndex((prevIndex) => {
-        const newIndex = (prevIndex + 1) % totalSlides;
-        const translateX = -newIndex * 100;
-        if (trackRef.current) {
-          trackRef.current.style.transform = `translateX(${translateX}%)`;
-        }
-        return newIndex;
-      });
-    }, 7000);
-  }, [totalSlides]);
+  const handlePrev = () => {
+    setIsAutoPlaying(false);
+    setIsAnimating(true);
+    setTimeout(() => setIsAnimating(false), 300);
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? currentBatchMembers.length - 1 : prevIndex - 1
+    );
+  };
 
-  // Auto-play effect - runs only once on mount
-  useEffect(() => {
-    startAutoPlay();
-    return () => {
-      stopAutoPlay();
-    };
-  }, []); // Empty dependency array - runs only on mount/unmount
+  if (currentBatchMembers.length === 0) {
+    return (
+      <Section>
+        <section className="team-section">
+          <div className="team-grid">
+            <div className="team-content">
+              <h2 className="team-title">Our Team</h2>
+              <p className="team-description">
+                No team members found. Please check back later.
+              </p>
+            </div>
+          </div>
+        </section>
+        <BottomLine />
+      </Section>
+    );
+  }
 
-  // Keyboard navigation effect
-  useEffect(() => {
-    const handleKeyDown = (e) => {
-      if (e.key === "ArrowLeft") prevSlide();
-      if (e.key === "ArrowRight") nextSlide();
-    };
-
-    document.addEventListener("keydown", handleKeyDown);
-    return () => {
-      document.removeEventListener("keydown", handleKeyDown);
-    };
-  }, [prevSlide, nextSlide]);
-
-  // Touch/Swipe support
-  useEffect(() => {
-    let startX = 0;
-    let currentX = 0;
-    let isDragging = false;
-
-    const handleTouchStart = (e) => {
-      startX = e.touches[0].clientX;
-      isDragging = true;
-    };
-
-    const handleTouchMove = (e) => {
-      if (!isDragging) return;
-      currentX = e.touches[0].clientX;
-      e.preventDefault();
-    };
-
-    const handleTouchEnd = () => {
-      if (!isDragging || isAnimating) return;
-      const diffX = startX - currentX;
-      const threshold = 80;
-      if (Math.abs(diffX) > threshold) {
-        if (diffX > 0) {
-          nextSlide();
-        } else {
-          prevSlide();
-        }
-      }
-      isDragging = false;
-    };
-
-    const track = trackRef.current;
-    if (track) {
-      track.addEventListener("touchstart", handleTouchStart, {
-        passive: false,
-      });
-      track.addEventListener("touchmove", handleTouchMove, { passive: false });
-      track.addEventListener("touchend", handleTouchEnd);
-    }
-
-    return () => {
-      if (track) {
-        track.removeEventListener("touchstart", handleTouchStart);
-        track.removeEventListener("touchmove", handleTouchMove);
-        track.removeEventListener("touchend", handleTouchEnd);
-      }
-    };
-  }, [nextSlide, prevSlide, isAnimating]);
+  const currentMember = currentBatchMembers[currentIndex];
 
   return (
-    <div className="testimonials-container">
-      <div className="header">
-        <h1 className="title">Our Testimonials</h1>
-        <p className="subtitle">
-          Discover how ACM has transformed careers and fostered innovation
-          through the voices of our community members.
-        </p>
-      </div>
-      <div
-        className="carousel-container"
-        ref={containerRef}
-        onMouseEnter={stopAutoPlay}
-        onMouseLeave={startAutoPlay}
-      >
-        <div className="carousel-wrapper">
-          <button
-            className="nav-button prev"
-            aria-label="Previous testimonial"
-            onClick={prevSlide}
-          >
-            ‹
-          </button>
-          <div className="carousel-track" ref={trackRef}>
-            {testimonials.map((testimonial, index) => (
-              <div
-                key={index}
-                className={`carousel-slide ${
-                  index === currentIndex ? "active" : ""
-                }`}
-              >
-                <div className="role-badge">{testimonial.role}</div>
-                <div className="quote-mark">"</div>
-                <div className="comment-box">
-                  <p className="testimonial-text">{testimonial.text}</p>
+    <Section>
+      <section className="team-section">
+        <div className="team-grid">
+          <div className="team-content">
+            <div className="content-header">
+              <h2 className="team-title">Our Team</h2>
+              <div className="title-accent"></div>
+            </div>
+            <p className="team-description">
+              Meet the amazing team behind the success of our club. Each member
+              brings unique skills and dedication to ensure that we grow and
+              make an impact.
+            </p>
+
+            <div className="cta-container">
+              <Button href="/team">More About Us</Button>
+            </div>
+          </div>
+
+          <div className="team-carousel">
+            <div
+              className={`team-member-card ${isAnimating ? "animating" : ""}`}
+              key={currentMember.id}
+            >
+              <div className="card-background"></div>
+
+              <div className="member-avatar-container">
+                <button
+                  onClick={handlePrev}
+                  className="carousel-btn carousel-btn-left"
+                  aria-label="Previous team member"
+                >
+                  <ArrowLeft />
+                </button>
+
+                <div className="member-avatar">
+                  <div className="avatar-ring"></div>
+                  <img
+                    src={
+                      currentMember.image ||
+                      "/placeholder.svg?height=192&width=192&query=team member headshot" ||
+                      "/placeholder.svg" ||
+                      "/placeholder.svg"
+                    }
+                    alt={currentMember.name}
+                    className="avatar-image"
+                  />
                 </div>
-                <div className="author">
-                  <div className="author-avatar">
-                    <img
-                      src={testimonial.image || "/placeholder.svg"}
-                      alt={testimonial.name}
-                      className="student-image"
-                    />
+
+                <button
+                  onClick={handleNext}
+                  className="carousel-btn carousel-btn-right"
+                  aria-label="Next team member"
+                >
+                  <ArrowRight />
+                </button>
+              </div>
+
+              <div className="member-info">
+                <div className="member-details">
+                  <h3 className="member-name">{currentMember.name}</h3>
+                  <p className="member-role">{currentMember.role}</p>
+                  <div className="member-category-badge">
+                    <span className="member-category">
+                      {currentMember.category}
+                    </span>
                   </div>
-                  <div className="author-info">
-                    <h4>{testimonial.name}</h4>
-                    <p>{testimonial.position}</p>
-                  </div>
+                </div>
+
+                <div className="social-icons-container">
+                  {currentMember.github && (
+                    <a
+                      href={currentMember.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="social-icon-link"
+                      aria-label="GitHub profile"
+                    >
+                      <GitHubIcon />
+                    </a>
+                  )}
+                  {currentMember.linkedin && (
+                    <a
+                      href={currentMember.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="social-icon-link"
+                      aria-label="LinkedIn profile"
+                    >
+                      <LinkedInIcon />
+                    </a>
+                  )}
+                  {currentMember.orcid && (
+                    <a
+                      href={currentMember.orcid}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="social-icon-link orcid-link"
+                      aria-label="ORCID profile"
+                    >
+                      ORCID
+                    </a>
+                  )}
                 </div>
               </div>
-            ))}
+            </div>
           </div>
-          <button
-            className="nav-button next"
-            aria-label="Next testimonial"
-            onClick={nextSlide}
-          >
-            ›
-          </button>
         </div>
-      </div>
-    </div>
+      </section>
+      <BottomLine />
+    </Section>
   );
 };
 
-export default TestimonialsCarousel;
+export default Team;

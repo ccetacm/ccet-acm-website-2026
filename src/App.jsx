@@ -6,7 +6,7 @@ import Vision from "./components/Vision";
 import Footer from "./components/Footer";
 import MagazineScroller from "./components/MagazineScroller";
 import Header_Hero_SocialMedia from "./components/Header_Hero_SocialMedia.jsx";
-// import TestimonialsCarousel from "./components/testimonials.jsx";
+import TestimonialsCarousel from "./components/testimonials.jsx";
 import Mentors from "./components/Mentors.jsx";
 
 const App = () => {
@@ -66,7 +66,7 @@ const App = () => {
       <MagazineScroller />
       <Vision />
       <Mentors />
-      {/* <TestimonialsCarousel /> */}
+      <TestimonialsCarousel />
       <Footer />
     </div>
   );
