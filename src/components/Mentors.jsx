@@ -2545,6 +2545,7 @@ function ProfessionalActivities({ items }) {
   );
 }
 
+
 function MentorProfile({ mentor, onClose }) {
   const [activeTab, setActiveTab] = useState("about");
 
@@ -2790,16 +2791,17 @@ function MentorProfile({ mentor, onClose }) {
           )}
         </section>
 
-        <section
-          className={`tab-content ${activeTab === "activities" ? "active" : ""}`}
-          id="activities"
-          role="tabpanel"
-          aria-labelledby="tab-activities"
-          tabIndex={0}
-        >
-          <h3>Professional Activities</h3>
-          <ProfessionalActivities />
-        </section>
+       <section
+  className={`tab-content ${activeTab === "activities" ? "active" : ""}`}
+  id="activities"
+  role="tabpanel"
+  aria-labelledby="tab-activities"
+  tabIndex={0}
+>
+  <h3>Professional Activities</h3>
+  <ProfessionalActivities items={mentor.achievements} />
+</section>
+
 
         <section
           className={`tab-content ${activeTab === "projects" ? "active" : ""}`}
