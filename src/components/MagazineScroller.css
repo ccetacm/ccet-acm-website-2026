@@ -1,644 +1,459 @@
-/* Removed FontAwesome import that was causing loading issues */
-
-/* ====== Base Container Styling ====== */
-.circle-cards-container {
-  --color: rgba(30, 30, 30);
-  --bgColor: #caf0f8;
-  min-height: 80vh;
-  display: flex;
-  flex-direction: column; /* Allows heading and cards to stack properly */
-  justify-content: center;
-  align-items: center;
-  padding: 4rem 2rem;
-  background: var(--bgColor);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", sans-serif;
-  color: var(--color);
-  position: relative; /* Added for more button positioning */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: system-ui, -apple-system, sans-serif;
 }
 
-.circle-cards-container h1 {
-  text-align: center;
-  font-size: 2.5rem; /* Enhanced font size */
-  font-weight: 800; /* Enhanced font weight */
-  letter-spacing: -0.5px; /* Added letter spacing */
-  color: var(--color);
-  margin-bottom: 3rem; /* Added margin */
-}
-
-/* ====== Circle List Layout ====== */
-.circle-cards-container ol {
-  margin-top: -300px;
+.bk-list {
+  list-style: none;
+  position: relative;
+  /* Center books in 3x2 grid layout */
   display: flex;
   flex-wrap: wrap;
-  gap: 2rem;
-  list-style: none;
-  counter-reset: stepnr;
   justify-content: center;
-  overflow: visible; /* ensures first and last aren't cropped */
+  max-width: 1050px;
+  margin: 0 auto;
 }
 
-/* Enhanced color system with proper accent colors */
-.circle-cards-container li:nth-child(6n + 1) {
-  --accent-color: #b8df4e;
-}
-.circle-cards-container li:nth-child(6n + 2) {
-  --accent-color: #4cbccb;
-}
-.circle-cards-container li:nth-child(6n + 3) {
-  --accent-color: #7197d3;
-}
-.circle-cards-container li:nth-child(6n + 4) {
-  --accent-color: #ae78cb;
-}
-.circle-cards-container li:nth-child(6n + 5) {
-  --accent-color: #7dc7a4;
-}
-.circle-cards-container li:nth-child(6n + 6) {
-  --accent-color: #f078c2;
-}
-
-.circle-cards-container ol li {
-  counter-increment: stepnr;
-  width: 15rem; /* Fixed width value */
-  --borderS: 1rem; /* Enhanced border size */
-  aspect-ratio: 1;
+.bk-list li {
   position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0.5rem; /* Enhanced padding */
-  transition: transform 0.4s ease, box-shadow 0.4s ease; /* Added enhanced transitions */
-}
-
-/* Enhanced hover effects */
-.circle-cards-container ol li:hover {
-  transform: translateY(-5px) scale(1.03);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
-}
-
-/* ====== Circle Number & Shadow ====== */
-.circle-cards-container ol li::before,
-.circle-cards-container ol li::after {
-  inset: 0;
-  position: absolute;
-  border-radius: 50%;
-}
-
-.circle-cards-container ol li::before {
-  content: counter(stepnr);
-  color: transparent; /* hides number */
-}
-
-.circle-cards-container ol li::after {
-  content: "";
-  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.15)); /* Enhanced shadow */
-}
-
-/* ====== Image Styles ====== */
-.circle-cards-container .circle-img {
-  width: 13rem; /* Increased size to fill more space in circle */
-  height: 13rem;
-  border-radius: 50%;
-  overflow: hidden;
-  position: relative;
+  width: 300px;
+  /* Remove float and adjust margins for grid layout */
   z-index: 1;
+  margin: 0px 25px 500px 25px; /* Increased bottom margin from 40px to 150px to prevent overlap */
+  -webkit-perspective: 1800px;
+  perspective: 1800px;
+  /* Ensure 3 books per row with flex-basis */
+  flex: 0 0 calc(33.333% - 50px);
 }
 
-.circle-cards-container .circle-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: fill; /* Updated object-fit */
-  border-radius: 50%; /* Ensure image follows circular shape */
-  transition: transform 0.4s ease; /* Added transition */
-  background-color: #caf0f8; /* Added background color */
-}
-
-/* Enhanced image hover effect */
-.circle-cards-container .circle-img img:hover {
-  transform: scale(1.05);
-}
-
-/* ====== Heading & Subheading ====== */
-.circle-cards-container .circle-cards-heading {
-  text-align: center;
-  font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: 2rem;
-  color: var(--color); /* Use CSS variable */
-}
-
-/* Scoped sections selector to prevent conflicts with other components */
-.circle-cards-container .sections {
-  display: grid;
-  place-items: center;
-  font-size: clamp(2rem, 5vw, 4rem); /* Enhanced responsive font size */
-  color: #00296b;
-  margin-bottom: 1rem;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", sans-serif;
-}
-
-/* ====== Trending Box ====== */
-/* Scoped trending-subtitle to prevent conflicts */
-.circle-cards-container .trending-subtitle {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 3rem;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", sans-serif;
-  animation: circle-cards-fadeInTitle 1s ease-in-out;
-}
-
-/* Scoped trending-box to prevent conflicts */
-.circle-cards-container .trending-box {
-  background: linear-gradient(
-    135deg,
-    rgba(173, 216, 230, 0.9),
-    rgba(135, 206, 235, 0.8)
-  ); /* Simplified background */
-  padding: 1rem 2rem;
-  border-radius: 50px;
-  box-shadow: 0 6px 20px rgba(74, 144, 226, 0.3); /* Enhanced shadow */
-  border: 1px solid rgba(255, 255, 255, 0.3); /* Simplified border */
-  backdrop-filter: blur(8px); /* Enhanced blur */
+.bk-info {
   position: relative;
-  overflow: hidden;
+  margin-top: 420px; /* Reduced top margin from 440px to 420px for better spacing */
 }
 
-.circle-cards-container .trending-box::before {
-  content: "";
+.bk-info h3 {
+  padding: 25px 0 10px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+  font-size: 26px;
+}
+
+.bk-info h3 span:first-child {
+  font-size: 14px;
+  font-weight: 400;
+  text-transform: uppercase;
+  padding-bottom: 5px;
+  display: block;
+  color: #777;
+}
+
+.bk-info p {
+  line-height: 24px;
+  color: #444;
+  min-height: 160px;
+}
+
+/* Adding styles for month labels on book spine */
+.spine-month {
   position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(
-    45deg,
-    transparent,
-    rgba(255, 255, 255, 0.1),
-    transparent
-  );
-  animation: circle-cards-shimmer 3s linear infinite;
-  pointer-events: none;
-}
-
-.circle-cards-container .trending-box::after {
-  content: "🔥";
-  position: relative;
-  top: -2px;
-  right: -5px;
-  font-size: 1.2rem;
-  animation: circle-cards-bounce 1s ease-in-out infinite;
-}
-
-.circle-cards-container .trending-text {
-  color: #1a1a1a;
-  font-size: 1.6rem; /* Adjusted font size */
-  font-weight: 700;
-  letter-spacing: 0.5px; /* Adjusted letter spacing */
-}
-
-.circle-cards-container .trending-label {
-  opacity: 0.9;
-}
-
-.circle-cards-container .typewriter-text {
-  display: inline-block;
-  min-height: 1em;
-  position: relative;
-  font-weight: 800;
-  color: #2c2c2c;
-  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.3);
-}
-
-/* ====== More Button ====== */
-/* Scoped more-button to prevent conflicts */
-.circle-cards-container .more-button {
-  position: absolute;
-  right: 2rem;
   top: 50%;
-  transform: translateY(-50%);
-  background: linear-gradient(135deg, #4a90e2, #5ba3f5);
-  color: white;
-  border: none;
-  padding: 0.8rem 1.5rem;
-  border-radius: 25px;
-  font-size: 0.9rem;
-  font-weight: 600;
-  cursor: pointer;
-  box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3);
-  transition: all 0.3s ease;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-90deg);
+  font-size: 12px;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  letter-spacing: 1px;
+}
+
+/* Show month label on hover */
+.bk-list li .bk-book.bk-bookdefault:hover .spine-month {
+  opacity: 1;
+}
+
+.bk-list li .bk-book {
+  position: absolute;
+  width: 100%;
+  height: 400px;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-transition: -webkit-transform .5s;
+  transition: transform .5s;
+}
+
+.bk-list li .bk-book.bk-bookdefault:hover {
+  -webkit-transform: rotate3d(0, 1, 0, 35deg);
+  transform: rotate3d(0, 1, 0, 35deg);
+}
+
+.bk-list li .bk-book > div,
+.bk-list li .bk-front > div {
+  display: block;
+  position: absolute;
+}
+
+.bk-list li .bk-front {
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-transform-origin: 0% 50%;
+  transform-origin: 0% 50%;
+  -webkit-transition: -webkit-transform .5s;
+  transition: transform .5s;
+  -webkit-transform: translate3d(0, 0, 20px);
+  transform: translate3d(0, 0, 20px);
   z-index: 10;
 }
 
-.circle-cards-container .more-button:hover {
-  background: linear-gradient(135deg, #3d7bd8, #4a90e2);
-  box-shadow: 0 6px 20px rgba(74, 144, 226, 0.4); /* Simplified hover effect */
+.bk-list li .bk-front > div {
+  z-index: 1;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
 }
 
-.circle-cards-container .more-button:active {
-  transform: translateY(-50%) scale(0.98); /* Enhanced active state */
+.bk-list li .bk-page {
+  -webkit-transform: translate3d(0, 0, 19px);
+  transform: translate3d(0, 0, 19px);
+  display: none;
+  width: 295px;
+  height: 390px;
+  top: 5px;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  z-index: 9;
 }
 
-/* ====== Circle Animation Styles ====== */
-/* Scoped circle-item to prevent conflicts */
-.circle-cards-container .circle-item {
-  border-radius: 50%; /* make container circular */
-  overflow: hidden; /* clip hover background */
-  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+.bk-list li .bk-front,
+.bk-list li .bk-back,
+.bk-list li .bk-front > div {
+  width: 300px;
+  height: 400px;
 }
 
-.circle-cards-container .circle-item.hidden {
-  opacity: 0;
-  transform: scale(0) rotate(180deg);
+.bk-list li .bk-left,
+.bk-list li .bk-right {
+  width: 40px;
+  left: -20px;
 }
 
-.circle-cards-container .circle-item.visible {
-  opacity: 1;
-  transform: scale(1) rotate(0deg);
-  animation: circle-cards-bounceIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+.bk-list li .bk-top,
+.bk-list li .bk-bottom {
+  width: 295px;
+  height: 40px;
+  top: -15px;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
-.circle-cards-container .circle-item:hover {
-  background: rgba(0, 174, 255, 0.25);
-  border-radius: 50%;
-  transform: scale(1.15);
-  animation: circle-cards-pulseGlow 0.2s infinite alternate;
+.bk-list li .bk-back {
+  -webkit-transform: rotate3d(0, 1, 0, -180deg) translate3d(0, 0, 20px);
+  transform: rotate3d(0, 1, 0, -180deg) translate3d(0, 0, 20px);
+  box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.3);
+  border-radius: 3px 0 0 3px;
+  background-color: #f5f5f5;
 }
 
-/* ====== Keyframe Animations ====== */
-/* Prefixed all keyframe animations to prevent conflicts */
-@keyframes circle-cards-pulseGlow {
-  0% {
-    box-shadow: 0 0 6px rgba(0, 174, 255, 0.6), 0 0 12px rgba(0, 174, 255, 0.4),
-      0 0 18px rgba(0, 174, 255, 0.2);
-  }
-  100% {
-    box-shadow: 0 0 12px rgba(0, 174, 255, 0.8), 0 0 20px rgba(0, 174, 255, 0.5),
-      0 0 28px rgba(0, 174, 255, 0.3);
-  }
+.bk-list li .bk-cover-back {
+  background-color: #000;
+  -webkit-transform: rotate3d(0, 1, 0, -179deg);
+  transform: rotate3d(0, 1, 0, -179deg);
 }
 
-@keyframes circle-cards-bounceIn {
-  0% {
-    opacity: 0;
-    transform: scale(0) rotate(180deg);
-  }
-  50% {
-    opacity: 0.8;
-    transform: scale(1.1) rotate(-10deg);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1) rotate(0deg);
-  }
+.bk-list li .bk-right {
+  height: 390px;
+  top: 5px;
+  -webkit-transform: rotate3d(0, 1, 0, 90deg) translate3d(0, 0, 295px);
+  transform: rotate3d(0, 1, 0, 90deg) translate3d(0, 0, 295px);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
-@keyframes circle-cards-fadeInTitle {
-  0% {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.bk-list li .bk-left {
+  height: 400px;
+  -webkit-transform: rotate3d(0, 1, 0, -90deg);
+  transform: rotate3d(0, 1, 0, -90deg);
 }
 
-@keyframes circle-cards-gradientShift {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+.bk-list li .bk-top {
+  -webkit-transform: rotate3d(1, 0, 0, 90deg);
+  transform: rotate3d(1, 0, 0, 90deg);
 }
 
-@keyframes circle-cards-trendingPulse {
-  0%,
-  100% {
-    background-position: 0% 50%;
-    transform: scale(1);
-  }
-  50% {
-    background-position: 100% 50%;
-    transform: scale(1.02);
-  }
+.bk-list li .bk-bottom {
+  -webkit-transform: rotate3d(1, 0, 0, -90deg) translate3d(0, 0, 390px);
+  transform: rotate3d(1, 0, 0, -90deg) translate3d(0, 0, 390px);
 }
 
-@keyframes circle-cards-hotTrending {
-  0%,
-  100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
+/* Transform classes */
+
+.bk-list li .bk-viewinside .bk-front {
+  -webkit-transform: translate3d(0, 0, 20px) rotate3d(0, 1, 0, -160deg);
+  transform: translate3d(0, 0, 20px) rotate3d(0, 1, 0, -160deg);
 }
 
-@keyframes circle-cards-trendingGlow {
-  0%,
-  100% {
-    background-position: 0% 50%;
-    box-shadow: 0 8px 32px rgba(74, 144, 226, 0.4),
-      0 0 0 3px rgba(255, 255, 255, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2);
-  }
-  50% {
-    background-position: 100% 50%;
-    box-shadow: 0 12px 40px rgba(74, 144, 226, 0.6),
-      0 0 0 4px rgba(255, 255, 255, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3);
-    transform: translateY(-2px);
-  }
+.bk-list li .bk-book.bk-viewinside {
+  -webkit-transform: translate3d(0, 0, 150px) rotate3d(0, 1, 0, 0deg);
+  transform: translate3d(0, 0, 150px) rotate3d(0, 1, 0, 0deg);
 }
 
-@keyframes circle-cards-shimmer {
-  0% {
-    transform: translateX(-100%) translateY(-100%) rotate(45deg);
-  }
-  100% {
-    transform: translateX(100%) translateY(100%) rotate(45deg);
-  }
+.bk-list li .bk-book.bk-viewback {
+  -webkit-transform: translate3d(0, 0, 0px) rotate3d(0, 1, 0, 180deg);
+  transform: translate3d(0, 0, 0px) rotate3d(0, 1, 0, 180deg);
 }
 
-@keyframes circle-cards-bounce {
-  0%,
-  100% {
-    transform: translateY(0) rotate(0deg);
-  }
-  50% {
-    transform: translateY(-3px) rotate(10deg);
-  }
+.bk-list li .bk-book.bk-viewinside .bk-page {
+  display: block;
 }
 
-/* ====== Responsive Design ====== */
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .circle-cards-container .sections {
-    font-size: 60px;
-  }
+/* Main colors and content */
 
-  .circle-cards-container .trending-box {
-    padding: 0.8rem 1.5rem;
-  }
-
-  .circle-cards-container .trending-text {
-    font-size: 1.4rem;
-  }
-
-  .circle-cards-container ol {
-    margin-top: -200px;
-    gap: 1.5rem;
-  }
-
-  .circle-cards-container ol li {
-    width: 12rem;
-  }
-
-  .circle-cards-container .circle-img {
-    width: 10rem; /* Increased mobile size for better visibility */
-    height: 10rem;
-  }
-
-  /* Mobile responsive more button */
-  .circle-cards-container .more-button {
-    right: 1rem;
-    padding: 0.6rem 1.2rem;
-    font-size: 0.8rem;
-  }
+.bk-list li .bk-page,
+.bk-list li .bk-right,
+.bk-list li .bk-top,
+.bk-list li .bk-bottom {
+  background-color: #fff;
 }
 
-.sections {
-  display: grid;
-  place-items: center;
-  font-size: clamp(2rem, 5vw, 4rem);
-  color: #00296b;
-  margin-bottom: 1rem;
+.bk-list li .bk-front > div {
+  border-radius: 0 3px 3px 0;
+  box-shadow: inset 4px 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Updated trending subtitle styles for typewriter effect */
-.trending-subtitle {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 3rem;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", sans-serif;
-  animation: fadeInTitle 1s ease-in-out;
-}
-
-.trending-box {
-  background: linear-gradient(
-      135deg,
-      rgba(173, 216, 230, 0.9),
-      rgba(135, 206, 235, 0.8)
-    ),
-    linear-gradient(135deg, #4a90e2, #5ba3f5, #3d7bd8, #2c5aa0);
-  background-size: 400% 400%;
-  padding: 1rem 2rem;
-  border-radius: 50px;
-  box-shadow: 0 8px 32px rgba(74, 144, 226, 0.4),
-    0 0 0 3px rgba(255, 255, 255, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2);
-  animation: trendingGlow 2s ease-in-out infinite;
-  position: relative;
-  overflow: hidden;
-  border: 2px solid rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(10px);
-  display: inline-flex; /* keeps text + ::after inline */
-  align-items: center; /* vertically centers them */
-  gap: 0.5rem;
-}
-
-.trending-box::before {
+.bk-list li .bk-front:after {
   content: "";
   position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(
-    45deg,
-    transparent,
-    rgba(255, 255, 255, 0.1),
-    transparent
-  );
-  animation: shimmer 3s linear infinite;
-  pointer-events: none;
+  top: 1px;
+  bottom: 1px;
+  left: -1px;
+  width: 1px;
 }
 
-.trending-box::after {
-  content: "🔥";
-  position: relative;
-  top: -2px;
-  right: -5px;
-  font-size: 1.2rem;
-  animation: bounce 1s ease-in-out infinite;
+.bk-list li .bk-cover:after,
+.bk-list li .bk-back:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 10px;
+  bottom: 0;
+  width: 3px;
+  background: rgba(0, 0, 0, 0.06);
+  box-shadow: 1px 0 3px rgba(255, 255, 255, 0.1);
 }
 
-.trending-text {
-  color: #1a1a1a;
-  font-size: 1.8rem;
+.bk-list li .bk-back:after {
+  left: auto;
+  right: 10px;
+}
+
+/* Book covers */
+.bk-list li .bk-front > div,
+.bk-list li .bk-left {
+  background-color: #666;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: clamp(10px, 3vw, 20px);
+}
+
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+header h1 {
+  text-align: center;
+  font-size: clamp(2rem, 5vw, 4rem);
+  color: #00296b;
   font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+  padding: 0 20px;
 }
 
-.trending-label {
-  opacity: 0.9;
-}
-
-.typewriter-text {
-  display: inline-block;
-  min-height: 1em;
-  position: relative;
-  font-weight: 800;
-  color: #2c2c2c;
-  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.3);
-}
-@keyframes trendingPulse {
-  0%,
-  100% {
-    background-position: 0% 50%;
-    transform: scale(1);
-  }
-  50% {
-    background-position: 100% 50%;
-    transform: scale(1.02);
-  }
-}
-
-@keyframes hotTrending {
-  0%,
-  100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-}
-
-@keyframes trendingGlow {
-  0%,
-  100% {
-    background-position: 0% 50%;
-    box-shadow: 0 8px 32px rgba(74, 144, 226, 0.4),
-      0 0 0 3px rgba(255, 255, 255, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2);
-  }
-  50% {
-    background-position: 100% 50%;
-    box-shadow: 0 12px 40px rgba(74, 144, 226, 0.6),
-      0 0 0 4px rgba(255, 255, 255, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3);
-    transform: translateY(-2px);
-  }
-}
-/* ====== Trending Box ====== */
-.trending-subtitle {
+.main {
   display: flex;
   justify-content: center;
-  align-items: center;
-  margin-bottom: 3rem;
-  animation: fadeInTitle 1s ease-in-out;
 }
 
-.trending-box {
-  background: linear-gradient(
-    135deg,
-    rgba(173, 216, 230, 0.9),
-    rgba(135, 206, 235, 0.8)
-  );
-  padding: 1rem 2rem;
-  border-radius: 50px;
-  box-shadow: 0 6px 20px rgba(74, 144, 226, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(8px);
-  position: relative;
-  overflow: hidden;
+/* Removing button styles and adding hover icon styles */
+/* Hide old button styles */
+.bk-info button {
+  display: none;
 }
 
-.trending-text {
-  color: #1a1a1a;
-  font-size: 1.6rem;
-  font-weight: 700;
-  letter-spacing: 0.5px;
+.button-container {
+  display: none;
 }
 
-.typewriter-text {
-  font-weight: 800;
-  color: #2c2c2c;
-}
-
-/* ====== More Button ====== */
-.more-button {
+/* Hover icons on book covers */
+.book-hover-icon {
   position: absolute;
-  right: 2rem;
-  top: 50%;
-  transform: translateY(-50%);
-  background: linear-gradient(135deg, #4a90e2, #5ba3f5);
-  color: white;
-  border: none;
-  padding: 0.8rem 1.5rem;
-  border-radius: 25px;
-  font-size: 0.9rem;
-  font-weight: 600;
+  width: 32px;
+  height: 32px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
   cursor: pointer;
-  box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3);
+  opacity: 0;
   transition: all 0.3s ease;
+  z-index: 20;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
-.more-button:hover {
-  background: linear-gradient(135deg, #3d7bd8, #4a90e2);
-  box-shadow: 0 6px 20px rgba(74, 144, 226, 0.4);
+.flip-hover-icon {
+  top: 10px;
+  right: 10px;
 }
 
-.more-button:active {
-  transform: translateY(-50%) scale(0.98);
+.view-hover-icon {
+  bottom: 10px;
+  right: 10px;
 }
 
-/* ====== Animations ====== */
-@keyframes fadeInTitle {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* Show icons on book hover */
+.bk-list li .bk-book.bk-bookdefault:hover .book-hover-icon {
+  opacity: 1;
 }
 
-/* ====== Responsive ====== */
+/* Show flip icon on back cover when book is flipped */
+.bk-list li .bk-book.bk-viewback:hover .flip-hover-icon {
+  opacity: 1;
+}
+
+.book-hover-icon:hover {
+  background: rgba(255, 255, 255, 1);
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive breakpoints for mobile, tablet, and desktop */
+/* Mobile devices (up to 768px) */
 @media (max-width: 768px) {
-  .circle-cards-container ol {
-    margin-top: -200px;
-    gap: 1.5rem;
+  .bk-list {
+    max-width: 100%;
+    padding: 0 20px;
+    justify-content: center; /* Center align books on mobile */
+    flex-direction: column; /* Added flex-direction column to stack books vertically and align-items center for proper centering */
+    align-items: center;
+    gap: 50px; /* Added gap between books in mobile view */
   }
-  .circle-cards-container ol li {
-    width: 12rem;
+
+  .bk-list li {
+    width: 250px;
+    margin: 0; /* Removed auto margins that were interfering with centering */
+    flex: none;
+    /* Added explicit centering and transform-origin fix for mobile flips */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
   }
-  .circle-cards-container .circle-img {
-    width: 10rem;
-    height: 10rem;
+
+  /* Ensure book transforms stay centered during flips on mobile */
+  .bk-list li .bk-book {
+    transform-origin: center center;
+    position: relative;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
   }
-  .more-button {
-    right: 1rem;
-    padding: 0.6rem 1.2rem;
-    font-size: 0.8rem;
+
+  /* Override transform positioning for mobile to prevent movement during flip */
+  .bk-list li .bk-book.bk-viewback {
+    -webkit-transform: translate3d(0, 0, 0px) rotate3d(0, 1, 0, 180deg);
+    transform: translate3d(0, 0, 0px) rotate3d(0, 1, 0, 180deg);
+    position: relative;
+    left: 0;
+    margin: 0 auto;
+  }
+
+  .bk-info {
+    margin-top: 350px;
+  }
+
+  .bk-info h3 {
+    font-size: 22px;
+    padding: 20px 0 8px;
+  }
+
+  .bk-info p {
+    font-size: 14px;
+    line-height: 20px;
+    min-height: 120px;
+  }
+
+  .book-hover-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    opacity: 0.8;
+  }
+
+  .bk-list li .bk-book .book-hover-icon {
+    opacity: 0.8;
+  }
+
+  .spine-month {
+    font-size: 10px;
   }
 }
-.sections {
-  display: grid;
-  place-items: center;
-  font-size: 80px;
-  color: #00296b;
-  margin-bottom: 1rem;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", sans-serif;
+
+/* Tablet devices (769px to 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .bk-list {
+    max-width: 700px;
+  }
+
+  .bk-list li {
+    width: 280px;
+    margin: 0 15px 450px 15px;
+    flex: 0 0 calc(50% - 30px);
+  }
+
+  .bk-list li .bk-front,
+  .bk-list li .bk-back,
+  .bk-list li .bk-front > div {
+    width: 280px;
+    height: 370px;
+  }
+
+  .bk-list li .bk-book {
+    height: 370px;
+  }
+
+  .bk-info {
+    margin-top: 390px;
+  }
+
+  .bk-info h3 {
+    font-size: 24px;
+  }
+
+  .bk-info p {
+    font-size: 15px;
+    line-height: 22px;
+    min-height: 140px;
+  }
+}
+
+/* Large desktop devices (1025px and up) */
+@media (min-width: 1025px) {
+  .bk-list {
+    max-width: 1200px;
+  }
+
+  .bk-list li {
+    flex: 0 0 calc(33.333% - 50px);
+  }
 }
