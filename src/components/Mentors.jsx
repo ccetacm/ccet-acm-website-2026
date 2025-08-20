@@ -2478,7 +2478,8 @@ const styles = `
   min-width: 50px;
   max-width: calc(50% - 2px); /* Ensure maximum 2 tabs per row */
 }
-
+}
+`;
 
 function MentorCard({ mentor, onClick }) {
   return (
