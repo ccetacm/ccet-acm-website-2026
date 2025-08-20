@@ -2,14 +2,13 @@
 
 import { useEffect, useState } from "react";
 import backgroundVideo from "../assets/Header_Main/background_video.mp4";
-import logoImg from "../assets/Header_Main/logo.png";
 import nepImg from "../assets/Header_Main/NEP_2020.png";
 import ccetImg from "../assets/Header_Main/ccetLogo.png";
 import sdgImg from "../assets/Header_Main/SDG.png";
 import puImg from "../assets/Header_Main/pu-logo.png";
 import acmImg from "../assets/Header_Main/acmlogo.png";
 import acmw from "../assets/Header_Main/acmw.png";
-
+import logoImg from "../assets/Header_Main/logo.png";
 const Header_Hero_SocialMedia = ({ startAnimation }) => {
   const [animate, setAnimate] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -48,13 +47,13 @@ const Header_Hero_SocialMedia = ({ startAnimation }) => {
   ];
 
   const logos = [
-    { src: logoImg || "/placeholder.svg", alt: "CCET ACM" },
-    { src: nepImg || "/placeholder.svg", alt: "NEP", className: "NEP1" },
-    { src: ccetImg || "/placeholder.svg", alt: "CCET" },
-    { src: sdgImg || "/placeholder.svg", alt: "CCET" },
-    { src: puImg || "/placeholder.svg", alt: "CCET" },
-    { src: acmImg || "/placeholder.svg", alt: "CCET" },
-    { src: acmw || "/placeholder.svg", alt: "CCET" },
+     { src: logoImg || "/placeholder.svg", alt: "CCET ACM", link:"https://ccet.acm.org/" },
+    { src: nepImg || "/placeholder.svg", alt: "NEP", className: "NEP1", link: "https://www.education.gov.in/en/national-education-policy" },
+    { src: ccetImg || "/placeholder.svg", alt: "CCET" , link:"https://www.ccet.ac.in/"},
+    { src: sdgImg || "/placeholder.svg", alt: "CCET", link:"https://sdgs.un.org/" },
+    { src: puImg || "/placeholder.svg", alt: "CCET", link:"https://puchd.ac.in/" },
+    { src: acmImg || "/placeholder.svg", alt: "CCET" , link:"https://www.acm.org"},
+    { src: acmw || "/placeholder.svg", alt: "CCET", link:"#" },
   ];
 
   useEffect(() => {
@@ -132,17 +131,20 @@ const Header_Hero_SocialMedia = ({ startAnimation }) => {
           top: 0;
           left: 0;
           right: 0;
+          height:95px;
           z-index: 1000;
           display: flex;
           justify-content: space-between;
           align-items: center;
-          padding: 5px 30px;
+           padding: 10px 30px;
           background: var(--header-bg);
           backdrop-filter: blur(10px);
           border-bottom: 1px solid rgba(52, 237, 243, 0.3);
           transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
           transform: translateY(-100%);
           opacity: 0;
+           justify-content: space-between;
+         
         }
 
         .acm-navbar.animate {
@@ -164,17 +166,18 @@ const Header_Hero_SocialMedia = ({ startAnimation }) => {
         }
 
         /* Updated navbar layout - both logos on left with switching animation */
-        .acm-navbar-left {
-          display: flex;
-          align-items: center;
-          gap: 20px;
-        }
-
+        
+.acm-navbar-left,
+.acm-navbar-right {
+  flex: 0 0 auto;
+}
+          
         .acm-logo-switcher {
           height: 50px;
           width: 80px;
           position: relative;
           transition: all 0.3s ease;
+            transition-delay: 0.3s;
         }
 
         .acm-switching-logo {
@@ -197,19 +200,59 @@ const Header_Hero_SocialMedia = ({ startAnimation }) => {
         }
 
         /* Navigation Links */
-        .acm-nav-links {
-          display: flex;
-          gap: 40px;
-          align-items: center;
-          margin-left: auto;
-          margin-right: 60px;
-        }
+       .acm-nav-links {
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+  .acm-static-logo img,
+.acm-switching-logo {
+  height: 65px; /* or whatever size you prefer */
+     transition: all 0.3s ease;
+   transition-delay: 0.7s;
+}
+   /* Default (Desktop): show static logo, hide switching logo */
+
+/* Mobile view */
+@media (max-width: 768px) {
+  /* Hide static logo */
+  .acm-static-logo {
+    display: none;
+  }
+
+  /* Show switching logo */
+  .acm-logo-switcher {
+    display: block;
+  }
+
+  /* Move switching logo to left */
+  .acm-navbar-right {
+    order: -1;              /* Push it to the left */
+    margin-right: auto;     /* Align it left */
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 5px;       /* thoda upar push */
+  }
+
+  /* Control logo size + spacing */
+  .acm-logo-switcher img {
+    height: 50px;           /* thoda chhota size (adjustable) */
+    width: auto;
+    margin-top: -3px;       /* aur upar khinchne ke liye */
+  }
+}
+
+
+  
+
 
         .acm-nav-links a {
           color: var(--oxford-blue);
           text-decoration: none;
-          font-weight: 600;
-          font-size: 12px;
+          font-weight: 750;
+          font-size: 15px;
           letter-spacing: 1px;
           position: relative;
           transition: all 0.3s ease;
@@ -926,40 +969,60 @@ const Header_Hero_SocialMedia = ({ startAnimation }) => {
       >
         {/* Navbar */}
         <nav className={`acm-navbar ${navbarAnimated ? "animate" : ""}`}>
-          <div className="acm-navbar-left">
-            <div className="acm-logo-switcher">
-              <img
-                src={logos[currentLogoIndex].src || "/placeholder.svg"}
-                alt={logos[currentLogoIndex].alt}
-                className={`acm-switching-logo ${logoFading ? "fading" : ""}`}
-              />
-            </div>
-          </div>
+  {/* Left: Static Logo */}
+  <div className="acm-navbar-left">
+    <div className="acm-static-logo">
+      <img
+        src="/acm-logo/ccet-acm-logo-website.svg" // <-- Replace with your actual static logo path
+        alt="Static Logo"
+      />
+    </div>
+  </div>
 
-          {/* Desktop Navigation Links */}
-          <div className="acm-nav-links">
-            <a href="#">HOME</a>
-            <a href="#">ABOUT</a>
-            <a href="#">CORE ACTS</a>
-            <a href="#">EVENTS</a>
-            <a href="#">RESEARCH LAB</a>
-            <a href="#">PROJECTS</a>
-            <a href="#">DIGITAL OUTLET</a>
-            <a href="#">TEAM</a>
-            <a href="#">GALLERY</a>
-          </div>
+  {/* Center: Navigation Links */}
+  <div className="acm-nav-links">
+    <a href="#">HOME</a>
+    <a href="#">ABOUT</a>
+    <a href="#">CORE ACTS</a>
+    <a href="#">EVENTS</a>
+    <a href="#">RESEARCH LAB</a>
+    <a href="#">PROJECTS</a>
+    <a href="#">DIGITAL OUTLET</a>
+    <a href="#">TEAM</a>
+    <a href="#">GALLERY</a>
+  </div>
 
-          {/* Hamburger Menu Button */}
-          <button
-            className={`acm-hamburger-menu ${mobileMenuOpen ? "active" : ""}`}
-            onClick={toggleMobileMenu}
-            aria-label="Toggle mobile menu"
-          >
-            <div className="acm-hamburger-line"></div>
-            <div className="acm-hamburger-line"></div>
-            <div className="acm-hamburger-line"></div>
-          </button>
-        </nav>
+ {/* Right: Switching Logo */}
+<div className="acm-navbar-right">
+  <div className="acm-logo-switcher">
+    <a
+      href={logos[currentLogoIndex].link}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={`Visit ${logos[currentLogoIndex].alt} website`}
+    >
+      <img
+        src={logos[currentLogoIndex].src || "/placeholder.svg"}
+        alt={logos[currentLogoIndex].alt}
+        className={`acm-switching-logo ${logoFading ? "fading" : ""}`}
+      />
+    </a>
+  </div>
+</div>
+
+
+  {/* Hamburger Menu */}
+  <button
+    className={`acm-hamburger-menu ${mobileMenuOpen ? "active" : ""}`}
+    onClick={toggleMobileMenu}
+    aria-label="Toggle mobile menu"
+  >
+    <div className="acm-hamburger-line"></div>
+    <div className="acm-hamburger-line"></div>
+    <div className="acm-hamburger-line"></div>
+  </button>
+</nav>
+
 
         {/* Mobile Menu Overlay */}
         <div

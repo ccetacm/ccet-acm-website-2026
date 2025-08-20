@@ -22,7 +22,7 @@ const mentorsData = [
   },
   {
     name: "Dr. Sunil K. Singh",
-    title: "Professor and HOD, CSE Faculty",
+    title: "Faculty Mentor ACM, Head of CSE CCET CHD",
     imgSrc: "/mentors/mentor-2.png",
     additionalImg: "/mentors/sks-additional.png",
     about: "Passionate about teaching and research in computer science.",
@@ -1253,7 +1253,7 @@ impact: "Low Impact"
   },
   {
     name: "Dr. Sudhakar Kumar",
-    title: "Assistant Professor, CSE Faculty",
+    title: "Faculty Sponser ACM, Assistant Professor CSE CCTE CHD",
     imgSrc: "/mentors/mentor3.png",
     additionalImg: "/mentors/sudhakar-additional.png",
     about:
@@ -1908,22 +1908,25 @@ const styles = `
 .mentors-section {
   background: caf0f8;
   background-attachment: fixed;
-  padding: 3rem 2dvw;
+  padding: 1rem 2dvw;
   font-family: 'Segoe UI', sans-serif;
   margin: 200px;
   margin-left: 0;
   color: #222c3d;
   min-height: 100vh;
   width: 100%;
+  // margin-top:30px;
 }
 
 .mentors-section h1 {
+
   text-align: center;
   color: #274472;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   font-weight: 700;
   font-size: 2.5em;
   letter-spacing: 0.06em;
+ 
 }
 
 .mentors-section .card__container {
@@ -1941,26 +1944,25 @@ const styles = `
   box-shadow: 0 0 24px 0 #4169bb;
   opacity: 0.85;
   transition: all 0.3s ease;
-  width: 320px;  /* wider card */
+  width: 330px;  /* wider card */
   height: 420px; /* taller card */
   position: relative;
   cursor: pointer;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 25px 20px;
+  padding: 10px;
   box-sizing: border-box;
   overflow: hidden;
 }
 
 .mentors-section .card img {
-  border-radius: 50%;
-  width: 180px;
-  height: 180px;
+  border-radius: 0;
+  width: 300px;
+  height: 300px;
   object-fit: cover;
-  margin-bottom: 20px;
-  box-shadow: 0 4px 12px rgba(68, 105, 166, 0.4);
   flex-shrink: 0;
+  margin-top:0;
 }
 
 .mentors-section .card:hover {
@@ -1977,8 +1979,8 @@ const styles = `
   left: 0;
   right: 0;
   padding: 1rem 1.2rem;
-  background:#ade8f4;   //ye hai
-  color: #f0f5ff;
+  background-color:white;
+  color: #274472; 
   border-radius: 0 0 12px 12px;
   text-align: center;
   font-weight: 600;
@@ -1986,6 +1988,7 @@ const styles = `
 }
 
 .mentors-section .card__content h2 {
+
   margin: 0 0 6px 0;
   font-size: 1.3rem;
   text-shadow: 0 1px 5px rgba(0, 52, 102, 0.7);
@@ -2332,6 +2335,49 @@ const styles = `
   padding: 0 10px;
 }
 
+
+.profile .additional-img {
+  width: 220px;      
+  height: 260px;     
+  border: 3px solid #3399ff; 
+  object-fit: cover;
+  margin: 40px auto 0 auto;
+  display: block;
+  border-radius: 0; /* Make sure it's not circular */
+}
+
+/* Enhanced responsive design for better tab section spacing and mobile layout */
+
+/* Tablet and small desktop */
+@media (max-width: 1024px) {
+  #profileCard {
+    width: 95vw;
+    height: 95vh;
+    padding: 25px;
+    gap: 25px;
+  }
+  
+  .profile {
+    width: 220px;
+  }
+  
+  .tabs {
+    gap: 6px;
+    margin-bottom: 20px;
+  }
+  
+  .tab {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+  
+  .tab-content {
+    padding: 15px 0;
+  }
+}
+
+/* Large mobile and tablet */
+
 @media (max-width: 768px) {
   .mentors-section .card__container {
     flex-direction: column;
@@ -2340,8 +2386,9 @@ const styles = `
 
   .mentors-section .card {
     width: 90vw;
-    height: auto;
+    height: 85vh;
     min-height: 350px;
+    margin-left:0;
   }
 
   #profileCard {
@@ -2375,17 +2422,32 @@ const styles = `
 
   .mentors-section .card {
     width: 95vw;
-    height: auto;
-    min-height: 320px;
+    min-height: 370px;
+    margin-left:0;
+
   }
 
   .mentors-section .card img {
     width: 120px;
     height: 120px;
   }
+/* Extra small mobile */
+@media (max-width: 360px) {
+  .tabs {
+    gap: 4px;
+  }
+     .mentors-section .card {
+    width: 95vw;
+    min-height: 400px;
+    margin-left:0;
+  }
 
-  .team-member {
-    width: 100px;
+  
+  .tab {
+    padding: 6px 8px;
+    font-size: 10px;
+    min-width: 60px;
+
   }
 
   .team-member img {
@@ -2410,7 +2472,13 @@ const styles = `
 
  
   
-`;
+.tab {
+  padding: 6px 8px;
+  font-size: 9px;
+  min-width: 50px;
+  max-width: calc(50% - 2px); /* Ensure maximum 2 tabs per row */
+}
+
 
 function MentorCard({ mentor, onClick }) {
   return (
@@ -2854,7 +2922,21 @@ export default function Mentors() {
       />
       <style>{styles}</style>
 
-      <h1>Mentors</h1>
+      <h1
+  style={{
+    display: "grid",
+    placeItems: "center",
+    fontSize: "clamp(2rem, 5vw, 4rem)",
+    color: "#00296b",
+    fontWeight: 700,
+    marginTop: 0,
+    marginBottom: "40px",
+ 
+  }}
+>
+  MENTORS
+</h1>
+
 
       <article className="card__container">
         {mentorsData.map((mentor, i) => (
