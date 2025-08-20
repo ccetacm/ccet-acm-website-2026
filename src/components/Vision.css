@@ -3,7 +3,7 @@
   --blue-light-bg: #CAF0F8;
   --blue-white: #F5FCFF;
   --blue-white-2: #EDF6FB;
-  --light-box-bg: #e8f8ff; 
+  --light-box-bg: #e8f8ff;
 
   --blue-1: #023E8A;
   --blue-2: #0077B6;
@@ -42,7 +42,7 @@ html {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 50px 20px;
+  padding: 40px 20px;
   background: linear-gradient(to bottom, var(--blue-white), var(--blue-10));
 }
 
@@ -52,55 +52,55 @@ html {
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
-  gap: 50px; /* more space between items */
-  padding: 80px 30px; /* more inner padding */
+  gap: 30px;
+  padding: 40px 20px;
   width: 100%;
-  max-width: 1200px;
-  margin: 60px auto; /* more space around the section */
+  max-width: 1150px;
+  margin: 40px auto;
   box-sizing: border-box;
-  background: var(--light-box-bg); 
+  background: var(--light-box-bg);
   border: 1.5px solid var(--cyan-5);
-  border-radius: 30px;
-  box-shadow: 0 8px 20px rgba(0, 123, 255, 0.08);
-  backdrop-filter: blur(4px);
+  border-radius: 25px;
+  box-shadow: 0 6px 16px rgba(0, 123, 255, 0.08);
+  backdrop-filter: blur(3px);
 }
-
 
 .stat-box {
   text-align: center;
-  margin: 20px;
-  min-width: 150px;
-  flex: 1; /* ensures even spacing in flex layout */
+  margin: 10px;
+  min-width: 120px;
+  flex: 1;
 }
 
 .icon {
-  font-size: 75px;
-  margin-bottom: 10px;
+  font-size: 60px;
+  margin-bottom: 8px;
 }
 
 .stat-number {
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: bold;
   color: var(--blue-heading);
 }
 
 .stat-label {
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   margin-top: 5px;
 }
 
 /* === Vision Section === */
 .vision-card {
   background-color: var(--light-box-bg);
-  color: var(--blue-heading); 
+  color: var(--blue-heading);
   border-radius: 25px;
-  padding: 70px 40px; /* more inner padding */
-  max-width: 1150px;
+  padding: 40px 30px;
+  max-width: 1100px;
   text-align: center;
-  box-shadow: 0 10px 25px rgba(0, 123, 255, 0.08);
+  box-shadow: 0 8px 20px rgba(0, 123, 255, 0.08);
   border: 1.5px solid var(--cyan-4);
-  margin: 80px auto; /* more space above and below */
+  margin: 50px auto;
 }
+
 @keyframes fadeSlideIn {
   from {
     opacity: 0;
@@ -113,16 +113,16 @@ html {
 }
 
 .vision-heading {
-  font-size: 3.5rem;
+  font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 20px;
-  color: var(--blue-heading); 
+  color: var(--blue-heading);
 }
 
 .vision-text {
-  font-size: 1.7rem;
+  font-size: 1.2rem;
   line-height: 1.6;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
   color: var(--cyan-2);
 }
 
@@ -134,49 +134,33 @@ html {
   flex-wrap: wrap;
 }
 
-.join-button {
-  padding: 15px 30px;
-  font-size: 1rem;
- background-color: #03045E; /* dark blue background */
-  color: #f2f5f6;  
-  
-  border: none;
-  border-radius: 25px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.join-button:hover {
-  background-color: #CAF0F8; /* light blue */
-  color: #03045E; 
-}
-
+.join-button,
 .learn-button {
-   padding: 15px 30px;
-  font-size: 1rem;
- background-color: #03045E; /* dark blue background */
-  color: #caf0f8;  
-  
+  padding: 12px 24px;
+  font-size: 0.95rem;
+  background-color: #03045E;
+  color: #f2f5f6;
   border: none;
   border-radius: 25px;
   cursor: pointer;
   transition: all 0.3s ease;
+  min-width: 160px;
+  box-shadow: 0 5px 15px rgba(0, 123, 255, 0.1);
 }
 
+.join-button:hover,
 .learn-button:hover {
-  background-color: #CAF0F8; /* light blue */
-  color: #03045E; 
- 
+  background-color: #CAF0F8;
+  color: #03045E;
 }
 
 /* === Mobile Responsiveness === */
 @media (max-width: 768px) {
   .stats-section {
     flex-direction: column;
-    gap: 40px;
-    margin-right:20px;
-        width: 90%;
-
+    gap: 30px;
+    width: 90%;
+    padding: 30px 15px;
   }
 
   .stat-box {
@@ -185,11 +169,11 @@ html {
   }
 
   .icon {
-    font-size: 50px;
+    font-size: 45px;
   }
 
   .stat-number {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
 
   .stat-label {
@@ -198,7 +182,7 @@ html {
 
   .vision-card {
     padding: 20px;
-    margin: 20px;
+    margin: 30px;
   }
 
   .vision-heading {
@@ -207,13 +191,13 @@ html {
 
   .vision-text {
     font-size: 1rem;
-    line-height: 1.4;
+    line-height: 1.5;
     margin-bottom: 20px;
   }
 
   .button-group {
     flex-direction: column;
-    gap: 10px;
+    gap: 12px;
   }
 
   .join-button,
@@ -228,19 +212,36 @@ html {
   .vision-heading {
     font-size: 1.8rem;
   }
+
   .vision-text {
     font-size: 0.95rem;
   }
+
   .icon {
-    font-size: 45px;
+    font-size: 40px;
   }
 }
+
+/* === Stat Icons === */
 .event-icon,
 .establishment-icon,
-.students-icon { /* new class for students if needed */
-  width: 100px;
-  height: 100px;
+.students-icon {
+  width: 80px;
+  height: 80px;
   object-fit: contain;
   display: block;
-  margin: 0 auto; /* centers the icon inside its stat-box */
+  margin: 0 auto;
+}
+.heading-with-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.heading-icon {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
 }

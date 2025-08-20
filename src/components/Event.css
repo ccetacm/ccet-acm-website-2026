@@ -10,8 +10,10 @@ html, body {
 /* heading styling */
 .event-heading {
   text-align: center;
-  margin-top: 180px;  
-  margin-bottom: 10px; 
+  margin-top: 90px;  
+  margin-bottom: 0;       /* removed bottom margin */
+  padding-bottom: 0;      /* removed bottom padding */
+  line-height: 1;         /* tighten line height */
   color: RGB(0,41,107);
   letter-spacing: 2px;
   font-size: clamp(32px, 6vw, 80px);
@@ -21,8 +23,8 @@ html, body {
 .carousel-viewport {
   width: 100%;
   max-width: 1700px; 
-  margin: 40px auto;
-  padding: 20px;
+  margin-top: 0;
+  padding: 0;             /* removed padding */
   background: #CAF0F8;
   border-radius: 12px;
   box-sizing: border-box;
@@ -35,7 +37,8 @@ html, body {
   gap: clamp(12px, 3vw, 32px);
   list-style: none;
   padding: 0;
-  margin-top: 0;
+  margin-top: 0;          /* removed margin */
+  margin-bottom: 100px;
   overflow-x: auto;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
@@ -70,6 +73,8 @@ html, body {
   -webkit-box-reflect: below 0.5em linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.5));
   object-fit: cover;
   transform-origin: center center;
+  margin-top: 0;           /* no margin on top */
+  padding-top: 0;          /* no padding on top */
 }
 
 /* center (active) image */
