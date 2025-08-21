@@ -2202,6 +2202,7 @@ const styles = `
   min-height: 100vh;
   width: 100%;
   margin-top:-70px;
+  margin-bottom: 18px;
 }
 
 .mentors-section h1 {
