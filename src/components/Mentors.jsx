@@ -2201,7 +2201,7 @@ const styles = `
   color: #222c3d;
   min-height: 100vh;
   width: 100%;
-  // margin-top:30px;
+  margin-top:-70px;
 }
 
 .mentors-section h1 {
@@ -2725,7 +2725,9 @@ const styles = `
     width: 85vw;
     min-height: 405px;
   }
-
+.mentors-section .card__content{
+padding: 0rem 1.2rem;
+}
   #profileCard {
     width: 98vw;
     height: 96vh;
