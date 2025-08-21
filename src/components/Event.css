@@ -121,10 +121,12 @@ html, body {
 @media (max-width: 768px) {
   .event-heading {
     letter-spacing: 1px;
+    margin-left: 25px;
   }
 
   .carousel li {
     flex: 0 0 clamp(150px, 80vw, 250px);
+    margin-top: -200px;
   }
 
   .carousel img {

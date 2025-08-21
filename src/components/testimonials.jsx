@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { teamMembers } from "../data/teamMembers";
-import "./testimonials.css";
+import "./testimonials.css"; // Changed from testimonials.css to unique team-cards.css
 
 const ArrowLeft = () => (
   <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -51,175 +51,268 @@ const BottomLine = () => <div className="bottom-line" />;
 
 const Team = () => {
   const defaultYear = "2025-26";
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
-  const [isAnimating, setIsAnimating] = useState(false);
+  const [currentACMIndex, setCurrentACMIndex] = useState(0);
+  const [currentACMWIndex, setCurrentACMWIndex] = useState(0);
+  const [isACMAutoPlaying, setIsACMAutoPlaying] = useState(true);
+  const [isACMWAutoPlaying, setIsACMWAutoPlaying] = useState(true);
+  const [isACMAnimating, setIsACMAnimating] = useState(false);
+  const [isACMWAnimating, setIsACMWAnimating] = useState(false);
 
   const currentTeamData = teamMembers[defaultYear] || [];
-  const currentBatchMembers = currentTeamData;
+
+  const acmMembers = currentTeamData.filter(
+    (member) => member.category === "ACM"
+  );
+  const acmwMembers = currentTeamData.filter(
+    (member) => member.category === "ACM W"
+  );
+
+  console.log("[v0] ACM Members:", acmMembers.length, acmMembers);
+  console.log("[v0] ACM-W Members:", acmwMembers.length, acmwMembers);
+  console.log("[v0] Current Team Data:", currentTeamData);
 
   useEffect(() => {
     let interval;
-    if (isAutoPlaying && currentBatchMembers.length > 0) {
+    if (isACMAutoPlaying && acmMembers.length > 0) {
       interval = setInterval(() => {
-        setCurrentIndex((prevIndex) =>
-          prevIndex === currentBatchMembers.length - 1 ? 0 : prevIndex + 1
+        setCurrentACMIndex((prevIndex) =>
+          prevIndex === acmMembers.length - 1 ? 0 : prevIndex + 1
         );
       }, 3000);
     }
     return () => clearInterval(interval);
-  }, [isAutoPlaying, currentBatchMembers.length]);
+  }, [isACMAutoPlaying, acmMembers.length]);
 
-  const handleNext = () => {
-    setIsAutoPlaying(false);
-    setIsAnimating(true);
-    setTimeout(() => setIsAnimating(false), 300);
-    setCurrentIndex((prevIndex) =>
-      prevIndex === currentBatchMembers.length - 1 ? 0 : prevIndex + 1
+  useEffect(() => {
+    let interval;
+    if (isACMWAutoPlaying && acmwMembers.length > 0) {
+      interval = setInterval(() => {
+        setCurrentACMWIndex((prevIndex) =>
+          prevIndex === acmwMembers.length - 1 ? 0 : prevIndex + 1
+        );
+      }, 3000);
+    }
+    return () => clearInterval(interval);
+  }, [isACMWAutoPlaying, acmwMembers.length]);
+
+  const handleACMNext = () => {
+    setIsACMAutoPlaying(false);
+    setIsACMAnimating(true);
+    setTimeout(() => setIsACMAnimating(false), 300);
+    setCurrentACMIndex((prevIndex) =>
+      prevIndex === acmMembers.length - 1 ? 0 : prevIndex + 1
     );
   };
 
-  const handlePrev = () => {
-    setIsAutoPlaying(false);
-    setIsAnimating(true);
-    setTimeout(() => setIsAnimating(false), 300);
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? currentBatchMembers.length - 1 : prevIndex - 1
+  const handleACMPrev = () => {
+    setIsACMAutoPlaying(false);
+    setIsACMAnimating(true);
+    setTimeout(() => setIsACMAnimating(false), 300);
+    setCurrentACMIndex((prevIndex) =>
+      prevIndex === 0 ? acmMembers.length - 1 : prevIndex - 1
     );
   };
 
-  if (currentBatchMembers.length === 0) {
-    return (
-      <Section>
-        <section className="team-section">
-          <div className="team-grid">
-            <div className="team-content">
-              <h2 className="team-title">Our Team</h2>
-              <p className="team-description">
-                No team members found. Please check back later.
-              </p>
-            </div>
-          </div>
-        </section>
-        <BottomLine />
-      </Section>
+  const handleACMWNext = () => {
+    setIsACMWAutoPlaying(false);
+    setIsACMWAnimating(true);
+    setTimeout(() => setIsACMWAnimating(false), 300);
+    setCurrentACMWIndex((prevIndex) =>
+      prevIndex === acmwMembers.length - 1 ? 0 : prevIndex + 1
     );
-  }
+  };
 
-  const currentMember = currentBatchMembers[currentIndex];
+  const handleACMWPrev = () => {
+    setIsACMWAutoPlaying(false);
+    setIsACMWAnimating(true);
+    setTimeout(() => setIsACMWAnimating(false), 300);
+    setCurrentACMWIndex((prevIndex) =>
+      prevIndex === 0 ? acmwMembers.length - 1 : prevIndex - 1
+    );
+  };
 
-  return (
-    <Section>
-      <section className="team-section">
-        <div className="team-grid">
-          <div className="team-content">
-            <div className="content-header">
-              <h2 className="team-title">Our Team</h2>
-              <div className="title-accent"></div>
-            </div>
-            <p className="team-description">
-              Meet the amazing team behind the success of our club. Each member
-              brings unique skills and dedication to ensure that we grow and
-              make an impact.
-            </p>
-
-            <div className="cta-container">
-              <Button href="/team">More About Us</Button>
+  const MemberCard = ({ member, isAnimating, onNext, onPrev }) => (
+    <div className="team-card-carousel">
+      {" "}
+      {/* Changed from team-carousel to unique class */}
+      <div
+        className={`team-card-member ${
+          isAnimating ? "team-card-animating" : ""
+        }`}
+        key={member.id}
+      >
+        {" "}
+        {/* Changed to unique class names */}
+        <div className="team-card-background"></div>{" "}
+        {/* Changed to unique class name */}
+        <div className="team-card-avatar-container">
+          {" "}
+          {/* Changed to unique class name */}
+          <button
+            onClick={onPrev}
+            className="team-card-btn team-card-btn-left"
+            aria-label="Previous team member"
+          >
+            {" "}
+            {/* Changed to unique class names */}
+            <ArrowLeft />
+          </button>
+          <div className="team-card-avatar">
+            {" "}
+            {/* Changed to unique class name */}
+            <div className="team-card-avatar-ring"></div>{" "}
+            {/* Changed to unique class name */}
+            <img
+              src={
+                member.image ||
+                "/placeholder.svg?height=192&width=192&query=team member headshot" ||
+                "/placeholder.svg" ||
+                "/placeholder.svg" ||
+                "/placeholder.svg" ||
+                "/placeholder.svg"
+              }
+              alt={member.name}
+              className="team-card-avatar-image" // Changed to unique class name
+            />
+          </div>
+          <button
+            onClick={onNext}
+            className="team-card-btn team-card-btn-right"
+            aria-label="Next team member"
+          >
+            {" "}
+            {/* Changed to unique class names */}
+            <ArrowRight />
+          </button>
+        </div>
+        <div className="team-card-member-info">
+          {" "}
+          {/* Changed to unique class name */}
+          <div className="team-card-member-details">
+            {" "}
+            {/* Changed to unique class name */}
+            <h3 className="team-card-member-name">{member.name}</h3>{" "}
+            {/* Changed to unique class name */}
+            <p className="team-card-member-role">{member.role}</p>{" "}
+            {/* Changed to unique class name */}
+            <div className="team-card-member-category-badge">
+              {" "}
+              {/* Changed to unique class name */}
+              <span className="team-card-member-category">
+                {member.category}
+              </span>{" "}
+              {/* Changed to unique class name */}
             </div>
           </div>
-
-          <div className="team-carousel">
-            <div
-              className={`team-member-card ${isAnimating ? "animating" : ""}`}
-              key={currentMember.id}
-            >
-              <div className="card-background"></div>
-
-              <div className="member-avatar-container">
-                <button
-                  onClick={handlePrev}
-                  className="carousel-btn carousel-btn-left"
-                  aria-label="Previous team member"
-                >
-                  <ArrowLeft />
-                </button>
-
-                <div className="member-avatar">
-                  <div className="avatar-ring"></div>
-                  <img
-                    src={
-                      currentMember.image ||
-                      "/placeholder.svg?height=192&width=192&query=team member headshot" ||
-                      "/placeholder.svg" ||
-                      "/placeholder.svg"
-                    }
-                    alt={currentMember.name}
-                    className="avatar-image"
-                  />
-                </div>
-
-                <button
-                  onClick={handleNext}
-                  className="carousel-btn carousel-btn-right"
-                  aria-label="Next team member"
-                >
-                  <ArrowRight />
-                </button>
+          <div className="team-card-social-icons-container">
+            {" "}
+            {/* Changed to unique class name */}
+            {member.github ? (
+              <a
+                href={member.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="team-card-social-icon-link"
+                aria-label="GitHub profile"
+              >
+                <GitHubIcon />
+              </a>
+            ) : (
+              <div
+                className="team-card-social-icon-link team-card-social-icon-disabled"
+                aria-label="GitHub profile not available"
+              >
+                <GitHubIcon />
               </div>
-
-              <div className="member-info">
-                <div className="member-details">
-                  <h3 className="member-name">{currentMember.name}</h3>
-                  <p className="member-role">{currentMember.role}</p>
-                  <div className="member-category-badge">
-                    <span className="member-category">
-                      {currentMember.category}
-                    </span>
-                  </div>
-                </div>
-
-                <div className="social-icons-container">
-                  {currentMember.github && (
-                    <a
-                      href={currentMember.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="social-icon-link"
-                      aria-label="GitHub profile"
-                    >
-                      <GitHubIcon />
-                    </a>
-                  )}
-                  {currentMember.linkedin && (
-                    <a
-                      href={currentMember.linkedin}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="social-icon-link"
-                      aria-label="LinkedIn profile"
-                    >
-                      <LinkedInIcon />
-                    </a>
-                  )}
-                  {currentMember.orcid && (
-                    <a
-                      href={currentMember.orcid}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="social-icon-link orcid-link"
-                      aria-label="ORCID profile"
-                    >
-                      ORCID
-                    </a>
-                  )}
-                </div>
+            )}
+            {member.linkedin ? (
+              <a
+                href={member.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="team-card-social-icon-link"
+                aria-label="LinkedIn profile"
+              >
+                <LinkedInIcon />
+              </a>
+            ) : (
+              <div
+                className="team-card-social-icon-link team-card-social-icon-disabled"
+                aria-label="LinkedIn profile not available"
+              >
+                <LinkedInIcon />
               </div>
-            </div>
+            )}
+            {member.orcid && (
+              <a
+                href={member.orcid}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="team-card-social-icon-link team-card-orcid-link"
+                aria-label="ORCID profile"
+              >
+                ORCID
+              </a>
+            )}
           </div>
         </div>
-      </section>
-      <BottomLine />
-    </Section>
+      </div>
+    </div>
+  );
+
+  return (
+    <div className="team-cards-container">
+      {" "}
+      {/* Changed to unique container class */}
+      <div className="team-cards-wrapper">
+        {" "}
+        {/* Changed to unique wrapper class */}
+        <div className="team-cards-row">
+          {" "}
+          {/* Changed to unique row class */}
+          {/* ACM Section */}
+          <div className="team-cards-section team-cards-section-left">
+            {" "}
+            {/* Changed to unique section classes */}
+            <div className="team-cards-heading">
+              <h2 className="team-cards-title team-cards-title-acm">ACM</h2>{" "}
+              {/* Changed to unique title classes */}
+            </div>
+            {acmMembers.length > 0 ? (
+              <MemberCard
+                member={acmMembers[currentACMIndex]}
+                isAnimating={isACMAnimating}
+                onNext={handleACMNext}
+                onPrev={handleACMPrev}
+              />
+            ) : (
+              <div className="team-cards-no-members">No ACM members found</div> // Changed to unique class
+            )}
+          </div>
+          {/* ACM-W Section */}
+          <div className="team-cards-section team-cards-section-right">
+            {" "}
+            {/* Changed to unique section classes */}
+            <div className="team-cards-heading">
+              <h2 className="team-cards-title team-cards-title-acmw">ACM-W</h2>{" "}
+              {/* Changed to unique title classes */}
+            </div>
+            {acmwMembers.length > 0 ? (
+              <MemberCard
+                member={acmwMembers[currentACMWIndex]}
+                isAnimating={isACMWAnimating}
+                onNext={handleACMWNext}
+                onPrev={handleACMWPrev}
+              />
+            ) : (
+              <div className="team-cards-no-members">
+                No ACM-W members found
+              </div> // Changed to unique class
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
 

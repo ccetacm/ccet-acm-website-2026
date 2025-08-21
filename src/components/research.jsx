@@ -12,7 +12,6 @@ const researchFocusAreas = [
 
 const ResearchLabIsolated = () => {
   const handleExploreResearch = () => {
-    // Add your navigation logic here
     console.log("Exploring research...");
   };
 
@@ -69,7 +68,7 @@ const ResearchLabIsolated = () => {
 
       <style>{`
         .research-lab-isolated-wrapper {
-          padding: 40px;
+          padding: 20px;
           display: flex;
           justify-content: center;
         }
@@ -78,15 +77,16 @@ const ResearchLabIsolated = () => {
           display: flex;
           justify-content: space-between;
           align-items: center;
-          text-align: center;
           gap: 40px;
-          background: #fff;
+          background: #e8f8ff;
           border-radius: 16px;
           padding: 40px;
           max-width: 1100px;
           width: 100%;
           box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-          border-top: 4px solid #2563eb;
+          border-top: 4px solid #00296b;
+          margin-top: -80px;
+          text-align:center;
         }
 
         .research-lab-isolated-content {
@@ -96,23 +96,22 @@ const ResearchLabIsolated = () => {
 
         .research-lab-isolated-badge {
           display: inline-block;
-          background: #2563eb;
+          background: #00296b;
           color: #fff;
-          padding: 10px 20px;
+          padding: 8px 16px;
           border-radius: 9999px;
           font-weight: 600;
           font-size: 10px;
           letter-spacing: 0.8px;
-          margin-bottom: 20px;
+          margin-bottom: 16px;
           text-transform: uppercase;
         }
 
         .research-lab-isolated-title {
-          font-size: 38px;
+          font-size: 32px;
           font-weight: 700;
           color: #00296b;
           line-height: 1.3;
-          letter-spacing: -0.4px;
           margin-bottom: 4px;
         }
 
@@ -120,34 +119,31 @@ const ResearchLabIsolated = () => {
           display: block;
           font-size: 18px;
           font-weight: 600;
-          color: #2563eb;
+          color: #00296b;
           margin-top: 8px;
-          letter-spacing: -0.2px;
-          line-height: 1.2;
         }
 
         .research-lab-isolated-focus-title {
-          font-size: 25px;
-          font-weight: bolder;
-          margin: 32px 0 16px;
+          font-size: 22px;
+          font-weight: 700;
+          margin: 28px 0 16px;
           color: #00296b;
-          letter-spacing: -0.1px;
-          line-height: 1.3;
         }
 
         .research-lab-isolated-focus-grid {
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+          grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
           gap: 16px;
         }
 
         .research-lab-isolated-focus-card {
           border: 1px solid #e5e7eb;
           border-radius: 12px;
-          padding: 16px;
+          padding: 14px;
           background: #fafafa;
           text-align: center;
           transition: all 0.3s ease;
+          border-top: 4px solid #00296b;
         }
 
         .research-lab-isolated-focus-card:hover {
@@ -156,8 +152,8 @@ const ResearchLabIsolated = () => {
         }
 
         .research-lab-isolated-icon {
-          width: 40px;
-          height: 40px;
+          width: 36px;
+          height: 36px;
           border-radius: 50%;
           display: flex;
           align-items: center;
@@ -176,27 +172,21 @@ const ResearchLabIsolated = () => {
           display: inline-flex;
           align-items: center;
           gap: 8px;
-          background: #2563eb;
+          background: #00296b;
           color: #fff;
           border: none;
-          padding: 14px 28px;
+          padding: 12px 24px;
           border-radius: 12px;
           font-weight: 600;
-          font-size: 16px;
+          font-size: 15px;
           cursor: pointer;
           transition: all 0.3s ease;
-          margin-top: 24px;
-          letter-spacing: -0.1px;
+          margin-top: 20px;
         }
 
         .research-lab-isolated-explore-btn:hover {
-          background: #1d4ed8;
           transform: translateY(-2px);
-          box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
-        }
-
-        .research-lab-isolated-explore-btn:active {
-          transform: translateY(0);
+          box-shadow: 0 6px 16px rgba(37, 99, 235, 0.3);
         }
 
         .research-lab-isolated-animation {
@@ -205,6 +195,55 @@ const ResearchLabIsolated = () => {
           display: flex;
           flex-direction: column;
           align-items: center;
+        }
+
+        /* 📱 Mobile Responsiveness */
+        @media (max-width: 1024px) {
+          .research-lab-isolated-card {
+            flex-direction: column;
+            text-align: center;
+            gap: 24px;
+            padding: 30px;
+          }
+
+          .research-lab-isolated-content {
+            max-width: 100%;
+          }
+
+          .research-lab-isolated-title {
+            font-size: 26px;
+          }
+
+          .research-lab-isolated-focus-title {
+            font-size: 20px;
+          }
+
+          .research-lab-isolated-animation {
+            max-width: 300px;
+          }
+        }
+
+        @media (max-width: 640px) {
+          .research-lab-isolated-card {
+            padding: 20px;
+          }
+
+          .research-lab-isolated-title {
+            font-size: 22px;
+          }
+
+          .research-lab-isolated-title .research-lab-isolated-highlight {
+            font-size: 16px;
+          }
+
+          .research-lab-isolated-focus-grid {
+            grid-template-columns: 1fr;
+          }
+
+          .research-lab-isolated-explore-btn {
+            width: 100%;
+            justify-content: center;
+          }
         }
       `}</style>
     </div>
