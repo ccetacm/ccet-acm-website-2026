@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { teamMembers } from "../data/teamMembers";
 import "./testimonials.css"; // Changed from testimonials.css to unique team-cards.css
+import acmteam from "../assets/testimonials/acm-team.jpg";
 
 const ArrowLeft = () => (
   <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -262,6 +263,18 @@ const Team = () => {
 
   return (
     <div className="team-cards-container">
+      {/* NEW MAIN HEADING */}
+      <h1 className="team-main-heading">ACM TEAM</h1>
+
+      {/* NEW GROUP IMAGE */}
+      <div className="team-group-image-container">
+        <img
+          src={acmteam}
+          alt="ACM Team Group"
+          className="team-group-image"
+        />
+      </div> 
+    <div className="team-cards-container">
       {" "}
       {/* Changed to unique container class */}
       <div className="team-cards-wrapper">
@@ -312,6 +325,7 @@ const Team = () => {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 };
