@@ -1,7 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import HTMLFlipBook from "react-pageflip";
+import * as pdfjsLib from "pdfjs-dist";
+import pdfWorker from "pdfjs-dist/build/pdf.worker.min?url";
 import "./MagazineScroller.css";
+
+pdfjsLib.GlobalWorkerOptions.workerSrc = pdfWorker;
 
 export default function BookShowcase() {
   const [bookStates, setBookStates] = useState({
@@ -13,6 +18,50 @@ export default function BookShowcase() {
     book6: "default",
   });
 
+  const [selectedPdf, setSelectedPdf] = useState(null);
+  const [pageImages, setPageImages] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    if (!selectedPdf) {
+      setPageImages([]);
+      setLoading(false);
+      return;
+    }
+    setLoading(true);
+
+    const loadPdfPages = async () => {
+      try {
+        console.log("Loading PDF:", selectedPdf);
+
+        const loadingTask = pdfjsLib.getDocument({ url: selectedPdf });
+        const pdf = await loadingTask.promise;
+        const images = [];
+
+        for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
+          const page = await pdf.getPage(pageNum);
+          const viewport = page.getViewport({ scale: 2.0 });
+
+          const canvas = document.createElement("canvas");
+          const context = canvas.getContext("2d");
+          canvas.width = viewport.width;
+          canvas.height = viewport.height;
+
+          await page.render({ canvasContext: context, viewport }).promise;
+          images.push(canvas.toDataURL("image/jpeg", 0.95));
+        }
+
+        setPageImages(images);
+      } catch (e) {
+        console.error("PDF render error:", e);
+        setPageImages([]);
+      }
+      setLoading(false);
+    };
+
+    loadPdfPages();
+  }, [selectedPdf]);
+
   const handleBookAction = (bookId, action) => {
     setBookStates((prev) => {
       const currentState = prev[bookId];
@@ -21,7 +70,13 @@ export default function BookShowcase() {
       if (action === "flip") {
         newState = currentState === "viewback" ? "default" : "viewback";
       } else if (action === "viewinside") {
-        newState = currentState === "viewinside" ? "default" : "viewinside";
+        const book = books.find((b) => b.id === bookId);
+        if (book && book.pdf) {
+          const fixedUrl =
+            typeof book.pdf === "string" ? book.pdf : book.pdf.default;
+          setSelectedPdf(fixedUrl);
+        }
+        return prev; // Don't change book state, just open modal
       }
 
       return {
@@ -29,6 +84,10 @@ export default function BookShowcase() {
         [bookId]: newState,
       };
     });
+  };
+
+  const closeFlipbook = () => {
+    setSelectedPdf(null);
   };
 
   const getBookClasses = (bookNumber, bookId) => {
@@ -52,10 +111,10 @@ export default function BookShowcase() {
       number: 1,
       title: "The Art of Programming",
       cover: "/magzine1.jpg",
-      pdf: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
+      pdf: "jan-feb-pdf.pdf",
       month: "JAN-FEB",
-      spineColor: "#064491", // Changed from red to yellow to match back cover
-      backColor: "#064491", // Added yellow back cover background
+      spineColor: "#064491",
+      backColor: "#064491",
       backText:
         "Discover the fundamental principles of programming through practical examples and real-world applications. This comprehensive guide covers everything from basic syntax to advanced algorithms, making it perfect for both beginners and experienced developers looking to enhance their skills.",
     },
@@ -66,8 +125,8 @@ export default function BookShowcase() {
       cover: "/magzine2.jpg",
       pdf: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
       month: "MAR-APR",
-      spineColor: "black", // Changed from blue to plum to match back cover
-      backColor: "black", // Added plum back cover background
+      spineColor: "black",
+      backColor: "black",
       backText:
         "Master the art of digital design with cutting-edge techniques and industry best practices. Learn how to create stunning visual experiences that captivate audiences and drive engagement across all digital platforms.",
     },
@@ -78,8 +137,8 @@ export default function BookShowcase() {
       cover: "/magzine3.jpg",
       pdf: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
       month: "MAY-JUN",
-      spineColor: "black", // Changed from green to peach to match back cover
-      backColor: "black", // Added peach back cover background
+      spineColor: "black",
+      backColor: "black",
       backText:
         "Explore how nature's patterns and processes inspire computational solutions. From biomimicry to evolutionary algorithms, discover how the natural world provides blueprints for solving complex technological challenges.",
     },
@@ -90,8 +149,8 @@ export default function BookShowcase() {
       cover: "/magzine4.jpg",
       pdf: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
       month: "JUL-AUG",
-      spineColor: "black", // Changed from orange to mint to match back cover
-      backColor: "black", // Added mint back cover background
+      spineColor: "black",
+      backColor: "black",
       backText:
         "Unlock the power of data with comprehensive coverage of statistical analysis, machine learning, and data visualization. Learn to extract meaningful insights from complex datasets and make data-driven decisions.",
     },
@@ -102,8 +161,8 @@ export default function BookShowcase() {
       cover: "/magzine5.jpg",
       pdf: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
       month: "SEP-OCT",
-      spineColor: "#593aaf", // Changed from purple to pink to match back cover
-      backColor: "#593aaf", // Added pink back cover background
+      spineColor: "#593aaf",
+      backColor: "#593aaf",
       backText:
         "Build modern, responsive web applications using the latest technologies and frameworks. From frontend design to backend architecture, master the full stack of web development skills needed in today's digital landscape.",
     },
@@ -114,8 +173,8 @@ export default function BookShowcase() {
       cover: "/magzine6.jpg",
       pdf: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
       month: "NOV-DEC",
-      spineColor: "#223D96", // Changed from teal to bright yellow to match back cover
-      backColor: "#223D96", // Added bright yellow back cover background
+      spineColor: "#223D96",
+      backColor: "#223D96",
       backText:
         "Dive deep into artificial intelligence and machine learning concepts. Learn how to build intelligent systems that can learn, adapt, and make decisions, transforming the way we interact with technology.",
     },
@@ -161,67 +220,23 @@ export default function BookShowcase() {
                   </div>
                 </div>
                 <div className="bk-page">
-                  {bookStates[book.id] === "viewinside" ? (
-                    <div
-                      style={{
-                        position: "relative",
-                        width: "100%",
-                        height: "100%",
-                      }}
-                    >
-                      <div
-                        className="book-hover-icon close-hover-icon"
-                        onClick={() => handleBookAction(book.id, "viewinside")}
-                        title="Close PDF"
-                        style={{
-                          position: "absolute",
-                          top: "10px",
-                          right: "10px",
-                          zIndex: 10,
-                          backgroundColor: "rgba(0, 0, 0, 0.7)",
-                          color: "white",
-                          borderRadius: "50%",
-                          width: "30px",
-                          height: "30px",
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "center",
-                          cursor: "pointer",
-                          fontSize: "16px",
-                        }}
-                      >
-                        ✕
-                      </div>
-                      <iframe
-                        src={book.pdf}
-                        style={{
-                          width: "100%",
-                          height: "100%",
-                          border: "none",
-                          borderRadius: "3px",
-                        }}
-                        title={`${book.title} PDF`}
-                      />
-                    </div>
-                  ) : (
-                    <div
-                      style={{
-                        width: "100%",
-                        height: "100%",
-                        backgroundColor: "#f8f9fa",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        fontSize: "14px",
-                        color: "#666",
-                        textAlign: "center",
-                        padding: "20px",
-                        borderRadius: "3px",
-                      }}
-                    >
-                      Click "View inside" to read the PDF
-                    </div>
-                  )}
+                  <div
+                    style={{
+                      width: "100%",
+                      height: "10px",
+                      backgroundColor: "#f8f9fa",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      fontSize: "14px",
+                      color: "#666",
+                      textAlign: "center",
+                      padding: "20px",
+                      borderRadius: "3px",
+                    }}
+                  >
+                    Click "View inside" to read the PDF
+                  </div>
                 </div>
                 <div className="bk-back">
                   <div
@@ -231,7 +246,7 @@ export default function BookShowcase() {
                       display: "flex",
                       flexDirection: "column",
                       backgroundColor: book.backColor,
-                      position: "relative", // Added relative positioning for icon placement
+                      position: "relative",
                     }}
                   >
                     <div
@@ -277,7 +292,7 @@ export default function BookShowcase() {
                 <div
                   className="bk-left"
                   style={{
-                    backgroundColor: book.spineColor, // Applied background color to entire spine
+                    backgroundColor: book.spineColor,
                   }}
                 >
                   <div className="spine-month">{book.month}</div>
@@ -289,6 +304,94 @@ export default function BookShowcase() {
           ))}
         </ul>
       </div>
+
+      {selectedPdf && (
+        <div className="pdf-preview-modal">
+          <div className="pdf-preview-content">
+            <button
+              className="btn close-btn"
+              onClick={closeFlipbook}
+              style={{
+                position: "absolute",
+                top: "10px",
+                right: "20px",
+                backgroundColor: "#ff4444",
+                color: "white",
+                border: "none",
+                padding: "8px 12px",
+                borderRadius: "50%",
+                cursor: "pointer",
+                fontSize: "16px",
+                fontWeight: "bold",
+                width: "36px",
+                height: "36px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                zIndex: 1000,
+              }}
+            >
+              ×
+            </button>
+            {loading ? (
+              <div style={{ textAlign: "center", margin: 40 }}>
+                Loading flipbook preview...
+              </div>
+            ) : pageImages.length ? (
+              <HTMLFlipBook
+                width={600}
+                height={800}
+                size="stretch"
+                minWidth={400}
+                minHeight={500}
+                maxWidth={800}
+                maxHeight={1000}
+                style={{ margin: "0 auto" }}
+                showCover={false}
+                flippingTime={600}
+                usePortrait={false}
+                startZIndex={0}
+                autoSize={false}
+                clickEventForward={true}
+              >
+                {pageImages.map((src, idx) => (
+                  <div
+                    key={idx}
+                    className="page"
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      background: "#fff",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      padding: "10px",
+                      boxSizing: "border-box",
+                    }}
+                  >
+                    <img
+                      src={src || "/placeholder.svg"}
+                      alt={`Page ${idx + 1}`}
+                      style={{
+                        maxWidth: "100%",
+                        maxHeight: "100%",
+                        width: "auto",
+                        height: "auto",
+                        objectFit: "scale-down",
+                        objectPosition: "center",
+                      }}
+                    />
+                  </div>
+                ))}
+              </HTMLFlipBook>
+            ) : (
+              <div style={{ textAlign: "center", margin: 40, color: "red" }}>
+                Could not preview PDF.
+              </div>
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
 }

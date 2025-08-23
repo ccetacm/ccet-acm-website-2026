@@ -39,7 +39,7 @@ function Vision() {
           <div className="stat-number">
             {inView && <CountUp end={300} duration={2} />}+
           </div>
-          <div className="stat-label">Number of Students</div>
+          <div className="stat-label">Number of ACM Students</div>
         </div>
         <div className="stat-box">
           <div className="icon">
@@ -48,7 +48,7 @@ function Vision() {
           <div className="stat-number">
             {inView && <CountUp end={150} duration={2} />}+
           </div>
-          <div className="stat-label">Events</div>
+          <div className="stat-label">ACM Events</div>
         </div>
       </motion.section>
 
@@ -75,7 +75,7 @@ function Vision() {
         {/* === Mission Heading with Icon === */}
         <div className="heading-with-icon">
           <img src="/mission.png" alt="Mission Icon" className="heading-icon" />
-          <motion.h2 className="vision-heading">Mission</motion.h2>
+          <motion.h2 className="vision-heading">Our Mission</motion.h2>
         </div>
 
         <motion.p className="vision-text">
