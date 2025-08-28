@@ -69,7 +69,6 @@ const App = () => {
       <MagazineScroller />
       <Mentors />
       <Teams />
-      <Footer />
     </div>
   );
 };

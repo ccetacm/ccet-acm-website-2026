@@ -1,17 +1,12 @@
+"use client";
+
 // About.jsx
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "./About.css";
 import {
-  FaFacebook,
-  FaTwitter,
-  FaInstagram,
-  FaLinkedin,
   FaChevronDown,
   FaChevronUp,
   FaEnvelope,
-  FaUser,
-  FaTag,
-  FaPaperPlane,
   FaMapMarkerAlt,
   FaGlobe,
   FaExternalLinkAlt,
@@ -67,42 +62,7 @@ function About() {
   };
 
   return (
-    <>
-      {/* Navigation */}
-      <nav className="navbar" id="navbar">
-        <div className="nav-container">
-          {/* Optional logo here */}
-          <div className="nav-menu" id="nav-menu" style={{ display: "flex" }}>
-            <a href="#home" className="nav-link">
-              Home
-            </a>
-            <a href="#about" className="nav-link">
-              About
-            </a>
-            <a href="#casc" className="nav-link">
-              CASC
-            </a>
-            <a href="#department" className="nav-link">
-              Department
-            </a>
-            <a href="#outcomes" className="nav-link">
-              Outcomes
-            </a>
-            <a href="#teams" className="nav-link">
-              Teams
-            </a>
-            <a href="#contact" className="nav-link">
-              Contact
-            </a>
-          </div>
-          <div className="nav-toggle" id="nav-toggle">
-            <span className="bar"></span>
-            <span className="bar"></span>
-            <span className="bar"></span>
-          </div>
-        </div>
-      </nav>
-
+    <div className="acm-about">
       {/* Hero Section */}
       <section id="home" className="hero">
         <div className="hero-background">
@@ -181,7 +141,9 @@ function About() {
                     <span className="stat-label">Founded</span>
                   </div>
                   <div className="stat-item">
-                    <span className="stat-number" data-target="50">0</span>
+                    <span className="stat-number" data-target="50">
+                      0
+                    </span>
                     <span className="stat-label">Countries</span>
                   </div>
                 </div>
@@ -298,7 +260,9 @@ function About() {
             <h2 className="section-title">
               Department of Computer Science & Engineering
             </h2>
-            <p className="section-subtitle">Excellence in Computing Education</p>
+            <p className="section-subtitle">
+              Excellence in Computing Education
+            </p>
           </div>
           <div className="department-content">
             <div className="department-about slide-in-left">
@@ -314,8 +278,8 @@ function About() {
                 <p>
                   With a strong emphasis on academic excellence and practical
                   learning, the department offers a robust curriculum,
-                  state-of-the-art facilities, and opportunities for research and
-                  development.
+                  state-of-the-art facilities, and opportunities for research
+                  and development.
                 </p>
                 <a
                   href="https://ccet.ac.in/CSE-overview.php"
@@ -345,10 +309,22 @@ function About() {
                   <h3>Mission</h3>
                 </div>
                 <ul className="mission-list">
-                  <li>Make the department a smart centre for learning, innovation and research</li>
-                  <li>Inculcate strong background in mathematical, theoretical, and practical knowledge</li>
-                  <li>Promote interaction with institutions, industries and research organizations</li>
-                  <li>Provide a friendly environment while developing interpersonal skills</li>
+                  <li>
+                    Make the department a smart centre for learning, innovation
+                    and research
+                  </li>
+                  <li>
+                    Inculcate strong background in mathematical, theoretical,
+                    and practical knowledge
+                  </li>
+                  <li>
+                    Promote interaction with institutions, industries and
+                    research organizations
+                  </li>
+                  <li>
+                    Provide a friendly environment while developing
+                    interpersonal skills
+                  </li>
                 </ul>
               </div>
             </div>
@@ -399,7 +375,11 @@ function About() {
                 desc: "Apply reasoning informed by contextual knowledge to assess issues",
               },
             ].map(({ num, title, desc }, i) => (
-              <div className="outcome-card slide-in-up" data-delay={i * 100} key={num}>
+              <div
+                className="outcome-card slide-in-up"
+                data-delay={i * 100}
+                key={num}
+              >
                 <div className="outcome-number">{num}</div>
                 <h3>{title}</h3>
                 <p>{desc}</p>
@@ -409,7 +389,11 @@ function About() {
 
           {/* View all outcomes button */}
           <div className="text-center">
-            <button className="btn btn-outline show-more-outcomes" id="showMoreOutcomes" type="button">
+            <button
+              className="btn btn-outline show-more-outcomes"
+              id="showMoreOutcomes"
+              type="button"
+            >
               View All Program Outcomes <FaChevronDown />
             </button>
           </div>
@@ -459,7 +443,11 @@ function About() {
 
             {/* Show Less button now BELOW left-aligned */}
             <div className="text-left mt-3">
-              <button className="btn btn-outline show-less-outcomes" id="showLessOutcomes" type="button">
+              <button
+                className="btn btn-outline show-less-outcomes"
+                id="showLessOutcomes"
+                type="button"
+              >
                 <FaChevronUp /> Show Less
               </button>
             </div>
@@ -472,7 +460,9 @@ function About() {
         <div className="container">
           <div className="section-header text-center">
             <h2 className="section-title">Our Teams</h2>
-            <p className="section-subtitle">Dedicated groups working towards computing excellence</p>
+            <p className="section-subtitle">
+              Dedicated groups working towards computing excellence
+            </p>
           </div>
           <div className="teams-grid">
             <div className="team-card slide-in-left">
@@ -565,84 +555,6 @@ function About() {
           </div>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="footer">
-        <div className="container">
-          <div className="footer-content">
-            <div className="footer-section">
-              <div className="footer-logo">
-                <img src="src/assets/logo.svg" alt="CCET ACM" />
-                <span>CCET ACM</span>
-              </div>
-              <p>Advancing Computing as a Science & Profession</p>
-            </div>
-            <div className="footer-section">
-              <h4>Quick Links</h4>
-              <ul>
-                <li>
-                  <a href="#about">About</a>
-                </li>
-                <li>
-                  <a href="#casc">CASC</a>
-                </li>
-                <li>
-                  <a href="#teams">Teams</a>
-                </li>
-                <li>
-                  <a href="#contact">Contact</a>
-                </li>
-              </ul>
-            </div>
-            <div className="footer-section">
-              <h4>Resources</h4>
-              <ul>
-                <li>
-                  <a href="#" target="_blank" rel="noopener noreferrer">
-                    Gallery
-                  </a>
-                </li>
-                <li>
-                  <a href="#" target="_blank" rel="noopener noreferrer">
-                    Events
-                  </a>
-                </li>
-                <li>
-                  <a href="#" target="_blank" rel="noopener noreferrer">
-                    Magazine
-                  </a>
-                </li>
-                <li>
-                  <a href="#" target="_blank" rel="noopener noreferrer">
-                    Achievements
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div className="footer-section">
-              <h4>Connect</h4>
-              <div className="footer-social">
-                <a href="#">
-                  <FaFacebook />
-                </a>
-                <a href="#">
-                  <FaTwitter />
-                </a>
-                <a href="#">
-                  <FaInstagram />
-                </a>
-                <a href="#">
-                  <FaLinkedin />
-                </a>
-              </div>
-            </div>
-          </div>
-          <div className="footer-bottom">
-            <p>© 2025 CCET ACM Student Chapter. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
-
       {/* Scroll to Top Arrow Button */}
       {showScrollTop && (
         <button
@@ -670,7 +582,7 @@ function About() {
           <FaArrowUp size={24} />
         </button>
       )}
-    </>
+    </div>
   );
 }
 
@@ -718,7 +630,8 @@ function initNavigation() {
     if (scrollTop > 50) navbar.classList.add("scrolled");
     else navbar.classList.remove("scrolled");
 
-    if (scrollTop > lastScrollTop && scrollTop > 200) navbar.style.transform = "translateY(-100%)";
+    if (scrollTop > lastScrollTop && scrollTop > 200)
+      navbar.style.transform = "translateY(-100%)";
     else navbar.style.transform = "translateY(0)";
     lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
   });
@@ -758,7 +671,7 @@ function initScrollAnimations() {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         const el = entry.target;
-        const delay = parseInt(el.getAttribute("data-delay") || "0", 10);
+        const delay = Number.parseInt(el.getAttribute("data-delay") || "0", 10);
         setTimeout(() => {
           el.style.opacity = "1";
           el.style.transform = "translateX(0) translateY(0)";
@@ -771,11 +684,19 @@ function initScrollAnimations() {
 
   animatedElements.forEach((el) => {
     el.style.opacity = "0";
-    if (el.classList.contains("slide-in-left")) el.style.transform = "translateX(-50px)";
-    else if (el.classList.contains("slide-in-right")) el.style.transform = "translateX(50px)";
-    else if (el.classList.contains("slide-in-up") || el.classList.contains("fade-in-up")) el.style.transform = "translateY(50px)";
-    else if (el.classList.contains("fade-in-left")) el.style.transform = "translateX(-30px)";
-    else if (el.classList.contains("fade-in-right")) el.style.transform = "translateX(30px)";
+    if (el.classList.contains("slide-in-left"))
+      el.style.transform = "translateX(-50px)";
+    else if (el.classList.contains("slide-in-right"))
+      el.style.transform = "translateX(50px)";
+    else if (
+      el.classList.contains("slide-in-up") ||
+      el.classList.contains("fade-in-up")
+    )
+      el.style.transform = "translateY(50px)";
+    else if (el.classList.contains("fade-in-left"))
+      el.style.transform = "translateX(-30px)";
+    else if (el.classList.contains("fade-in-right"))
+      el.style.transform = "translateX(30px)";
     el.style.transition = "opacity 0.6s ease, transform 0.6s ease";
     observer.observe(el);
   });
@@ -785,7 +706,8 @@ function initScrollEffects() {
   window.addEventListener("scroll", () => {
     const scrolled = window.pageYOffset;
     const heroBackground = document.querySelector(".hero-background");
-    if (heroBackground) heroBackground.style.transform = `translateY(${scrolled * 0.5}px)`;
+    if (heroBackground)
+      heroBackground.style.transform = `translateY(${scrolled * 0.5}px)`;
   });
 
   const sections = document.querySelectorAll("section[id]");
@@ -796,7 +718,10 @@ function initScrollEffects() {
     sections.forEach((section) => {
       const sectionTop = section.offsetTop - 100;
       const sectionHeight = section.offsetHeight;
-      if (window.pageYOffset >= sectionTop && window.pageYOffset < sectionTop + sectionHeight) {
+      if (
+        window.pageYOffset >= sectionTop &&
+        window.pageYOffset < sectionTop + sectionHeight
+      ) {
         currentSection = section.getAttribute("id");
       }
     });
@@ -809,7 +734,9 @@ function initScrollEffects() {
     });
   });
 
-  const cards = document.querySelectorAll(".feature-card, .mission-card, .outcome-card, .team-card, .content-card");
+  const cards = document.querySelectorAll(
+    ".feature-card, .mission-card, .outcome-card, .team-card, .content-card"
+  );
   cards.forEach((card) => {
     card.addEventListener("mouseenter", () => {
       card.style.transform = "translateY(-10px) scale(1.02)";
@@ -829,7 +756,7 @@ function initCounters() {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           const counter = entry.target;
-          const target = parseInt(counter.getAttribute("data-target"));
+          const target = Number.parseInt(counter.getAttribute("data-target"));
           const duration = 2000;
           const increment = target / (duration / 16);
           let current = 0;
@@ -840,7 +767,8 @@ function initCounters() {
               counter.textContent = Math.floor(current).toLocaleString();
               requestAnimationFrame(updateCounter);
             } else {
-              counter.textContent = target === 100000 ? "100,000+" : target.toLocaleString();
+              counter.textContent =
+                target === 100000 ? "100,000+" : target.toLocaleString();
             }
           };
 
@@ -878,13 +806,18 @@ function initContactForm() {
   contactForm.addEventListener("submit", (e) => {
     e.preventDefault();
     const submitButton = contactForm.querySelector('button[type="submit"]');
-    submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+    submitButton.innerHTML =
+      '<i class="fas fa-spinner fa-spin"></i> Sending...';
     submitButton.disabled = true;
 
     setTimeout(() => {
-      showNotification("Message sent successfully! We'll get back to you soon.", "success");
+      showNotification(
+        "Message sent successfully! We'll get back to you soon.",
+        "success"
+      );
       contactForm.reset();
-      submitButton.innerHTML = 'Send Message <i class="fas fa-paper-plane"></i>';
+      submitButton.innerHTML =
+        'Send Message <i class="fas fa-paper-plane"></i>';
       submitButton.disabled = false;
       contactForm.style.transform = "scale(0.98)";
       setTimeout(() => {
@@ -895,7 +828,9 @@ function initContactForm() {
 
   const formControls = contactForm.querySelectorAll(".form-control");
   formControls.forEach((control) => {
-    control.addEventListener("focus", () => control.parentElement.classList.add("focused"));
+    control.addEventListener("focus", () =>
+      control.parentElement.classList.add("focused")
+    );
     control.addEventListener("blur", () => {
       if (!control.value) control.parentElement.classList.remove("focused");
     });
@@ -992,7 +927,7 @@ function showNotification(message, type = "info") {
 
 function debounce(func, wait) {
   let timeout;
-  return function (...args) {
+  return (...args) => {
     clearTimeout(timeout);
     timeout = setTimeout(() => func(...args), wait);
   };
@@ -1038,7 +973,9 @@ function initCardAnimations() {
     });
   }, observerOptions);
 
-  const cards = document.querySelectorAll(".mission-card, .feature-card, .content-card");
+  const cards = document.querySelectorAll(
+    ".mission-card, .feature-card, .content-card"
+  );
   cards.forEach((card, index) => {
     card.style.opacity = "0";
     card.style.transform = "translateY(30px)";
@@ -1047,7 +984,5 @@ function initCardAnimations() {
     observer.observe(card);
   });
 }
-
-
 
 export default About;
