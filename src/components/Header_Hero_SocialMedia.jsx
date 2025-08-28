@@ -1,6 +1,6 @@
 "use client";
-
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import backgroundVideo from "../assets/Header_Main/background_video.mp4";
 import nepImg from "../assets/Header_Main/NEP_2020.png";
 import ccetImg from "../assets/Header_Main/ccetLogo.png";
@@ -1002,15 +1002,15 @@ const Header_Hero_SocialMedia = ({ startAnimation }) => {
 
           {/* Center: Navigation Links */}
           <div className="acm-nav-links">
-            <a href="#">HOME</a>
-            <a href="#">ABOUT</a>
-            <a href="#">CORE ACTS</a>
-            <a href="#">EVENTS</a>
-            <a href="#">RESEARCH LAB</a>
-            <a href="#">PROJECTS</a>
-            <a href="#">DIGITAL OUTLET</a>
-            <a href="#">TEAM</a>
-            <a href="#">GALLERY</a>
+            <Link to="/">HOME</Link>
+            <Link to="/about">ABOUT</Link>
+            <Link to="/initiatives">CORE ACTS</Link>
+            <Link to="/events">EVENTS</Link>
+            <Link to="/research">RESEARCH LAB</Link>
+            <Link to="/magazine">DIGITAL OUTLET</Link>
+            <Link to="/teams">TEAM</Link>
+            <Link to="/gallery">GALLERY</Link>
+            <Link to="/acmw">ACM-W</Link>
           </div>
 
           {/* Right: Switching Logo */}
