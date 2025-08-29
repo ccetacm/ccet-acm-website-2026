@@ -85,7 +85,7 @@ const ResearchLabIsolated = () => {
           width: 100%;
           box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
           border-top: 4px solid #00296b;
-          margin-top: -80px;
+          margin-top: -20px;
           text-align:center;
         }
 
