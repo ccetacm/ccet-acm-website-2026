@@ -14,7 +14,7 @@
 .mobile-toggle {
   display: block;
   position: fixed;
-  top: 1rem;
+  top: 7rem;
   left: 1rem;
   z-index: 50;
   background: #0284c7;
@@ -58,10 +58,23 @@
 
 /* Search bar */
 .search-bar {
-  width: 100%; padding:0.75rem 1.25rem; border:1px solid #7dd3fc;
-  border-radius:1.5rem; box-shadow:0 2px 6px rgba(0,0,0,0.15);
-  background: rgba(255,255,255,0.9); color: #1f2937; margin-bottom: 1.5rem;
-  @media (min-width: 640px) { .resources-main { padding:6rem 1.5rem 1.5rem; } }
+  width: 90%;
+  padding: 0.75rem 1.25rem;
+  border: 1px solid #7dd3fc;
+  border-radius: 1.5rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  background: rgba(255,255,255,0.9);
+  color: #1f2937;
+  margin-bottom: 1.5rem;
+}
+
+/* For screens ≥ 640px */
+@media (min-width: 640px) {
+  .search-bar {
+    width: 95%;
+  }
+
+  
 }
 .search-bar:focus { outline:none; border-color:#38bdf8; box-shadow:0 0 0 2px #38bdf8; }
 
@@ -112,4 +125,5 @@
 @keyframes fadeUp { 0%{opacity:0;transform:translateY(20px);}100%{opacity:1;transform:translateY(0);} }
 @keyframes pulseImg { 0%,100%{transform:scale(1);}50%{transform:scale(1.02);} }
 .resource-img img:hover { animation:pulseImg 1s infinite; }
+
 
