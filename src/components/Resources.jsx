@@ -1,16 +1,24 @@
 // src/pages/ResourcesPage.jsx
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import "./ResourcesPage.css"; // Import CSS
+import styles from "./ResourcesPage.module.css"; // Import module CSS
+import bciImg from "../assets/resourcesimages/bci.webp";
+import ddlImg from "../assets/resourcesimages/ddl.png";
+import digitalTwinImg from "../assets/resourcesimages/digital-twin.webp";
+import post2Img from "../assets/resourcesimages/post2.webp";
+import metaverseImg from "../assets/resourcesimages/metaverse-technology.webp";
+import edgeIntelligenceImg from "../assets/resourcesimages/edge_intelligence.jpg";
+import blockchainImg from "../assets/resourcesimages/blockchain.webp";
+
 
 // Sample Data
 const RESOURCES = [
   {
     title: "Brain Computer Interaction (BCI): A Way to Interact with Brain Waves",
     authors: "Sudhakar Kumar, Sunil K. Singh",
-    image: "/images/resourcesimages/bci.webp",
+   image: bciImg,
     topics: ["AI", "Deep Learning", "Healthcare"],
-     shortDescription:
+    shortDescription:
       "Explores how brain waves can be used as input signals for human-computer interaction.",
     description:
       "This paper explores the concept of Brain-Computer Interfaces (BCIs), which enable direct communication between the human brain and external devices. By interpreting brain waves, BCIs facilitate applications such as thought-based control systems, real-time authentication, and assistive technologies for individuals with disabilities.",
@@ -18,9 +26,9 @@ const RESOURCES = [
   {
     title: "Distributed Ledger Technology",
     authors: "Manraj Singh, Sudhakar Kumar",
-    image: "/images/resourcesimages/ddl.png",
+    image: ddlImg,
     topics: ["Blockchain"],
-     shortDescription:
+    shortDescription:
       "A study of decentralized ledgers that ensure security and transparency.",
     description:
       "The paper delves into Distributed Ledger Technology (DLT), emphasizing its role in decentralized data management. It discusses the evolution of DLT, its applications in various sectors, and its potential to revolutionize industries by enhancing transparency, security, and efficiency.",
@@ -28,43 +36,43 @@ const RESOURCES = [
   {
     title: "Digital Twins",
     authors: "Tarun Vats, Sudhakar Kumar",
-    image: "/images/resourcesimages/digital-twin.webp",
+   image: digitalTwinImg,
     topics: ["AI", "Data Science"],
-     shortDescription:"Creating virtual replicas of physical systems for simulation and analysis.",
+    shortDescription: "Creating virtual replicas of physical systems for simulation and analysis.",
     description:
       "This research focuses on Digital Twins—virtual replicas of physical entities or systems. It examines how integrating real-time data with digital models can optimize operations, predict failures, and enhance decision-making processes across industries like manufacturing, healthcare, and urban planning.",
   },
   {
     title: "MLOps: A New Era Of DevOps, Powered By Machine Learning",
     authors: "Muskaan Chopra, Sunik K Singh",
-    image: "/images/resourcesimages/post2.webp",
+    image: post2Img,
     topics: ["Machine Learning", "DevOps"],
-     shortDescription:"Integration of ML workflows into DevOps practices for better deployment.",
+    shortDescription: "Integration of ML workflows into DevOps practices for better deployment.",
     description:
       "The paper introduces MLOps, a practice that combines Machine Learning and DevOps principles to streamline the deployment and monitoring of ML models. It highlights the importance of automation, collaboration, and continuous integration in managing the lifecycle of ML applications.",
   },
   {
     title: "Metaverse Technology And Its Applications",
     authors: "Mavneet Kaur, B. Gupta",
-    image: "/images/resourcesimages/metaverse-technology.webp",
+  image: metaverseImg,
     topics: ["Blockchain", "Metaverse"],
-     shortDescription:"Insights into metaverse applications in gaming, education, and commerce.",
+    shortDescription: "Insights into metaverse applications in gaming, education, and commerce.",
     description:
       "This article provides an overview of Metaverse technology, a collective virtual shared space created by the convergence of virtually enhanced physical reality and persistent virtual reality. It explores its applications in gaming, education, social interaction, and commerce, discussing the technological advancements driving its development.",
   },
   {
     title: "Edge Intelligence: A New Emerging Era",
     authors: "A Dahiya, B. Gupta",
-    image: "/images/resourcesimages/edge_intelligence.jpg",
+    image: edgeIntelligenceImg,
     topics: ["AI", "Data Science", "Machine Learning"],
-     shortDescription:"Artificial intelligence at the edge for real-time decision-making.",
+    shortDescription: "Artificial intelligence at the edge for real-time decision-making.",
     description:
       "The paper examines Edge Intelligence, which integrates artificial intelligence with edge computing. It discusses how processing data closer to the source (at the edge) reduces latency, enhances privacy, and enables real-time decision-making in applications like IoT, autonomous vehicles, and smart cities.",
   },
   {
     title: "Blockchain For Data Science",
     authors: "Dipesh Singla, Sudhakar Kumar",
-    image: "/images/resourcesimages/blockchain.webp",
+      image: blockchainImg,
     topics: ["Blockchain", "Data Science"],
     shortDescription: "Exploring blockchain applications in data security and analytics.",
     description:
@@ -76,7 +84,7 @@ const uniqueTopics = ["All", ...Array.from(new Set(RESOURCES.flatMap(r => r.topi
 
 const Sidebar = ({ topics, active, onTopicChange, isOpen, toggleSidebar }) => (
   <>
-    <button className="mobile-toggle" onClick={toggleSidebar}>
+    <button className={styles.mobileToggle} onClick={toggleSidebar}>
       {isOpen ? "✕ Close" : "☰ Topics"}
     </button>
 
@@ -87,10 +95,10 @@ const Sidebar = ({ topics, active, onTopicChange, isOpen, toggleSidebar }) => (
         opacity: window.innerWidth >= 1024 || isOpen ? 1 : 0,
       }}
       transition={{ duration: 0.5, ease: "easeOut" }}
-      className="sidebar"
+      className={styles.sidebar}
     >
-      <h2 className="sidebar-title">Topics</h2>
-      <ul className="sidebar-list">
+      <h2 className={styles.sidebarTitle}>Topics</h2>
+      <ul className={styles.sidebarList}>
         {topics.map((topic, idx) => (
           <li key={idx}>
             <motion.button
@@ -100,7 +108,7 @@ const Sidebar = ({ topics, active, onTopicChange, isOpen, toggleSidebar }) => (
               }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className={`sidebar-btn ${active === topic ? "active" : ""}`}
+              className={`${styles.sidebarBtn} ${active === topic ? styles.sidebarBtnActive : ''}`}
             >
               {topic}
             </motion.button>
@@ -110,7 +118,7 @@ const Sidebar = ({ topics, active, onTopicChange, isOpen, toggleSidebar }) => (
     </motion.div>
 
     {isOpen && window.innerWidth < 1024 && (
-      <div className="overlay" onClick={toggleSidebar} />
+      <div className={styles.overlay} onClick={toggleSidebar} />
     )}
   </>
 );
@@ -124,7 +132,7 @@ const SearchBar = ({ value, onChange }) => (
     value={value}
     onChange={(e) => onChange(e.target.value)}
     placeholder="🔍 Search resources..."
-    className="search-bar"
+    className={styles.searchBar}
   />
 );
 
@@ -155,7 +163,7 @@ const ResourcesPage = () => {
   });
 
   return (
-    <div className="resources-container">
+    <div className={styles.resourcesContainer}>
       <Sidebar
         topics={uniqueTopics}
         active={activeTopic}
@@ -164,25 +172,25 @@ const ResourcesPage = () => {
         toggleSidebar={toggleSidebar}
       />
 
-      <main className="resources-main">
+      <main className={styles.resourcesMain}>
         <SearchBar value={searchTerm} onChange={setSearchTerm} />
 
         {/* Carousel */}
-        <div className="carousel">
+        <div className={styles.carousel}>
           {RESOURCES.map((res, i) => (
             <div
               key={i}
-              className={`carousel-slide ${i === current ? "active" : ""}`}
+              className={`${styles.carouselSlide} ${i === current ? styles.carouselSlideActive : ''}`}
               style={{ backgroundImage: `url(${res.image})` }}
             >
-              <div className="carousel-overlay">
-                <span className="carousel-badge">Featured Research</span>
-                <h2 className="carousel-title">{res.title}</h2>
-                <p className="carousel-authors">{res.authors}</p>
-                <p className="carousel-desc">{res.shortDescription}</p>
-                <div className="carousel-tags">
+              <div className={styles.carouselOverlay}>
+                <span className={styles.carouselBadge}>Featured Research</span>
+                <h2 className={styles.carouselTitle}>{res.title}</h2>
+                <p className={styles.carouselAuthors}>{res.authors}</p>
+                <p className={styles.carouselDesc}>{res.shortDescription}</p>
+                <div className={styles.carouselTags}>
                   {res.topics.map((topic, idx) => (
-                    <span key={idx} className="carousel-tag">
+                    <span key={idx} className={styles.carouselTag}>
                       {topic}
                     </span>
                   ))}
@@ -190,30 +198,31 @@ const ResourcesPage = () => {
               </div>
             </div>
           ))}
-          <button onClick={prevSlide} className="carousel-btn left">‹</button>
-          <button onClick={nextSlide} className="carousel-btn right">›</button>
+          <button onClick={prevSlide} className={`${styles.carouselBtn} ${styles.carouselBtnLeft}`}>‹</button>
+          <button onClick={nextSlide} className={`${styles.carouselBtn} ${styles.carouselBtnRight}`}>›</button>
         </div>
 
-        {/* Resources List with scroll animation */}
+        {/* Resources List */}
         {filtered.map((res, idx) => (
           <motion.section
             key={idx}
-            className="resource-section"
+            className={styles.resourceSection}
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.6, delay: idx * 0.1 }}
           >
-            <div className="resource-text">
-              <h2 className="resource-title">{res.title}</h2>
-              <p className="resource-desc">{res.description}</p>
-              <p className="resource-meta"><strong>Categories:</strong> {res.topics.join(" · ")}</p>
-              <p className="resource-meta"><strong>Authors:</strong> {res.authors}</p>
+            <div className={styles.resourceText}>
+              <h2 className={styles.resourceTitle}>{res.title}</h2>
+              <p className={styles.resourceDesc}>{res.description}</p>
+              <p className={styles.resourceMeta}><strong>Categories:</strong> {res.topics.join(" · ")}</p>
+              <p className={styles.resourceMeta}><strong>Authors:</strong> {res.authors}</p>
             </div>
-            <div className="resource-img">
+            <div className={styles.resourceImg}>
               <motion.img
                 src={res.image}
                 alt={res.title}
+                className={styles.resourceImgImg}
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3 }}
               />
