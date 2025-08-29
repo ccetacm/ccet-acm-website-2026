@@ -28,7 +28,7 @@
 /* Sidebar */
 .sidebar {
   position: fixed;
-  top: 3.5rem;
+  top: 8rem;   /* pushed further down */
   z-index: 40;
   width: 14rem;
   background: linear-gradient(to bottom, #f0f9ff, rgba(255,255,255,0.9));
@@ -37,8 +37,9 @@
   box-shadow: 0 6px 16px rgba(0,0,0,0.25);
   border-radius: 1.5rem;
   padding: 1.5rem;
-  height: calc(100vh - 5rem);
+  height: calc(100vh - 8rem); /* auto-adjusts remaining height */
 }
+
 @media (min-width: 1024px) { .sidebar { position: sticky; } }
 
 .sidebar-title { font-size: 1.5rem; font-weight: bold; color: #0369a1; margin-bottom: 1rem; animation: pulse 2s infinite; }
@@ -111,3 +112,4 @@
 @keyframes fadeUp { 0%{opacity:0;transform:translateY(20px);}100%{opacity:1;transform:translateY(0);} }
 @keyframes pulseImg { 0%,100%{transform:scale(1);}50%{transform:scale(1.02);} }
 .resource-img img:hover { animation:pulseImg 1s infinite; }
+
