@@ -1,0 +1,130 @@
+/* Social Media Sidebar */
+.socialSidebar {
+    position: fixed;
+    left: 30px;
+    top: 50%;
+    transform: translateY(-50%) translateX(-100px);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    z-index: 1000;
+    opacity: 0;
+}
+
+.socialSidebar.animate {
+    animation: sidebarSlide 0.8s cubic-bezier(0.4, 0, 0.2, 1) 1s forwards;
+}
+
+@keyframes sidebarSlide {
+    0% {
+        transform: translateY(-50%) translateX(-100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(-50%) translateX(0);
+        opacity: 1;
+    }
+}
+
+.socialIcon {
+    width: 33px;
+    height: 33px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.socialIcon:hover {
+    transform: scale(1.1) translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.facebook {
+    background: linear-gradient(135deg, #1877f2, #42a5f5);
+}
+.instagram {
+    background: linear-gradient(135deg, #2196f3, #64b5f6);
+}
+.linkedin {
+    background: linear-gradient(135deg, #0077b5, #00a0dc);
+}
+.twitter {
+    background: linear-gradient(135deg, #1da1f2, #0d8bd9);
+}
+.youtube {
+    background: linear-gradient(135deg, #1565c0, #1976d2);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    /* Move social sidebar to bottom and make horizontal on mobile */
+    .socialSidebar {
+        position: fixed;
+        left: 50%;
+        top: 800px;
+        bottom: 20px;
+        transform: translateX(-50%);
+        flex-direction: row;
+        gap: 12px;
+        padding: 8px 16px;
+        border-radius: 25px;
+    }
+
+    .socialSidebar.animate {
+        animation: sidebarSlideBottom 0.8s cubic-bezier(0.4, 0, 0.2, 1) 1s forwards;
+    }
+
+    .socialIcon {
+        width: 32px;
+        height: 32px;
+        font-size: 14px;
+    }
+}
+
+/* Add new animation for bottom slide on mobile */
+@keyframes sidebarSlideBottom {
+    0% {
+        transform: translateX(-50%) translateY(100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(-50%) translateY(0);
+        opacity: 1;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Make social icons even more compact on very small screens */
+    .socialSidebar {
+        bottom: 15px;
+        gap: 8px;
+        padding: 6px 12px;
+    }
+
+    .socialIcon {
+        width: 28px;
+        height: 28px;
+        font-size: 12px;
+    }
+}
+
+/* Add ultra-small screen support */
+@media (max-width: 360px) {
+    .socialSidebar {
+        gap: 6px;
+        padding: 4px 8px;
+    }
+
+    .socialIcon {
+        width: 24px;
+        height: 24px;
+        font-size: 10px;
+    }
+}
