@@ -13,6 +13,8 @@ import Teams from "./components/testimonials.jsx";
 import ResearchLabIsolated from "./components/research.jsx";
 import Mentors from "./components/Mentors.jsx";
 import Footer from "./components/Footer.jsx";
+import Resources from "./components/Resources.jsx";  
+
 
 import "./index.css";
 
@@ -25,10 +27,12 @@ createRoot(document.getElementById("root")).render(
         <Route path="/initiatives" element={<Initiatives />} />
         <Route path="/vision" element={<Vision />} />
         <Route path="/events" element={<Event />} />
-        <Route path="/research" element={<ResearchLabIsolated />} />
+        <Route path="/research" element={<Resources />} />
         <Route path="/magazine" element={<MagazineScroller />} />
         <Route path="/mentors" element={<Mentors />} />
         <Route path="/teams" element={<Teams />} />
+        
+
 
         <Route path="/hero" element={<Header_Hero_SocialMedia />} />
 
