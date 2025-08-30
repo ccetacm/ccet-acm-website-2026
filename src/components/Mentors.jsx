@@ -1,10 +1,20 @@
 import React, { useState, useEffect } from "react";
 
+import mentor1 from "../assets/mentors/mentor1.png";
+import mentor2 from "../assets/mentors/mentor-2.png";
+import mentor3 from "../assets/mentors/mentor3.png";
+import sksadd from "../assets/mentors/sks-additional.png";
+import skadd from "../assets/mentors/sudhakar-additional.png";
+import team1 from "../assets/mentors/team1.jpeg";
+import team2 from "../assets/mentors/team 2.jpeg";
+import team3 from "../assets/mentors/team3.png";
+import team4 from "../assets/mentors/team4.png";
+
 const mentorsData = [
   {
     name: "Dr. Manpreet Singh",
     title: "Principal CCET Degree Wing",
-    imgSrc: "/mentors/mentor1.png",
+    imgSrc: mentor1,
     additionalImg: "",
     about: "Expert in Academic Leadership and Institutional Development.",
     skills: ["Administration", "Policy Making", "Faculty Development"],
@@ -19,8 +29,8 @@ const mentorsData = [
   {
     name: "Dr. Sunil K. Singh",
     title: "Faculty Mentor ACM, Head of CSE CCET CHD",
-    imgSrc: "/mentors/mentor-2.png",
-    additionalImg: "/mentors/sks-additional.png",
+    imgSrc: mentor2,
+    additionalImg: sksadd,
     about: "Passionate about teaching and research in computer science.",
     skills: [
       "High Performance Computing",
@@ -1604,8 +1614,8 @@ const mentorsData = [
   {
     name: "Dr. Sudhakar Kumar",
     title: "Faculty Sponser ACM, Assistant Professor CSE CCTE CHD",
-    imgSrc: "/mentors/mentor3.png",
-    additionalImg: "/mentors/sudhakar-additional.png",
+    imgSrc: mentor3,
+    additionalImg: skadd,
     about:
       "Dr. Sudhakar Kumar is a leading researcher in artificial intelligence, machine learning, and computational intelligence with over 10 years of academic experience. His work spans across scalable architectures, optimization techniques, and the application of AI in cybersecurity.",
     skills: [
@@ -2453,12 +2463,12 @@ const mentorsData = [
       ],
     },
     phdTeam: [
-      { name: "Satyam Kumar Sainy", img: "/mentors/team1.jpeg" },
-      { name: "Naveen", img: "/mentors/team 2.jpeg" },
+      { name: "Satyam Kumar Sainy", img: team1 },
+      { name: "Naveen", img: team2 },
     ],
     btechTeam: [
-      { name: "Sahil Garg", img: "/mentors/team3.png" },
-      { name: "Japjot Singh Nanda", img: "/mentors/team4.png" },
+      { name: "Sahil Garg", img: team3 },
+      { name: "Japjot Singh Nanda", img: team4 },
     ],
 
     social: {
