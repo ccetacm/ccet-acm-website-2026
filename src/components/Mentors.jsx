@@ -1182,18 +1182,6 @@ const mentorsData = [
           impact: "Low Impact",
         },
       ],
-      2020: [
-        {
-          title:
-            "The internet of things: an overview of the awareness, architecture & application",
-          authors: "M. Gupta, Sunil K. Singh",
-          journal:
-            "International Journal of Latest Trends in Engg. and Technology 12(4), 19–24",
-          doi: "",
-          type: "Article",
-          impact: "Low Impact",
-        },
-      ],
 
       2020: [
         {

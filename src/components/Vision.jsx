@@ -5,6 +5,11 @@ import { useInView } from "react-intersection-observer";
 import { motion } from "framer-motion";
 import "./Vision.css";
 
+import establishmentIcon from "../assets/Vision/establishment.png";
+import eventIcon from "../assets/Vision/event-list.png";
+import visionIcon from "../assets/Vision/vision.png";
+import missionIcon from "../assets/Vision/mission.png";
+
 function Vision() {
   const { ref, inView } = useInView({
     triggerOnce: true,
@@ -12,89 +17,89 @@ function Vision() {
   });
 
   return (
-    <div className="App">
-      {/* === Stats Section === */}
-      <motion.section
-        ref={ref}
-        className="stats-section"
-        initial={{ opacity: 0, y: -50 }}
-        animate={inView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 1 }}
-      >
-        <div className="stat-box">
-          <div className="icon">
-            <img
-              className="establishment-icon"
-              src="/establishment.png"
-              alt="icon"
-            />
+      <div className="App">
+        {/* === Stats Section === */}
+        <motion.section
+            ref={ref}
+            className="stats-section"
+            initial={{ opacity: 0, y: -50 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 1 }}
+        >
+          <div className="stat-box">
+            <div className="icon">
+              <img
+                  className="establishment-icon"
+                  src={establishmentIcon}
+                  alt="Establishment Icon"
+              />
+            </div>
+            <div className="stat-number">
+              {inView && <CountUp end={2015} duration={2} separator="" />}
+            </div>
+            <div className="stat-label">Year of Establishment</div>
           </div>
-          <div className="stat-number">
-            {inView && <CountUp end={2015} duration={2} separator="" />}
+          <div className="stat-box">
+            <div className="icon">🧑‍🎓</div>
+            <div className="stat-number">
+              {inView && <CountUp end={300} duration={2} />}+
+            </div>
+            <div className="stat-label">Number of ACM Students</div>
           </div>
-          <div className="stat-label">Year of Establishment</div>
-        </div>
-        <div className="stat-box">
-          <div className="icon">🧑‍🎓</div>
-          <div className="stat-number">
-            {inView && <CountUp end={300} duration={2} />}+
+          <div className="stat-box">
+            <div className="icon">
+              <img className="event-icon" src={eventIcon} alt="Event Icon" />
+            </div>
+            <div className="stat-number">
+              {inView && <CountUp end={150} duration={2} />}+
+            </div>
+            <div className="stat-label">ACM Events</div>
           </div>
-          <div className="stat-label">Number of ACM Students</div>
-        </div>
-        <div className="stat-box">
-          <div className="icon">
-            <img className="event-icon" src="/event-list.png" alt="icon" />
+        </motion.section>
+
+        {/* === Vision Section === */}
+        <motion.section
+            className="vision-card"
+            id="vision"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1.2 }}
+        >
+          {/* === Vision Heading with Icon === */}
+          <div className="heading-with-icon">
+            <img src={visionIcon} alt="Vision Icon" className="heading-icon" />
+            <motion.h2 className="vision-heading">Our Vision</motion.h2>
           </div>
-          <div className="stat-number">
-            {inView && <CountUp end={150} duration={2} />}+
+
+          <motion.p className="vision-text">
+            To be at the forefront of shaping the future of computing, fostering a
+            dynamic global community where interdisciplinary collaboration
+            thrives.
+          </motion.p>
+
+          {/* === Mission Heading with Icon === */}
+          <div className="heading-with-icon">
+            <img src={missionIcon} alt="Mission Icon" className="heading-icon" />
+            <motion.h2 className="vision-heading">Our Mission</motion.h2>
           </div>
-          <div className="stat-label">ACM Events</div>
-        </div>
-      </motion.section>
 
-      {/* === Vision Section === */}
-      <motion.section
-        className="vision-card"
-        id="vision"
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1.2 }}
-      >
-        {/* === Vision Heading with Icon === */}
-        <div className="heading-with-icon">
-          <img src="/vision.png" alt="Vision Icon" className="heading-icon" />
-          <motion.h2 className="vision-heading">Our Vision</motion.h2>
-        </div>
+          <motion.p className="vision-text">
+            To advance the field of computing and empower individuals within it,
+            promoting innovation and excellence in computing education, research,
+            and practice.
+          </motion.p>
 
-        <motion.p className="vision-text">
-          To be at the forefront of shaping the future of computing, fostering a
-          dynamic global community where interdisciplinary collaboration
-          thrives.
-        </motion.p>
-
-        {/* === Mission Heading with Icon === */}
-        <div className="heading-with-icon">
-          <img src="/mission.png" alt="Mission Icon" className="heading-icon" />
-          <motion.h2 className="vision-heading">Our Mission</motion.h2>
-        </div>
-
-        <motion.p className="vision-text">
-          To advance the field of computing and empower individuals within it,
-          promoting innovation and excellence in computing education, research,
-          and practice.
-        </motion.p>
-
-        {/* === Buttons === */}
-        <motion.div className="button-group">
-          <motion.button className="join-button" whileHover={{ scale: 1.1 }}>
-            Join Our Community
-          </motion.button>
-          <motion.button className="learn-button" whileHover={{ scale: 1.1 }}>
-            Learn More →
-          </motion.button>
-        </motion.div>
-      </motion.section>
-    </div>
+          {/* === Buttons === */}
+          <motion.div className="button-group">
+            <motion.button className="join-button" whileHover={{ scale: 1.1 }}>
+              Join Our Community
+            </motion.button>
+            <motion.button className="learn-button" whileHover={{ scale: 1.1 }}>
+              Learn More →
+            </motion.button>
+          </motion.div>
+        </motion.section>
+      </div>
   );
 }
 
