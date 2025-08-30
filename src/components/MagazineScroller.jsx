@@ -222,8 +222,8 @@ export default function BookShowcase() {
                 <div className="bk-page">
                   <div
                     style={{
-                      width: "100%",
-                      height: "10px",
+                      width: "70%",
+                      height: "80px",
                       backgroundColor: "#f8f9fa",
                       display: "flex",
                       alignItems: "center",
@@ -242,7 +242,7 @@ export default function BookShowcase() {
                   <div
                     style={{
                       padding: "30px",
-                      height: "100%",
+                      height: "85%",
                       display: "flex",
                       flexDirection: "column",
                       backgroundColor: book.backColor,
