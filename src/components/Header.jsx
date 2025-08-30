@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import styles from "./Header.module.css";
+import ccetacmlogo from "../assets/acm-logo/ccet-acm-logo-website.svg";
 
 const Header = ({ startAnimation, logos }) => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -38,8 +39,8 @@ const Header = ({ startAnimation, logos }) => {
                 <div className={styles.navbarLeft}>
                     <div className={styles.staticLogo}>
                         <img
-                            src="/acm-logo/ccet-acm-logo-website.svg"
-                            alt="Static Logo"
+                            src={ccetacmlogo}
+                            alt="CCET ACM Logo"
                         />
                     </div>
                 </div>
