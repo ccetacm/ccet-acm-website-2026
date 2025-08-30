@@ -6,6 +6,22 @@ import * as pdfjsLib from "pdfjs-dist";
 import pdfWorker from "pdfjs-dist/build/pdf.worker.min?url";
 import "./MagazineScroller.css";
 
+// Import covers
+import cover1 from "../assets/Magazine/covers/Volume 6-Issue_1_jan-feb(cover).jpg";
+import cover2 from "../assets/Magazine/covers/Volume 6-Issue_2_mar-apr(cover).jpg";
+import cover3 from "../assets/Magazine/covers/Volume 6-Issue_3_may-jun(cover).jpg";
+import cover4 from "../assets/Magazine/covers/magzine4.jpg";
+import cover5 from "../assets/Magazine/covers/magzine5.jpg";
+import cover6 from "../assets/Magazine/covers/magzine6.jpg";
+
+// Import PDFs
+import pdf1 from "../assets/Magazine/pdfs/Volume 6-Issue_1_jan-feb_pdf.pdf";
+import pdf2 from "../assets/Magazine/pdfs/Volume 6-Issue_2_mar-apr_pdf.pdf";
+import pdf3 from "../assets/Magazine/pdfs/Volume 6-Issue_3_may-jun_pdf.pdf";
+//import pdf4 from "../../assets/Magazine/pdfs/magzine4.pdf";
+//import pdf5 from "../../assets/Magazine/pdfs/magzine5.pdf";
+//import pdf6 from "../../assets/Magazine/pdfs/magzine6.pdf";
+
 pdfjsLib.GlobalWorkerOptions.workerSrc = pdfWorker;
 
 export default function BookShowcase() {
@@ -32,8 +48,6 @@ export default function BookShowcase() {
 
     const loadPdfPages = async () => {
       try {
-        console.log("Loading PDF:", selectedPdf);
-
         const loadingTask = pdfjsLib.getDocument({ url: selectedPdf });
         const pdf = await loadingTask.promise;
         const images = [];
@@ -72,9 +86,7 @@ export default function BookShowcase() {
       } else if (action === "viewinside") {
         const book = books.find((b) => b.id === bookId);
         if (book && book.pdf) {
-          const fixedUrl =
-            typeof book.pdf === "string" ? book.pdf : book.pdf.default;
-          setSelectedPdf(fixedUrl);
+          setSelectedPdf(book.pdf);
         }
         return prev; // Don't change book state, just open modal
       }
@@ -110,288 +122,288 @@ export default function BookShowcase() {
       id: "book1",
       number: 1,
       title: "DSA Bootcamp",
-      cover: "src/assets/Volume 6-Issue_1_jan-feb(cover).jpg",
-      pdf: "src/assets/pdfs/Volume 6-Issue_1_jan-feb_pdf.pdf",
+      cover: cover1,
+      pdf: pdf1,
       month: "JAN-FEB",
       spineColor: "#064491",
       backColor: "#064491",
       backText:
-        "Through interactive discussions, coding exercises, and practical insights from speakers, the event provided a solid foundation in Data Structures and Algorithms."
+          "Through interactive discussions, coding exercises, and practical insights from speakers, the event provided a solid foundation in Data Structures and Algorithms.",
     },
     {
       id: "book2",
       number: 2,
       title: "OOPS Workshop",
-      cover: "src/assets/Volume 6-Issue_2_mar-apr(cover).jpg",
-      pdf: "src/assets/pdfs/Volume 6-Issue_2_mar-apr_pdf.pdf",
+      cover: cover2,
+      pdf: pdf2,
       month: "MAR-APR",
       spineColor: "black",
       backColor: "black",
       backText:
-        "The OOPS Workshop provided participants with clear insights into core concepts like inheritance, polymorphism, and encapsulation, helping them understand how object-oriented programming improves code efficiency, scalability, and reusability.",
+          "The OOPS Workshop provided participants with clear insights into core concepts like inheritance, polymorphism, and encapsulation, helping them understand how object-oriented programming improves code efficiency, scalability, and reusability.",
     },
     {
       id: "book3",
       number: 3,
       title: "Javascript Bootcamp",
-      cover: "src/assets/Volume 6-Issue_3_may-jun(cover).jpg",
-      pdf: "src/assets/pdfs/Volume 6-Issue_3_may-jun_pdf.pdf",
+      cover: cover3,
+      pdf: pdf3,
       month: "MAY-JUN",
       spineColor: "black",
       backColor: "black",
-      backText: 
-    "The JavaScript Bootcamp introduced students to core programming concepts through interactive coding exercises, helping them build confidence and strengthen their web development skills.",
+      backText:
+          "The JavaScript Bootcamp introduced students to core programming concepts through interactive coding exercises, helping them build confidence and strengthen their web development skills.",
     },
     {
       id: "book4",
       number: 4,
       title: "Data Science Fundamentals",
-      cover: "/magzine4.jpg",
-      pdf: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
+      cover: cover4,
+      // pdf: pdf4,
       month: "JUL-AUG",
       spineColor: "black",
       backColor: "black",
       backText:
-        "Unlock the power of data with comprehensive coverage of statistical analysis, machine learning, and data visualization. Learn to extract meaningful insights from complex datasets and make data-driven decisions.",
+          "Unlock the power of data with comprehensive coverage of statistical analysis, machine learning, and data visualization. Learn to extract meaningful insights from complex datasets and make data-driven decisions.",
     },
     {
       id: "book5",
       number: 5,
       title: "Web Development Guide",
-      cover: "/magzine5.jpg",
-      pdf: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
+      cover: cover5,
+      // pdf: pdf5,
       month: "SEP-OCT",
       spineColor: "#593aaf",
       backColor: "#593aaf",
       backText:
-        "Build modern, responsive web applications using the latest technologies and frameworks. From frontend design to backend architecture, master the full stack of web development skills needed in today's digital landscape.",
+          "Build modern, responsive web applications using the latest technologies and frameworks. From frontend design to backend architecture, master the full stack of web development skills needed in today's digital landscape.",
     },
     {
       id: "book6",
       number: 6,
       title: "AI & Machine Learning",
-      cover: "/magzine6.jpg",
-      pdf: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
+      cover: cover6,
+      // pdf: pdf6,
       month: "NOV-DEC",
       spineColor: "#223D96",
       backColor: "#223D96",
       backText:
-        "Dive deep into artificial intelligence and machine learning concepts. Learn how to build intelligent systems that can learn, adapt, and make decisions, transforming the way we interact with technology.",
+          "Dive deep into artificial intelligence and machine learning concepts. Learn how to build intelligent systems that can learn, adapt, and make decisions, transforming the way we interact with technology.",
     },
   ];
 
   return (
-    <div className="container">
-      <header className="clearfix">
-        <h1>DIGITAL OUTLET</h1>
-      </header>
-      <div className="main">
-        <ul id="bk-list" className="bk-list clearfix">
-          {books.map((book) => (
-            <li key={book.id}>
-              <div className={getBookClasses(book.number, book.id)}>
-                <div className="bk-front">
-                  <div className="bk-cover-back"></div>
-                  <div className="bk-cover">
-                    <img
-                      src={book.cover || "/placeholder.svg"}
-                      alt={`${book.title} Cover`}
-                      style={{
-                        width: "100%",
-                        height: "100%",
-                        objectFit: "contain",
-                        backgroundColor: book.spineColor,
-                      }}
-                    />
-                    <div
-                      className="book-hover-icon flip-hover-icon"
-                      onClick={() => handleBookAction(book.id, "flip")}
-                      title="Flip book"
-                    >
-                      🔄
+      <div className="container">
+        <header className="clearfix">
+          <h1>DIGITAL OUTLET</h1>
+        </header>
+        <div className="main">
+          <ul id="bk-list" className="bk-list clearfix">
+            {books.map((book) => (
+                <li key={book.id}>
+                  <div className={getBookClasses(book.number, book.id)}>
+                    <div className="bk-front">
+                      <div className="bk-cover-back"></div>
+                      <div className="bk-cover">
+                        <img
+                            src={book.cover || "/placeholder.svg"}
+                            alt={`${book.title} Cover`}
+                            style={{
+                              width: "100%",
+                              height: "100%",
+                              objectFit: "contain",
+                              backgroundColor: book.spineColor,
+                            }}
+                        />
+                        <div
+                            className="book-hover-icon flip-hover-icon"
+                            onClick={() => handleBookAction(book.id, "flip")}
+                            title="Flip book"
+                        >
+                          🔄
+                        </div>
+                        <div
+                            className="book-hover-icon view-hover-icon"
+                            onClick={() => handleBookAction(book.id, "viewinside")}
+                            title="View inside"
+                        >
+                          📖
+                        </div>
+                      </div>
                     </div>
-                    <div
-                      className="book-hover-icon view-hover-icon"
-                      onClick={() => handleBookAction(book.id, "viewinside")}
-                      title="View inside"
-                    >
-                      📖
+                    <div className="bk-page">
+                      <div
+                          style={{
+                            width: "70%",
+                            height: "80px",
+                            backgroundColor: "#f8f9fa",
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            fontSize: "14px",
+                            color: "#666",
+                            textAlign: "center",
+                            padding: "20px",
+                            borderRadius: "3px",
+                          }}
+                      >
+                        Click "View inside" to read the PDF
+                      </div>
                     </div>
-                  </div>
-                </div>
-                <div className="bk-page">
-                  <div
-                    style={{
-                      width: "70%",
-                      height: "80px",
-                      backgroundColor: "#f8f9fa",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      fontSize: "14px",
-                      color: "#666",
-                      textAlign: "center",
-                      padding: "20px",
-                      borderRadius: "3px",
-                    }}
-                  >
-                    Click "View inside" to read the PDF
-                  </div>
-                </div>
-                <div className="bk-back">
-                  <div
-                    style={{
-                      padding: "30px",
-                      height: "85%",
-                      display: "flex",
-                      flexDirection: "column",
-                      backgroundColor: book.backColor,
-                      position: "relative",
-                    }}
-                  >
-                    <div
-                      className="book-hover-icon flip-hover-icon"
-                      onClick={() => handleBookAction(book.id, "flip")}
-                      title="Flip book"
-                      style={{
-                        position: "absolute",
-                        top: "10px",
-                        right: "10px",
-                      }}
-                    >
-                      🔄
+                    <div className="bk-back">
+                      <div
+                          style={{
+                            padding: "30px",
+                            height: "85%",
+                            display: "flex",
+                            flexDirection: "column",
+                            backgroundColor: book.backColor,
+                            position: "relative",
+                          }}
+                      >
+                        <div
+                            className="book-hover-icon flip-hover-icon"
+                            onClick={() => handleBookAction(book.id, "flip")}
+                            title="Flip book"
+                            style={{
+                              position: "absolute",
+                              top: "10px",
+                              right: "10px",
+                            }}
+                        >
+                          🔄
+                        </div>
+                        <h3
+                            style={{
+                              fontSize: "18px",
+                              fontWeight: "bold",
+                              marginBottom: "20px",
+                              color: "white",
+                              textAlign: "center",
+                              borderBottom: "2px solid #ddd",
+                              paddingBottom: "10px",
+                            }}
+                        >
+                          {book.title}
+                        </h3>
+                        <p
+                            style={{
+                              color: "white",
+                              fontSize: "13px",
+                              lineHeight: "1.6",
+                              textAlign: "justify",
+                              flex: 1,
+                              margin: 0,
+                            }}
+                        >
+                          {book.backText}
+                        </p>
+                      </div>
                     </div>
-                    <h3
-                      style={{
-                        fontSize: "18px",
-                        fontWeight: "bold",
-                        marginBottom: "20px",
-                        color: "white",
-                        textAlign: "center",
-                        borderBottom: "2px solid #ddd",
-                        paddingBottom: "10px",
-                      }}
+                    <div className="bk-right"></div>
+                    <div
+                        className="bk-left"
+                        style={{
+                          backgroundColor: book.spineColor,
+                        }}
                     >
-                      {book.title}
-                    </h3>
-                    <p
-                      style={{
-                        color: "white",
-                        fontSize: "13px",
-                        lineHeight: "1.6",
-                        textAlign: "justify",
-                        flex: 1,
-                        margin: 0,
-                      }}
-                    >
-                      {book.backText}
-                    </p>
+                      <div className="spine-month">{book.month}</div>
+                    </div>
+                    <div className="bk-top"></div>
+                    <div className="bk-bottom"></div>
                   </div>
-                </div>
-                <div className="bk-right"></div>
-                <div
-                  className="bk-left"
-                  style={{
-                    backgroundColor: book.spineColor,
-                  }}
-                >
-                  <div className="spine-month">{book.month}</div>
-                </div>
-                <div className="bk-top"></div>
-                <div className="bk-bottom"></div>
-              </div>
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      {selectedPdf && (
-        <div className="pdf-preview-modal">
-          <div className="pdf-preview-content">
-            <button
-              className="btn close-btn"
-              onClick={closeFlipbook}
-              style={{
-                position: "absolute",
-                top: "10px",
-                right: "20px",
-                backgroundColor: "#ff4444",
-                color: "white",
-                border: "none",
-                padding: "8px 12px",
-                borderRadius: "50%",
-                cursor: "pointer",
-                fontSize: "16px",
-                fontWeight: "bold",
-                width: "36px",
-                height: "36px",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                zIndex: 1000,
-              }}
-            >
-              ×
-            </button>
-            {loading ? (
-              <div style={{ textAlign: "center", margin: 40 }}>
-                Loading flipbook preview...
-              </div>
-            ) : pageImages.length ? (
-              <HTMLFlipBook
-                width={600}
-                height={800}
-                size="stretch"
-                minWidth={400}
-                minHeight={500}
-                maxWidth={800}
-                maxHeight={1000}
-                style={{ margin: "0 auto" }}
-                showCover={false}
-                flippingTime={600}
-                usePortrait={false}
-                startZIndex={0}
-                autoSize={false}
-                clickEventForward={true}
-              >
-                {pageImages.map((src, idx) => (
-                  <div
-                    key={idx}
-                    className="page"
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      background: "#fff",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      padding: "10px",
-                      boxSizing: "border-box",
-                    }}
-                  >
-                    <img
-                      src={src || "/placeholder.svg"}
-                      alt={`Page ${idx + 1}`}
-                      style={{
-                        maxWidth: "100%",
-                        maxHeight: "100%",
-                        width: "auto",
-                        height: "auto",
-                        objectFit: "scale-down",
-                        objectPosition: "center",
-                      }}
-                    />
-                  </div>
-                ))}
-              </HTMLFlipBook>
-            ) : (
-              <div style={{ textAlign: "center", margin: 40, color: "red" }}>
-                Could not preview PDF.
-              </div>
-            )}
-          </div>
+                </li>
+            ))}
+          </ul>
         </div>
-      )}
-    </div>
+
+        {selectedPdf && (
+            <div className="pdf-preview-modal">
+              <div className="pdf-preview-content">
+                <button
+                    className="btn close-btn"
+                    onClick={closeFlipbook}
+                    style={{
+                      position: "absolute",
+                      top: "10px",
+                      right: "20px",
+                      backgroundColor: "#ff4444",
+                      color: "white",
+                      border: "none",
+                      padding: "8px 12px",
+                      borderRadius: "50%",
+                      cursor: "pointer",
+                      fontSize: "16px",
+                      fontWeight: "bold",
+                      width: "36px",
+                      height: "36px",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      zIndex: 1000,
+                    }}
+                >
+                  ×
+                </button>
+                {loading ? (
+                    <div style={{ textAlign: "center", margin: 40 }}>
+                      Loading flipbook preview...
+                    </div>
+                ) : pageImages.length ? (
+                    <HTMLFlipBook
+                        width={600}
+                        height={800}
+                        size="stretch"
+                        minWidth={400}
+                        minHeight={500}
+                        maxWidth={800}
+                        maxHeight={1000}
+                        style={{ margin: "0 auto" }}
+                        showCover={false}
+                        flippingTime={600}
+                        usePortrait={false}
+                        startZIndex={0}
+                        autoSize={false}
+                        clickEventForward={true}
+                    >
+                      {pageImages.map((src, idx) => (
+                          <div
+                              key={idx}
+                              className="page"
+                              style={{
+                                width: "100%",
+                                height: "100%",
+                                background: "#fff",
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "center",
+                                padding: "10px",
+                                boxSizing: "border-box",
+                              }}
+                          >
+                            <img
+                                src={src || "/placeholder.svg"}
+                                alt={`Page ${idx + 1}`}
+                                style={{
+                                  maxWidth: "100%",
+                                  maxHeight: "100%",
+                                  width: "auto",
+                                  height: "auto",
+                                  objectFit: "scale-down",
+                                  objectPosition: "center",
+                                }}
+                            />
+                          </div>
+                      ))}
+                    </HTMLFlipBook>
+                ) : (
+                    <div style={{ textAlign: "center", margin: 40, color: "red" }}>
+                      Could not preview PDF.
+                    </div>
+                )}
+              </div>
+            </div>
+        )}
+      </div>
   );
 }

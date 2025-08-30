@@ -10,7 +10,7 @@ html, body {
 /* heading styling */
 .event-heading {
   text-align: center;
-  margin-top: 90px;  
+  margin-top: 90px;
   margin-bottom: 0;       /* removed bottom margin */
   padding-bottom: 0;      /* removed bottom padding */
   line-height: 1;         /* tighten line height */
@@ -22,7 +22,7 @@ html, body {
 /* carousel container */
 .carousel-viewport {
   width: 100%;
-  max-width: 1700px; 
+  max-width: 1700px;
   margin-top: 0;
   padding: 0;             /* removed padding */
   background: #CAF0F8;
@@ -51,9 +51,9 @@ html, body {
 /* item sizing — desktop: exactly 3 visible */
 .carousel li {
   flex: 0 0 clamp(
-    250px,
-    calc((100% - (2 * clamp(12px, 3vw, 32px))) / 3),
-    350px
+          250px,
+          calc((100% - (2 * clamp(12px, 3vw, 32px))) / 3),
+          350px
   );
   display: flex;
   justify-content: center;
@@ -110,9 +110,9 @@ html, body {
 @media (max-width: 1024px) {
   .carousel li {
     flex: 0 0 clamp(
-      200px,
-      calc((100% - (1 * clamp(12px, 3vw, 32px))) / 2),
-      320px
+            200px,
+            calc((100% - (1 * clamp(12px, 3vw, 32px))) / 2),
+            320px
     );
   }
 }
