@@ -329,9 +329,11 @@
 }
 
 .scrollingText {
+    overflow: hidden;
     display: flex;
-    animation: scroll 20s linear infinite;
+    animation: scroll 30s linear infinite;
     white-space: nowrap;
+    will-change: transform;
 }
 
 @keyframes scroll {
