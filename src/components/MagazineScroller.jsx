@@ -109,38 +109,38 @@ export default function BookShowcase() {
     {
       id: "book1",
       number: 1,
-      title: "The Art of Programming",
-      cover: "/magzine1.jpg",
-      pdf: "jan-feb-pdf.pdf",
+      title: "DSA Bootcamp",
+      cover: "src/assets/Volume 6-Issue_1_jan-feb(cover).jpg",
+      pdf: "src/assets/pdfs/Volume 6-Issue_1_jan-feb_pdf.pdf",
       month: "JAN-FEB",
       spineColor: "#064491",
       backColor: "#064491",
       backText:
-        "Discover the fundamental principles of programming through practical examples and real-world applications. This comprehensive guide covers everything from basic syntax to advanced algorithms, making it perfect for both beginners and experienced developers looking to enhance their skills.",
+        "Through interactive discussions, coding exercises, and practical insights from speakers, the event provided a solid foundation in Data Structures and Algorithms."
     },
     {
       id: "book2",
       number: 2,
-      title: "Digital Design Mastery",
-      cover: "/magzine2.jpg",
-      pdf: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
+      title: "OOPS Workshop",
+      cover: "src/assets/Volume 6-Issue_2_mar-apr(cover).jpg",
+      pdf: "src/assets/pdfs/Volume 6-Issue_2_mar-apr_pdf.pdf",
       month: "MAR-APR",
       spineColor: "black",
       backColor: "black",
       backText:
-        "Master the art of digital design with cutting-edge techniques and industry best practices. Learn how to create stunning visual experiences that captivate audiences and drive engagement across all digital platforms.",
+        "The OOPS Workshop provided participants with clear insights into core concepts like inheritance, polymorphism, and encapsulation, helping them understand how object-oriented programming improves code efficiency, scalability, and reusability.",
     },
     {
       id: "book3",
       number: 3,
-      title: "Nature's Algorithms",
-      cover: "/magzine3.jpg",
-      pdf: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
+      title: "Javascript Bootcamp",
+      cover: "src/assets/Volume 6-Issue_3_may-jun(cover).jpg",
+      pdf: "src/assets/pdfs/Volume 6-Issue_3_may-jun_pdf.pdf",
       month: "MAY-JUN",
       spineColor: "black",
       backColor: "black",
-      backText:
-        "Explore how nature's patterns and processes inspire computational solutions. From biomimicry to evolutionary algorithms, discover how the natural world provides blueprints for solving complex technological challenges.",
+      backText: 
+    "The JavaScript Bootcamp introduced students to core programming concepts through interactive coding exercises, helping them build confidence and strengthen their web development skills.",
     },
     {
       id: "book4",
