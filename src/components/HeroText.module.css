@@ -1,0 +1,231 @@
+/* Container */
+.heroContainer {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.heroSvg {
+    margin-top: 100px;
+    width: 100%;
+    height: 300px;
+    max-width: 992px;
+}
+
+/* Base typography matching original exactly */
+.baseText {
+    font-family: 'Bahnschrift', Arial, sans-serif;
+    font-variation-settings: 'wght' 400, 'wdth' 100;
+    stroke-miterlimit: 10;
+}
+
+/* CCET Animation - matching original size and stroke */
+.typingCcet {
+    font-size: 90px;
+    stroke: #006ab4;
+    stroke-width: 3px;
+    fill: #006ab4;
+}
+
+.typingCcet tspan {
+    opacity: 0;
+    transform: translateY(10px);
+    animation: typeChar 0.3s ease forwards;
+}
+
+.typingCcet tspan:nth-child(1) { animation-delay: 0.2s; }
+.typingCcet tspan:nth-child(2) { animation-delay: 0.7s; }
+.typingCcet tspan:nth-child(3) { animation-delay: 1.2s; }
+.typingCcet tspan:nth-child(4) { animation-delay: 1.7s; }
+
+/* Student Chapter Animation - matching original size and stroke */
+.typingChapter {
+    font-size: 90px;
+    stroke: #006ab4;
+    stroke-width: 3px;
+    fill: #006ab4;
+    letter-spacing: 0.05em;
+}
+
+.typingChapter tspan {
+    opacity: 0;
+    transform: translateY(10px);
+    animation: typeChar 0.3s ease forwards;
+}
+
+.typingChapter tspan:nth-child(1) { animation-delay: 4.5s; }
+.typingChapter tspan:nth-child(2) { animation-delay: 4.7s; }
+.typingChapter tspan:nth-child(3) { animation-delay: 4.9s; }
+.typingChapter tspan:nth-child(4) { animation-delay: 5.1s; }
+.typingChapter tspan:nth-child(5) { animation-delay: 5.3s; }
+.typingChapter tspan:nth-child(6) { animation-delay: 5.5s; }
+.typingChapter tspan:nth-child(7) { animation-delay: 5.7s; }
+.typingChapter tspan:nth-child(8) { animation-delay: 5.9s; }
+.typingChapter tspan:nth-child(9) { animation-delay: 6.1s; }
+.typingChapter tspan:nth-child(10) { animation-delay: 6.3s; }
+.typingChapter tspan:nth-child(11) { animation-delay: 6.5s; }
+.typingChapter tspan:nth-child(12) { animation-delay: 6.7s; }
+.typingChapter tspan:nth-child(13) { animation-delay: 6.9s; }
+.typingChapter tspan:nth-child(14) { animation-delay: 7.1s; }
+.typingChapter tspan:nth-child(15) { animation-delay: 7.3s; }
+
+/* Side words - matching original styling exactly */
+.sideWord {
+    font-size: 30px;
+    fill: #00c7c9;
+    stroke: #006ab4;
+    stroke-width: 2px;
+    stroke-miterlimit: 10;
+}
+
+.sideWord tspan {
+    opacity: 0;
+    transform: translateY(10px);
+    animation: typeChar 0.3s ease forwards;
+}
+
+/* INNOVATION animation delays */
+.innovation tspan:nth-child(1) { animation-delay: 7.5s; }
+.innovation tspan:nth-child(2) { animation-delay: 7.6s; }
+.innovation tspan:nth-child(3) { animation-delay: 7.7s; }
+.innovation tspan:nth-child(4) { animation-delay: 7.8s; }
+.innovation tspan:nth-child(5) { animation-delay: 7.9s; }
+.innovation tspan:nth-child(6) { animation-delay: 8.0s; }
+.innovation tspan:nth-child(7) { animation-delay: 8.1s; }
+.innovation tspan:nth-child(8) { animation-delay: 8.2s; }
+.innovation tspan:nth-child(9) { animation-delay: 8.3s; }
+.innovation tspan:nth-child(10) { animation-delay: 8.4s; }
+
+/* TECHNOLOGY animation delays */
+.technology tspan:nth-child(1) { animation-delay: 8.5s; }
+.technology tspan:nth-child(2) { animation-delay: 8.6s; }
+.technology tspan:nth-child(3) { animation-delay: 8.7s; }
+.technology tspan:nth-child(4) { animation-delay: 8.8s; }
+.technology tspan:nth-child(5) { animation-delay: 8.9s; }
+.technology tspan:nth-child(6) { animation-delay: 9.0s; }
+.technology tspan:nth-child(7) { animation-delay: 9.1s; }
+.technology tspan:nth-child(8) { animation-delay: 9.2s; }
+.technology tspan:nth-child(9) { animation-delay: 9.3s; }
+.technology tspan:nth-child(10) { animation-delay: 9.4s; }
+
+/* EXCELLENCE animation delays */
+.excellence tspan:nth-child(1) { animation-delay: 9.5s; }
+.excellence tspan:nth-child(2) { animation-delay: 9.6s; }
+.excellence tspan:nth-child(3) { animation-delay: 9.7s; }
+.excellence tspan:nth-child(4) { animation-delay: 9.8s; }
+.excellence tspan:nth-child(5) { animation-delay: 9.9s; }
+.excellence tspan:nth-child(6) { animation-delay: 10.0s; }
+.excellence tspan:nth-child(7) { animation-delay: 10.1s; }
+.excellence tspan:nth-child(8) { animation-delay: 10.2s; }
+.excellence tspan:nth-child(9) { animation-delay: 10.3s; }
+.excellence tspan:nth-child(10) { animation-delay: 10.4s; }
+
+/* ACM Letters 3D effect and animations */
+.drawPath {
+    fill: none;
+    stroke: #070f34;
+    stroke-width: 5px;
+    stroke-dasharray: 2000;
+    stroke-dashoffset: 2000;
+    animation: draw 2s ease forwards 2.2s;
+    filter: drop-shadow(3px 3px 6px rgba(0,0,0,0.3));
+}
+
+.fillPath {
+    fill: #070f34;
+    stroke: #070f34;
+    stroke-width: 5px;
+    opacity: 0;
+    animation: fill 1s ease forwards 4.2s;
+    filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.4));
+    transition: all 0.3s ease;
+}
+
+/* 3D depth effect for ACM letters */
+.depthShadow {
+    fill: #001122;
+    stroke: none;
+    opacity: 0;
+    transform: translate(8px, 8px);
+    animation: depthAppear 0.8s ease forwards 5s;
+}
+
+/* Hover effects for ACM letters */
+.fillPath:hover {
+    filter: drop-shadow(8px 8px 15px rgba(0,0,0,0.6));
+    transform: translate(-2px, -2px);
+}
+
+/* Completion celebration effect */
+.completionEffect {
+    animation: completionGlow 2s ease-in-out infinite 11s;
+}
+
+/* Keyframes */
+@keyframes typeChar {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes draw {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes fill {
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes depthAppear {
+    to {
+        opacity: 0.6;
+    }
+}
+
+@keyframes completionGlow {
+    0% {
+        filter: drop-shadow(0 0 5px rgba(0, 199, 201, 0.5));
+    }
+    50% {
+        filter: drop-shadow(0 0 20px rgba(0, 199, 201, 0.8));
+    }
+    100% {
+        filter: drop-shadow(0 0 5px rgba(0, 199, 201, 0.5));
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .heroSvg {
+        width: 100%;
+        height: auto;
+    }
+
+    .typingCcet,
+    .typingChapter {
+        font-size: clamp(60px, 8vw, 90px);
+    }
+
+    .sideWord {
+        font-size: clamp(20px, 3vw, 30px);
+    }
+}
+
+@media (max-width: 480px) {
+    .typingCcet,
+    .typingChapter {
+        font-size: clamp(40px, 10vw, 60px);
+    }
+
+    .sideWord {
+        font-size: clamp(16px, 4vw, 24px);
+    }
+}
