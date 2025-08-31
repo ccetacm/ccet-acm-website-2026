@@ -24,9 +24,9 @@
 /* CCET Animation - matching original size and stroke */
 .typingCcet {
     font-size: 90px;
-    stroke: #006ab4;
+    stroke: #ffffff;
     stroke-width: 3px;
-    fill: #006ab4;
+    fill: #ffffff;
 }
 
 .typingCcet tspan {
@@ -43,9 +43,9 @@
 /* Student Chapter Animation - matching original size and stroke */
 .typingChapter {
     font-size: 90px;
-    stroke: #006ab4;
+    stroke: #ffffff;
     stroke-width: 3px;
-    fill: #006ab4;
+    fill: #ffffff;
     letter-spacing: 0.05em;
 }
 
@@ -74,8 +74,8 @@
 /* Side words - matching original styling exactly */
 .sideWord {
     font-size: 30px;
-    fill: #00c7c9;
-    stroke: #006ab4;
+    fill: #ffffff;
+    stroke: #ffffff;
     stroke-width: 2px;
     stroke-miterlimit: 10;
 }

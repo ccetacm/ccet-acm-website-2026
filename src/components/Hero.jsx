@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import styles from "./Hero.module.css";
-import backgroundVideo from "../assets/Header_Main/background_video.mp4";
+import backgroundVideo from "../assets/Header_Main/Video.mp4";
 import HeroText from "./HeroText";
 
 import img1 from "../assets/1 (1).jpg";
