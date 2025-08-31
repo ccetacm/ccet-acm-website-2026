@@ -15,6 +15,7 @@ import Footer from "./components/Footer.jsx";
 import Resources from "./components/Resources.jsx";  
 import Header from "./components/Header.jsx";
 import Loader from "./components/loader.jsx";
+import ACMW from "./pages/acmw.jsx";
 
 // Import images for logos
 import nepImg from "./assets/Header_Main/NEP_2020.png";
@@ -101,6 +102,7 @@ const AppWrapper = () => {
             <Route path="/magazine" element={<MagazineScroller />} />
             <Route path="/mentors" element={<Mentors />} />
             <Route path="/teams" element={<Teams />} />
+            <Route path="/acmw" element={<ACMW />} />
             <Route path="*" element={<h2>404 - Page Not Found</h2>} />
           </Routes>
         </main>
