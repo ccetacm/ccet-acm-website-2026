@@ -1,7 +1,7 @@
 "use client";
 
 import Lottie from "lottie-react";
-import researchAnimation from "../assets/Analytical Thinking Illustration.json";
+import researchAnimation from "../assets/animations/Analytical Thinking Illustration.json";
 import { Brain, Leaf, Zap, ArrowRight } from "lucide-react";
 
 const researchFocusAreas = [
