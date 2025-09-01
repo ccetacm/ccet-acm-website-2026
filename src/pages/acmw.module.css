@@ -19,7 +19,7 @@
   z-index: 1;
 }
 
-body {
+.acmwbody {
   margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: linear-gradient(135deg, #e0f7fa, #f9f9fb, #90e0ef);
