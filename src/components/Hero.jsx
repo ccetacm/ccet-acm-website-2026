@@ -83,6 +83,10 @@ const Hero = ({ startAnimation, cards }) => {
                 <div className={styles.hero}>
                     <div className={styles.textContainer}>
                         <HeroText />
+                        {/* Added subtitle under hero text */}
+                        <p className={styles.heroSubtitle}>
+                            Empowering next generation of computer scientists and technologists
+                        </p>
                     </div>
                 </div>
 
@@ -106,32 +110,6 @@ const Hero = ({ startAnimation, cards }) => {
                             alt={carouselData[currentSlide].title}
                             className={styles.carouselImage}
                         />
-
-                        {/* Tech HUD Overlay */}
-                        <div className={styles.hudOverlay}>
-                            {/* Status Indicator */}
-                            <div className={styles.statusBar}>
-                                <span className={styles.statusDot}></span>
-                                <span className={styles.statusText}>{carouselData[currentSlide].status}</span>
-                            </div>
-
-                            {/* Tech Code */}
-                            <div className={styles.techCode}>
-                                {carouselData[currentSlide].techCode}
-                            </div>
-
-                            {/* Progress Bar */}
-                            <div className={styles.progressBar}>
-                                <div className={styles.progressFill}></div>
-                            </div>
-
-                            {/* Data Grid */}
-                            <div className={styles.dataGrid}>
-                                <div className={styles.dataLine}></div>
-                                <div className={styles.dataLine}></div>
-                                <div className={styles.dataLine}></div>
-                            </div>
-                        </div>
 
                         {/* Navigation Buttons */}
                         <button
@@ -159,16 +137,8 @@ const Hero = ({ startAnimation, cards }) => {
                                     className={`${styles.techDot} ${index === currentSlide ? styles.activeTechDot : ''}`}
                                     onClick={() => goToSlide(index)}
                                 >
-                                    <div className={styles.dotCore}></div>
-                                    <div className={styles.dotRing}></div>
                                 </button>
                             ))}
-                        </div>
-
-                        {/* Tech Panel Info */}
-                        <div className={styles.techPanel}>
-                            <div className={styles.panelTitle}>{carouselData[currentSlide].title}</div>
-                            <div className={styles.panelDesc}>{carouselData[currentSlide].description}</div>
                         </div>
                     </div>
                 </div>
@@ -178,17 +148,17 @@ const Hero = ({ startAnimation, cards }) => {
             <div className={`${styles.breakingBar} ${startAnimation ? styles.animate : ""}`}>
                 <div className={styles.scrollingText}>
                     <span className={styles.barText}>◆ Innovation in Computing</span>
-                    <span className={styles.barSeparator}>◊</span>
+                    <span className={styles.barSeparator}>◦</span>
                     <span className={styles.barText}>◆ Research Excellence</span>
-                    <span className={styles.barSeparator}>◊</span>
+                    <span className={styles.barSeparator}>◦</span>
                     <span className={styles.barText}>◆ Student Development</span>
-                    <span className={styles.barSeparator}>◊</span>
+                    <span className={styles.barSeparator}>◦</span>
                     <span className={styles.barText}>◆ Technology Leadership</span>
-                    <span className={styles.barSeparator}>◊</span>
+                    <span className={styles.barSeparator}>◦</span>
                     <span className={styles.barText}>◆ Professional Growth</span>
-                    <span className={styles.barSeparator}>◊</span>
+                    <span className={styles.barSeparator}>◦</span>
                     <span className={styles.barText}>◆ Industry Collaboration</span>
-                    <span className={styles.barSeparator}>◊</span>
+                    <span className={styles.barSeparator}>◦</span>
                 </div>
             </div>
         </>
