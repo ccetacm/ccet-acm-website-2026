@@ -13,6 +13,7 @@
     "@lottiefiles/lottie-player": "^2.0.12",
     "@lottiefiles/react-lottie-player": "^3.6.0",
     "@tsparticles/react": "^3.0.0",
+    "@tsparticles/slim": "^3.9.1",
     "framer-motion": "^12.23.12",
     "lottie-react": "^2.4.1",
     "lucide-react": "^0.540.0",
