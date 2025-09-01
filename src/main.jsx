@@ -18,25 +18,25 @@ import Loader from "./components/loader.jsx";
 import ACMW from "./pages/acmw.jsx";
 
 // Import images for logos
-import nepImg from "./assets/Header_Main/NEP_2020.png";
-import ccetImg from "./assets/Header_Main/ccetLogo.png";
-import sdgImg from "./assets/Header_Main/SDG.png";
-import puImg from "./assets/Header_Main/pu-logo.png";
-import acmImg from "./assets/Header_Main/acmlogo.png";
-import acmw from "./assets/Header_Main/acmw.png";
-import logoImg from "./assets/Header_Main/logo.png";
+// import nepImg from "./assets/Header_Main/NEP_2020.png";
+// import ccetImg from "./assets/Header_Main/ccetLogo.png";
+// import sdgImg from "./assets/Header_Main/SDG.png";
+// import puImg from "./assets/Header_Main/pu-logo.png";
+// import acmImg from "./assets/Header_Main/acmlogo.png";
+// import acmw from "./assets/Header_Main/acmw.png";
+// import logoImg from "./assets/Header_Main/logo.png";
 
 import "./index.css";
 
 // Define logos array
 const logos = [
-  { src: logoImg, alt: "CCET ACM", link: "https://ccet.acm.org/" },
-  { src: nepImg, alt: "NEP", className: "NEP1", link: "https://www.education.gov.in/en/national-education-policy" },
-  { src: ccetImg, alt: "CCET", link: "https://www.ccet.ac.in/" },
-  { src: sdgImg, alt: "SDG", link: "https://sdgs.un.org/" },
-  { src: puImg, alt: "PU", link: "https://puchd.ac.in/" },
-  { src: acmImg, alt: "ACM", link: "https://www.acm.org" },
-  { src: acmw, alt: "ACM-W", link: "#" },
+  { src: "/Header_Main/logo.png", alt: "CCET ACM", link: "https://ccet.acm.org/" },
+  { src: "/Header_Main/NEP_2020.png", alt: "NEP", className: "NEP1", link: "https://www.education.gov.in/en/national-education-policy" },
+  { src: "/Header_Main/ccetLogo.png", alt: "CCET", link: "https://www.ccet.ac.in/" },
+  { src: "/Header_Main/SDG.png", alt: "SDG", link: "https://sdgs.un.org/" },
+  { src: "/Header_Main/pu-logo.png", alt: "PU", link: "https://puchd.ac.in/" },
+  { src: "/Header_Main/acmlogo.png", alt: "ACM", link: "https://www.acm.org" },
+  { src: "/Header_Main/acmw.png", alt: "ACM-W", link: "#" },
 ];
 
 // Main App wrapper component that handles global loader
