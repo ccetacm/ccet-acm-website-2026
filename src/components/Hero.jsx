@@ -1,13 +1,13 @@
 "use client";
 import { useState, useEffect } from "react";
 import styles from "./Hero.module.css";
-import backgroundVideo from "../assets/Header_Main/Video.mp4";
+// import backgroundVideo from "../assets/Header_Main/Video.mp4";
 import HeroText from "./HeroText";
 
-import img1 from "../assets/1 (1).jpg";
-import img2 from "../assets/1 (3).jpg";
-import img3 from "../assets/1 (7).jpg";
-import img4 from "../assets/1 (10).jpg";
+// import img1 from "../assets/1 (1).jpg";
+// import img2 from "../assets/1 (3).jpg";
+// import img3 from "../assets/1 (7).jpg";
+// import img4 from "../assets/1 (10).jpg";
 
 const Hero = ({ startAnimation, cards }) => {
     const [heroAnimated, setHeroAnimated] = useState(false);
@@ -16,28 +16,28 @@ const Hero = ({ startAnimation, cards }) => {
     // Enhanced carousel data with tech themes
     const carouselData = [
         {
-            image: img1,
+            image: "/1 (1).jpg",
             title: "Innovation",
             description: "Leading technological advancement",
             techCode: "INNV_001",
             status: "ACTIVE"
         },
         {
-            image: img2,
+            image: "/1 (3).jpg",
             title: "Research",
             description: "Cutting-edge research projects",
             techCode: "RSRCH_002",
             status: "PROCESSING"
         },
         {
-            image: img3,
+            image: "/1 (7).jpg",
             title: "Community",
             description: "Building future leaders",
             techCode: "COMM_003",
             status: "ONLINE"
         },
         {
-            image: img4,
+            image: "/1 (10).jpg",
             title: "Excellence",
             description: "Academic and professional growth",
             techCode: "EXCL_004",
@@ -76,7 +76,7 @@ const Hero = ({ startAnimation, cards }) => {
             <div className={`${styles.heroContainer} ${heroAnimated ? styles.animate : ""}`}>
                 {/* Background Video */}
                 <video className={styles.backgroundVideo} autoPlay muted loop>
-                    <source src={backgroundVideo} type="video/mp4" />
+                    <source src="/Header_Main/Video.mp4" type="video/mp4" />
                     Your browser does not support the video tag.
                 </video>
 

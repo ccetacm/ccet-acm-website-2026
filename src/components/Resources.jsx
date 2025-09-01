@@ -2,13 +2,13 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import styles from "./ResourcesPage.module.css"; // Import module CSS
-import bciImg from "../assets/resourcesimages/bci.webp";
-import ddlImg from "../assets/resourcesimages/ddl.png";
-import digitalTwinImg from "../assets/resourcesimages/digital-twin.webp";
-import post2Img from "../assets/resourcesimages/post2.webp";
-import metaverseImg from "../assets/resourcesimages/metaverse-technology.webp";
-import edgeIntelligenceImg from "../assets/resourcesimages/edge_intelligence.jpg";
-import blockchainImg from "../assets/resourcesimages/blockchain.webp";
+// import bciImg from "../assets/resourcesimages/bci.webp";
+// import ddlImg from "../assets/resourcesimages/ddl.png";
+// import digitalTwinImg from "../assets/resourcesimages/digital-twin.webp";
+// import post2Img from "../assets/resourcesimages/post2.webp";
+// import metaverseImg from "../assets/resourcesimages/metaverse-technology.webp";
+// import edgeIntelligenceImg from "../assets/resourcesimages/edge_intelligence.jpg";
+// import blockchainImg from "../assets/resourcesimages/blockchain.webp";
 
 
 // Sample Data
@@ -16,7 +16,7 @@ const RESOURCES = [
   {
     title: "Brain Computer Interaction (BCI): A Way to Interact with Brain Waves",
     authors: "Sudhakar Kumar, Sunil K. Singh",
-   image: bciImg,
+   image: "/resourcesimages/bci.webp",
     topics: ["AI", "Deep Learning", "Healthcare"],
     shortDescription:
       "Explores how brain waves can be used as input signals for human-computer interaction.",
@@ -26,7 +26,7 @@ const RESOURCES = [
   {
     title: "Distributed Ledger Technology",
     authors: "Manraj Singh, Sudhakar Kumar",
-    image: ddlImg,
+    image: "/resourcesimages/ddl.png",
     topics: ["Blockchain"],
     shortDescription:
       "A study of decentralized ledgers that ensure security and transparency.",
@@ -36,7 +36,7 @@ const RESOURCES = [
   {
     title: "Digital Twins",
     authors: "Tarun Vats, Sudhakar Kumar",
-   image: digitalTwinImg,
+   image: "/resourcesimages/digital-twin.webp",
     topics: ["AI", "Data Science"],
     shortDescription: "Creating virtual replicas of physical systems for simulation and analysis.",
     description:
@@ -45,7 +45,7 @@ const RESOURCES = [
   {
     title: "MLOps: A New Era Of DevOps, Powered By Machine Learning",
     authors: "Muskaan Chopra, Sunik K Singh",
-    image: post2Img,
+    image: "/resourcesimages/post2.webp",
     topics: ["Machine Learning", "DevOps"],
     shortDescription: "Integration of ML workflows into DevOps practices for better deployment.",
     description:
@@ -54,7 +54,7 @@ const RESOURCES = [
   {
     title: "Metaverse Technology And Its Applications",
     authors: "Mavneet Kaur, B. Gupta",
-  image: metaverseImg,
+    image: "/resourcesimages/metaverse-technology.webp",
     topics: ["Blockchain", "Metaverse"],
     shortDescription: "Insights into metaverse applications in gaming, education, and commerce.",
     description:
@@ -63,7 +63,7 @@ const RESOURCES = [
   {
     title: "Edge Intelligence: A New Emerging Era",
     authors: "A Dahiya, B. Gupta",
-    image: edgeIntelligenceImg,
+    image: "/resourcesimages/edge_intelligence.jpg",
     topics: ["AI", "Data Science", "Machine Learning"],
     shortDescription: "Artificial intelligence at the edge for real-time decision-making.",
     description:
@@ -72,7 +72,7 @@ const RESOURCES = [
   {
     title: "Blockchain For Data Science",
     authors: "Dipesh Singla, Sudhakar Kumar",
-      image: blockchainImg,
+    image: "resourcesimages/blockchain.webp",
     topics: ["Blockchain", "Data Science"],
     shortDescription: "Exploring blockchain applications in data security and analytics.",
     description:

@@ -5,10 +5,10 @@ import { useInView } from "react-intersection-observer";
 import { motion } from "framer-motion";
 import "./Vision.css";
 
-import establishmentIcon from "../assets/Vision/establishment.png";
-import eventIcon from "../assets/Vision/event-list.png";
-import visionIcon from "../assets/Vision/vision.png";
-import missionIcon from "../assets/Vision/mission.png";
+// import establishmentIcon from "../assets/Vision/establishment.png";
+// import eventIcon from "../assets/Vision/event-list.png";
+// import visionIcon from "../assets/Vision/vision.png";
+// import missionIcon from "../assets/Vision/mission.png";
 
 function Vision() {
   const { ref, inView } = useInView({
@@ -30,7 +30,7 @@ function Vision() {
             <div className="icon">
               <img
                   className="establishment-icon"
-                  src={establishmentIcon}
+                  src="/Vision/establishment.png"
                   alt="Establishment Icon"
               />
             </div>
@@ -48,7 +48,7 @@ function Vision() {
           </div>
           <div className="stat-box">
             <div className="icon">
-              <img className="event-icon" src={eventIcon} alt="Event Icon" />
+              <img className="event-icon" src="/Vision/event-list.png" alt="Event Icon" />
             </div>
             <div className="stat-number">
               {inView && <CountUp end={150} duration={2} />}+
@@ -67,7 +67,7 @@ function Vision() {
         >
           {/* === Vision Heading with Icon === */}
           <div className="heading-with-icon">
-            <img src={visionIcon} alt="Vision Icon" className="heading-icon" />
+            <img src="/Vision/vision.png" alt="Vision Icon" className="heading-icon" />
             <motion.h2 className="vision-heading">Our Vision</motion.h2>
           </div>
 
@@ -79,7 +79,7 @@ function Vision() {
 
           {/* === Mission Heading with Icon === */}
           <div className="heading-with-icon">
-            <img src={missionIcon} alt="Mission Icon" className="heading-icon" />
+            <img src="/Vision/mission.png" alt="Mission Icon" className="heading-icon" />
             <motion.h2 className="vision-heading">Our Mission</motion.h2>
           </div>
 
