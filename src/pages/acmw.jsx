@@ -51,6 +51,7 @@ const ACMW = () => {
   }, []);
 
   return (
+      <div className={styles.acmwbody}>
     <div className={styles.acmwPage}>
       {/* Particles */}
       {engineReady && (
@@ -450,6 +451,7 @@ const ACMW = () => {
         </div>
       </section>
     </div>
+      </div>
   );
 };
 
