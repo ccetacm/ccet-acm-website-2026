@@ -320,15 +320,15 @@
     position: relative;
     background: #ffffff;
     color: #1f2937;
-    padding: 16px 0;
+    padding: 10px 0;
     overflow: hidden;
     z-index: 100;
     margin-top: -20px;
     transform: translateY(100%);
     opacity: 0;
     transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-    border-top: 2px solid #126973;
-    border-bottom: 2px solid #126973;
+    border-top: 5px solid #126973;
+    border-bottom: 5px solid #126973;
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
 }
 
@@ -354,7 +354,7 @@
 .scrollingText {
     overflow: hidden;
     display: flex;
-    animation: scroll 30s linear infinite;
+    animation: scroll 15s linear infinite;
     white-space: nowrap;
     will-change: transform;
 }
