@@ -7,17 +7,17 @@ import pdfWorker from "pdfjs-dist/build/pdf.worker.min?url";
 import "./MagazineScroller.css";
 
 // Import covers
-import cover1 from "../assets/Magazine/covers/Volume 6-Issue_1_jan-feb(cover).jpg";
-import cover2 from "../assets/Magazine/covers/Volume 6-Issue_2_mar-apr(cover).jpg";
-import cover3 from "../assets/Magazine/covers/Volume 6-Issue_3_may-jun(cover).jpg";
-import cover4 from "../assets/Magazine/covers/magzine4.jpg";
-import cover5 from "../assets/Magazine/covers/magzine5.jpg";
-import cover6 from "../assets/Magazine/covers/magzine6.jpg";
+// import cover1 from "../assets/Magazine/covers/Volume 6-Issue_1_jan-feb(cover).jpg";
+// import cover2 from "../assets/Magazine/covers/Volume 6-Issue_2_mar-apr(cover).jpg";
+// import cover3 from "../assets/Magazine/covers/Volume 6-Issue_3_may-jun(cover).jpg";
+// import cover4 from "../assets/Magazine/covers/magzine4.jpg";
+// import cover5 from "../assets/Magazine/covers/magzine5.jpg";
+// import cover6 from "../assets/Magazine/covers/magzine6.jpg";
 
 // Import PDFs
-import pdf1 from "../assets/Magazine/pdfs/Volume 6-Issue_1_jan-feb_pdf.pdf";
-import pdf2 from "../assets/Magazine/pdfs/Volume 6-Issue_2_mar-apr_pdf.pdf";
-import pdf3 from "../assets/Magazine/pdfs/Volume 6-Issue_3_may-jun_pdf.pdf";
+// import pdf1 from "../assets/Magazine/pdfs/Volume 6-Issue_1_jan-feb_pdf.pdf";
+// import pdf2 from "../assets/Magazine/pdfs/Volume 6-Issue_2_mar-apr_pdf.pdf";
+// import pdf3 from "../assets/Magazine/pdfs/Volume 6-Issue_3_may-jun_pdf.pdf";
 //import pdf4 from "../../assets/Magazine/pdfs/magzine4.pdf";
 //import pdf5 from "../../assets/Magazine/pdfs/magzine5.pdf";
 //import pdf6 from "../../assets/Magazine/pdfs/magzine6.pdf";
@@ -122,8 +122,8 @@ export default function BookShowcase() {
       id: "book1",
       number: 1,
       title: "DSA Bootcamp",
-      cover: cover1,
-      pdf: pdf1,
+      cover: "/Magazine/covers/Volume 6-Issue_1_jan-feb(cover).jpg",
+      pdf: "/Magazine/pdfs/Volume 6-Issue_1_jan-feb_pdf.pdf",
       month: "JAN-FEB",
       spineColor: "#064491",
       backColor: "#064491",
@@ -134,8 +134,8 @@ export default function BookShowcase() {
       id: "book2",
       number: 2,
       title: "OOPS Workshop",
-      cover: cover2,
-      pdf: pdf2,
+      cover: "/Magazine/covers/Volume 6-Issue_2_mar-apr(cover).jpg",
+      pdf: "/Magazine/pdfs/Volume 6-Issue_2_mar-apr_pdf.pdf",
       month: "MAR-APR",
       spineColor: "black",
       backColor: "black",
@@ -146,8 +146,8 @@ export default function BookShowcase() {
       id: "book3",
       number: 3,
       title: "Javascript Bootcamp",
-      cover: cover3,
-      pdf: pdf3,
+      cover: "/Magazine/covers/Volume 6-Issue_3_may-jun(cover).jpg",
+      pdf: "/Magazine/pdfs/Volume 6-Issue_3_may-jun_pdf.pdf",
       month: "MAY-JUN",
       spineColor: "black",
       backColor: "black",
@@ -158,7 +158,7 @@ export default function BookShowcase() {
       id: "book4",
       number: 4,
       title: "Data Science Fundamentals",
-      cover: cover4,
+      cover: "/Magazine/covers/magzine4.jpg",
       // pdf: pdf4,
       month: "JUL-AUG",
       spineColor: "black",
@@ -170,7 +170,7 @@ export default function BookShowcase() {
       id: "book5",
       number: 5,
       title: "Web Development Guide",
-      cover: cover5,
+      cover: "/Magazine/covers/magzine5.jpg",
       // pdf: pdf5,
       month: "SEP-OCT",
       spineColor: "#593aaf",
@@ -182,7 +182,7 @@ export default function BookShowcase() {
       id: "book6",
       number: 6,
       title: "AI & Machine Learning",
-      cover: cover6,
+      cover: "/Magazine/covers/magzine6.jpg",
       // pdf: pdf6,
       month: "NOV-DEC",
       spineColor: "#223D96",

@@ -37,7 +37,7 @@
 /* Sidebar */
 .sidebar {
   position: fixed;
-  top: 8rem;
+  top: 7rem;
   z-index: 40;
   width: 14rem;
   background: linear-gradient(to bottom, #f0f9ff, rgba(255, 255, 255, 0.9));
@@ -46,12 +46,14 @@
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
   border-radius: 1.5rem;
   padding: 1.5rem;
-  height: calc(100vh - 8rem);
+  margin-left:20px;
+  height: calc(100vh - 9rem);
 }
 
 @media (min-width: 1024px) {
   .sidebar {
     position: sticky;
+     height: calc(100vh - 11rem); 
   }
 }
 
@@ -112,12 +114,24 @@
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
   background: rgba(255, 255, 255, 0.9);
   color: #1f2937;
+  position: relative;
+  /* top: -2px;    */
   margin-bottom: 1.5rem;
 }
 
+/* Tablet + desktop */
 @media (min-width: 640px) {
   .searchBar {
     width: 95%;
+      top: -1rem !important;   
+    margin-bottom: 2rem;
+  }
+}
+
+/* Even bigger screens (optional) */
+@media (min-width: 1024px) {
+  .searchBar {
+    top: 5px;    /* 👈 bring it a bit more upar */
   }
 }
 
@@ -255,6 +269,7 @@
   font-weight: bold;
   color: #1e3a8a;
   margin-bottom: 0.5rem;
+  margin-top:-0.2rem;
 }
 
 .resourceDesc {
@@ -277,6 +292,14 @@
   margin-left: 2rem;
 }
 
+/* On small screens: center it */
+@media (max-width: 640px) {
+  .resourceImg {
+    justify-content: center;
+    margin-left: 0; /* remove extra left margin */
+    margin-right: 0;
+  }
+}
 .resourceImgImg {
   width: 100%;
   max-width: 20rem;

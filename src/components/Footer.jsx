@@ -2,8 +2,8 @@ import React from "react";
 import "./Footer.css";
 
 // Import images from assets
-import ccetLogoWhite from "../assets/acm-logo/ccet-logo-white.png";
-import acmLogo from "../assets/acm-logo/acmlogo.png";
+// import ccetLogoWhite from "../assets/acm-logo/ccet-logo-white.png";
+// import acmLogo from "../assets/acm-logo/acmlogo.png";
 
 const Footer = () => {
   return (
@@ -12,7 +12,7 @@ const Footer = () => {
         <div className="footer-section footer-left">
           <div className="imgage">
             <img
-                src={ccetLogoWhite}
+                src="/acm-logo/ccet-logo-white.png"
                 alt="CCET Logo"
                 className="footer-logo"
             />
@@ -78,7 +78,7 @@ const Footer = () => {
         <div className="footer-section footer-right">
           <div className="imgage">
             <img
-                src={acmLogo}
+                src="/acm-logo/acmlogo.png"
                 alt="ACM Logo"
                 className="footer-logo2"
             />

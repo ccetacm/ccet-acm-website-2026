@@ -3,9 +3,9 @@
 // About.jsx
 import { useEffect, useState } from "react";
 import "./About.css";
-import acmDiamondLogo from "../assets/acm-logo/acmlogo.png";
-import ccetAcmLogo from "../assets/acm-logo/ccet-acm-logo_black_bg.png";
-import acmWLogo from "../assets/acm-logo/acm-w-logo.png";
+// import acmDiamondLogo from "../assets/acm-logo/acmlogo.png";
+// import ccetAcmLogo from "../assets/acm-logo/ccet-acm-logo_black_bg.png";
+// import acmWLogo from "../assets/acm-logo/acm-w-logo.png";
 import ContactSection from "./ContactSection";
 
 
@@ -98,7 +98,7 @@ function About() {
             <div className="hero-visual fade-in-right">
               <div className="acm-logo-display">
                 <img
-  src={acmDiamondLogo}
+  src="/acm-logo/acmlogo.png"
   alt="ACM Logo"
   className="acm-diamond-logo"
 />
@@ -473,7 +473,7 @@ function About() {
           <div className="teams-grid">
             <div className="team-card slide-in-left">
               <div className="team-logo">
-                <img src={ccetAcmLogo} alt="CASC Logo" />
+                <img src="/acm-logo/ccet-acm-logo_black_bg.png" alt="CASC Logo" />
               </div>
               <div className="team-content">
                 <h3>CASC</h3>
@@ -492,7 +492,7 @@ function About() {
             </div>
             <div className="team-card slide-in-right">
               <div className="team-logo">
-                <img src={acmWLogo} alt="CASC-W Logo" />
+                <img src="/acm-logo/acm-w-logo.png" alt="CASC-W Logo" />
               </div>
               <div className="team-content">
                 <h3>CASC-W</h3>

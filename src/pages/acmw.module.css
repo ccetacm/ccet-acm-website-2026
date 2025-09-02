@@ -1,0 +1,913 @@
+/* acmw.module.css */
+
+/* =========================
+   GLOBAL & BASE STYLES
+   ========================= */
+.tsparticles {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1; /* keep behind content, but not negative */
+  pointer-events: none;
+}
+
+.acmwPage {
+  position: relative;
+  background: transparent; /* ensure not blocking particles */
+  z-index: 1;
+}
+
+.acmwbody {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #e0f7fa, #f9f9fb, #90e0ef);
+  color: #03045e;
+}
+
+/* =========================
+   acmw-HERO SECTION
+   ========================= */
+.acmwHero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 40px 20px;
+}
+
+.acmwHeroContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.acmwHeroLeft, 
+.acmwHeroRight {
+  flex: 1;
+}
+
+.acmwHeroLeft {
+  padding-inline: clamp(10px, 4vw, 60px);
+}
+
+.acmwTagline {
+  display: inline-block;
+  background: #87c8d3;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: clamp(12px, 2.5vw, 14px);
+  margin-top: -2px;
+  color: #03045e;
+  font-weight: 500;
+}
+
+.acmwHeroLeft h1 {
+  font-size: clamp(2rem, 6vw, 4rem);
+  margin: 8px 0 0 0;
+}
+
+.acmwHeroLeft h2 {
+  font-size: clamp(1.25rem, 4vw, 2rem);
+  margin: 0 0 10px 0;
+}
+
+.gradientText {
+  background: linear-gradient(90deg, #0078b7, #00b4d7, #48cae4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.acmwHeroLeft p {
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  max-width: 60ch;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.acmwLogoWrapper {
+  position: relative;
+  width: min(90vw, 500px);
+  height: auto;
+}
+
+.acmwGlobe {
+  width: 100%;
+  height: auto;
+  animation: spin 20s linear infinite;
+}
+
+.acmwLogoText {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: auto;
+  pointer-events: none;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* =========================
+   STATS acmw-BADGES SECTION
+   ========================= */
+.acmwBadgesContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5vw;           
+  flex-wrap: nowrap;  
+  margin-top: -8vh;
+  overflow-x: hidden; 
+}
+
+.acmwBadgeImg {
+  width: 25vw;        
+  height: auto;
+  max-width: 100%;
+  transition: transform 0.3s ease;
+}
+
+
+/* =========================
+   acmw-ABOUT SECTION
+   ========================= */
+.acmwAbout {
+  padding: 100px 20px;
+  color: #03045e;
+  position: relative;
+  z-index: 1;
+}
+
+.acmwAboutContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.acmwAboutContainer h2 {
+  font-size: clamp(1.8rem, 5vw, 3.5rem);
+  margin-bottom: 20px;
+  color: #03045e;
+}
+
+.acmwAboutIntro {
+  font-size: 1.2rem;
+  line-height: 1.7;
+  margin-bottom: 60px;
+  color: #022c43;
+}
+
+.acmwAboutCards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+}
+
+.acmwAboutCard {
+  padding: 30px 20px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.35);
+  border-top: 7px solid #052f45;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 -2px 12px rgba(0, 120, 183, 0.3);
+}
+
+.acmwAboutCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 28px rgba(0,120,183,0.25);
+}
+
+.acmwAboutCard i {
+  font-size: 2rem;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+
+.acmwAboutCardMission i {
+  color: #6f42c1;
+  background: #d5cce0;
+}
+
+.acmwAboutCardInnovation i {
+  color: #ff8c00;
+  background: #ffe5b4;
+}
+
+.acmwAboutCardGlobal i {
+  color: #b22222;
+  background: #f8d7da;
+}
+
+.acmwAboutCard h3 {
+  margin-bottom: 12px;
+  font-size: 1.4rem;
+  color: #03045e;
+}
+
+.acmwAboutCard p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #022c43;
+}
+
+/* =========================
+   acmw-WHAT WE DO (acmw-TIMELINE)
+   ========================= */
+.acmwWhatWeDo {
+  padding: 80px 20px;
+  color: #03045e;
+}
+
+.acmwWhatContainer {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.acmwWhatContainer h2 {
+  text-align: center;
+  font-size: clamp(1.8rem, 5vw, 3.5rem);
+  margin-bottom: 60px;
+  color: #03045e;
+  text-transform: uppercase;
+}
+
+.acmwTimeline {
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+.acmwTimeline::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 30px;
+  width: 4px;
+  height: 100%;
+  background: #ddd;
+  border-radius: 2px;
+}
+
+.acmwTimelineItem {
+  position: relative;
+  margin-bottom: 50px;
+  padding-left: 80px;
+}
+
+.acmwTimelineIcon {
+  position: absolute;
+  left: 10px;
+  top: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 18px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.acmwTimelineContent h3 {
+  margin: 0 0 10px;
+  font-size: 1.4rem;
+}
+
+.acmwTimelineContent p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #333;
+}
+
+.acmwTimelineIconPurple { background: #6f42c1; }
+.acmwTimelineIconGreen  { background: #116530; }
+.acmwTimelineIconOrange { background: #ff8800; }
+.acmwTimelineIconRed    { background: #d62828; }
+
+/* =========================
+   acmw-RECENT ACTIVITIES
+   ========================= */
+.acmwRecentActivities {
+  padding: 100px 20px;
+  text-align: center;
+}
+
+.acmwRecentActivities h2 {
+  font-size: clamp(1.8rem, 5vw, 3.5rem);
+  margin-bottom: 50px;
+  color: #03045e;
+  text-transform: uppercase;
+}
+
+.acmwActivitiesContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.acmwActivitiesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.acmwActivityCard {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  overflow: hidden;
+  text-align: left;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.acmwActivityCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 28px rgba(0,120,183,0.25);
+}
+
+.acmwActivityImg {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.acmwActivityCard:hover .acmwActivityImg {
+  transform: scale(1.08);
+}
+
+.acmwActivityContent {
+  padding: 20px;
+}
+
+.acmwActivityContent h3 {
+  font-size: 1.4rem;
+  margin: 15px 0;
+  color: #03045e;
+}
+
+.acmwActivityContent p {
+  margin: 8px 0;
+  font-size: 1rem;
+  color: #444;
+}
+
+.acmwActivityContent i {
+  color: #0078b7;
+  margin-right: 8px;
+}
+
+.acmwTag {
+  display: inline-block;
+  padding: 6px 14px;
+  font-size: 0.85rem;
+  border-radius: 12px;
+  font-weight: bold;
+  color: white;
+  animation: pulseTag 3s infinite ease-in-out;
+}
+
+@keyframes pulseTag {
+  0%, 100% { transform: scale(1); opacity: 0.9; }
+  50%      { transform: scale(1.05); opacity: 1; }
+}
+
+.acmwTagBootcamp { background: #0078b7; }
+.acmwTagWorkshop { background: #00b4d7; }
+.acmwTagSprint   { background: #48cae4; }
+
+/* =========================
+   acmw-RESOURCES
+   ========================= */
+.acmwResources {
+  padding: 100px 20px;
+  text-align: center;
+}
+
+.acmwResources h2 {
+  font-size: clamp(1.8rem, 5vw, 3.5rem);
+  margin-bottom: 60px;
+  color: #03045e;
+  text-transform: uppercase;
+}
+
+.acmwResourcesContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.acmwResourcesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+.acmwResourceCategory h3 {
+  font-size: 1.8rem;
+  margin-bottom: 25px;
+  color: #0078b7;
+}
+
+.acmwResourceCards {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.acmwResourceCard {
+  background: white;
+  border-radius: 15px;
+  padding: 25px 20px;
+  text-align: left;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.acmwResourceCard:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(0,120,183,0.35);
+}
+
+.acmwResourceCard h4 {
+  font-size: 1.2rem;
+  margin: 10px 0;
+  color: #03045e;
+}
+
+.acmwResourceCard p {
+  font-size: 0.95rem;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.acmwResourceLink {
+  color: #0078b7;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.acmwResourceLink:hover { text-decoration: underline; }
+
+.acmwTagDatabase { background: #6f42c1; }
+.acmwTagPdf      { background: #00b4d7; }
+.acmwTagStudy    { background: #ff8c00; }
+.acmwTagTemplate { background: #d62828; }
+.acmwTagPlatform { background: #0078b7; }
+.acmwTagDirectory{ background: #48cae4; }
+
+
+/* =========================
+   acmw-TEAM SECTION
+   ========================= */
+.acmwTeam {
+  padding: 100px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.acmwTeamCardBig {
+  background: linear-gradient(135deg, #e0f7fa, #f9f9fb, #90e0ef);
+  border-radius: 20px;
+  padding: 60px 40px;
+  max-width: 1000px;
+  width: 100%;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+  text-align: center;
+  transition: transform 0.3s ease;
+  margin: 0 auto;
+}
+
+.acmwTeamCardBig:hover { transform: translateY(-8px); }
+
+.acmwTeamCardBig h2 {
+  font-size: clamp(1.8rem, 5vw, 3.5rem);
+  margin-top: 15px;
+  color: #03045e;
+  text-transform: uppercase;
+}
+
+.acmwTeamSplit {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.acmwTeamSplitCard {
+  width: 300px;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  background-size: 200% 200%;
+  background-position: top left;
+  padding: 40px 20px;
+  border-radius: 15px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  text-align: center;
+  transition: background-position 0.8s ease, transform 0.4s ease, box-shadow 0.4s ease;
+  color: #03045e;
+}
+
+.acmwTeamSplitCard:hover {
+  background-position: bottom right;
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0, 180, 255, 0.3);
+  color: #fff;
+}
+
+.acmwTeamImg { width: 150px; height: 150px; object-fit: contain; margin-bottom: 20px; }
+.acmwTeamImg1{ width: 200px; height: 150px; object-fit: contain; margin-bottom: 20px; }
+
+.acmwTeamSplitCard h3 { font-size: 1.8rem; margin-bottom: 8px; color: #fff; }
+.acmwTeamSplitCard p   { font-size: 1rem; margin-bottom: 20px; color: #ccc; }
+
+.acmwSocialLinks {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.acmwSocialLinks a {
+  font-size: 1.4rem;
+  color: #bbb;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.acmwSocialLinks a:hover {
+  transform: scale(1.2);
+  color: #00b4d8;
+}
+/* =========================
+   REVEAL ANIMATIONS
+   ========================= */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.revealActive {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal:nth-child(1) { transition-delay: 0.1s; }
+.reveal:nth-child(2) { transition-delay: 0.3s; }
+.reveal:nth-child(3) { transition-delay: 0.5s; }
+.reveal:nth-child(4) { transition-delay: 0.7s; }
+
+/* =========================
+   MEDIA QUERIES
+   ========================= */
+
+/* ≤1200px */
+@media (max-width: 1200px) {
+  .acmwHeroContainer {
+    padding: 40px;
+    gap: 30px;
+  }
+}
+
+/* 900px – 1024px (tablet landscape) */
+@media (max-width: 1024px) and (min-width: 900px) {
+  .acmwHeroContainer {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .acmwHeroLeft,
+  .acmwHeroRight {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+
+  .acmwHeroLeft {
+    text-align: center;
+    padding-right: 20px;
+  }
+
+  .acmwHeroRight {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 20px;
+  }
+
+  .acmwGlobe {
+    width: 80%;
+    height: auto;
+  }
+
+  .acmwLogoText {
+    top: 50%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: auto;
+  }
+}
+
+/* ≤900px (tablet / small laptop) */
+@media (max-width: 900px) {
+  .acmwHeroContainer {
+    flex-direction: column;
+    text-align: center;
+    padding: 40px 20px;
+  }
+
+  .acmwHeroLeft h1 {
+    font-size: clamp(2rem, 5vw + 1rem, 4rem);
+  }
+
+  .acmwHeroRight {
+    margin-top: 20px;
+    justify-content: center;
+  }
+}
+/* ≤900px */
+@media (max-width: 900px) {
+  .acmwHeroContainer {
+    flex-direction: column;
+    text-align: center;
+    padding: 30px 20px;
+  }
+
+  .acmwHeroLeft {
+    padding-left: 0;
+  }
+
+  .acmwHeroLeft h1 {
+    font-size: 2.5rem;
+  }
+
+  .acmwHeroLeft p {
+    font-size: 1rem;
+  }
+
+  .acmwLogo {
+    max-width: 300px;
+    margin-top: 20px;
+  }
+
+  .acmwActivitiesGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* 500px – 900px */
+@media (max-width: 900px) and (min-width: 500px) {
+  .acmwHeroLeft p {
+    max-width: 80ch;
+  }
+
+  .acmwGlobe {
+    width: 80%;
+    height: auto;
+  }
+
+  .acmwLogoText {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: auto;
+  }
+}
+
+/* ≤1000px */
+@media (max-width: 1000px) {
+  .acmwBadgesContainer {
+    gap: 30px;
+    margin-top: -60px;
+  }
+
+  .acmwBadgeImg {
+    width: 220px;
+    height: 220px;
+  }
+
+  .acmwAboutCards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+
+  .acmwResourcesGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* ≤768px */
+@media (max-width: 768px) {
+  .acmwHeroLeft h1 {
+    font-size: 2rem;
+  }
+
+  .acmwHeroLeft p {
+    font-size: 0.95rem;
+  }
+}
+
+/* ≤992px */
+@media (max-width: 992px) {
+  .acmwTeamCardBig {
+    padding: 50px 30px;
+  }
+
+  .acmwTeamSplit {
+    gap: 30px;
+  }
+
+  .acmwTeamSplitCard {
+    width: 260px;
+    padding: 30px 18px;
+  }
+
+  .acmwTeamSplitCard h3 {
+    font-size: 1.5rem;
+  }
+
+  .acmwTeamSplitCard p {
+    font-size: 0.95rem;
+  }
+}
+
+/* ≤700px */
+@media (max-width: 700px) {
+  .acmwBadgesContainer {
+    gap: 20px;
+    margin-top: -40px;
+  }
+
+  .acmwBadgeImg {
+    width: 180px;
+    height: 180px;
+  }
+
+  .acmwResourcesGrid {
+    grid-template-columns: 1fr;
+  }
+}
+/* ≤600px */
+@media (max-width: 600px) {
+  .acmwAboutCards {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .acmwAboutContainer h2 {
+    font-size: 2rem;
+  }
+
+  .acmwAboutIntro {
+    font-size: 1rem;
+  }
+
+  .acmwTimeline::before {
+    left: 20px;
+  }
+
+  .acmwTimelineItem {
+    padding-left: 70px;
+  }
+
+  .acmwActivitiesGrid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .acmwHero {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-inline: 1rem;
+  }
+
+  .acmwHeroLeft {
+    padding: 0;
+    margin: 0 auto;
+  }
+
+  .acmwHeroLeft h1,
+  .acmwHeroLeft p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .acmwRecentActivities {
+    padding: 60px 15px;
+  }
+
+  .acmwActivityImg {
+    height: 160px;
+  }
+
+  .acmwActivityContent h3 {
+    font-size: 1.2rem;
+  }
+
+  .acmwActivityContent p {
+    font-size: 0.95rem;
+  }
+
+  .acmwTeam {
+    padding: 60px 15px;
+  }
+
+  .acmwTeamCardBig {
+    padding: 40px 20px;
+  }
+
+  .acmwTeamSplit {
+    flex-direction: column;
+    align-items: center;   
+  }
+
+  .acmwTeamSplitCard {
+    width: 90%;
+    max-width: 320px;
+    margin: 0 auto 20px;
+  }
+
+  .acmwTeamImg, .acmwTeamImg1 {
+    width: 120px;
+    height: 120px;
+  }
+
+  .acmwTeamSplitCard h3 {
+    font-size: 1.3rem;
+  }
+
+  .acmwTeamSplitCard p {
+    font-size: 0.9rem;
+  }
+
+  .acmwSocialLinks a {
+    font-size: 1.2rem;
+  }
+}
+
+/* ≤500px */
+@media (max-width: 500px) {
+  .acmwBadgesContainer {
+    gap: 15px;
+    margin-top: -20px;
+  }
+
+  .acmwBadgeImg {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+/* ≤400px */
+@media (max-width: 400px) {
+  .acmwBadgeImg {
+    width: 30vw;
+    height: 30vw;
+  }
+
+  .acmwRecentActivities h2 {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+  }
+
+  .acmwActivityImg {
+    height: 140px;
+  }
+
+  .acmwActivityContent {
+    padding: 15px;
+  }
+
+  .acmwTeamCardBig h2 {
+    font-size: 1.5rem;
+  }
+
+  .acmwTeamSplitCard {
+    padding: 25px 15px;
+  }
+
+  .acmwTeamImg, .acmwTeamImg1 {
+    width: 100px;
+    height: 100px;
+  }
+}

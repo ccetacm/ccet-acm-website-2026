@@ -1,13 +1,13 @@
 "use client";
 import { useState, useEffect } from "react";
 import styles from "./Hero.module.css";
-import backgroundVideo from "../assets/Header_Main/Video.mp4";
+// import backgroundVideo from "../assets/Header_Main/Video.mp4";
 import HeroText from "./HeroText";
 
-import img1 from "../assets/1 (1).jpg";
-import img2 from "../assets/1 (3).jpg";
-import img3 from "../assets/1 (7).jpg";
-import img4 from "../assets/1 (10).jpg";
+// import img1 from "../assets/1 (1).jpg";
+// import img2 from "../assets/1 (3).jpg";
+// import img3 from "../assets/1 (7).jpg";
+// import img4 from "../assets/1 (10).jpg";
 
 const Hero = ({ startAnimation, cards }) => {
     const [heroAnimated, setHeroAnimated] = useState(false);
@@ -16,28 +16,28 @@ const Hero = ({ startAnimation, cards }) => {
     // Enhanced carousel data with tech themes
     const carouselData = [
         {
-            image: img1,
+            image: "/1 (1).jpg",
             title: "Innovation",
             description: "Leading technological advancement",
             techCode: "INNV_001",
             status: "ACTIVE"
         },
         {
-            image: img2,
+            image: "/1 (3).jpg",
             title: "Research",
             description: "Cutting-edge research projects",
             techCode: "RSRCH_002",
             status: "PROCESSING"
         },
         {
-            image: img3,
+            image: "/1 (7).jpg",
             title: "Community",
             description: "Building future leaders",
             techCode: "COMM_003",
             status: "ONLINE"
         },
         {
-            image: img4,
+            image: "/1 (10).jpg",
             title: "Excellence",
             description: "Academic and professional growth",
             techCode: "EXCL_004",
@@ -76,13 +76,17 @@ const Hero = ({ startAnimation, cards }) => {
             <div className={`${styles.heroContainer} ${heroAnimated ? styles.animate : ""}`}>
                 {/* Background Video */}
                 <video className={styles.backgroundVideo} autoPlay muted loop>
-                    <source src={backgroundVideo} type="video/mp4" />
+                    <source src="/Header_Main/Video.mp4" type="video/mp4" />
                     Your browser does not support the video tag.
                 </video>
 
                 <div className={styles.hero}>
                     <div className={styles.textContainer}>
                         <HeroText />
+                        {/* Added subtitle under hero text */}
+                        <p className={styles.heroSubtitle}>
+                            Empowering next generation of computer scientists and technologists
+                        </p>
                     </div>
                 </div>
 
@@ -106,32 +110,6 @@ const Hero = ({ startAnimation, cards }) => {
                             alt={carouselData[currentSlide].title}
                             className={styles.carouselImage}
                         />
-
-                        {/* Tech HUD Overlay */}
-                        <div className={styles.hudOverlay}>
-                            {/* Status Indicator */}
-                            <div className={styles.statusBar}>
-                                <span className={styles.statusDot}></span>
-                                <span className={styles.statusText}>{carouselData[currentSlide].status}</span>
-                            </div>
-
-                            {/* Tech Code */}
-                            <div className={styles.techCode}>
-                                {carouselData[currentSlide].techCode}
-                            </div>
-
-                            {/* Progress Bar */}
-                            <div className={styles.progressBar}>
-                                <div className={styles.progressFill}></div>
-                            </div>
-
-                            {/* Data Grid */}
-                            <div className={styles.dataGrid}>
-                                <div className={styles.dataLine}></div>
-                                <div className={styles.dataLine}></div>
-                                <div className={styles.dataLine}></div>
-                            </div>
-                        </div>
 
                         {/* Navigation Buttons */}
                         <button
@@ -159,16 +137,8 @@ const Hero = ({ startAnimation, cards }) => {
                                     className={`${styles.techDot} ${index === currentSlide ? styles.activeTechDot : ''}`}
                                     onClick={() => goToSlide(index)}
                                 >
-                                    <div className={styles.dotCore}></div>
-                                    <div className={styles.dotRing}></div>
                                 </button>
                             ))}
-                        </div>
-
-                        {/* Tech Panel Info */}
-                        <div className={styles.techPanel}>
-                            <div className={styles.panelTitle}>{carouselData[currentSlide].title}</div>
-                            <div className={styles.panelDesc}>{carouselData[currentSlide].description}</div>
                         </div>
                     </div>
                 </div>
@@ -178,17 +148,17 @@ const Hero = ({ startAnimation, cards }) => {
             <div className={`${styles.breakingBar} ${startAnimation ? styles.animate : ""}`}>
                 <div className={styles.scrollingText}>
                     <span className={styles.barText}>◆ Innovation in Computing</span>
-                    <span className={styles.barSeparator}>◊</span>
+                    <span className={styles.barSeparator}>◦</span>
                     <span className={styles.barText}>◆ Research Excellence</span>
-                    <span className={styles.barSeparator}>◊</span>
+                    <span className={styles.barSeparator}>◦</span>
                     <span className={styles.barText}>◆ Student Development</span>
-                    <span className={styles.barSeparator}>◊</span>
+                    <span className={styles.barSeparator}>◦</span>
                     <span className={styles.barText}>◆ Technology Leadership</span>
-                    <span className={styles.barSeparator}>◊</span>
+                    <span className={styles.barSeparator}>◦</span>
                     <span className={styles.barText}>◆ Professional Growth</span>
-                    <span className={styles.barSeparator}>◊</span>
+                    <span className={styles.barSeparator}>◦</span>
                     <span className={styles.barText}>◆ Industry Collaboration</span>
-                    <span className={styles.barSeparator}>◊</span>
+                    <span className={styles.barSeparator}>◦</span>
                 </div>
             </div>
         </>

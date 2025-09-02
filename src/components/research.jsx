@@ -1,7 +1,7 @@
 "use client";
-
+import { useEffect, useState } from "react";
 import Lottie from "lottie-react";
-import researchAnimation from "../assets/Analytical Thinking Illustration.json";
+// import researchAnimation from "../assets/animation/Analytical Thinking Illustration.json";
 import { Brain, Leaf, Zap, ArrowRight } from "lucide-react";
 
 const researchFocusAreas = [
@@ -11,6 +11,16 @@ const researchFocusAreas = [
 ];
 
 const ResearchLabIsolated = () => {
+  const [animationData, setAnimationData] = useState(null);
+
+  // Load animation JSON from public folder
+  useEffect(() => {
+    fetch("/animations/Analytical Thinking Illustration.json")
+      .then((res) => res.json())
+      .then((data) => setAnimationData(data))
+      .catch((err) => console.error("Failed to load animation:", err));
+  }, []);
+
   const handleExploreResearch = () => {
     console.log("Exploring research...");
   };
@@ -55,7 +65,7 @@ const ResearchLabIsolated = () => {
 
         {/* Right Lottie Animation */}
         <div className="research-lab-isolated-animation">
-          <Lottie animationData={researchAnimation} loop={true} />
+          {animationData && <Lottie animationData={animationData} loop={true} />}
           <button
             onClick={handleExploreResearch}
             className="research-lab-isolated-explore-btn"
