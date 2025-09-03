@@ -27,7 +27,7 @@ const Gallery = () => {
       anim: "/animations/Coding.json",
       title: "Talk with Techies",
       desc: "Engaging conversations with tech experts to inspire and inform.",
-      link: "TalkWithTechies",
+      link: "#talk-with-techies",
     },
     {
       anim: "/animations/Man and robot with computers sitting together in workplace.json",
