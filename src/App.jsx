@@ -10,6 +10,8 @@ import ResearchLabIsolated from "./components/research.jsx";
 import Mentors from "./components/Mentors.jsx";
 
 const App = () => {
+
+    
     const [startHeroAnimation, setStartHeroAnimation] = useState(false);
 
     useEffect(() => {
@@ -59,6 +61,7 @@ const App = () => {
             <Mentors />
             <Teams />
         </div>
+        
     );
 };
 
