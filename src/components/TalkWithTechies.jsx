@@ -258,14 +258,12 @@ const UpcomingSessionsSection = () => (
     </section>
 );
 
-// --- MAIN APP COMPONENT --- //
-export default function App() {
-  return (
-    <main>
-      <HeroSection />
-      <WhySection />
-      <UpcomingSessionsSection />
-    </main>
-  );
+export default function TalkWithTechies() {
+    return (
+        <main>
+            <HeroSection />
+            <WhySection />
+            <UpcomingSessionsSection />
+        </main>
+    );
 }
-
