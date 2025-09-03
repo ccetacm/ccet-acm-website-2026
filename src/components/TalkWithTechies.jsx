@@ -46,7 +46,7 @@ const SESSIONS_DATA = [
         tags: ["AI", "Machine Learning", "Career"],
         date: "May 27, 2022",
         attendees: 75,
-        imgSrc: "UpcomingSessions1.jpg"
+        imgSrc: "/TalkWithTechies/UpcomingSessions1.jpg"
     },
     {
         speaker: "Mr Saurabh Pratap Singh",
@@ -55,7 +55,7 @@ const SESSIONS_DATA = [
         tags: ["Architecture", "System Design", "Backend"],
         date: "Aug. 31, 2021",
         attendees: 30,
-        imgSrc: "UpcomingSessions2.jpg"
+        imgSrc: "/TalkWithTechies/UpcomingSessions2.jpg"
     }
 ];
 

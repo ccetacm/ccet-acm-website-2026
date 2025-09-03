@@ -40,8 +40,7 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  /* Note: Assumes background image is in your `public/images` folder */
-  background-image: linear-gradient(rgba(30,64,175,0.6), rgba(30,58,138,0.8)), url('TalkWithTechiesBG.jpg');
+  background-image: linear-gradient(rgba(30,64,175,0.6), rgba(30,58,138,0.8)), url('/TalkWithTechies/TalkWithTechiesBG.png');
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
