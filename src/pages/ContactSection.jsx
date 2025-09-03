@@ -13,9 +13,12 @@ function ContactSection() {
           </p>
         </div>
 
-        <div className="contact-content">
-          <ContactInfo />
-          <div className="contact-form slide-in-right">
+        {/* Flex container to align and equalize cards */}
+        <div style={{ display: "flex", gap: "20px", alignItems: "stretch" }}>
+          <div className="contact-card" style={{ flex: 1 }}>
+            <ContactInfo />
+          </div>
+          <div className="contact-card" style={{ flex: 1 }}>
             <ContactForm />
           </div>
         </div>

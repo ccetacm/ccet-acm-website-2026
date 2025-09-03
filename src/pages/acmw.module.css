@@ -19,7 +19,7 @@
   z-index: 1;
 }
 
-body {
+.acmwbody {
   margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: linear-gradient(135deg, #e0f7fa, #f9f9fb, #90e0ef);
@@ -125,7 +125,7 @@ body {
   align-items: center;
   gap: 5vw;           
   flex-wrap: nowrap;  
-  margin-top: -8vh;
+  margin-top: -14vh;
   overflow-x: hidden; 
 }
 
@@ -141,7 +141,7 @@ body {
    acmw-ABOUT SECTION
    ========================= */
 .acmwAbout {
-  padding: 100px 20px;
+  /* padding: 100px 20px; */
   color: #03045e;
   position: relative;
   z-index: 1;
@@ -230,7 +230,7 @@ body {
    acmw-WHAT WE DO (acmw-TIMELINE)
    ========================= */
 .acmwWhatWeDo {
-  padding: 80px 20px;
+  padding: 50px 20px;
   color: #03045e;
 }
 
@@ -306,7 +306,7 @@ body {
    acmw-RECENT ACTIVITIES
    ========================= */
 .acmwRecentActivities {
-  padding: 100px 20px;
+  /* padding: 100px 20px; */
   text-align: center;
 }
 
@@ -398,13 +398,13 @@ body {
    acmw-RESOURCES
    ========================= */
 .acmwResources {
-  padding: 100px 20px;
+  /* padding: 100px 20px; */
   text-align: center;
 }
 
 .acmwResources h2 {
   font-size: clamp(1.8rem, 5vw, 3.5rem);
-  margin-bottom: 60px;
+  margin-bottom: 50px;
   color: #03045e;
   text-transform: uppercase;
 }
@@ -479,7 +479,7 @@ body {
    acmw-TEAM SECTION
    ========================= */
 .acmwTeam {
-  padding: 100px 20px;
+  /* padding: 100px 20px; */
   display: flex;
   justify-content: center;
 }
@@ -910,4 +910,13 @@ body {
     width: 100px;
     height: 100px;
   }
+}
+
+.acmwIntro,
+.acmwMission,
+.acmwBadges,
+.acmwActivities,
+.acmwTeam,
+.acmwResources {
+  padding: 50px 20px; /* instead of 100px */
 }

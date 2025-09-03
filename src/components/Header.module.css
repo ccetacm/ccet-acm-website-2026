@@ -24,6 +24,21 @@
     animation: navbarSlide 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
+@keyframes techGlow {
+    0% {
+        background-position: 0% 50%;
+        text-shadow: 0 0 15px rgba(52, 237, 243, 0.4), 0 0 25px rgba(30, 64, 175, 0.3);
+    }
+    50% {
+        background-position: 100% 50%;
+        text-shadow: 0 0 20px rgba(52, 237, 243, 0.6), 0 0 30px rgba(30, 64, 175, 0.4), 0 0 40px rgba(147, 51, 234, 0.3);
+    }
+    100% {
+        background-position: 0% 50%;
+        text-shadow: 0 0 15px rgba(52, 237, 243, 0.4), 0 0 25px rgba(30, 64, 175, 0.3);
+    }
+}
+
 @keyframes navbarSlide {
     0% {
         transform: translateY(-100%);
@@ -67,12 +82,42 @@
     transform: scale(1.05);
 }
 
+/* Mobile Left Logo - Hidden by default, shown only on mobile */
+.mobileLeftLogo {
+    display: none;
+}
+
+/* Mobile Center Text - Hidden by default, shown only on mobile */
+.mobileCenterText {
+    display: none;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.mobileTitle {
+    font-family: 'Courier New', 'Monaco', 'Consolas', 'Liberation Mono', monospace;
+    font-size: 20px;
+    font-weight: 700;
+    color: #070f34;
+    letter-spacing: 3px;
+    margin: 0;
+    text-transform: uppercase;
+    text-shadow: 0 0 15px rgba(52, 237, 243, 0.4);
+    background: linear-gradient(135deg, #070f34, #1e40af, #34edf3);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 200%;
+    animation: techGlow 3s ease-in-out infinite alternate;
+}
+
 /* Navigation Links */
 .navLinks {
     flex: 1 1 auto;
     display: flex;
     justify-content: center;
-    gap: 40px;
+    gap: 30px;
 }
 
 .staticLogo img,
@@ -113,29 +158,30 @@
     width: 100%;
 }
 
-/* Hamburger Menu - Make sure it's visible on mobile */
+/* Hamburger Menu */
 .hamburgerMenu {
-    display: none; /* Hidden by default */
+    display: none;
     flex-direction: column;
     background: none;
     border: none;
     cursor: pointer;
-    padding: 5px;
+    padding: 8px;
     z-index: 1001;
+    position: relative;
 }
 
 .hamburgerLine {
-    width: 25px;
-    height: 3px;
+    width: 24px;
+    height: 2px;
     background: #070f34;
-    margin: 3px 0;
-    transition: all 0.3s ease;
+    margin: 2px 0;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     border-radius: 2px;
 }
 
 .hamburgerMenu.active .hamburgerLine:nth-child(1) {
-    transform: rotate(45deg) translate(6px, 6px);
-    background: #f715ab;
+    transform: rotate(45deg) translate(5px, 5px);
+    background: #ffffff;
 }
 
 .hamburgerMenu.active .hamburgerLine:nth-child(2) {
@@ -143,61 +189,76 @@
 }
 
 .hamburgerMenu.active .hamburgerLine:nth-child(3) {
-    transform: rotate(-45deg) translate(6px, -6px);
-    background: #f715ab;
+    transform: rotate(-45deg) translate(7px, -6px);
+    background: #ffffff;
 }
 
 /* Mobile view */
 @media (max-width: 768px) {
+    .navbar {
+        padding: 10px 20px;
+        height: 75px;
+    }
+
+    /* Hide desktop static logo */
     .staticLogo {
         display: none;
     }
 
-    .logoSwitcher {
+    /* Hide desktop right logo */
+    .navbarRight {
+        display: none;
+    }
+
+    /* Show mobile left logo */
+    .mobileLeftLogo {
         display: block;
     }
 
-    .navbarRight {
-        order: -1;
-        margin-right: auto;
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        padding-top: 5px;
+    .mobileTitle{
+        font-size: 45px;
     }
 
-    .logoSwitcher img {
+    .mobileLeftLogo .logoSwitcher {
         height: 50px;
-        width: auto;
-        margin-top: -3px;
+        width: 64px;
     }
 
+    .mobileLeftLogo .switchingLogo {
+        height: 100%;
+        width: 100%;
+        object-fit: contain;
+    }
+
+    /* Show mobile center text */
+    .mobileCenterText {
+        display: block;
+    }
+
+    /* Hide desktop navigation */
     .navLinks {
         display: none;
     }
 
-    /* Show hamburger menu on mobile */
+    /* Show hamburger menu */
     .hamburgerMenu {
         display: flex;
     }
 }
 
-/* Mobile Menu */
+/* Mobile Menu Overlay - Arena Style */
 .mobileMenuOverlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100vh;
-    background: rgba(7, 15, 52, 0.95);
-    backdrop-filter: blur(10px);
-    z-index: 999;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background: rgba(15, 23, 42, 0.98);
+    backdrop-filter: blur(20px);
+    z-index: 1500;
     opacity: 0;
     visibility: hidden;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .mobileMenuOverlay.active {
@@ -205,85 +266,248 @@
     visibility: visible;
 }
 
-.mobileMenu {
+.mobileMenuContent {
+    height: 100%;
     display: flex;
     flex-direction: column;
-    gap: 30px;
-    text-align: center;
+    transform: translateY(-100%);
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.mobileMenu a {
-    color: #f9fbfc;
+.mobileMenuOverlay.active .mobileMenuContent {
+    transform: translateY(0);
+}
+
+/* Menu Header */
+.mobileMenuHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px;
+    padding-top: 80px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.menuTitle {
+    font-size: 32px;
+    font-weight: 900;
+    color: #ffffff;
+    letter-spacing: 3px;
+    text-shadow: 0 0 20px rgba(52, 237, 243, 0.3);
+}
+
+.closeButton {
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 8px 16px;
+    border-radius: 6px;
+}
+
+.closeButton:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(-4px);
+}
+
+/* Navigation Items */
+.mobileMenuNav {
+    flex: 1;
+    padding: 0 24px;
+    overflow-y: auto;
+}
+
+.mobileMenuItem {
+    display: block;
     text-decoration: none;
-    font-size: 24px;
-    font-weight: 600;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+.mobileMenuItem:hover {
+    background: linear-gradient(90deg, rgba(52, 237, 243, 0.1), rgba(147, 51, 234, 0.1));
+    padding-left: 16px;
+    border-left: 3px solid #34edf3;
+}
+
+.menuItemContent {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.menuItemText {
+    font-size: 20px;
+    font-weight: 900;
+    color: #ffffff;
     letter-spacing: 2px;
     transition: all 0.3s ease;
-    padding: 10px 20px;
-    border-radius: 10px;
+    text-shadow: 0 0 10px rgba(52, 237, 243, 0.2);
 }
 
-.mobileMenu a:hover {
-    color: #f715ab;
-    background: rgba(247, 21, 171, 0.1);
-    text-shadow: 0 0 10px rgba(247, 21, 171, 0.7);
+.mobileMenuItem:hover .menuItemText {
+    color: #34edf3;
+    text-shadow: 0 0 15px rgba(52, 237, 243, 0.5);
+    transform: translateX(8px);
 }
 
+.menuItemIcon {
+    width: 24px;
+    height: 24px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.menuItemIcon svg {
+    width: 12px;
+    height: 12px;
+    color: rgba(255, 255, 255, 0.6);
+    transition: all 0.3s ease;
+}
+
+.mobileMenuItem:hover .menuItemIcon {
+    border-color: #34edf3;
+    background: rgba(52, 237, 243, 0.2);
+    transform: scale(1.1) translateX(-8px);
+}
+
+.mobileMenuItem:hover .menuItemIcon svg {
+    color: #34edf3;
+    transform: translateX(2px);
+}
+
+/* Menu Footer */
+.mobileMenuFooter {
+    padding: 24px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.menuFooterContent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+}
+
+.menuFooterIcon {
+    width: 32px;
+    height: 32px;
+    background: linear-gradient(135deg, #34edf3, #9333ea);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 20px rgba(52, 237, 243, 0.3);
+}
+
+.menuFooterIcon svg {
+    width: 16px;
+    height: 16px;
+    color: #ffffff;
+}
+
+.menuFooterText {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+/* Responsive adjustments */
 @media (max-width: 480px) {
     .navbar {
-        padding: 10px 15px;
+        padding: 10px 16px;
+        height: 75px;
     }
 
-    .logoSwitcher {
-        height: 40px;
-        width: 65px;
+    .mobileLeftLogo .logoSwitcher {
+        height: 42px;
+        width: 56px;
+    }
+
+    .mobileTitle {
+        font-size: 27px;
+        letter-spacing: 2.5px;
+    }
+
+    .mobileMenuHeader {
+        padding: 16px 20px;
+        padding-top: 75px;
+        padding-bottom: 24px;
+    }
+
+    .menuTitle {
+        font-size: 28px;
+        letter-spacing: 2px;
+    }
+
+    .mobileMenuNav {
+        padding: 0 20px;
+    }
+
+    .menuItemText {
+        font-size: 18px;
+    }
+
+    .mobileMenuFooter {
+        padding: 20px;
     }
 }
 
 @media (max-width: 320px) {
     .navbar {
         padding: 8px 12px;
+        height: 80px;
     }
 
-    .logoSwitcher {
-        height: 35px;
-        width: 55px;
+    .mobileLeftLogo .logoSwitcher {
+        height: 38px;
+        width: 50px;
     }
 
-    .navbarLeft {
-        gap: 8px;
-    }
-
-    .hamburgerMenu {
-        padding: 4px;
+    .mobileTitle {
+        font-size: 20px;
+        letter-spacing: 2px;
     }
 
     .hamburgerLine {
         width: 20px;
-        height: 2px;
-    }
-}
-
-@media (max-width: 280px) {
-    .navbar {
-        padding: 5px 8px;
     }
 
-    .logoSwitcher {
-        height: 28px;
-        width: 42px;
+    .mobileMenuHeader {
+        padding: 12px 16px;
+        padding-top: 70px;
+        padding-bottom: 20px;
     }
 
-    .navbarLeft {
-        gap: 4px;
+    .menuTitle {
+        font-size: 24px;
     }
 
-    .hamburgerMenu {
-        padding: 2px;
+    .mobileMenuNav {
+        padding: 0 16px;
     }
 
-    .hamburgerLine {
-        width: 16px;
-        height: 2px;
+    .menuItemText {
+        font-size: 16px;
+        letter-spacing: 1px;
+    }
+
+    .menuFooterText {
+        font-size: 12px;
     }
 }
