@@ -16,6 +16,7 @@ import Resources from "./components/Resources.jsx";
 import Header from "./components/Header.jsx";
 import Loader from "./components/loader.jsx";
 import ACMW from "./pages/acmw.jsx";
+import ICRG from "./pages/icrg.jsx";
 import TalkWithTechies from "./components/TalkWithTechies.jsx";
 import ScrollToTop from "./components/ScrollToTop.jsx";
 
@@ -108,6 +109,7 @@ const AppWrapper = () => {
               <Route path="/mentors" element={<Mentors />} />
               <Route path="/teams" element={<Teams />} />
               <Route path="/acmw" element={<ACMW />} />
+              <Route path="/icrg" element={<ICRG />} />
               <Route path="/TalkWithTechies" element={<TalkWithTechies />} />
               <Route path="/talk-with-techies" element={<TalkWithTechies />} />
               <Route path="*" element={<h2>404 - Page Not Found</h2>} />
