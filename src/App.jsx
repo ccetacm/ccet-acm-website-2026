@@ -8,7 +8,6 @@ import SocialMedia from "./components/SocialMedia";
 import Teams from "./components/testimonials.jsx";
 import ResearchLabIsolated from "./components/research.jsx";
 import Mentors from "./components/Mentors.jsx";
-import Gallery from "./components/Gallery.jsx";
 
 const App = () => {
     const [startHeroAnimation, setStartHeroAnimation] = useState(false);
@@ -59,7 +58,6 @@ const App = () => {
             <MagazineScroller />
             <Mentors />
             <Teams />
-            <Gallery />
         </div>
     );
 };
