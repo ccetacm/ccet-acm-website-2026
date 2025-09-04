@@ -16,23 +16,23 @@ const STATS_DATA = [
 ];
 
 const FEATURES_DATA = [
-    { 
-        title: "1:1 Mentorship", 
+    {
+        title: "1:1 Mentorship",
         description: "Personal guidance from industry veterans",
         icon: <svg xmlns="http://www.w3.org/2000/svg" className={styles.featureIconSvg} fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283-.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
     },
-    { 
-        title: "Expert Network", 
+    {
+        title: "Expert Network",
         description: "Connect with leaders from top tech companies",
         icon: <svg xmlns="http://www.w3.org/2000/svg" className={styles.featureIconSvg} fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.196-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.783-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" /></svg>
     },
-    { 
-        title: "Career Insights", 
+    {
+        title: "Career Insights",
         description: "Get insider knowledge about tech careers",
         icon: <svg xmlns="http://www.w3.org/2000/svg" className={styles.featureIconSvg} fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" /></svg>
     },
-    { 
-        title: "Skill Growth", 
+    {
+        title: "Skill Growth",
         description: "Accelerate your learning journey",
         icon: <svg xmlns="http://www.w3.org/2000/svg" className={styles.featureIconSvg} fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>
     },
@@ -62,35 +62,35 @@ const SESSIONS_DATA = [
 // --- HOOKS & UTILITY COMPONENTS --- //
 
 const useScrollAnimation = (options = { threshold: 0.15, root: null, rootMargin: "0px" }) => {
-  const ref = useRef(null);
-  const [isVisible, setIsVisible] = useState(false);
+    const ref = useRef(null);
+    const [isVisible, setIsVisible] = useState(false);
 
-  useEffect(() => {
-    const node = ref.current;
-    if (!node) return;
+    useEffect(() => {
+        const node = ref.current;
+        if (!node) return;
 
-    const observer = new IntersectionObserver(([entry]) => {
-      setIsVisible(entry.isIntersecting);
-    }, options);
+        const observer = new IntersectionObserver(([entry]) => {
+            setIsVisible(entry.isIntersecting);
+        }, options);
 
-    observer.observe(node);
-    return () => observer.disconnect();
-  }, [options]);
+        observer.observe(node);
+        return () => observer.disconnect();
+    }, [options]);
 
-  return [ref, isVisible];
+    return [ref, isVisible];
 };
 
 const ScrollAnimated = memo(({ children, delay = 0 }) => {
-  const [ref, isVisible] = useScrollAnimation();
-  return (
-    <div
-      ref={ref}
-      className={`${styles.scrollAnimate} ${isVisible ? styles.isVisible : ""}`}
-      style={{ transitionDelay: `${delay}s` }}
-    >
-      {children}
-    </div>
-  );
+    const [ref, isVisible] = useScrollAnimation();
+    return (
+        <div
+            ref={ref}
+            className={`${styles.scrollAnimate} ${isVisible ? styles.isVisible : ""}`}
+            style={{ transitionDelay: `${delay}s` }}
+        >
+            {children}
+        </div>
+    );
 });
 ScrollAnimated.displayName = 'ScrollAnimated';
 
@@ -98,43 +98,43 @@ ScrollAnimated.displayName = 'ScrollAnimated';
 const progressDone = (c, t) => c >= t;
 
 const AnimatedCounter = memo(({ target, suffix = "" }) => {
-  const [count, setCount] = useState(0);
-  const [ref, isVisible] = useScrollAnimation();
-  const rafRef = useRef(null);
+    const [count, setCount] = useState(0);
+    const [ref, isVisible] = useScrollAnimation();
+    const rafRef = useRef(null);
 
-  useEffect(() => {
-    if (!isVisible) {
-      setCount(0);
-      if (rafRef.current) cancelAnimationFrame(rafRef.current);
-      return;
-    }
-
-    let startTs = null;
-    const duration = 1200;
-
-    const step = (ts) => {
-      if (!startTs) startTs = ts;
-      const progress = Math.min((ts - startTs) / duration, 1);
-      const value = Math.round(progress * target);
-      setCount(value);
-      if (progress < 1) {
-        rafRef.current = requestAnimationFrame(step);
-      }
-    };
-
-    rafRef.current = requestAnimationFrame(step);
-    return () => {
-        if (rafRef.current) {
-            cancelAnimationFrame(rafRef.current);
+    useEffect(() => {
+        if (!isVisible) {
+            setCount(0);
+            if (rafRef.current) cancelAnimationFrame(rafRef.current);
+            return;
         }
-    };
-  }, [isVisible, target]);
 
-  return (
-    <p ref={ref} className={styles.statNumber}>
-      {count}{progressDone(count, target) ? suffix : ""}
-    </p>
-  );
+        let startTs = null;
+        const duration = 1200;
+
+        const step = (ts) => {
+            if (!startTs) startTs = ts;
+            const progress = Math.min((ts - startTs) / duration, 1);
+            const value = Math.round(progress * target);
+            setCount(value);
+            if (progress < 1) {
+                rafRef.current = requestAnimationFrame(step);
+            }
+        };
+
+        rafRef.current = requestAnimationFrame(step);
+        return () => {
+            if (rafRef.current) {
+                cancelAnimationFrame(rafRef.current);
+            }
+        };
+    }, [isVisible, target]);
+
+    return (
+        <p ref={ref} className={styles.statNumber}>
+            {count}{progressDone(count, target) ? suffix : ""}
+        </p>
+    );
 });
 AnimatedCounter.displayName = 'AnimatedCounter';
 
@@ -144,7 +144,7 @@ const TypingEffect = () => {
     const [isDeleting, setIsDeleting] = useState(false);
     const [loopNum, setLoopNum] = useState(0);
     const phrases = ["Shape Your Tech Future", "Learn from the Best", "Connect with Tech Leaders"];
-    
+
     useEffect(() => {
         const handleTyping = () => {
             const i = loopNum % phrases.length;
@@ -207,7 +207,16 @@ const SessionCard = ({ session }) => (
                 <p>📅 {session.date}</p>
                 <p>👥 {session.attendees} attendees</p>
             </div>
-            <a href="#" className={styles.seeMoreLink}>See More →</a>
+            <button
+                className={styles.seeMoreLink}
+                onClick={(e) => {
+                    e.preventDefault();
+                    console.log('See more clicked for:', session.speaker);
+                    // Add your see more logic here
+                }}
+            >
+                See More →
+            </button>
         </div>
     </div>
 );
@@ -270,12 +279,11 @@ const UpcomingSessionsSection = () => (
 
 // --- MAIN APP COMPONENT --- //
 export default function App() {
-  return (
-    <main className={styles.pageWrapper}>
-      <HeroSection />
-      <WhySection />
-      <UpcomingSessionsSection />
-    </main>
-  );
+    return (
+        <main className={styles.pageWrapper}>
+            <HeroSection />
+            <WhySection />
+            <UpcomingSessionsSection />
+        </main>
+    );
 }
-
