@@ -17,7 +17,8 @@ import Header from "./components/Header.jsx";
 import Loader from "./components/loader.jsx";
 import ACMW from "./pages/acmw.jsx";
 import TalkWithTechies from "./components/TalkWithTechies.jsx";
-import ScrollToTop from "./components/scrollToTop.jsx";
+import ScrollToTop from "./components/ScrollToTop.jsx";
+
 
 // Import images for logos
 // import nepImg from "./assets/Header_Main/NEP_2020.png";
