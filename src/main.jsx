@@ -1,6 +1,6 @@
 import { StrictMode, useState, useEffect } from "react";
 import { createRoot } from "react-dom/client";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 
 import App from "./App.jsx";
 import About from "./pages/About.jsx";
@@ -12,7 +12,7 @@ import Teams from "./components/testimonials.jsx";
 import ResearchLabIsolated from "./components/research.jsx";
 import Mentors from "./components/Mentors.jsx";
 import Footer from "./components/Footer.jsx";
-import Resources from "./components/Resources.jsx";  
+import Resources from "./components/Resources.jsx";
 import Header from "./components/Header.jsx";
 import Loader from "./components/loader.jsx";
 import ACMW from "./pages/acmw.jsx";
@@ -68,55 +68,56 @@ const AppWrapper = () => {
   }, [hasLoadedOnce]);
 
   return (
-    <>
-      {!hideLoader && !hasLoadedOnce && (
-        <div
-          className={`loader-overlay-wrapper ${fadeOut ? "fade-out" : ""}`}
-          style={{
-            position: "fixed",
-            inset: 0,
-            backgroundColor: "#CAF0F8",
-            zIndex: 9999,
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            opacity: fadeOut ? 0 : 1,
-            pointerEvents: fadeOut ? "none" : "auto",
-            transition: "opacity 0.5s ease-out",
-          }}
-        >
-          <Loader />
-        </div>
-      )}
+      <>
+        {!hideLoader && !hasLoadedOnce && (
+            <div
+                className={`loader-overlay-wrapper ${fadeOut ? "fade-out" : ""}`}
+                style={{
+                  position: "fixed",
+                  inset: 0,
+                  backgroundColor: "#CAF0F8",
+                  zIndex: 9999,
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  opacity: fadeOut ? 0 : 1,
+                  pointerEvents: fadeOut ? "none" : "auto",
+                  transition: "opacity 0.5s ease-out",
+                }}
+            >
+              <Loader />
+            </div>
+        )}
 
-      <Router>
-        <Header startAnimation={true} logos={logos} />
+        <Router>
+          <Header startAnimation={true} logos={logos} />
 
-        <main style={{ paddingTop: "95px" }}>
-          <Routes>
-            <Route path="/" element={<App />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/initiatives" element={<Initiatives />} />
-            <Route path="/vision" element={<Vision />} />
-            <Route path="/events" element={<Event />} />
-            <Route path="/research" element={<Resources />} />
-            <Route path="/magazine" element={<MagazineScroller />} />
-            <Route path="/mentors" element={<Mentors />} />
-            <Route path="/teams" element={<Teams />} />
-            <Route path="/acmw" element={<ACMW />} />
-            <Route path="/TalkWithTechies" element={<TalkWithTechies />} />
-            <Route path="*" element={<h2>404 - Page Not Found</h2>} />
-          </Routes>
-        </main>
+          <main style={{ paddingTop: "95px" }}>
+            <Routes>
+              <Route path="/" element={<App />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/initiatives" element={<Initiatives />} />
+              <Route path="/vision" element={<Vision />} />
+              <Route path="/events" element={<Event />} />
+              <Route path="/research" element={<Resources />} />
+              <Route path="/magazine" element={<MagazineScroller />} />
+              <Route path="/mentors" element={<Mentors />} />
+              <Route path="/teams" element={<Teams />} />
+              <Route path="/acmw" element={<ACMW />} />
+              <Route path="/TalkWithTechies" element={<TalkWithTechies />} />
+              <Route path="/talk-with-techies" element={<TalkWithTechies />} />
+              <Route path="*" element={<h2>404 - Page Not Found</h2>} />
+            </Routes>
+          </main>
 
-        <Footer />
-      </Router>
-    </>
+          <Footer />
+        </Router>
+      </>
   );
 };
 
 createRoot(document.getElementById("root")).render(
-  <StrictMode>
-    <AppWrapper />
-  </StrictMode>
+    <StrictMode>
+      <AppWrapper />
+    </StrictMode>
 );
