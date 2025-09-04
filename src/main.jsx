@@ -11,6 +11,7 @@ import MagazineScroller from "./components/MagazineScroller.jsx";
 import Teams from "./components/testimonials.jsx";
 import ResearchLabIsolated from "./components/research.jsx";
 import Mentors from "./components/Mentors.jsx";
+import Gallery from "./components/Gallery.jsx";
 import Footer from "./components/Footer.jsx";
 import Header from "./components/Header.jsx";
 import Loader from "./components/loader.jsx";
@@ -139,7 +140,8 @@ const AppWrapper = () => {
               <Route path="/magazine" element={<MagazineScroller />} />
               <Route path="/mentors" element={<Mentors />} />
               <Route path="/teams" element={<Teams />} />
-              <Route path="*" element={<h2>404 - Page Not Found</h2>} />
+              <Route path="/gallery" element={<Gallery />} />
+               <Route path="*" element={<h2>404 - Page Not Found</h2>} />
             </Routes>
           </main>
 
