@@ -1,7 +1,6 @@
 "use client";
-
-import Lottie from "lottie-react";
-import researchAnimation from "../assets/Analytical Thinking Illustration.json";
+import React from "react";
+import { Player } from "@lottiefiles/react-lottie-player";
 import { Brain, Leaf, Zap, ArrowRight } from "lucide-react";
 
 const researchFocusAreas = [
@@ -55,7 +54,12 @@ const ResearchLabIsolated = () => {
 
         {/* Right Lottie Animation */}
         <div className="research-lab-isolated-animation">
-          <Lottie animationData={researchAnimation} loop={true} />
+          <Player
+            autoplay
+            loop
+            src="/animations/Analytical Thinking Illustration.json"
+            style={{ height: "300px", width: "300px" }}
+          />
           <button
             onClick={handleExploreResearch}
             className="research-lab-isolated-explore-btn"
@@ -66,6 +70,7 @@ const ResearchLabIsolated = () => {
         </div>
       </div>
 
+      {/* --- Styles --- */}
       <style>{`
         .research-lab-isolated-wrapper {
           padding: 20px;
@@ -85,7 +90,7 @@ const ResearchLabIsolated = () => {
           width: 100%;
           box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
           border-top: 4px solid #00296b;
-          margin-top: -80px;
+          margin-top: -20px;
           text-align:center;
         }
 

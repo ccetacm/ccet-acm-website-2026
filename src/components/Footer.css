@@ -44,6 +44,8 @@
   gap: 20px;
   max-width: 100%;
   box-sizing: border-box;
+ border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
 }
 
 /* Footer Sections */
@@ -65,8 +67,10 @@
 }
 
 .footer-right {
-  justify-content: flex-end;
-  text-align: right;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* or center */
+  align-items: flex-start;     /* start from left */
 }
 
 /* Footer Center */
@@ -77,6 +81,7 @@
   flex: 2;
   min-width: 300px;
   flex-wrap: wrap;
+  margin-left:50px;
 }
 
 .footer-column {
@@ -108,14 +113,23 @@
 }
 
 /* Footer Logos */
-.footer-logo,
-.footer-logo2 {
+.footer-logo{
   margin-top: 25px;
   height: auto;
   max-height: 120px;
   width: auto;
   max-width: 150px;
   object-fit: contain;
+  margin-right:100px
+}
+.footer-logo2 {
+  display: block;
+  margin-top: 25px;
+  max-width: 150px;
+  max-height: 120px;
+
+  /* Push slightly to the right */
+  margin-left: 200px; /* adjust this value as needed */
 }
 
 /* Footer Text Elements */
@@ -123,6 +137,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  margin-left:90px;
 }
 
 .textsetup {
@@ -172,6 +187,7 @@
     gap: 20px;
     width: 100%;
     min-width: auto;
+    margin-left:0px;
   }
   
   .footer-column {
@@ -179,10 +195,14 @@
     min-width: auto;
   }
   
-  .footer-logo,
-  .footer-logo2 {
+  .footer-logo {
     margin-top: 15px;
     max-width: 100px;
+    max-height: 80px;
+  }
+  .footer-logo2 {
+    margin-left: 0; /* reset left margin */
+    max-width: 100px; /* smaller logo on mobile */
     max-height: 80px;
   }
   
@@ -193,13 +213,15 @@
     font-size: 1rem;
   }
   
-  .footer-right {
-    justify-content: center;
-    text-align: center;
+.footer-right {
+    justify-content: center; 
+    align-items: center; /* center everything on mobile */
+    width: 100%;
   }
   
   .footer-text-right {
     align-items: center;
+    margin-left:0px;
   }
   
   .developed-by h3,

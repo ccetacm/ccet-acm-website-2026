@@ -3,6 +3,12 @@
 // About.jsx
 import { useEffect, useState } from "react";
 import "./About.css";
+// import acmDiamondLogo from "../assets/acm-logo/acmlogo.png";
+// import ccetAcmLogo from "../assets/acm-logo/ccet-acm-logo_black_bg.png";
+// import acmWLogo from "../assets/acm-logo/acm-w-logo.png";
+import ContactSection from "./ContactSection";
+
+
 import {
   FaChevronDown,
   FaChevronUp,
@@ -92,10 +98,10 @@ function About() {
             <div className="hero-visual fade-in-right">
               <div className="acm-logo-display">
                 <img
-                  src="src/assets/acm-diamond-logo.png"
-                  alt="ACM Logo"
-                  className="acm-diamond-logo"
-                />
+  src="/acm-logo/acmlogo.png"
+  alt="ACM Logo"
+  className="acm-diamond-logo"
+/>
               </div>
             </div>
           </div>
@@ -467,7 +473,7 @@ function About() {
           <div className="teams-grid">
             <div className="team-card slide-in-left">
               <div className="team-logo">
-                <img src="src/assets/ccet-acm-logo.png" alt="CASC Logo" />
+                <img src="/acm-logo/ccet-acm-logo_black_bg.png" alt="CASC Logo" />
               </div>
               <div className="team-content">
                 <h3>CASC</h3>
@@ -486,7 +492,7 @@ function About() {
             </div>
             <div className="team-card slide-in-right">
               <div className="team-logo">
-                <img src="src/assets/acm-w-logo.png" alt="CASC-W Logo" />
+                <img src="/acm-logo/acm-w-logo.png" alt="CASC-W Logo" />
               </div>
               <div className="team-content">
                 <h3>CASC-W</h3>
@@ -508,53 +514,8 @@ function About() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="contact section section-alt">
-        <div className="container">
-          <div className="section-header text-center">
-            <h2 className="section-title">Get In Touch</h2>
-            <p className="section-subtitle">
-              Connect with us and be part of the computing revolution
-            </p>
-          </div>
-          <div className="contact-content">
-            <div className="contact-info slide-in-left">
-              <div className="info-card fade-in-up">
-                <h3>Contact Information</h3>
-                <div className="contact-item">
-                  <FaMapMarkerAlt style={{ color: "#1e88e5" }} />
-                  <div>
-                    <strong>Address</strong>
-                    <p>
-                      Chandigarh College of Engineering and Technology
-                      <br />
-                      Sector 26, Chandigarh
-                    </p>
-                  </div>
-                </div>
-                <div className="contact-item">
-                  <FaEnvelope style={{ color: "#1e88e5" }} />
-                  <div>
-                    <strong>Email</strong>
-                    <p>ccet.acm@gmail.com</p>
-                  </div>
-                </div>
-                <div className="contact-item">
-                  <FaGlobe style={{ color: "#1e88e5" }} />
-                  <div>
-                    <strong>Website</strong>
-                    <p>ccet.acm.org</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Replaced original form with imported ContactForm component */}
-            <div className="contact-form slide-in-right">
-              <ContactForm />
-            </div>
-          </div>
-        </div>
-      </section>
+     
+      <ContactSection />
       {/* Scroll to Top Arrow Button */}
       {showScrollTop && (
         <button
@@ -707,7 +668,8 @@ function initScrollEffects() {
     const scrolled = window.pageYOffset;
     const heroBackground = document.querySelector(".hero-background");
     if (heroBackground)
-      heroBackground.style.transform = `translateY(${scrolled * 0.5}px)`;
+  heroBackground.style.transform = `translateY(${scrolled * 0.5}px)`;
+
   });
 
   const sections = document.querySelectorAll("section[id]");
@@ -728,7 +690,8 @@ function initScrollEffects() {
 
     navLinks.forEach((link) => {
       link.classList.remove("active");
-      if (link.getAttribute("href") === `#${currentSection}`) {
+     if (link.getAttribute("href") === `#${currentSection}`) {
+
         link.classList.add("active");
       }
     });
@@ -839,19 +802,21 @@ function initContactForm() {
 function showNotification(message, type = "info") {
   const notification = document.createElement("div");
   notification.className = `notification notification-${type}`;
+
   notification.innerHTML = `
-    <div class="notification-content">
-      <i class="fas fa-${
-        type === "success"
-          ? "check-circle"
-          : type === "error"
-          ? "exclamation-circle"
-          : "info-circle"
-      }"></i>
-      <span>${message}</span>
-    </div>
-    <button class="notification-close"><i class="fas fa-times"></i></button>
-  `;
+  <div class="notification-content">
+    <i class="fas fa-${
+      type === "success"
+        ? "check-circle"
+        : type === "error"
+        ? "exclamation-circle"
+        : "info-circle"
+    }"></i>
+    <span>${message}</span>
+  </div>
+  <button class="notification-close"><i class="fas fa-times"></i></button>
+`;
+
 
   if (!document.getElementById("notification-styles")) {
     const style = document.createElement("style");
