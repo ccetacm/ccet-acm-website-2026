@@ -61,6 +61,7 @@ function App() {
     return (
         <>
 
+            <div className={styles.fullSite}>
 
             <section className={styles.hero}>
                 <div className={styles["hero-shape"]}></div>
@@ -677,6 +678,8 @@ function App() {
 
 
 
+
+     </div>
 
 
 
