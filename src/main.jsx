@@ -17,6 +17,7 @@ import Header from "./components/Header.jsx";
 import Loader from "./components/loader.jsx";
 import ACMW from "./pages/acmw.jsx";
 import TalkWithTechies from "./components/TalkWithTechies.jsx";
+import ScrollToTop from "./components/scrollToTop.jsx";
 
 // Import images for logos
 // import nepImg from "./assets/Header_Main/NEP_2020.png";
@@ -91,6 +92,8 @@ const AppWrapper = () => {
 
         <Router>
           <Header startAnimation={true} logos={logos} />
+
+          <ScrollToTop />
 
           <main style={{ paddingTop: "95px" }}>
             <Routes>
