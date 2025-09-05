@@ -8,7 +8,7 @@ import Initiatives from "./components/Initiatives.jsx";
 import Event from "./components/Event.jsx";
 import Vision from "./components/Vision.jsx";
 import MagazineScroller from "./components/MagazineScroller.jsx";
-import Teams from "./components/testimonials.jsx";
+import Teams from "./Pages/teampage.jsx";
 import ResearchLabIsolated from "./components/research.jsx";
 import Mentors from "./components/Mentors.jsx";
 import Gallery from "./components/Gallery.jsx";
