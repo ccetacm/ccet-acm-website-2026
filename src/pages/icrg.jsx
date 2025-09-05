@@ -9,6 +9,7 @@ import { Player } from "@lottiefiles/react-lottie-player";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadFull } from "tsparticles";
 import React, { useEffect, useState } from "react";
+import Timeline from "../components/timeline.jsx"
 
 
 
@@ -406,7 +407,7 @@ function App() {
             </section>
 
 
-
+                        <Timeline />
 
 
 

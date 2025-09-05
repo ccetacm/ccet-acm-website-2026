@@ -1,0 +1,166 @@
+.timelineSection {
+  /* position: relative;
+  padding: 80px 20px;
+  overflow: visible;
+  background: transparent; */
+  padding: 4rem 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 6rem 3rem;
+  transform: scale(1.1);   /* 10% larger */
+  transform-origin: center;
+}
+
+.particlesWrap {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.timelineContent {
+  position: relative;
+  z-index: 1;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+
+  background: linear-gradient(135deg, #3498db 0%, #74b9ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+ text-align: center;
+  color: #7f8c8d;
+   font-size: 1.125rem;
+  max-width: 600px;
+  margin: auto;
+  margin-bottom: 2rem;;
+}
+
+.controls {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 28px;
+}
+
+.sortBtn {
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+   background: linear-gradient(135deg, #3498db 0%, #74b9ff 100%);
+   color: #ffffff;
+  box-shadow: 0 5px 25px rgba(52, 152, 219, 0.15);
+}
+
+.timelineWrapper {
+  position: relative;
+  padding: 40px 20px;
+}
+
+.timelineLine {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(99,102,241,0.15), rgba(99,102,241,0.05));
+  z-index: 0;
+}
+
+.timelineItem {
+  position: relative;
+  width: calc(50% - 40px);
+  padding: 16px;
+  z-index: 1;
+  margin-bottom: 28px;
+}
+
+.left { left: 0; margin-right: auto; }
+.right { 
+  
+  
+  left: 50%; 
+    /* transform: translateX(0); */
+ }
+
+.dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: linear-gradient(to bottom right, #2980b9, #3498db);
+  position: absolute;
+  top: 24px;
+  right: -8px;
+  box-shadow: 0 0 8px color-mix(in srgb, #3498db 40%, transparent);
+  animation: neonPulse 2s infinite ease-in-out, floatingDot 3s ease-in-out infinite;
+}
+
+.card {
+  background: rgba(255,255,255,0.98);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 6px 20px rgba(16,24,40,0.06);
+}
+
+
+    
+    
+    
+    .card:hover {
+      
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px color-mix(in srgb, #2980b9 20%, transparent);
+}
+
+.cardHeader {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:8px;
+}
+
+.yearBadge {   animation: cardGlow 2s infinite alternate;
+  font-weight: 800;
+  color: #2980b9;
+  background: color-mix(in srgb, #3498db 5%, #f8f9fa);
+  border: 1px solid color-mix(in srgb, #3498db 30%, transparent);
+  border-radius: 9999px;
+  padding: 6px 16px;
+  box-shadow: 0 0 10px color-mix(in srgb, #3498db 30%, transparent); }
+.amountBadge { font-weight:700; color:#0b94b9; }
+
+.description { color:#374151; 
+  margin-bottom:19px;
+ }
+
+.tags { display:flex; gap:8px; flex-wrap:wrap; }
+.tag { font-size:12px; background:#eef2ff; padding:4px 8px; border-radius:999px; }
+
+.left .dot {
+  right: -8px;
+}
+
+/* align dot for right cards */
+.right .dot {
+  left: -8px;
+}
+
+.timelineWrapper {
+  perspective: 1200px; /* allows 3D rotation */
+}
