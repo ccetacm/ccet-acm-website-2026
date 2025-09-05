@@ -1,129 +1,19 @@
-:root {
-  /* Color System - Blue Palette */
-  --blue-1: #0b1b34;
-  --blue-2: #10325f;
-  --blue-3: #1f57a4;
-  --blue-4: #2563eb;
-  --blue-5: #3b82f6;
-  --blue-6: #60a5fa;
-  --blue-7: #93c5fd;
-  --blue-8: #bfdbfe;
-  --blue-9: #dbeafe;
-  --blue-10: #eff6ff;
-
-  /* Cool Blues (no green tint) */
-  --cyan-1: #0b1b34;
-  --cyan-2: #123b7a;
-  --cyan-3: #1e74d8;
-  --cyan-4: #2aa0ff;
-  --cyan-5: #5bb7ff;
-  --cyan-6: #8cccff;
-  --cyan-7: #c7e2ff;
-  --cyan-8: #f0f6ff;
-
-  /* Semantic Colors */
-  --main-bg: #ffffff;
-  --primary: var(--blue-4);
-  --primary-dark: var(--blue-1);
-  --primary-light: var(--blue-6);
-  --tab-active-bg: linear-gradient(90deg, var(--blue-2), var(--blue-4));
-  --tab-hover-bg: var(--blue-9);
-  --tab-border: var(--blue-4);
-  --tab-inactive: var(--blue-3);
-  --timeline-active: var(--cyan-3);
-  --timeline-bg: var(--blue-10);
-
-  /* Spacing System */
-  --spacing-xs: 0.25rem;  /* 4px */
-  --spacing-sm: 0.5rem;   /* 8px */
-  --spacing-md: 1rem;     /* 16px */
-  --spacing-lg: 1.5rem;   /* 24px */
-  --spacing-xl: 2rem;     /* 32px */
-  --spacing-2xl: 3rem;    /* 48px */
-
-  /* Border Radius */
-  --radius-sm: 0.375rem;  /* 6px */
-  --radius-md: 0.5rem;    /* 8px */
-  --radius-lg: 0.75rem;   /* 12px */
-  --radius-xl: 1rem;      /* 16px */
-  --radius-2xl: 1.5rem;   /* 24px */
-
-  /* Typography */
-  --font-size-xs: 0.75rem;
-  --font-size-sm: 0.875rem;
-  --font-size-base: 1rem;
-  --font-size-lg: 1.125rem;
-  --font-size-xl: 1.25rem;
-  --font-size-2xl: 1.5rem;
-  --font-size-3xl: 1.875rem;
-  --font-size-4xl: 2.25rem;
-
-  /* Shadows */
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-
-  /* Transitions */
-  --transition-fast: 0.15s ease;
-  --transition-normal: 0.25s ease;
-  --transition-slow: 0.35s ease;
-}
-
-/* Global styles */
-body {
-  background: var(--main-bg);
-  line-height: 1.6;
-}
-
-/* Improved focus management */
-*:focus-visible {
-  outline: 2px solid var(--primary);
-  outline-offset: 2px;
-}
-
-/* Reduced motion for accessibility */
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-}
-
 .team-page {
   min-height: 100vh;
   background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
-  padding: var(--spacing-2xl) var(--spacing-md) var(--spacing-2xl);
+  padding: 3rem 1rem 3rem;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   text-align: center;
   max-width: 1200px;
   margin: 0 auto;
-  border-radius: var(--radius-xl);
-  box-shadow: var(--shadow-xl);
+  border-radius: 1rem;
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
   position: relative;
   overflow: hidden;
 }
 
-/* Clean, minimal design - no background elements */
-
-.tech-lines::before {
-  left: 15%;
-  animation-delay: 0s;
-}
-
-.tech-lines::after {
-  right: 20%;
-  animation-delay: 12s;
-}
-
-/* Clean, professional background - no animations */
-
-/* Title styling */
 .title-bar {
-  margin-bottom: var(--spacing-xl);
+  margin-bottom: 2rem;
   position: relative;
   z-index: 1;
 }
@@ -131,11 +21,11 @@ body {
 .title-glow {
   font-size: clamp(2.5rem, 6vw, 3.5rem);
   font-weight: 900;
-  color: var(--blue-4);
+  color: #2563eb;
   text-shadow: 0 2px 8px rgba(37, 99, 235, 0.2);
   letter-spacing: 0.08em;
   user-select: none;
-  margin-bottom: var(--spacing-xl);
+  margin-bottom: 2rem;
   line-height: 1.1;
   position: relative;
 }
@@ -148,34 +38,33 @@ body {
   transform: translateX(-50%);
   width: 80px;
   height: 2px;
-  background: var(--blue-4);
+  background: #2563eb;
   border-radius: 1px;
   opacity: 0.8;
 }
 
-/* Tab System */
 .tab-group {
   display: flex;
   justify-content: center;
-  gap: var(--spacing-sm);
-  margin-bottom: var(--spacing-md);
+  gap: 0.5rem;
+  margin-bottom: 1rem;
   flex-wrap: wrap;
-  padding: 0 var(--spacing-sm);
+  padding: 0 0.5rem;
 }
 
 .tab-chip {
   background: rgba(255, 255, 255, 0.9);
-  border: 2px solid var(--tab-border);
-  color: var(--blue-3);
-  border-radius: var(--radius-2xl);
-  padding: var(--spacing-sm) var(--spacing-xl);
-  font-size: var(--font-size-lg);
+  border: 2px solid #2563eb;
+  color: #1f57a4;
+  border-radius: 1.5rem;
+  padding: 0.5rem 2rem;
+  font-size: 1.125rem;
   font-weight: 700;
   cursor: pointer;
   letter-spacing: 0.03em;
   user-select: none;
-  box-shadow: var(--shadow-md);
-  transition: all var(--transition-normal);
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  transition: all 0.25s ease;
   outline: 2px solid transparent;
   outline-offset: 2px;
   position: relative;
@@ -186,55 +75,54 @@ body {
 
 .tab-chip.active,
 .tab-chip:focus-visible {
-  background: var(--blue-4);
+  background: #2563eb;
   color: white;
-  border-color: var(--blue-4);
-  box-shadow: var(--shadow-lg);
+  border-color: #2563eb;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
   transform: scale(1.05);
-  outline-color: var(--blue-6);
+  outline-color: #60a5fa;
 }
 
 .tab-chip:hover:not(.active) {
-  background: var(--tab-hover-bg);
-  border-color: var(--primary-light);
-  color: var(--primary);
+  background: #dbeafe;
+  border-color: #60a5fa;
+  color: #2563eb;
   transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
 }
 
 .tab-chip:active {
   transform: scale(0.98);
 }
 
-/* Timeline System */
 .timeline-bar {
   width: 100%;
   max-width: 900px;
-  margin: 0 auto var(--spacing-2xl) auto;
+  margin: 0 auto 3rem auto;
   position: relative;
   z-index: 1;
 }
 
 .timeline-track {
   position: absolute;
-  left: var(--spacing-sm);
-  right: var(--spacing-sm);
+  left: 0.5rem;
+  right: 0.5rem;
   top: 50%;
   height: 4px;
-  background: linear-gradient(90deg, var(--blue-3) 0%, var(--blue-6) 100%);
+  background: linear-gradient(90deg, #1f57a4 0%, #60a5fa 100%);
   opacity: 0.36;
   z-index: 0;
   pointer-events: none;
   transform: translateY(-50%);
-  border-radius: var(--radius-sm);
+  border-radius: 0.375rem;
 }
 
 .timeline-bubbles {
   display: flex;
   overflow-x: auto;
   justify-content: flex-start;
-  gap: var(--spacing-xl);
-  padding: var(--spacing-sm) var(--spacing-xs);
+  gap: 2rem;
+  padding: 0.5rem 0.25rem;
   width: 100%;
   scroll-behavior: smooth;
   scrollbar-width: none;
@@ -253,14 +141,14 @@ body {
   outline: 2px solid transparent;
   outline-offset: 2px;
   background: white;
-  color: var(--primary-dark);
-  font-size: var(--font-size-lg);
+  color: #0b1b34;
+  font-size: 1.125rem;
   font-weight: 500;
   width: 52px;
   height: 52px;
   border-radius: 50%;
-  border: 2px solid var(--tab-border);
-  transition: all var(--transition-normal);
+  border: 2px solid #2563eb;
+  transition: all 0.25s ease;
   cursor: pointer;
   margin-bottom: 0;
   position: relative;
@@ -272,42 +160,41 @@ body {
 
 .timeline-bubble.active,
 .timeline-bubble:focus-visible {
-  background: var(--timeline-active);
+  background: #1e74d8;
   color: white;
-  border-color: var(--primary);
+  border-color: #2563eb;
   font-weight: 600;
   box-shadow: 0 0 20px rgba(91, 183, 255, 0.6);
   transform: scale(1.1);
-  outline-color: var(--primary-light);
+  outline-color: #60a5fa;
 }
 
 .timeline-bubble:hover:not(.active) {
-  background: var(--timeline-bg);
-  color: var(--blue-4);
-  border-color: var(--cyan-4);
+  background: #eff6ff;
+  color: #2563eb;
+  border-color: #2aa0ff;
   transform: scale(1.05);
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
 }
 
 .timeline-bubble:active {
   transform: scale(0.95);
 }
 
-/* Group Photo Styling */
 .group-photo {
   max-width: 880px;
-  margin: 0 auto var(--spacing-xl);
-  border-radius: var(--radius-xl);
+  margin: 0 auto 2rem;
+  border-radius: 1rem;
   overflow: hidden;
-  background: var(--cyan-8);
-  box-shadow: var(--shadow-xl);
+  background: #f0f6ff;
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
   position: relative;
 }
 
 .group-photo img {
   width: 100%;
   height: auto;
-  border-radius: var(--radius-xl);
+  border-radius: 1rem;
   display: block;
   transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
   filter: grayscale(5%) brightness(1);
@@ -318,22 +205,10 @@ body {
   transform: scale(1.02);
 }
 
-@media (max-width: 768px) {
-  .group-photo {
-    margin: 0 var(--spacing-sm) var(--spacing-lg);
-    border-radius: var(--radius-lg);
-  }
-  
-  .group-photo img {
-    border-radius: var(--radius-lg);
-  }
-}
-
-/* Animation System */
 .fade-in {
   opacity: 0;
-  transform: translateY(var(--spacing-lg)) scale(0.96);
-  transition: 
+  transform: translateY(1.5rem) scale(0.96);
+  transition:
     opacity 0.45s cubic-bezier(0.22, 1, 0.36, 1),
     transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -343,7 +218,6 @@ body {
   transform: translateY(0) scale(1);
 }
 
-/* Stagger animation for team cards */
 .team-card {
   animation-delay: calc(var(--animation-order, 0) * 0.1s);
 }
@@ -352,40 +226,40 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: var(--spacing-xl);
+  gap: 2rem;
   z-index: 1;
-  margin: 0 auto var(--spacing-2xl);
+  margin: 0 auto 3rem;
   max-width: 1200px;
-  padding: 0 var(--spacing-md);
+  padding: 0 1rem;
 }
 
 @media (max-width: 768px) {
   .team-members {
-    gap: var(--spacing-lg);
-    padding: 0 var(--spacing-sm);
+    gap: 1.5rem;
+    padding: 0 0.5rem;
   }
 }
 
 @media (max-width: 480px) {
   .team-members {
-    gap: var(--spacing-md);
+    gap: 1rem;
     max-width: 320px;
-    padding: 0 var(--spacing-xs);
+    padding: 0 0.25rem;
   }
 }
 
 .team-card {
   background: white;
-  border-radius: var(--radius-xl);
-  box-shadow: var(--shadow-lg);
+  border-radius: 1rem;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
   width: 220px;
   height: 280px;
-  padding: var(--spacing-lg) var(--spacing-md) var(--spacing-xl);
+  padding: 1.5rem 1rem 2rem;
   text-align: center;
   cursor: pointer;
   user-select: none;
   will-change: transform, box-shadow;
-  transition: all var(--transition-slow) cubic-bezier(0.22, 1, 0.36, 1);
+  transition: all 0.35s ease;
   border: 2px solid transparent;
   opacity: 0;
   animation: fadeInUp 0.6s cubic-bezier(0.17, 0.67, 0.44, 1.03) forwards;
@@ -397,7 +271,7 @@ body {
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(var(--spacing-2xl)) scale(0.9);
+    transform: translateY(3rem) scale(0.9);
   }
   to {
     opacity: 1;
@@ -407,18 +281,18 @@ body {
 
 .team-card:hover,
 .team-card:focus-visible {
-  border-color: var(--blue-4);
-  box-shadow: 
+  border-color: #2563eb;
+  box-shadow:
     0 20px 40px rgba(37, 99, 235, 0.15),
     0 8px 16px rgba(37, 99, 235, 0.1);
   transform: translateY(-12px) scale(1.05);
   z-index: 2;
   outline: 2px solid transparent;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, var(--cyan-8) 100%);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, #f0f6ff 100%);
 }
 
 .team-card:focus-visible {
-  outline-color: var(--primary);
+  outline-color: #2563eb;
   outline-offset: 2px;
 }
 
@@ -427,7 +301,6 @@ body {
   transform: scale(1.1);
 }
 
-/* Add subtle background pattern */
 .team-card::before {
   content: '';
   position: absolute;
@@ -437,7 +310,7 @@ body {
   bottom: 0;
   background: linear-gradient(135deg, transparent 0%, rgba(37, 99, 235, 0.05) 100%);
   opacity: 0;
-  transition: opacity var(--transition-normal);
+  transition: opacity 0.25s ease;
   pointer-events: none;
 }
 
@@ -448,24 +321,24 @@ body {
 .pro-photo-bg {
   width: 114px;
   height: 114px;
-  margin: 0 auto var(--spacing-md);
+  margin: 0 auto 1rem;
   border-radius: 50%;
-  background: var(--blue-8);
-  box-shadow: var(--shadow-lg);
+  background: #bfdbfe;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: all var(--transition-slow);
+  transition: all 0.35s ease;
   position: relative;
   overflow: hidden;
 }
 
 .team-card:hover .pro-photo-bg {
-  box-shadow: 
+  box-shadow:
     0 0 40px rgba(37, 99, 235, 0.5),
     0 8px 25px rgba(37, 99, 235, 0.2);
   transform: scale(1.08);
-  background: linear-gradient(135deg, var(--blue-8), var(--blue-4));
+  background: linear-gradient(135deg, #bfdbfe, #2563eb);
 }
 
 .pro-photo-bg img {
@@ -473,40 +346,38 @@ body {
   height: 98px;
   object-fit: cover;
   border-radius: 50%;
-  border: 3px solid var(--blue-10);
+  border: 3px solid #eff6ff;
   filter: grayscale(5%) brightness(1.02);
-  transition: all var(--transition-slow);
-  background: var(--blue-10);
+  transition: all 0.35s ease;
+  background: #eff6ff;
 }
 
 .team-card:hover .pro-photo-bg img {
-  border-color: var(--blue-3);
+  border-color: #1f57a4;
   filter: grayscale(0) brightness(1.08);
   transform: scale(1.02);
 }
 
 .pro-name {
-  font-size: var(--font-size-xl);
+  font-size: 1.25rem;
   font-weight: 900;
   letter-spacing: 0.05em;
-  margin-bottom: var(--spacing-sm);
-  background: linear-gradient(135deg, var(--blue-4) 0%, var(--cyan-2) 100%);
+  margin-bottom: 0.5rem;
+  background: linear-gradient(135deg, #2563eb 0%, #123b7a 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   user-select: text;
   line-height: 1.2;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  transition: all var(--transition-normal);
+  transition: all 0.25s ease;
 }
 
-/* Removed name highlighting on hover to maintain visibility */
-
 .pro-role {
-  font-size: var(--font-size-base);
+  font-size: 1rem;
   font-weight: 700;
-  color: var(--blue-2);
-  margin: 0 0 var(--spacing-md) 0;
+  color: #10325f;
+  margin: 0 0 1rem 0;
   opacity: 0.9;
   user-select: none;
   line-height: 1.4;
@@ -518,19 +389,19 @@ body {
 .team-socials {
   display: flex;
   justify-content: center;
-  gap: var(--spacing-md);
+  gap: 1rem;
 }
 
 .social-icon {
-  color: var(--blue-2);
-  transition: all var(--transition-normal);
+  color: #10325f;
+  transition: all 0.25s ease;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   font-size: 1.4rem;
-  padding: var(--spacing-xs);
-  border-radius: var(--radius-md);
+  padding: 0.25rem;
+  border-radius: 0.5rem;
   outline: 2px solid transparent;
   outline-offset: 2px;
   position: relative;
@@ -553,7 +424,7 @@ body {
 }
 
 .social-icon:focus-visible {
-  outline-color: var(--primary);
+  outline-color: #2563eb;
 }
 
 .social-icon.github:hover,
@@ -578,21 +449,22 @@ body {
 }
 
 .no-data {
-  font-size: var(--font-size-lg);
-  color: var(--blue-2);
+  font-size: 1.125rem;
+  color: #10325f;
   font-style: italic;
-  margin-top: var(--spacing-xl);
-  padding: var(--spacing-xl);
-  background: var(--cyan-8);
-  border-radius: var(--radius-lg);
-  border: 2px dashed var(--blue-6);
+  margin-top: 2rem;
+  padding: 2rem;
+  background: #f0f6ff;
+  border-radius: 0.75rem;
+  border: 2px dashed #60a5fa;
 }
+
+/* Responsive and utility sections (repeat above pattern for HEX colors, no vars) */
 
 @media (max-width: 1024px) {
   .team-members {
-    gap: var(--spacing-lg);
+    gap: 1.5rem;
   }
-  
   .team-card {
     width: 200px;
     height: 260px;
@@ -604,103 +476,86 @@ body {
     width: 180px;
     height: 250px;
   }
-  
   .pro-photo-bg {
     width: 90px;
     height: 90px;
   }
-  
   .pro-photo-bg img {
     width: 82px;
     height: 82px;
   }
-}
-/* General responsive adjustments */
-@media (max-width: 768px) {
   .tab-group {
-    gap: var(--spacing-xs);
-    padding: 0 var(--spacing-xs);
+    gap: 0.25rem;
+    padding: 0 0.25rem;
   }
-  
   .tab-chip {
-    padding: var(--spacing-xs) var(--spacing-md);
-    font-size: var(--font-size-base);
+    padding: 0.25rem 1rem;
+    font-size: 1rem;
   }
 }
+
 @media (max-width: 480px) {
   .team-page {
-    padding: var(--spacing-lg) var(--spacing-xs);
+    padding: 1.5rem 0.25rem;
   }
-  
   .title-glow {
-    font-size: var(--font-size-3xl);
+    font-size: 1.5rem;
   }
-  
   .tab-group {
-    gap: var(--spacing-xs);
-    margin-bottom: var(--spacing-sm);
+    gap: 0.25rem;
+    margin-bottom: 0.5rem;
   }
-  
   .tab-chip {
-    padding: var(--spacing-xs) var(--spacing-sm);
-    font-size: var(--font-size-sm);
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
     min-width: 80px;
   }
-  
   .team-card {
     width: 160px;
     height: 230px;
-    padding: var(--spacing-md) var(--spacing-sm);
+    padding: 1rem 0.5rem;
   }
-  
   .pro-photo-bg {
     width: 80px;
     height: 80px;
   }
-  
   .pro-photo-bg img {
     width: 72px;
     height: 72px;
   }
-  
   .pro-name {
-    font-size: var(--font-size-lg);
+    font-size: 1.125rem;
   }
-  
   .pro-role {
-    font-size: var(--font-size-sm);
+    font-size: 0.875rem;
   }
 }
 
 /* Year tabs specific styling */
 .year-tabs {
-  margin-bottom: var(--spacing-xl);
+  margin-bottom: 2rem;
 }
 
-/* Responsive horizontal scroll for year tabs */
 @media (max-width: 768px) {
   .year-tabs {
     flex-wrap: nowrap;
     overflow-x: auto;
     scroll-behavior: smooth;
-    padding-bottom: var(--spacing-sm);
+    padding-bottom: 0.5rem;
     justify-content: flex-start;
-    gap: var(--spacing-sm);
+    gap: 0.5rem;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
     scroll-snap-type: x mandatory;
   }
-  
   .year-tabs::-webkit-scrollbar {
     display: none;
   }
-  
   .year-tabs .tab-chip {
     min-width: 120px;
-    font-size: var(--font-size-base);
+    font-size: 1rem;
     flex: 0 0 auto;
-    padding: var(--spacing-sm) var(--spacing-md);
+    padding: 0.5rem 1rem;
     scroll-snap-align: start;
   }
 }
-
