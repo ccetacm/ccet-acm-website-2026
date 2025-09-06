@@ -12,6 +12,7 @@ import Teams from "./pages/teampage.jsx";
 import ResearchLabIsolated from "./components/research.jsx";
 import Mentors from "./components/Mentors.jsx";
 import Gallery from "./components/Gallery.jsx";
+import DigitalOutlet from "./components/DigitalOutlet.jsx";
 import Footer from "./components/Footer.jsx";
 import Resources from "./components/Resources.jsx";
 import Header from "./components/Header.jsx";
@@ -106,7 +107,8 @@ const AppWrapper = () => {
               <Route path="/vision" element={<Vision />} />
               <Route path="/events" element={<Event />} />
               <Route path="/research" element={<Resources />} />
-              <Route path="/magazine" element={<MagazineScroller />} />
+              {/* <Route path="/magazine" element={<MagazineScroller />} /> */}
+              <Route path="/magazine" element={<DigitalOutlet />} />
               <Route path="/mentors" element={<Mentors />} />
               <Route path="/teams" element={<Teams />} />
               <Route path="/acmw" element={<ACMW />} />
