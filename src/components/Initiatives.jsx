@@ -15,7 +15,7 @@ const Gallery = () => {
       anim: "/animations/career.json",
       title: "International Research & Sponsored Projects",
       desc: "Cross-border collaboration and funding in fostering innovation and Research.",
-      link: "#research",
+      link: "/#/icrg",
     },
     {
       anim: "/animations/Code typing concept.json",
