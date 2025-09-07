@@ -256,7 +256,7 @@
   z-index: 2;
   position: relative;
   padding-top: 3rem;
-  
+
 }
 .acm-about .hero-main-title {
   font-size: clamp(2.5rem, 6vw, 4rem);
