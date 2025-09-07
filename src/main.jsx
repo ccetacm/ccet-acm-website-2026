@@ -5,7 +5,7 @@ import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import App from "./App.jsx";
 import About from "./pages/About.jsx";
 import Initiatives from "./components/Initiatives.jsx";
-import Event from "./Pages/Events.jsx";
+import Event from "./pages/Events.jsx";
 import Vision from "./components/Vision.jsx";
 import Teams from "./pages/teampage.jsx";
 import Mentors from "./components/Mentors.jsx";
