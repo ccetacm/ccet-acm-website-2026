@@ -5,7 +5,7 @@ import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import App from "./App.jsx";
 import About from "./pages/About.jsx";
 import Initiatives from "./components/Initiatives.jsx";
-import Event from "./components/Event.jsx";
+import Event from "./Pages/Events.jsx";
 import Vision from "./components/Vision.jsx";
 import Teams from "./pages/teampage.jsx";
 import Mentors from "./components/Mentors.jsx";
@@ -20,6 +20,7 @@ import ICRG from "./pages/icrg.jsx";
 import TalkWithTechies from "./components/TalkWithTechies.jsx";
 import ScrollToTop from "./components/ScrollToTop.jsx";
 import ContactSection from "./pages/ContactSection.jsx";
+import EventDetails from "./pages/EventDetails.jsx";
 
 import "./index.css";
 
@@ -105,6 +106,7 @@ const AppWrapper = () => {
               <Route path="/TalkWithTechies" element={<TalkWithTechies />} />
               <Route path="/talk-with-techies" element={<TalkWithTechies />} />
               <Route path="/contact-section" element={<ContactSection />} />
+              <Route path="/event-details" element={<EventDetails />} />
               <Route path="*" element={<h2>404 - Page Not Found</h2>} />
             </Routes>
           </main>
