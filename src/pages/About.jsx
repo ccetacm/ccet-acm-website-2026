@@ -3,9 +3,6 @@
 // About.jsx
 import { useEffect, useState } from "react";
 import "./About.css";
-// import acmDiamondLogo from "../assets/acm-logo/acmlogo.png";
-// import ccetAcmLogo from "../assets/acm-logo/ccet-acm-logo_black_bg.png";
-// import acmWLogo from "../assets/acm-logo/acm-w-logo.png";
 import ContactSection from "./ContactSection";
 
 
