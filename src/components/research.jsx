@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import { Link } from "react-router-dom";
 import { Player } from "@lottiefiles/react-lottie-player";
 import { Brain, Leaf, Zap, ArrowRight } from "lucide-react";
 
@@ -60,13 +61,12 @@ const ResearchLabIsolated = () => {
             src="/animations/Analytical Thinking Illustration.json"
             style={{ height: "300px", width: "300px" }}
           />
-          <button
-            onClick={handleExploreResearch}
-            className="research-lab-isolated-explore-btn"
-          >
-            Explore Our Research
-            <ArrowRight size={18} />
-          </button>
+          <Link to="/research">
+            <button className="research-lab-isolated-explore-btn">
+              Explore Our Research
+              <ArrowRight size={18} />
+            </button>
+          </Link>
         </div>
       </div>
 

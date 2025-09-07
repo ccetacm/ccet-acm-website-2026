@@ -50,7 +50,7 @@ const SocialMedia = ({ startAnimation }) => {
                 <i className="fab fa-twitter"></i>
             </a>
             <a
-                href="#"
+                href="https://www.youtube.com/@ccetacmstudentchapter3122"
                 className={`${styles.socialIcon} ${styles.youtube}`}
                 target="_blank"
                 rel="noopener noreferrer"
