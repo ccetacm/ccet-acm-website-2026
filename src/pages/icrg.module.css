@@ -3,10 +3,6 @@
   color: #2c3e50;
   font-family: 'Segoe UI', Arial, sans-serif;
 
-}
-
-
-
 .container {
   position: relative;
   display: flex;
@@ -919,7 +915,47 @@
   }
 }
 
+.timeline-item {
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+}
 
+.timeline-dot {
+  animation: neonPulse 2s infinite ease-in-out, floatingDot 3s ease-in-out infinite;
+  background: linear-gradient(to bottom right, #2980b9, #3498db);
+  box-shadow: 0 0 8px color-mix(in srgb, #3498db 40%, transparent);
+}
+
+.timeline-card {
+  position: relative;
+  overflow: hidden;
+  background: #74b9ff;
+  border-radius: 16px;
+  padding: 24px;
+  border: 1px solid #f8f9fa;
+  box-shadow:  0 2px 10px rgba(52, 152, 219, 0.1);
+  transition: all 0.4s ease;
+}
+
+.timeline-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg,
+      transparent,
+      color-mix(in srgb, #2980b9 80%, transparent),
+      color-mix(in srgb, #3498db 80%, transparent),
+      transparent);
+  transition: 0.5s;
+  animation: shine 3s infinite;
+}
+
+.timeline-card:hover::before {
+  left: 100%;
+}
 
 .highlight-text {
   background: linear-gradient(90deg, #2980b9, #3498db, #74b9ff);
@@ -952,7 +988,16 @@
   opacity: 1;
 }
 
-
+.year-badge {
+  animation: cardGlow 2s infinite alternate;
+  font-weight: 800;
+  color: #2980b9;
+  background: color-mix(in srgb, #3498db 5%, #f8f9fa);
+  border: 1px solid color-mix(in srgb, #3498db 30%, transparent);
+  border-radius: 9999px;
+  padding: 6px 16px;
+  box-shadow: 0 0 10px color-mix(in srgb, #3498db 30%, transparent);
+}
 
 .bg-particle {
   position: absolute;
@@ -969,7 +1014,20 @@
   box-shadow: 0 5px 15px color-mix(in srgb, #74b9ff 40%, transparent);
 }
 
+.timeline-line {
+  background: linear-gradient(to bottom, transparent, color-mix(in srgb, #74b9ff 70%, transparent), transparent);
+  width: 2px;
+}
 
+.timeline-line::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 20px;
+  background: linear-gradient(to bottom, color-mix(in srgb, #3498db 50%, transparent), transparent);
+}
 
 .container-stat {
   position: relative;
@@ -987,7 +1045,24 @@
   width: 237px;
 }
 
+.timeline-item {
+  opacity: 0;
+  transform: translateX(0);
+  transition: all 0.8s ease-out;
+}
 
+.timeline-item.slide-in-left {
+  transform: translateX(-60px);
+}
+
+.timeline-item.slide-in-right {
+  transform: translateX(60px);
+}
+
+.timeline-item.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
 
 #pubTable tbody tr:hover {
   background: color-mix(in srgb, #74b9ff 15%, transparent);
@@ -1134,8 +1209,6 @@ td {
   align-items: center;
   gap: 8px;
 }
-
-
 
 .pub-row {
   border-bottom: 1px solid rgba(55, 65, 81, 0.5);

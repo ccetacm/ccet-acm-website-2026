@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import { Link } from "react-router-dom";
 import CountUp from "react-countup";
 import { useInView } from "react-intersection-observer";
 import { motion } from "framer-motion";
@@ -120,12 +121,16 @@ function Vision() {
 
           {/* === Buttons === */}
           <motion.div className="button-group">
-            <motion.button className="join-button" whileHover={{ scale: 1.1 }}>
-              Join Our Community
-            </motion.button>
+            <Link to="/contact-section">
+              <motion.button className="join-button" whileHover={{ scale: 1.1 }}>
+                Join Our Community
+              </motion.button>
+            </Link>
+            <Link to="/about">
             <motion.button className="learn-button" whileHover={{ scale: 1.1 }}>
               Learn More →
             </motion.button>
+            </Link>
           </motion.div>
         </motion.section>
       </div>

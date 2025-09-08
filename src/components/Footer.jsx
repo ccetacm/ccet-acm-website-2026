@@ -1,14 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Footer.css";
-
-// Import images from assets
-// import ccetLogoWhite from "../assets/acm-logo/ccet-logo-white.png";
-// import acmLogo from "../assets/acm-logo/acmlogo.png";
 
 const Footer = () => {
   return (
       <footer className="footer">
-        {/* Left Section */}
         <div className="footer-section footer-left">
           <div className="imgage">
             <img
@@ -34,16 +30,15 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Center Section */}
         <div className="footer-center">
           <div className="footer-column">
             <div className="textsetup">
               <h4>CCET ACM</h4>
               <ul>
-                <li>About Us</li>
-                <li>Resources</li>
-                <li>Gallery</li>
-                <li>Events</li>
+                <li><Link to="/about">About Us</Link></li>
+                <li><Link to="/resources">Resources</Link></li>
+                <li><Link to="/gallery">Gallery</Link></li>
+                <li><Link to="/events">Events</Link></li>
               </ul>
             </div>
           </div>
@@ -52,11 +47,10 @@ const Footer = () => {
             <div className="textsetup">
               <h4>Explore</h4>
               <ul>
-                <li>About</li>
-                <li>Home</li>
-                <li>Team</li>
-                <li>Achievements</li>
-                <li>ACM-W</li>
+                <li><Link to="/">Home</Link></li>
+                <li><Link to="/teams">Team</Link></li>
+                <li><Link to="/icrg">Achievements</Link></li>
+                <li><Link to="/acmw">ACM-W</Link></li>
               </ul>
             </div>
           </div>
@@ -65,16 +59,14 @@ const Footer = () => {
             <div className="textsetup">
               <h4>Contact Us</h4>
               <ul>
-                <li>Webmasters</li>
-                <li>Magazine</li>
-                <li>Get In Touch</li>
-                <li>Contact</li>
+                <li><Link to="/teams">Webmasters</Link></li>
+                <li><Link to="/magazine">Magazine</Link></li>
+                <li><Link to="/contact-section">Contact</Link></li>
               </ul>
             </div>
           </div>
         </div>
 
-        {/* Right Section */}
         <div className="footer-section footer-right">
           <div className="imgage">
             <img
