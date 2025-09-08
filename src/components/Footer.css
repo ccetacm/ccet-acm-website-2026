@@ -32,6 +32,17 @@
   --footer-hover: #d1c4e9;
 }
 
+.footer a {
+  color: #fff;             /* White links */
+  text-decoration: none;   /* Remove underline */
+  transition: color 0.3s;
+}
+
+.footer a:hover {
+  color: #1e88e5;          /* Accent color on hover */
+}
+
+
 /* Main Footer Styles */
 .footer {
   display: flex;
@@ -127,9 +138,7 @@
   margin-top: 25px;
   max-width: 150px;
   max-height: 120px;
-
-  /* Push slightly to the right */
-  margin-left: 200px; /* adjust this value as needed */
+  margin-left: 180px;
 }
 
 /* Footer Text Elements */
