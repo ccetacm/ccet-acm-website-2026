@@ -12,7 +12,7 @@ export default function Gallery() {
     { src: '/images/gallery/2025-acm-events/resume%20building%20workshop.jpg', alt: 'Resume building', caption: 'RESUME BUILDING WORKSHOP' },
     { src: '/images/gallery/2025-acm-events/c++.jpg', alt: 'C/C++', caption: 'C/C++' },
     { src: '/images/gallery/2025-acm-events/dsa.jpg', alt: 'DSA', caption: 'DSA' },
-    { src: '/images/gallery/2025-acm-events/js.jpg', alt: 'JavaScript', caption: 'JAVA SCRIPT' },
+    { src: '/images/gallery/2025-acm-events/js.jpg', alt: 'JavaScript', caption: 'JAVASCRIPT' },
     { src: '/images/gallery/2025-acm-events/ML.jpg', alt: 'Machine Learning', caption: 'MACHINE LEARNING' },
     { src: '/images/gallery/2025-acm-events/wdpress1.jpg', alt: 'Wordpress 1', caption: 'WORDPRESS WORKSHOP' },
     { src: '/images/gallery/2025-acm-events/wdpress2.jpg', alt: 'Wordpress 2', caption: 'WORDPRESS WORKSHOP' },
@@ -23,7 +23,6 @@ export default function Gallery() {
 
   const galleryRef = useRef(null);
   const lightboxRef = useRef(null);
-  const moRef = useRef(null);
   const resizeTimerRef = useRef(null);
   const animatorsRef = useRef([]);
   const currentStripCountRef = useRef(getStripCount());
@@ -281,32 +280,34 @@ export default function Gallery() {
   }, [lightboxOpen]);
 
   return (
-    <section className={styles.gallerySection} aria-label="photo gallery section">
-      <h2 className={styles.galleryHeading}>GALLERY</h2>
-      <p className={styles.gallerySubtitle}>Memories from ACM event & workshop</p>
-
-      <div className={styles.gallery} ref={galleryRef} aria-label="Photo gallery"></div>
-
-      <div
-        className={`${styles.lightbox} ${lightboxOpen ? styles.lightboxActive : ''}`}
-        ref={lightboxRef}
-        onClick={(e) => { if (e.target === lightboxRef.current) closeLightbox(); }}
-        aria-hidden={!lightboxOpen}
-      >
-        <button className={styles.lightboxClose} onClick={closeLightbox} aria-label="Close lightbox">×</button>
-        <button className={styles.lightboxPrev} onClick={(e) => { e.stopPropagation(); prevLightbox(); }} aria-label="Previous">‹</button>
-
-        <div className={styles.lightboxContent} role="dialog" aria-modal="true">
-          <img
-            className={styles.lightboxImg}
-            src={imagesData[lightboxIndex]?.src || ''}
-            alt={imagesData[lightboxIndex]?.alt || ''}
-          />
-          <p className={styles.lightboxCaption}>{imagesData[lightboxIndex]?.caption || ''}</p>
+      <section className={styles.gallerySection} aria-label="photo gallery section">
+        <div className={styles.galleryHeader}>
+          <h2 className={styles.galleryHeading}>GALLERY</h2>
+          <p className={styles.gallerySubtitle}>Memories from ACM events & workshops</p>
         </div>
 
-        <button className={styles.lightboxNext} onClick={(e) => { e.stopPropagation(); nextLightbox(); }} aria-label="Next">›</button>
-      </div>
-    </section>
+        <div className={styles.gallery} ref={galleryRef} aria-label="Photo gallery"></div>
+
+        <div
+            className={`${styles.lightbox} ${lightboxOpen ? styles.lightboxActive : ''}`}
+            ref={lightboxRef}
+            onClick={(e) => { if (e.target === lightboxRef.current) closeLightbox(); }}
+            aria-hidden={!lightboxOpen}
+        >
+          <button className={styles.lightboxClose} onClick={closeLightbox} aria-label="Close lightbox">×</button>
+          <button className={styles.lightboxPrev} onClick={(e) => { e.stopPropagation(); prevLightbox(); }} aria-label="Previous">‹</button>
+
+          <div className={styles.lightboxContent} role="dialog" aria-modal="true">
+            <img
+                className={styles.lightboxImg}
+                src={imagesData[lightboxIndex]?.src || ''}
+                alt={imagesData[lightboxIndex]?.alt || ''}
+            />
+            <p className={styles.lightboxCaption}>{imagesData[lightboxIndex]?.caption || ''}</p>
+          </div>
+
+          <button className={styles.lightboxNext} onClick={(e) => { e.stopPropagation(); nextLightbox(); }} aria-label="Next">›</button>
+        </div>
+      </section>
   );
 }
