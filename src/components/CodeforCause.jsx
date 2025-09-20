@@ -1,6 +1,11 @@
 import React, { useState, useEffect, useRef, memo } from 'react';
 import styles from './CodeforCause.module.css';
 
+// Import images
+import hourofcodeImg from '/CodeforCause/hourofcode.jpg';
+import azadikerangImg from '/CodeforCause/azadikerang.jpg';
+import hackoberfestImg from '/CodeforCause/hackoberfest.jpg';
+
 // --- DATA --- //
 const STATS_DATA = [
     { target: 1000, suffix: "+", label: "Students Impacted" },
@@ -40,7 +45,7 @@ const SESSIONS_DATA = [
         tags: ["Workshop"],
         date: "Dec. 09, 2023",
         attendees: 80,
-        imgSrc: "/TalkWithTechies/hourofcode.jpg",
+        imgSrc: hourofcodeImg,
         learnMore: {
             type: "pdf",
             content: "/pdfs/hour-of-code-details.pdf",
@@ -55,7 +60,7 @@ const SESSIONS_DATA = [
         tags: ["Competition"],
         date: "Aug. 15, 2023",
         attendees: 150,
-        imgSrc: "/TalkWithTechies/azadikerang.jpg",
+        imgSrc: azadikerangImg,
         learnMore: {
             type: "content",
             content: "",
@@ -65,12 +70,12 @@ const SESSIONS_DATA = [
     {
         id: 3,
         speaker: "Hackoberfest",
-        title: "Workshop", 
+        title: "Workshop",
         topic: "On October 6, 2023, the CCET ACM and ACM-W student chapters hosted a highly informative event titled - Introduction to Hacktoberfest 2023.",
         tags: ["Workshop"],
         date: "Oct. 06, 2023",
         attendees: 120,
-        imgSrc: "/TalkWithTechies/hackoberfest.jpg",
+        imgSrc: hackoberfestImg,
         learnMore: {
             type: "link",
             content: "https://hacktoberfest.com",
@@ -229,8 +234,8 @@ const SessionCard = ({ session }) => {
             <div className={styles.eventImageSection}>
                 {/* Poster/Image Container */}
                 <div className={styles.eventPoster}>
-                    <img 
-                        src={session.imgSrc} 
+                    <img
+                        src={session.imgSrc}
                         alt={session.speaker}
                         className={styles.eventPosterImg}
                         onError={(e) => {
@@ -244,10 +249,10 @@ const SessionCard = ({ session }) => {
                         <p>{session.title}</p>
                     </div>
                 </div>
-                
+
                 {/* Event Tag */}
                 <span className={styles.eventTag}>{session.title}</span>
-                
+
                 {/* Date and Audience */}
                 <div className={styles.eventMeta}>
                     <div className={styles.eventDate}>
@@ -260,11 +265,11 @@ const SessionCard = ({ session }) => {
                     </div>
                 </div>
             </div>
-            
+
             <div className={styles.eventContent}>
                 <h3 className={styles.eventTitle}>{session.speaker}</h3>
                 <p className={styles.eventTopic}>{session.topic}</p>
-                
+
                 {/* Uniform Learn More Button */}
                 <button
                     className={styles.learnMoreBtn}
@@ -290,7 +295,7 @@ const HeroSection = () => (
             </ScrollAnimated>
             <ScrollAnimated delay={0.2}>
                 <p className={styles.heroDescription}>
-                    Empowering students through coding education and social impact projects. 
+                    Empowering students through coding education and social impact projects.
                     Join us in making a difference through technology.
                 </p>
             </ScrollAnimated>

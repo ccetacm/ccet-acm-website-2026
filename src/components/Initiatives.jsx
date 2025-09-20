@@ -15,13 +15,13 @@ const Gallery = () => {
       anim: "/animations/career.json",
       title: "International Research & Sponsored Projects",
       desc: "Cross-border collaboration and funding in fostering innovation and Research.",
-      link: "/#/icrg",
+      link: "#/icrg",
     },
     {
       anim: "/animations/Code typing concept.json",
       title: "Code For Cause",
       desc: "Code for Cause unites tech and NGOs to tackle social issues.",
-      link: "#code-for-cause",
+      link: "#/code-for-cause",
     },
     {
       anim: "/animations/Coding.json",
