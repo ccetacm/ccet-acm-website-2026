@@ -19,6 +19,10 @@ import magzine17 from "/Magazine/covers/magzine17.png";
 import magzine18 from "/Magazine/covers/magzine18.png";
 import magzine19 from "/Magazine/covers/magzine19.png";
 import magzine20 from "/Magazine/covers/magzine20.png";
+import magzine21 from "/Magazine/covers/Volume 6-Issue_1_jan-feb(cover).jpg";
+import magzine22 from "/Magazine/covers/Volume 6-Issue_2_mar-apr(cover).jpg";
+import magzine23 from "/Magazine/covers/Volume 6-Issue_3_may-jun(cover).jpg";
+import magzine24 from "/Magazine/covers/Volume 6-Issue_4_jul-aug(cover).jpg";
 
 const magazines = [
   {
@@ -26,6 +30,7 @@ const magazines = [
     title: "Blockchain Basics",
     issue: "Issue 01 • Jan 2025",
     image: magzine1,
+    pdf: "/public/Magazine/pdfs/Volume 5-Issue_1_jan-feb_pdf.pdf",
     tags: [
       { icon: "fa-link", label: "Blockchain" },
       { icon: "fa-lightbulb", label: "Innovation" },
@@ -36,6 +41,8 @@ const magazines = [
     title: "Crypto Insights",
     issue: "Issue 02 • Feb 2025",
     image: magzine2,
+    pdf: "/public/Magazine/pdfs/Volume 5-Issue_2_mar-apr_pdf.pdf",
+
     tags: [
       { icon: "fa-coins", label: "Crypto" },
       { icon: "fa-globe", label: "Web3" },
@@ -46,6 +53,8 @@ const magazines = [
     title: "AI Horizons",
     issue: "Issue 03 • Mar 2025",
     image: magzine3,
+    pdf: "/public/Magazine/pdfs/Volume 5-Issue_3_may-jun_pdf.pdf",
+
     tags: [
       { icon: "fa-robot", label: "AI" },
       { icon: "fa-brain", label: "Machine Learning" },
@@ -56,6 +65,8 @@ const magazines = [
     title: "Data Science Digest",
     issue: "Issue 04 • Apr 2025",
     image: magzine4,
+    pdf: "/public/Magazine/pdfs/Volume 5-Issue_4_july-aug_pdf.pdf",
+
     tags: [
       { icon: "fa-database", label: "Data Science" },
       { icon: "fa-lightbulb", label: "Research" },
@@ -66,6 +77,7 @@ const magazines = [
     title: "Future of Web3",
     issue: "Issue 05 • May 2025",
     image: magzine5,
+    pdf: "/public/Magazine/pdfs/Volume 5-Issue_5_sept-oct_pdf.pdf",
     tags: [
       { icon: "fa-globe", label: "Web3" },
       { icon: "fa-microchip", label: "Technology" },
@@ -76,6 +88,7 @@ const magazines = [
     title: "Cybersecurity Trends",
     issue: "Issue 06 • Jun 2025",
     image: magzine6,
+    pdf: "/public/Magazine/pdfs/Volume 5-Issue_6_nov-dec_pdf.pdf",
     tags: [
       { icon: "fa-shield-alt", label: "Security" },
       { icon: "fa-microchip", label: "Technology" },
@@ -86,6 +99,7 @@ const magazines = [
     title: "Quantum Computing",
     issue: "Issue 07 • Jul 2025",
     image: magzine7,
+    pdf: "/public/Magazine/pdfs/Volume 4-Issue_3_nov-dec_pdf.pdf",
     tags: [
       { icon: "fa-atom", label: "Quantum" },
       { icon: "fa-microchip", label: "Computing" },
@@ -96,6 +110,7 @@ const magazines = [
     title: "Innovation Spotlight",
     issue: "Issue 08 • Aug 2025",
     image: magzine8,
+    pdf: "/public/Magazine/pdfs/Volume 4-Issue_2_sept-oct_pdf.pdf",
     tags: [
       { icon: "fa-lightbulb", label: "Ideas" },
       { icon: "fa-microchip", label: "Technology" },
@@ -106,6 +121,7 @@ const magazines = [
     title: "Metaverse Monthly",
     issue: "Issue 09 • Jan 2024",
     image: magzine9,
+    pdf: "/public/Magazine/pdfs/Volume 4-Issue_1_july-aug_pdf.pdf",
     tags: [
       { icon: "fa-vr-cardboard", label: "Metaverse" },
       { icon: "fa-globe", label: "Web3" },
@@ -116,6 +132,7 @@ const magazines = [
     title: "AR/VR Insights",
     issue: "Issue 10 • Feb 2024",
     image: magzine10,
+    pdf: "/public/Magazine/pdfs/Volume 3-Issue_4_may-jun_pdf.pdf",
     tags: [
       { icon: "fa-vr-cardboard", label: "VR" },
       { icon: "fa-eye", label: "AR" },
@@ -126,6 +143,7 @@ const magazines = [
     title: "5G & Beyond",
     issue: "Issue 11 • Mar 2024",
     image: magzine11,
+    pdf: "/public/Magazine/pdfs/Volume 3-Issue_3_mar-apr_pdf.pdf",
     tags: [
       { icon: "fa-signal", label: "5G" },
       { icon: "fa-microchip", label: "Tech" },
@@ -136,6 +154,7 @@ const magazines = [
     title: "Edge Computing",
     issue: "Issue 12 • Apr 2024",
     image: magzine12,
+    pdf: "/public/Magazine/pdfs/Volume 3-Issue_2_jan-feb_pdf.pdf",
     tags: [
       { icon: "fa-server", label: "Edge" },
       { icon: "fa-network-wired", label: "IoT" },
@@ -146,6 +165,7 @@ const magazines = [
     title: "Startups & Innovation",
     issue: "Issue 13 • May 2024",
     image: magzine13,
+    pdf: "/public/Magazine/pdfs/Volume 3-Issue_1_aug-sept_pdf.pdf",
     tags: [
       { icon: "fa-lightbulb", label: "Startups" },
       { icon: "fa-rocket", label: "Innovation" },
@@ -156,6 +176,7 @@ const magazines = [
     title: "Cloud Chronicle",
     issue: "Issue 14 • June 2024",
     image: magzine14,
+    pdf: "/public/Magazine/pdfs/Volume 2-Issue_4_apr-may_pdf.pdf",
     tags: [
       { icon: "fa-cloud", label: "Cloud" },
       { icon: "fa-database", label: "Storage" },
@@ -166,6 +187,7 @@ const magazines = [
     title: "Crypto Trends",
     issue: "Issue 15 • July 2024",
     image: magzine15,
+    pdf: "/public/Magazine/pdfs/Volume 2-Issue_3_jan-feb_pdf.pdf",
     tags: [
       { icon: "fa-coins", label: "Crypto" },
       { icon: "fa-globe", label: "Web3" },
@@ -176,6 +198,7 @@ const magazines = [
     title: "AI Disruptors",
     issue: "Issue 16 • Aug 2024",
     image: magzine16,
+    pdf:"/public/Magazine/pdfs/Volume 2-Issue_2_nov-dec_pdf.pdf",
     tags: [
       { icon: "fa-brain", label: "Deep Learning" },
       { icon: "fa-robot", label: "AI" },
@@ -186,6 +209,7 @@ const magazines = [
     title: "Space Tech",
     issue: "Issue 17 • Sep 2024",
     image: magzine17,
+    pdf: "/public/Magazine/pdfs/Volume 2-Issue_1_sept-oct_pdf.pdf",
     tags: [
       { icon: "fa-rocket", label: "Space" },
       { icon: "fa-satellite", label: "Satellite" },
@@ -196,6 +220,7 @@ const magazines = [
     title: "Smart Data",
     issue: "Issue 18 • Oct 2024",
     image: magzine18,
+    pdf: "/public/Magazine/pdfs/Volume 1-Issue_3_jul-aug_pdf.pdf",
     tags: [
       { icon: "fa-databaser", label: "Big Data" },
       { icon: "fa-lightbulb", label: "Analytics" },
@@ -206,6 +231,7 @@ const magazines = [
     title: "FinTech Future",
     issue: "Issue 19 • Nov 2024",
     image: magzine19,
+    pdf: "/public/Magazine/pdfs/Volume 1-Issue_2_may-jun_pdf.pdf",
     tags: [
       { icon: "fa-coins", label: "FinTech" },
       { icon: "fa-credit-card", label: "Finance" },
@@ -216,11 +242,57 @@ const magazines = [
     title: "AI & Society",
     issue: "Issue 20 • Dec 2024",
     image: magzine20,
+    pdf: "/public/Magazine/pdfs/Volume 1-Issue_1_mar-apr_pdf.pdf",
     tags: [
       { icon: "fa-robot", label: "AI" },
       { icon: "fa-lightbulb", label: "Ethics" },
     ],
   },
+  {
+    id: 21,
+    title: "DSA",
+    issue: "Issue 21 • Jan-Feb 2025",
+    image: magzine21,
+    pdf: "/public/Magazine/pdfs/Volume 6-Issue_1_jan-feb_pdf.pdf",
+    tags: [
+      { icon: "fa-microchip", label: "Tech" },
+      { icon: "fa-lightbulb", label: "Ethics" },
+    ],
+  },
+  {
+    id: 22,
+    title: "AI in Software Development",
+    issue: "Issue 22 • Mar-Apr 2025",
+    image: magzine22,
+    pdf: "/public/Magazine/pdfs/Volume 6-Issue_2_mar-apr_pdf.pdf",
+    tags: [
+      { icon: "fa-robot", label: "AI" },
+      { icon: "fa-lightbulb", label: "Ethics" },
+    ],
+  },
+  {
+    id: 23,
+    title: "Javascript Bootcamp",
+    issue: "Issue 23 • May-Jun 2025",
+    image: magzine23,
+    pdf: "/public/Magazine/pdfs/Volume 6-Issue_3_may-jun_pdf.pdf",
+    tags: [
+      { icon: "fa-globe", label: "Web3" },
+      { icon: "fa-lightbulb", label: "Ethics" },
+    ],
+  },
+  {
+    id: 24,
+    title: "Generative AI",
+    issue: "Issue 24 • Jul-Aug 2025",
+    image: magzine24,
+    pdf: "/public/Magazine/pdfs/Volume 6-Issue_4_jul-aug_pdf.pdf",
+    tags: [
+      { icon: "fa-robot", label: "AI" },
+      { icon: "fa-lightbulb", label: "Ethics" },
+    ],
+  },
+
 ];
 
 export default magazines;
