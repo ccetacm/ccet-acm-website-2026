@@ -1,16 +1,12 @@
 
 import { motion } from "framer-motion";
-
 import "@lottiefiles/lottie-player";
 import styles from "./icrg.module.css";
-
 import { Player } from "@lottiefiles/react-lottie-player";
-
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadFull } from "tsparticles";
 import React, { useEffect, useState } from "react";
-
-
+import Timeline from "../components/timeline.jsx"
 
 const fadeUp = {
     hidden: { opacity: 0, y: 40 },
@@ -404,11 +400,7 @@ function App() {
                     </div>
                 </section>
             </section>
-
-
-
-
-
+                        <Timeline />
 
             <section
                 className={`${styles["container-stat"]} ${styles.container} ${styles["container-padding-vertical"]}`}
@@ -674,24 +666,11 @@ function App() {
                     </motion.a>
                 </motion.div>
             </motion.section>
-
-
-
-
-
      </div>
-
-
-
 
         </>
 
     );
 }
 
-
-
 export default App;
-
-
-
