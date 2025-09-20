@@ -30,7 +30,7 @@
 .card {
   display: flex;
   flex-direction: column;
-  background: white;
+  background: #7fa3d3;
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 10px 20px rgba(0,0,0,0.3);
@@ -62,7 +62,6 @@
 }
 
 .card-title {
-
   font-weight: bold;
   text-align: center;
   color: #003366;
@@ -72,10 +71,9 @@
 
 
 .card-desc {
- 
-  color: #555;
+  color: #ffffff;
    margin: 6px 0 8px 0; /* Reduce space below description */
-  font-size: 1.1rem; /* Slightly smaller text */
+  font-size: 1.15rem; /* Slightly smaller text */
   line-height: 1.3;
 }
 

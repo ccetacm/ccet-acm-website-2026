@@ -1,30 +1,29 @@
 import { StrictMode, useState, useEffect } from "react";
 import { createRoot } from "react-dom/client";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 
 import App from "./App.jsx";
 import About from "./pages/About.jsx";
 import Initiatives from "./components/Initiatives.jsx";
-import Event from "./components/Event.jsx";
+import Event from "./pages/Events.jsx";
 import Vision from "./components/Vision.jsx";
-import MagazineScroller from "./components/MagazineScroller.jsx";
-import Teams from "./components/testimonials.jsx";
-import ResearchLabIsolated from "./components/research.jsx";
+import Teams from "./pages/teampage.jsx";
 import Mentors from "./components/Mentors.jsx";
+import Gallery from "./components/Gallery.jsx";
+import DigitalOutlet from "./components/DigitalOutlet.jsx";
 import Footer from "./components/Footer.jsx";
-import Resources from "./components/Resources.jsx";  
+import Resources from "./components/Resources.jsx";
 import Header from "./components/Header.jsx";
 import Loader from "./components/loader.jsx";
 import ACMW from "./pages/acmw.jsx";
-
-// Import images for logos
-// import nepImg from "./assets/Header_Main/NEP_2020.png";
-// import ccetImg from "./assets/Header_Main/ccetLogo.png";
-// import sdgImg from "./assets/Header_Main/SDG.png";
-// import puImg from "./assets/Header_Main/pu-logo.png";
-// import acmImg from "./assets/Header_Main/acmlogo.png";
-// import acmw from "./assets/Header_Main/acmw.png";
-// import logoImg from "./assets/Header_Main/logo.png";
+import ICRG from "./pages/icrg.jsx";
+import TalkWithTechies from "./components/TalkWithTechies.jsx";
+import ScrollToTop from "./components/ScrollToTop.jsx";
+import ContactSection from "./pages/ContactSection.jsx";
+import EventDetails from "./pages/EventDetails.jsx";
+import CodeforCause from "./components/CodeforCause.jsx";
+import CareerPathways from "./components/CareerPathways.jsx";
+import CodeforTechnology from "./components/CodeforTechnology.jsx";
 
 import "./index.css";
 
@@ -67,54 +66,65 @@ const AppWrapper = () => {
   }, [hasLoadedOnce]);
 
   return (
-    <>
-      {!hideLoader && !hasLoadedOnce && (
-        <div
-          className={`loader-overlay-wrapper ${fadeOut ? "fade-out" : ""}`}
-          style={{
-            position: "fixed",
-            inset: 0,
-            backgroundColor: "#CAF0F8",
-            zIndex: 9999,
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            opacity: fadeOut ? 0 : 1,
-            pointerEvents: fadeOut ? "none" : "auto",
-            transition: "opacity 0.5s ease-out",
-          }}
-        >
-          <Loader />
-        </div>
-      )}
+      <>
+        {!hideLoader && !hasLoadedOnce && (
+            <div
+                className={`loader-overlay-wrapper ${fadeOut ? "fade-out" : ""}`}
+                style={{
+                  position: "fixed",
+                  inset: 0,
+                  backgroundColor: "#CAF0F8",
+                  zIndex: 9999,
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  opacity: fadeOut ? 0 : 1,
+                  pointerEvents: fadeOut ? "none" : "auto",
+                  transition: "opacity 0.5s ease-out",
+                }}
+            >
+              <Loader />
+            </div>
+        )}
 
-      <Router>
-        <Header startAnimation={true} logos={logos} />
+        <Router>
+          <Header startAnimation={true} logos={logos} />
 
-        <main style={{ paddingTop: "95px" }}>
-          <Routes>
-            <Route path="/" element={<App />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/initiatives" element={<Initiatives />} />
-            <Route path="/vision" element={<Vision />} />
-            <Route path="/events" element={<Event />} />
-            <Route path="/research" element={<Resources />} />
-            <Route path="/magazine" element={<MagazineScroller />} />
-            <Route path="/mentors" element={<Mentors />} />
-            <Route path="/teams" element={<Teams />} />
-            <Route path="/acmw" element={<ACMW />} />
-            <Route path="*" element={<h2>404 - Page Not Found</h2>} />
-          </Routes>
-        </main>
+          <ScrollToTop />
 
-        <Footer />
-      </Router>
-    </>
+          <main style={{ paddingTop: "95px" }}>
+            <Routes>
+              <Route path="/" element={<App />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/initiatives" element={<Initiatives />} />
+              <Route path="/vision" element={<Vision />} />
+              <Route path="/events" element={<Event />} />
+              <Route path="/research" element={<Resources />} />
+              <Route path="/magazine" element={<DigitalOutlet />} />
+              <Route path="/mentors" element={<Mentors />} />
+              <Route path="/teams" element={<Teams />} />
+              <Route path="/acmw" element={<ACMW />} />
+              <Route path="/icrg" element={<ICRG />} />
+              <Route path="/gallery" element={<Gallery />} />
+              <Route path="/TalkWithTechies" element={<TalkWithTechies />} />
+              <Route path="/talk-with-techies" element={<TalkWithTechies />} />
+              <Route path="/contact-section" element={<ContactSection />} />
+              <Route path="/event-details" element={<EventDetails />} />
+              <Route path="/code-for-cause" element={<CodeforCause />} />
+              <Route path="/career-pathways" element={<CareerPathways />} />
+              <Route path="/code-for-technology" element={<CodeforTechnology />} />
+              <Route path="*" element={<h2>404 - Page Not Found</h2>} />
+            </Routes>
+          </main>
+
+          <Footer />
+        </Router>
+      </>
   );
 };
 
 createRoot(document.getElementById("root")).render(
-  <StrictMode>
-    <AppWrapper />
-  </StrictMode>
+    <StrictMode>
+      <AppWrapper />
+    </StrictMode>
 );
