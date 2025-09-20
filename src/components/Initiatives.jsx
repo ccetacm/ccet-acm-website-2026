@@ -2,13 +2,6 @@ import React from "react";
 import { Player } from "@lottiefiles/react-lottie-player";
 import "./Initiatives.css";
 
-// import careerAnim from "../assets/animations/career.json";
-// import codeTypingAnim from "../assets/animations/Code typing concept.json";
-// import codingAnim from "../assets/animations/Coding.json";
-// import manRobotAnim from "../assets/animations/Man and robot with computers sitting together in workplace.json";
-// import codingForCauseAnim from "../assets/animations/coding for cause.json";
-// import onlineTeachingAnim from "../assets/animations/Online Teaching.json";
-
 const Gallery = () => {
   const cards = [
     {
