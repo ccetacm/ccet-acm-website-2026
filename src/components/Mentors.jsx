@@ -2218,7 +2218,113 @@ const mentorsData = [
         description: "Active member",
       },
     ],
+    projects: [
+      {
+    title: "AICTE SPICES-CCET ACM STUDENT CHAPTER",
+    agency: "All India Council for Technical Education (AICTE) New Delhi",
+    status: "Ongoing",
+    role: "Coordinator",
+    amount: "₹100000",
+    year: "2022 - 2023"
   },
+  {
+    title: "Design and Development of an Automatic Modular Car Parking System for the City of Chandigarh",
+    agency:
+      "Department of Science and Technology, Ministry of Science and Technology, India (Chandigarh Administration (UT), Chandigarh, Chandigarh (UT))",
+    status: "Completed",
+    role: "Co-PI",
+    amount: "₹3,27,000",
+    year: "2019 - 2021"
+  },
+  {
+    title: "AICTE Training and Learning (ATAL) Academy Online FDP on “Internet of Things (IOT) with Artificial Intelligence (AI)”",
+    agency: "AICTE New Delhi",
+    status: "Completed",
+    role: "Coordinator",
+    amount: "₹93,000",
+    year: "2021 - 2021"
+  }
+    ],
+    patents: [
+     {
+    title: "A SMART REGULATOR FOR A FAN",
+    inventors: "Aayushi Aggarwal, Dr. Sunil K. Singh",
+    domain: "Engineering and Technology",
+    status: "Filed",
+    filedDate: "2020-02-06",
+  },
+  {
+    title: "A SYSTEM OF A MODULAR AUTOMATIC CAR PARKING SYSTEM FOR A CITY MARKETPLACE",
+    inventors: "Dr Jatinder Madan, Dr. Sunil K. Singh, Dr. D S Saini, Dr. Rajesh Kumar",
+    domain: "Engineering and Technology",
+    status: "Filed",
+    filedDate: "2021-03-01",
+  },
+  {
+    title: "A DEFECTED GROUND ANTENNA FOR WIRELESS BODY AREA NETWORK",
+    inventors:
+      "Gupta, Rakesh Kumar; Yadav, Neelam; Varsha, Ms.; Suyan, Nitin Kumar; Lohar, Fateh Lal; Kumari, E. Kusuma; Jindal, Shilpa; Singh, Sunil K.; Sharma, Purnima K.; Sharma, Dinesh",
+    patentNumber: "2021100926",
+    domain: "Engineering and Technology",
+    status: "Granted",
+    filedDate: "2021-02-18",
+    publishedDate: "2021-04-29",
+  },
+  {
+    title: "COGNITIVE METHOD AND SYSTEM TO SHIELD SMART DEVICES",
+    inventors: "Dr. Brij Bhooshan Gupta, Dr. Sunil Kumar Singh, Dr. Ammar Ali Deeb Almomani et. al.",
+    patentNumber: "423690",
+    domain: "Engineering and Technology",
+    status: "Granted",
+    filedDate: "2022-05-19",
+    publishedDate: "2023-03-01",
+  },
+  {
+    title: "METHOD AND SYSTEM FOR SECURE COMMUNICATION IN IOT NETWORKS",
+    inventors: "Dr. Brij Bhooshan Gupta, Dr. Sunil Kumar Singh, Dr. Ammar Ali Deeb Almomani, Ms. Shashi Gandhar et. al.",
+    patentNumber: "454931",
+    domain: "Engineering and Technology",
+    status: "Granted",
+    filedDate: "2022-05-19",
+    publishedDate: "2023-09-28",
+  },
+  {
+    title: "Intelligent Router (Design)",
+    inventors: "Dr. Sunil Kr. Singh, Dr. Brij Bhooshan Gupta, Dr. Sunil Sharma, Sudhakar Kumar, Shabeeg Singh Gill",
+    patentNumber: "112747 (Certificate Number)",
+    domain: "Engineering and Technology",
+    status: "Granted",
+    filedDate: "2022-02-25",
+    publishedDate: "2022-04-28",
+  },
+  {
+    title: "Virtual Reality Headset (Design)",
+    inventors: "Dr. Sunil Kr. Singh, Dr. Sunil Sharma, Dr. Brij Bhooshan Gupta, Sudhakar Kumar",
+    patentNumber: "112061 (Certificate Number)",
+    domain: "Engineering and Technology",
+    status: "Granted",
+    filedDate: "2022-02-25",
+    publishedDate: "2022-04-25",
+  },
+  {
+    title: "German Utility Model Patent titled \"Intelligent defense system against distributed Denial of Service (DDoS) attacks in Internet of Things (IoT) networks\"",
+    inventors: "A Alhababi Wadee Dr., Jeddah, SA; Alhudaili, Ahad, Dr., Jeddah, SA; Almomani, Ammar Ali Deeb Dr., Chandigarh, IN; Bhooshan, Dr., Taichung City, TW; Singh, Sunil Kumar, Dr., Chandigarh, IN",
+    patentNumber: "DE202022102631U1/20220707",
+    domain: "Engineering and Technology",
+    status: "Published",
+    filedDate: "2022-05-13",
+    publishedDate: "2022-07-07",
+  },
+  {
+    title: "German Utility Model Patent titled \"A system to detect pandemic scenario for small business owners\"",
+    inventors: "Aludaili Mai Dr Riyadh SA Alhababi Wadee Drjeddah SA Almomani Ammar Ali Deeb DrShari'aE Gandhar Shashi New Delhi IN Gupta Brijbhooshan Dr., Chandigarh, IN; Singh, Sunil Kumar, Dr., Taichung City, TW; Hsu, Ching-Hsien, Dr., Taichung City, TW",
+    patentNumber: "DE 20 2022 102 632 U1 2022-10-06",
+    domain: "Engineering and Technology",
+    status: "Published",
+    filedDate: "2022-05-13",
+    publishedDate: "2022-10-06",
+  }
+],  },
   {
     name: "Dr. Sudhakar Kumar",
     title: "Faculty Sponser ACM, Assistant Professor CSE CCTE CHD",
@@ -3513,6 +3619,86 @@ margin-top: 12px;
   border-radius: 0;
   background-color: #fff;
 }
+.projects-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.project-card {
+  border: 1px solid #d0d7de;
+  border-left: 4px solid #184ba7;
+  padding: 1rem;
+  border-radius: 6px;
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+.project-card h4 {
+  margin: 0 0 15px 0;
+  color: #053493ff;
+  font-size: 1.6rem;
+}
+.project-card .project-agency {
+  color: #0d49b9ff;
+  margin: 12px 0;
+  font-size: 1.4rem;
+}
+
+
+.project-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 8px;
+  font-size: 1.2rem;
+  color: #2b3d61;
+}
+
+.patents-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  font-size: 1.2rem; /* base font for all text */
+}
+
+.patents-grid .patent-card {
+  border: 1px solid #d0d7de;
+  border-left: 4px solid #184ba7;
+  padding: 0.8rem;
+  border-radius: 6px;
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+.patents-grid .patent-title {
+  margin: 0 0 20px 0;
+  color: #04318aff;
+  font-size: 1.6rem; /* bigger title */
+  font-weight: 650;
+}
+
+.patents-grid .patent-info {
+  color: #184ba7;
+  margin: 4px 0;
+  font-size: 1.3rem; /* smaller text */
+}
+
+.patents-grid .patent-dates {
+  margin-top: 4px;
+  
+  color: #2b3d61;
+}
+
+.patents-grid .patent-dates p {
+  margin: 4px 0;
+  font-size: 1.3rem;
+}
+
+.patents-grid .patent-card a {
+  color: #184ba7;
+  text-decoration: underline;
+}
 
 
 @media (min-width: 600px) {
@@ -3972,6 +4158,90 @@ function ProfessionalActivities({ items }) {
     </div>
   );
 }
+function Projects({ items }) {
+  if (!items || items.length === 0) return null;
+
+  return (
+    <div id="projects" className="projects-grid" aria-label="Projects">
+      {items.map((project, i) => (
+        <div className="project-card" key={i}>
+          {/* Title */}
+          <h4>{project.title}</h4>
+
+          {/* Funding Agency */}
+          {project.agency && (
+            <p className="project-agency">
+              
+              <span role="img" aria-label="agency"></span>{" "}
+              <strong>Funding Agency:</strong> {project.agency}
+            </p>
+          )}
+
+          {/* Status, Role, Amount, Year */}
+          <div className="project-meta">
+            {project.status && (
+              <span>✅ {project.status}</span>
+            )}
+            {project.role && (
+              <span>👤 {project.role}</span>
+            )}
+            {project.amount && (
+              <span>{project.amount}</span>
+            )}
+            {project.year && (
+              <span>📅 {project.year}</span>
+            )}
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function Patents({ items }) {
+  if (!items || items.length === 0) return <p>No patents.</p>;
+
+  return (
+    <div className="patents-grid">
+      {items.map((patent, i) => (
+        <div className="patent-card" key={i}>
+          {/* Title */}
+          <h3 className="patent-title">{patent.title}</h3>
+
+          {/* Inventors */}
+          {patent.inventors && <p className="patent-info">👤 {patent.inventors}</p>}
+
+          {/* Domain */}
+          {patent.domain && <p className="patent-info">📍 {patent.domain}</p>}
+
+          {/* Patent number */}
+          {patent.patentNumber && (
+            <p className="patent-info">📄 Patent No: {patent.patentNumber}</p>
+          )}
+
+          {/* Status */}
+          {patent.status && <p className="patent-info">⏳ {patent.status}</p>}
+
+          {/* Dates */}
+          <div className="patent-dates">
+            {patent.filedDate && <p>📅 Filed {patent.filedDate}</p>}
+            {patent.publishedDate && <p>✅ Published {patent.publishedDate}</p>}
+          </div>
+
+          {/* Optional link */}
+          {patent.link && (
+            <p className="patent-info">
+              🔗{" "}
+              <a href={patent.link} target="_blank" rel="noopener noreferrer">
+                View Document
+              </a>
+            </p>
+          )}
+        </div>
+      ))}
+    </div>
+  );
+}
 
 function MentorProfile({ mentor, onClose }) {
   const [activeTab, setActiveTab] = useState("about");
@@ -4147,6 +4417,17 @@ function MentorProfile({ mentor, onClose }) {
             Projects
           </button>
           <button
+            className={`tab ${activeTab === "Patents" ? "active" : ""}`}
+            onClick={() => setActiveTab("Patents")}
+            role="tab"
+            aria-selected={activeTab === "Patents"}
+            id="tab-Patents"
+            aria-controls="Patents"
+            tabIndex={activeTab === "Patents" ? 0 : -1}
+          >
+             Patents
+          </button>
+            <button
             className={`tab ${activeTab === "team" ? "active" : ""}`}
             onClick={() => setActiveTab("team")}
             role="tab"
@@ -4277,8 +4558,19 @@ function MentorProfile({ mentor, onClose }) {
           tabIndex={0}
         >
           <h3>Projects</h3>
-          <p>No projects available.</p>
+          <Projects items ={mentor.projects} />
         </section>
+
+         <section
+  className={`tab-content ${activeTab === "Patents" ? "active" : ""}`}
+  id="patents"
+  role="tabpanel"
+  aria-labelledby="tab-patents"
+  tabIndex={0}
+>
+  <h3>Patents</h3>
+  <Patents items={mentor.patents} />
+</section>
 
         <section
           className={`tab-content ${activeTab === "team" ? "active" : ""}`}
