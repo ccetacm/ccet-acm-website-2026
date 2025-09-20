@@ -42,6 +42,18 @@
     z-index: 2;
 }
 
+/* News Ticker Container */
+.newsTickerContainer {
+    position: relative;
+    z-index: 10;
+    margin-top: -1px; /* Seamless connection */
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+}
+
 /* Hero Text Section */
 .hero {
     flex: 1;
@@ -209,8 +221,6 @@
     display: none;
 }
 
-/* Removed Progress Bar and Data Grid for cleaner look */
-
 /* Professional Navigation Buttons - Hidden by default */
 .techBtn {
     position: absolute;
@@ -315,72 +325,6 @@
     }
 }
 
-/* Modern Professional Breaking Bar */
-.breakingBar {
-    position: relative;
-    background: #ffffff;
-    color: #1f2937;
-    padding: 10px 0;
-    overflow: hidden;
-    z-index: 100;
-    margin-top: -20px;
-    transform: translateY(100%);
-    opacity: 0;
-    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-    border-top: 5px solid #126973;
-    border-bottom: 5px solid #126973;
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
-}
-
-.breakingBar::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(90deg,
-    rgba(18, 105, 115, 0.02) 0%,
-    rgba(18, 105, 115, 0.05) 50%,
-    rgba(18, 105, 115, 0.02) 100%
-    );
-}
-
-.breakingBar.animate {
-    transform: translateY(0);
-    opacity: 1;
-}
-
-.scrollingText {
-    overflow: hidden;
-    display: flex;
-    animation: scroll 15s linear infinite;
-    white-space: nowrap;
-    will-change: transform;
-}
-
-@keyframes scroll {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-}
-
-.barText {
-    font-weight: 600;
-    font-size: 15px;
-    letter-spacing: 0.5px;
-    margin: 0 60px;
-    color: #1f2937;
-    font-family: system-ui, -apple-system, sans-serif;
-    position: relative;
-}
-
-.barSeparator {
-    color: #126973;
-    font-size: 12px;
-    margin: 0 30px;
-    font-weight: 400;
-}
-
 /* Responsive Design */
 @media (max-width: 768px) {
     .heroContainer {
@@ -449,4 +393,108 @@
     .panelDesc {
         font-size: 12px;
     }
+}
+
+/* News Ticker Styles (for inline version) */
+.newsTicker {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    background: #1a1a1a;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.newsLabel {
+    background: #2d2d2d;
+    color: white;
+    padding: 0 20px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 16px;
+    letter-spacing: 1px;
+    min-width: 80px;
+    justify-content: center;
+    border-right: 2px solid #444;
+}
+
+.newsContent {
+    flex: 1;
+    height: 100%;
+    background: #126973;
+    position: relative;
+    overflow: hidden;
+}
+
+.newsItem {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: white;
+    font-size: 14px;
+    padding: 0 20px;
+    transform: translateY(0%);
+    transition: all 0.3s ease;
+}
+
+.newsTransitioning {
+    opacity: 0;
+    transform: translateY(-10px);
+}
+
+.newsSource {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 4px 8px;
+    border-radius: 3px;
+    font-weight: bold;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.newsDate {
+    font-size: 12px;
+    opacity: 0.9;
+    white-space: nowrap;
+}
+
+.newsText {
+    font-weight: 500;
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.newsControls {
+    display: flex;
+    background: #2d2d2d;
+    height: 100%;
+}
+
+.newsControlBtn {
+    background: transparent;
+    border: none;
+    color: white;
+    width: 40px;
+    height: 100%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    transition: background-color 0.2s ease;
+    border-left: 1px solid #444;
+}
+
+.newsControlBtn:hover {
+    background: #404040;
 }
