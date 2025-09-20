@@ -1,9 +1,4 @@
-/* ==========================================================================
-   Code for Cause - Fully Localized CSS Module
-   ========================================================================== */
-
 .pageWrapper {
-  /* ---------- Theme Tokens (CSS Variables) ---------- */
   --blue-50: #eff6ff;
   --blue-100: #dbeafe;
   --blue-600: #2563eb;
@@ -21,8 +16,6 @@
   --shadow-sm: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03);
   --shadow-lg: 0 20px 25px -5px rgba(0,0,0,0.12), 0 10px 10px -5px rgba(0,0,0,0.06);
   --shadow-soft: 0 8px 24px rgba(30, 64, 175, 0.12);
-  
-  /* ---------- Base Styles ---------- */
   background-color: var(--white);
   color: var(--gray-900);
   overflow-x: hidden;
@@ -30,7 +23,6 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* ---------- Hero ---------- */
 .heroBg {
   min-height: 100vh;
   padding: 5rem 1rem;
@@ -39,7 +31,7 @@
   justify-content: center;
   text-align: center;
   /* webpackIgnore: true */
-  background-image: linear-gradient(rgba(30,64,175,0.6), rgba(30,58,138,0.8)), url('/TalkWithTechies/bgcoc.jpeg');
+  background-image: linear-gradient(rgba(30,64,175,0.6), rgba(30,58,138,0.8)), url('/CodeforCause/bgcoc.jpeg');
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -145,7 +137,6 @@
 @keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0; } }
 @keyframes glow { from { box-shadow: 0 0 0 rgba(255,255,255,0); } to { box-shadow: 0 0 10px rgba(255,255,255,0.35); } }
 
-/* ---------- Scroll-in animations ---------- */
 .scrollAnimate {
   opacity: 0;
   transform: translateY(40px) scale(0.98);
@@ -159,7 +150,6 @@
   filter: saturate(1) blur(0);
 }
 
-/* ---------- Stats ---------- */
 .statsGrid {
   margin-top: 4rem;
   display: grid;
@@ -311,7 +301,6 @@
   color: var(--gray-600);
 }
 
-/* ===== EVENT CARDS - CARD LAYOUT WITH UNIFORM BUTTONS ===== */
 .eventsGrid {
   display: grid;
   grid-template-columns: 1fr;
@@ -471,13 +460,11 @@
   transform: translateY(-2px);
 }
 
-/* ---------- Responsive helpers ---------- */
 @media (max-width: 360px) {
   :global(.pageWrapper) .statNumber { font-size: 2rem; }
   :global(.pageWrapper) .mainHeading { font-size: 2.25rem; }
 }
 
-/* ---------- Accessibility: reduced motion ---------- */
 @media (prefers-reduced-motion: reduce) {
   .heroBg { background-attachment: scroll; }
   .letterAnimate,
