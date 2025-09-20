@@ -8,6 +8,7 @@ const Header = ({ startAnimation, logos }) => {
     const [navbarAnimated, setNavbarAnimated] = useState(false);
     const [currentLogoIndex, setCurrentLogoIndex] = useState(0);
     const [logoFading, setLogoFading] = useState(false);
+    const [moreDropdownOpen, setMoreDropdownOpen] = useState(false);
 
     useEffect(() => {
         if (startAnimation) {
@@ -27,8 +28,29 @@ const Header = ({ startAnimation, logos }) => {
         return () => clearInterval(logoInterval);
     }, [logos.length]);
 
+    // Close dropdown when clicking outside
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (moreDropdownOpen && !event.target.closest(`.${styles.moreDropdown}`)) {
+                setMoreDropdownOpen(false);
+            }
+        };
+
+        document.addEventListener('click', handleClickOutside);
+        return () => document.removeEventListener('click', handleClickOutside);
+    }, [moreDropdownOpen]);
+
     const toggleMobileMenu = () => {
         setMobileMenuOpen(!mobileMenuOpen);
+    };
+
+    const toggleMoreDropdown = () => {
+        setMoreDropdownOpen(!moreDropdownOpen);
+    };
+
+    const closeDropdowns = () => {
+        setMoreDropdownOpen(false);
+        setMobileMenuOpen(false);
     };
 
     const navigationItems = [
@@ -46,48 +68,91 @@ const Header = ({ startAnimation, logos }) => {
     return (
         <>
             <nav className={`${styles.navbar} ${navbarAnimated ? styles.animate : ""}`}>
-                {/* Left: Static Logo */}
-                <div className={styles.navbarLeft}>
-                    <div className={styles.staticLogo}>
-                        <img
-                            src="/acm-logo/ccet-acm-logo-website.svg"
-                            alt="CCET ACM Logo"
-                        />
+                {/* Mobile Hamburger Menu - Outside of leftSection for better mobile control */}
+                <button
+                    className={`${styles.hamburgerMenu} ${styles.mobileHamburger} ${mobileMenuOpen ? styles.active : ""}`}
+                    onClick={toggleMobileMenu}
+                    aria-label="Toggle mobile menu"
+                >
+                    <div className={styles.hamburgerLine}></div>
+                    <div className={styles.hamburgerLine}></div>
+                    <div className={styles.hamburgerLine}></div>
+                </button>
+
+                {/* Left Section - Logo and Home Button */}
+                <div className={styles.leftSection}>
+                    {/* Desktop Hamburger Menu */}
+                    <button
+                        className={`${styles.hamburgerMenu} ${styles.desktopHamburger} ${mobileMenuOpen ? styles.active : ""}`}
+                        onClick={toggleMobileMenu}
+                        aria-label="Toggle mobile menu"
+                    >
+                        <div className={styles.hamburgerLine}></div>
+                        <div className={styles.hamburgerLine}></div>
+                        <div className={styles.hamburgerLine}></div>
+                    </button>
+
+                    {/* Logo with Home Button */}
+                    <div className={styles.logoContainer}>
+                        <div className={styles.staticLogo}>
+                            <img
+                                src="/acm-logo/ccet-acm-logo-website.svg"
+                                alt="CCET ACM Logo"
+                            />
+                        </div>
+                        <span className={styles.logoText}>CCET ACM</span>
+                        <Link to="/" className={styles.homeBtn}>
+                            HOME
+                        </Link>
                     </div>
-                    {/* Mobile Left Logo */}
-                    <div className={styles.mobileLeftLogo}>
-                        <div className={styles.logoSwitcher}>
-                            <a
-                                href={logos[currentLogoIndex].link}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                aria-label={`Visit ${logos[currentLogoIndex].alt} website`}
-                            >
-                                <img
-                                    src={logos[currentLogoIndex].src || "/placeholder.svg"}
-                                    alt={logos[currentLogoIndex].alt}
-                                    className={`${styles.switchingLogo} ${logoFading ? styles.fading : ""}`}
-                                />
-                            </a>
+                </div>
+
+                {/* Center Section - Navigation Links */}
+                <div className={styles.centerSection}>
+                    <div className={styles.navLinks}>
+                        <Link to="/about" onClick={closeDropdowns}>About</Link>
+                        <Link to="/initiatives" onClick={closeDropdowns}>Core Acts</Link>
+                        <Link to="/events" onClick={closeDropdowns}>Events</Link>
+                        <Link to="/research" onClick={closeDropdowns}>Research Lab</Link>
+                        <Link to="/magazine" onClick={closeDropdowns}>Digital Outlet</Link>
+                        <Link to="/acmw" onClick={closeDropdowns}>ACM-W</Link>
+                    </div>
+                </div>
+
+                {/* Right Section */}
+                <div className={styles.rightSection}>
+                    <div className={`${styles.moreDropdown} ${moreDropdownOpen ? styles.active : ""}`}>
+                        <button
+                            className={styles.moreBtn}
+                            onClick={toggleMoreDropdown}
+                            aria-label="More navigation options"
+                        >
+                            <div className={styles.dotsIcon}>
+                                {[...Array(9)].map((_, i) => (
+                                    <div key={i} className={styles.dot}></div>
+                                ))}
+                            </div>
+                            More
+                        </button>
+                        <div className={styles.moreDropdownContent}>
+                            <Link to="/about" className={styles.moreItem} onClick={closeDropdowns}>About</Link>
+                            <Link to="/initiatives" className={styles.moreItem} onClick={closeDropdowns}>Core Acts</Link>
+                            <Link to="/events" className={styles.moreItem} onClick={closeDropdowns}>Events</Link>
+                            <Link to="/research" className={styles.moreItem} onClick={closeDropdowns}>Research Lab</Link>
+                            <Link to="/magazine" className={styles.moreItem} onClick={closeDropdowns}>Digital Outlet</Link>
+                            <Link to="/acmw" className={styles.moreItem} onClick={closeDropdowns}>ACM-W</Link>
                         </div>
                     </div>
-                </div>
 
-                {/* Center: Navigation Links */}
-                <div className={styles.navLinks}>
-                    <Link to="/" onClick={() => setMobileMenuOpen(false)}>HOME</Link>
-                    <Link to="/about" onClick={() => setMobileMenuOpen(false)}>ABOUT</Link>
-                    <Link to="/initiatives" onClick={() => setMobileMenuOpen(false)}>CORE ACTS</Link>
-                    <Link to="/events" onClick={() => setMobileMenuOpen(false)}>EVENTS</Link>
-                    <Link to="/research" onClick={() => setMobileMenuOpen(false)}>RESEARCH LAB</Link>
-                    <Link to="/magazine" onClick={() => setMobileMenuOpen(false)}>DIGITAL OUTLET</Link>
-                    <Link to="/teams" onClick={() => setMobileMenuOpen(false)}>TEAM</Link>
-                    <Link to="/gallery" onClick={() => setMobileMenuOpen(false)}>GALLERY</Link>
-                    <Link to="/acmw" onClick={() => setMobileMenuOpen(false)}>ACM-W</Link>
-                </div>
+                    <Link to="/teams" className={styles.teamBtn}>
+                        👥 Team
+                    </Link>
 
-                {/* Right: Switching Logo */}
-                <div className={styles.navbarRight}>
+                    <Link to="/gallery" className={styles.galleryBtn}>
+                        VIEW GALLERY
+                    </Link>
+
+                    {/* Switching Logo */}
                     <div className={styles.logoSwitcher}>
                         <a
                             href={logos[currentLogoIndex].link}
@@ -104,27 +169,15 @@ const Header = ({ startAnimation, logos }) => {
                     </div>
                 </div>
 
-                {/* Mobile Center Text - only visible on mobile */}
+                {/* Mobile Center Text */}
                 <div className={styles.mobileCenterText}>
                     <h1 className={styles.mobileTitle}>CCET ACM</h1>
                 </div>
-
-                {/* Hamburger Menu */}
-                <button
-                    className={`${styles.hamburgerMenu} ${mobileMenuOpen ? styles.active : ""}`}
-                    onClick={toggleMobileMenu}
-                    aria-label="Toggle mobile menu"
-                >
-                    <div className={styles.hamburgerLine}></div>
-                    <div className={styles.hamburgerLine}></div>
-                    <div className={styles.hamburgerLine}></div>
-                </button>
             </nav>
 
-            {/* Mobile Menu Overlay - Arena Style */}
+            {/* Mobile Menu Overlay - Blue Transparent Style */}
             <div className={`${styles.mobileMenuOverlay} ${mobileMenuOpen ? styles.active : ""}`}>
                 <div className={styles.mobileMenuContent}>
-
                     {/* Menu Header */}
                     <div className={styles.mobileMenuHeader}>
                         <div className={styles.menuTitle}>MENU</div>
@@ -147,11 +200,7 @@ const Header = ({ startAnimation, logos }) => {
                             >
                                 <div className={styles.menuItemContent}>
                                     <span className={styles.menuItemText}>{item.label}</span>
-                                    <div className={styles.menuItemIcon}>
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                                        </svg>
-                                    </div>
+                                    <div className={styles.menuItemArrow}>→</div>
                                 </div>
                             </Link>
                         ))}
@@ -160,10 +209,11 @@ const Header = ({ startAnimation, logos }) => {
                     {/* Menu Footer */}
                     <div className={styles.mobileMenuFooter}>
                         <div className={styles.menuFooterContent}>
-                            <div className={styles.menuFooterIcon}>
-                                <svg viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M13.372 2.094a10.003 10.003 0 0 0-6.744 0C4.716 2.64 3.5 4.342 3.5 6.288v11.424c0 1.946 1.216 3.648 3.128 4.194a10.003 10.003 0 0 0 6.744 0c1.912-.546 3.128-2.248 3.128-4.194V6.288c0-1.946-1.216-3.648-3.128-4.194z"/>
-                                </svg>
+                            <div className={styles.switchingLogoMobile}>
+                                <img
+                                    src={logos[currentLogoIndex].src || "/placeholder.svg"}
+                                    alt={logos[currentLogoIndex].alt}
+                                />
                             </div>
                             <span className={styles.menuFooterText}>CCET ACM Chapter</span>
                         </div>
