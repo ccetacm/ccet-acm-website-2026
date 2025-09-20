@@ -32,7 +32,7 @@ const Gallery = () => {
       anim: "/animations/coding for cause.json",
       title: "Career Pathways",
       desc: "Exploring pathways to internships and career opportunities.",
-      link: "#career-pathways",
+      link: "#/career-pathways",
     },
     {
       anim: "/animations/Online Teaching.json",
