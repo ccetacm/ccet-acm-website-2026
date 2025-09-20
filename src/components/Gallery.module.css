@@ -1,0 +1,313 @@
+/* ---------- Gallery.module.css ---------- */
+
+/* ---------- Section Styling ---------- */
+.gallerySection {
+  background-color: #ffffff;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.galleryHeading {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  color: #00296b;
+  margin-bottom: 10px;
+}
+
+.gallerySubtitle {
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 40px;
+}
+
+/* ---------- Gallery Layout ---------- */
+.gallery {
+  display: flex;
+  flex-wrap: nowrap;          /* stop wrapping columns */
+  justify-content: center;
+  align-items: flex-start;
+  gap: 100px;
+  width: 100%;
+  margin: 0;
+  padding: 12px 24px;
+  box-sizing: border-box;
+  
+  overflow-y: hidden;         /* hide vertical overflow of container */
+  scroll-behavior: smooth;    /* smooth horizontal scroll */
+}
+
+.galleryStripWrapper {
+  
+  flex: 0 0 calc((100% - 2*50px)/3);  /* 50px = gap */
+  max-width: calc((100% - 2*50px)/3);
+  box-sizing: border-box;
+  padding: 12px 8px;
+  border-right: 2px solid rgba(0,0,0,0.06);
+  display: flex;
+  justify-content: center;
+  margin: 18px 0;
+  align-self: flex-start;
+}
+
+.galleryStripWrapperLast {
+  border-right: none;
+}
+
+.galleryStrip {
+  width: 100%;
+  height: calc(100vh - 180px);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  align-items: center;
+  will-change: transform;
+}
+
+.stripInner {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  transform: translateY(0);
+  will-change: transform;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+
+/* ---------- Photo Cards ---------- */
+.photo {
+  width: 100%;
+  max-width: 100%;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  cursor: pointer;
+  text-align: center;
+}
+
+.photoImage {
+  width: 100%;
+  display: block;
+  overflow: hidden;
+}
+
+.photoImage img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  display: block;
+  border-radius: 12px 12px 0 0;
+  transition: transform 0.35s ease;
+}
+
+.photoName {
+  padding: 10px;
+  font-weight: 600;
+  background-color: #CAF0F8;
+  text-transform: uppercase;
+  font-size: 18px;
+  letter-spacing: 1px;
+  -webkit-text-stroke: 1px #00296b;
+  color: transparent;
+  transition: color 0.35s ease;
+}
+
+.photo:hover {
+  transform: scale(1.06) translateX(8px);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.2);
+}
+.photo:hover img {
+  transform: scale(1.08);
+}
+.photo:hover .photoName {
+  color: #00296b;
+}
+
+/* ---------- Responsive Breakpoints ---------- */
+
+
+/* Small tablets and small desktops */
+@media (min-width: 700px) and (max-width: 949px) {
+  .gallery {
+    padding: 12px 20px;
+    gap: 24px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+  }
+
+  .galleryStripWrapper {
+    flex: 0 0 50%;
+    max-width: 50%;
+    padding: 12px;
+  }
+
+  .galleryStrip {
+    height: calc(100vh - 56px); /* fixed height like desktop */
+    overflow-y: auto;            /* allow vertical scroll inside strips */
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .photoImage img {
+    height: 200px;   /* resize images for smaller screens */
+    min-height: 160px;
+  }
+
+  .photo {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+}
+
+
+/* Mobile adjustments */
+@media (max-width: 699px) {
+  .gallery {
+    padding: 10px;
+    gap: 16px;
+    overflow-x: hidden;      /* no horizontal scroll */
+    overflow-y: hidden;      /* hide vertical overflow for gallery container */
+  }
+
+  .galleryStripWrapper {
+    flex: 0 0 100%;
+    max-width: 100%;
+    border-right: none;
+    padding: 10px 0;
+  }
+
+  .galleryStrip {
+    height: calc(100vh - 180px);  /* fixed height like desktop */
+    overflow-y: auto;             /* allow vertical scroll inside each strip */
+    -webkit-overflow-scrolling: touch; /* smooth scroll for mobile devices */
+  }
+
+  .photoImage img {
+    height: 180px;   /* slightly smaller images for mobile */
+    min-height: 140px;
+  }
+
+  .photo {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .photoName {
+    -webkit-text-stroke: 0.8px #00296b;
+    font-size: 16px;
+    color: #00296b;
+  }
+}
+
+
+/* ---------- Lightbox Styling ---------- */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  background: rgba(0, 0, 0, 0.9);
+  padding: 24px;
+}
+
+.lightboxActive {
+  display: flex;
+  animation: lightboxFade 0.18s ease-out;
+}
+
+@keyframes lightboxFade {
+  from {
+    opacity: 0;
+    transform: scale(0.995);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.lightboxContent {
+  max-width: 95%;
+  width: 100%;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.lightboxContent img {
+  max-width: 75vw;
+  max-height: 85vh;
+  border-radius: 12px;
+  box-shadow: 0 10px 36px rgba(0, 0, 0, 0.6);
+}
+
+.lightboxCaption {
+  color: #fff;
+  font-size: 1.05rem;
+  text-align: center;
+}
+
+.lightboxClose {
+  position: absolute;
+  top: 18px;
+  right: 22px;
+  background: #00296b;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.18s ease;
+}
+
+.lightboxClose:hover {
+  background: #0066d6;
+}
+
+.lightboxPrev,
+.lightboxNext {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.12);
+  border: none;
+  color: #fff;
+  font-size: 1.6rem;
+  padding: 10px 12px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10001;
+  transition: background 0.18s ease;
+}
+
+.lightboxPrev {
+  left: 26px;
+}
+
+.lightboxNext {
+  right: 26px;
+}
+
+.lightboxPrev:hover,
+.lightboxNext:hover {
+  background: rgba(255, 255, 255, 0.28);
+}
+
+/* ---------- Accessibility ---------- */
+.gallery,
+.galleryStrip,
+.galleryStripWrapper,
+.stripInner,
+.photo {
+  box-sizing: border-box;
+}
+
+button:focus {
+  outline: 3px solid rgba(0, 123, 255, 0.25);
+  outline-offset: 2px;
+}

@@ -12,7 +12,7 @@ const SocialMedia = ({ startAnimation }) => {
     }, [startAnimation]);
 
     return (
-        <div className={`${styles.socialSidebar} ${sidebarAnimated ? styles.animate : ""}`}>
+        <div className={`${styles.social} ${sidebarAnimated ? styles.animate : ""}`}>
             <a
                 href="https://www.facebook.com/acmccet/"
                 target="_blank"
@@ -20,43 +20,53 @@ const SocialMedia = ({ startAnimation }) => {
                 className={`${styles.socialIcon} ${styles.facebook}`}
                 aria-label="Facebook"
             >
-                <i className="fab fa-facebook-f"></i>
-            </a>
-            <a
-                href="https://www.instagram.com/acmccet/?hl=en"
-                className={`${styles.socialIcon} ${styles.instagram}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Instagram"
-            >
-                <i className="fab fa-instagram"></i>
-            </a>
-            <a
-                href="https://in.linkedin.com/company/ccet-acm-student-chapter"
-                className={`${styles.socialIcon} ${styles.linkedin}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="LinkedIn"
-            >
-                <i className="fab fa-linkedin-in"></i>
+                <div className={styles.inner}>
+                    <i className="fab fa-facebook-f"></i>
+                </div>
             </a>
             <a
                 href="https://x.com/acmccet"
-                className={`${styles.socialIcon} ${styles.twitter}`}
                 target="_blank"
                 rel="noopener noreferrer"
+                className={`${styles.socialIcon} ${styles.twitter}`}
                 aria-label="Twitter"
             >
-                <i className="fab fa-twitter"></i>
+                <div className={styles.inner}>
+                    <i className="fab fa-twitter"></i>
+                </div>
             </a>
             <a
-                href="#"
-                className={`${styles.socialIcon} ${styles.youtube}`}
+                href="https://in.linkedin.com/company/ccet-acm-student-chapter"
                 target="_blank"
                 rel="noopener noreferrer"
+                className={`${styles.socialIcon} ${styles.linkedin}`}
+                aria-label="LinkedIn"
+            >
+                <div className={styles.inner}>
+                    <i className="fab fa-linkedin-in"></i>
+                </div>
+            </a>
+            <a
+                href="https://www.instagram.com/acmccet/?hl=en"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${styles.socialIcon} ${styles.instagram}`}
+                aria-label="Instagram"
+            >
+                <div className={styles.inner}>
+                    <i className="fab fa-instagram"></i>
+                </div>
+            </a>
+            <a
+                href="https://www.youtube.com/@ccetacmstudentchapter3122"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${styles.socialIcon} ${styles.youtube}`}
                 aria-label="YouTube"
             >
-                <i className="fab fa-youtube"></i>
+                <div className={styles.inner}>
+                    <i className="fab fa-youtube"></i>
+                </div>
             </a>
         </div>
     );
