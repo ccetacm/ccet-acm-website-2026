@@ -317,8 +317,8 @@ const teamData = {
       ]
     },
     // ...other years here...
-    "2024 - 2025": { 
-            groupPhoto: "", // Add if available, else keep empty or import similarly
+    "2024 - 2025": {
+      groupPhoto: "", // Add if available, else keep empty or import similarly
       members: [
         {
           name: "Sahil Garg",
@@ -426,8 +426,8 @@ const teamData = {
         },
       ],
     },
-    "2023 - 2024": { 
-            members: [
+    "2023 - 2024": {
+      members: [
         {
           name: "Saket Sarin",
           designation: "Chairperson",
@@ -525,9 +525,9 @@ const teamData = {
           orcid: "https://orcid.org/0009-0006-7594-8527"
         }
       ]
-     },
-    "2022 - 2023": { 
-            members: [
+    },
+    "2022 - 2023": {
+      members: [
         {
           name: "Akash Sharma",
           designation: "Chairperson",
@@ -635,103 +635,103 @@ const teamData = {
       ],
     },
     "2021 - 2022": { members: [
-      {
-        name: "Muskaan Chopra",
-      designation: "Chairperson",
-      photo: chair1Img,
-      github: "https://github.com/muskaan712",
-      linkedin: "https://www.linkedin.com/in/muskaanchopra712/",
-      orcid: "https://orcid.org/0000-0002-7672-9186"
-      },
+        {
+          name: "Muskaan Chopra",
+          designation: "Chairperson",
+          photo: chair1Img,
+          github: "https://github.com/muskaan712",
+          linkedin: "https://www.linkedin.com/in/muskaanchopra712/",
+          orcid: "https://orcid.org/0000-0002-7672-9186"
+        },
         {
           name: "Kriti Aggarwal",
-      designation: "Vice Chairperson",
-      photo: kritiImg,
-      github: "https://github.com/kri14",
-      linkedin: "https://www.linkedin.com/in/kriti-aggarwal-b372721a2/",
-      orcid: "https://orcid.org/0000-0002-7415-0103",
-      
+          designation: "Vice Chairperson",
+          photo: kritiImg,
+          github: "https://github.com/kri14",
+          linkedin: "https://www.linkedin.com/in/kriti-aggarwal-b372721a2/",
+          orcid: "https://orcid.org/0000-0002-7415-0103",
+
         },
         {name: "Anureet Chhabra",
-      designation: "Secretary",
-      photo: anureet2Img,
-      github:"https://github.com/anureetchhabra",
-      linkedin: "https://www.linkedin.com/in/anureet-chhabra-bb86271bb/",
-      orcid: "https://orcid.org/0000-0001-8123-4359"
+          designation: "Secretary",
+          photo: anureet2Img,
+          github:"https://github.com/anureetchhabra",
+          linkedin: "https://www.linkedin.com/in/anureet-chhabra-bb86271bb/",
+          orcid: "https://orcid.org/0000-0001-8123-4359"
         },
         {
-           name: "Tarun",
-      designation: "Membership Chairperson",
-      photo: membershiphair4Img,
-      github: "https://github.com/tarun1807",
-      linkedin: "https://www.linkedin.com/in/tarun-36ba11214",
-      orcid: "https://orcid.org/0000-0002-1030-8784"
+          name: "Tarun",
+          designation: "Membership Chairperson",
+          photo: membershiphair4Img,
+          github: "https://github.com/tarun1807",
+          linkedin: "https://www.linkedin.com/in/tarun-36ba11214",
+          orcid: "https://orcid.org/0000-0002-1030-8784"
         },
         {
-              name: "Navjot Jangra",
-      designation: "Treasurer",
-      photo: navjotImg,
-      github: "https://github.com/imnjangra",
-      linkedin: "https://www.linkedin.com/in/njangra",
-      orcid: "https://orcid.org/0000-0002-5012-2482/"
+          name: "Navjot Jangra",
+          designation: "Treasurer",
+          photo: navjotImg,
+          github: "https://github.com/imnjangra",
+          linkedin: "https://www.linkedin.com/in/njangra",
+          orcid: "https://orcid.org/0000-0002-5012-2482/"
         },
         {
-           name: "Parnit Kaur",
-      designation: "Webmaster",
-      photo: parnitImg,
-      github: "https://github.com/Parnit-Kaur",
-      linkedin: "https://www.linkedin.com/in/parnit-kaur-3972811aa/",
-      orcid: "https://orcid.org/0000-0001-6034-5316"
+          name: "Parnit Kaur",
+          designation: "Webmaster",
+          photo: parnitImg,
+          github: "https://github.com/Parnit-Kaur",
+          linkedin: "https://www.linkedin.com/in/parnit-kaur-3972811aa/",
+          orcid: "https://orcid.org/0000-0001-6034-5316"
         },
         {
-           name: "Dipesh Singla",
-      designation: "Editorial Head",
-      photo: Dipesh_SinglaImg,
-      github: "https://github.com/dipesh88",
-      linkedin: "https://www.linkedin.com/in/dipesh-singla-5b92601a9",
-      orcid: "https://orcid.org/0000-0002-3762-1228"
+          name: "Dipesh Singla",
+          designation: "Editorial Head",
+          photo: Dipesh_SinglaImg,
+          github: "https://github.com/dipesh88",
+          linkedin: "https://www.linkedin.com/in/dipesh-singla-5b92601a9",
+          orcid: "https://orcid.org/0000-0002-3762-1228"
         },
         {
-      name: "Ashutosh Thakur",
-      designation: "Design Head",
-      photo: designhead7Img,
-      github: "https://github.com/Ashuthetosh",
-      linkedin: "https://www.linkedin.com/in/ashuthetosh",
-      orcid: "https://orcid.org/0000-0002-0998-3467"
-    },
-    {
-      name: "Akash Sharma",
-      designation: "App Master",
-      photo: akash2Img,
-      github: "https://github.com/Akash82228",
-      linkedin: "https://www.linkedin.com/in/akash-sharma-0619461b8",
-      orcid: "https://orcid.org/0000-0002-5879-7353"
-    },
-    {
-      name: "Taruna Saini",
-      designation: "Executive Member Head",
-      photo: tarunaImg,
-      github: "https://github.com/Taruna06",
-      linkedin: "https://www.linkedin.com/in/taruna-saini-3a6497202/",
-      orcid: "https://orcid.org/0000-0002-1327-9835"
-    },
-        {
-         name: "Devashish Gupta",
-      designation: "External PR Head",
-      photo: DEVASHISHImg,
-      github: "https://github.com/devashish-gupta09",
-      linkedin: "https://www.linkedin.com/in/devashish-gupta-066a16200/",
-      orcid: "https://orcid.org/0000-0001-5288-6577"
+          name: "Ashutosh Thakur",
+          designation: "Design Head",
+          photo: designhead7Img,
+          github: "https://github.com/Ashuthetosh",
+          linkedin: "https://www.linkedin.com/in/ashuthetosh",
+          orcid: "https://orcid.org/0000-0002-0998-3467"
         },
         {
-         name: "Karan Singh",
-      designation: "Social Media Manager",
-      photo: karanImg,
-      github: "https://github.com/KARAN-23",
-      linkedin: "https://www.linkedin.com/in/karan-singh-b7466317a/",
-      orcid: "https://orcid.org/0000-0003-0271-1845"
+          name: "Akash Sharma",
+          designation: "App Master",
+          photo: akash2Img,
+          github: "https://github.com/Akash82228",
+          linkedin: "https://www.linkedin.com/in/akash-sharma-0619461b8",
+          orcid: "https://orcid.org/0000-0002-5879-7353"
         },
-       
+        {
+          name: "Taruna Saini",
+          designation: "Executive Member Head",
+          photo: tarunaImg,
+          github: "https://github.com/Taruna06",
+          linkedin: "https://www.linkedin.com/in/taruna-saini-3a6497202/",
+          orcid: "https://orcid.org/0000-0002-1327-9835"
+        },
+        {
+          name: "Devashish Gupta",
+          designation: "External PR Head",
+          photo: DEVASHISHImg,
+          github: "https://github.com/devashish-gupta09",
+          linkedin: "https://www.linkedin.com/in/devashish-gupta-066a16200/",
+          orcid: "https://orcid.org/0000-0001-5288-6577"
+        },
+        {
+          name: "Karan Singh",
+          designation: "Social Media Manager",
+          photo: karanImg,
+          github: "https://github.com/KARAN-23",
+          linkedin: "https://www.linkedin.com/in/karan-singh-b7466317a/",
+          orcid: "https://orcid.org/0000-0003-0271-1845"
+        },
+
         {
           name: "Manraj Singh",
           designation: "Executive Member Head",
@@ -740,7 +740,7 @@ const teamData = {
           linkedin: "https://www.linkedin.com/in/manraj-singh-5a4418209",
           orcid: "https://orcid.org/0000-0002-3077-490X",
         },
-        
+
         {
           name: "Shivam Kumar",
           designation: "Event Manager",
@@ -751,151 +751,151 @@ const teamData = {
         },
       ], },
     "2020 - 2021": { members: [
-      {
-  name: "Anshul Vashisth",
-  designation: "President",
-  photo: anshul_01Img,
-  github: "https://github.com/anshul-vashisth",
-  linkedin: "https://www.linkedin.com/in/anshulvashisth",
-  orcid: "https://orcid.org/0000-0001-9189-7205"
-},
+        {
+          name: "Anshul Vashisth",
+          designation: "President",
+          photo: anshul_01Img,
+          github: "https://github.com/anshul-vashisth",
+          linkedin: "https://www.linkedin.com/in/anshulvashisth",
+          orcid: "https://orcid.org/0000-0001-9189-7205"
+        },
 
         {
           name: "Inderpreet Singh",
-      designation: "Vice Chairperson",
-      photo: inderpreet_01Img,
-      github: "https://github.com/CO18325",
-      linkedin: "https://www.linkedin.com/in/inderpreet-singh-a32816169/"
+          designation: "Vice Chairperson",
+          photo: inderpreet_01Img,
+          github: "https://github.com/CO18325",
+          linkedin: "https://www.linkedin.com/in/inderpreet-singh-a32816169/"
         },
         {
-           name: "Uday Kumar",
-      designation: "Secretary",
-      photo: uday_01Img,
-      github: "https://github.com/udaykumarjangra",
-      linkedin: "https://www.linkedin.com/in/udaykumarjangra/"
+          name: "Uday Kumar",
+          designation: "Secretary",
+          photo: uday_01Img,
+          github: "https://github.com/udaykumarjangra",
+          linkedin: "https://www.linkedin.com/in/udaykumarjangra/"
         },
         {
-        name: "Muskaan Chopra",
-      designation: "Membership Chairperson",
-      photo: muskaan_01Img,
-      github: "https://github.com/muskaan712",
-      linkedin: "https://www.linkedin.com/in/muskaanchopra712"
+          name: "Muskaan Chopra",
+          designation: "Membership Chairperson",
+          photo: muskaan_01Img,
+          github: "https://github.com/muskaan712",
+          linkedin: "https://www.linkedin.com/in/muskaanchopra712"
         },
         {
-         name: "Kriti Aggarwal",
-      designation: "Treasurer",
-      photo: kriti_01Img,
-      github: "https://github.com/kri14",
-      linkedin: "https://www.linkedin.com/in/kriti-aggarwal-b372721a2/"
+          name: "Kriti Aggarwal",
+          designation: "Treasurer",
+          photo: kriti_01Img,
+          github: "https://github.com/kri14",
+          linkedin: "https://www.linkedin.com/in/kriti-aggarwal-b372721a2/"
         },
         {
           name: "Aayushi Bansal",
-      designation: "Webmaster",
-      photo: aayushi_01Img,
-      github: "https://github.com/aayushi1499",
-      linkedin: "https://www.linkedin.com/in/aayushi14/"
+          designation: "Webmaster",
+          photo: aayushi_01Img,
+          github: "https://github.com/aayushi1499",
+          linkedin: "https://www.linkedin.com/in/aayushi14/"
         },
         {
-            name: "Maninder Singh",
-      designation: "Design Head",
-      photo: manninder_01Img,
-      github: "https://github.com/co18332",
-      linkedin: "https://www.linkedin.com/in/maninder-singh-8a62a21b6/"
+          name: "Maninder Singh",
+          designation: "Design Head",
+          photo: manninder_01Img,
+          github: "https://github.com/co18332",
+          linkedin: "https://www.linkedin.com/in/maninder-singh-8a62a21b6/"
         },
         {
           name: "Mukesh Sahani",
-      designation: "Executive Member Head",
-      photo: mukesh_01Img,
-      github: "https://github.com/MkshSahani",
-      linkedin: "https://www.linkedin.com/in/mukesh-sahani-27297318b"
+          designation: "Executive Member Head",
+          photo: mukesh_01Img,
+          github: "https://github.com/MkshSahani",
+          linkedin: "https://www.linkedin.com/in/mukesh-sahani-27297318b"
         },
         {
           name: "Tanveer Singh",
-      designation: "External Public Relationship Manager",
-      photo: tarveen_01Img,
-      github: "https://github.com/CO18353",
-      linkedin: "https://www.linkedin.com/in/tanveer-singh-kochhar-81393518b/"
+          designation: "External Public Relationship Manager",
+          photo: tarveen_01Img,
+          github: "https://github.com/CO18353",
+          linkedin: "https://www.linkedin.com/in/tanveer-singh-kochhar-81393518b/"
         },
         {
-           name: "Shriya Verma",
-      designation: "Editorial Head",
-      photo: shriya_01Img,
-      github: "https://github.com/CO18347",
-      linkedin: "https://www.linkedin.com/in/shriya-verma/"
+          name: "Shriya Verma",
+          designation: "Editorial Head",
+          photo: shriya_01Img,
+          github: "https://github.com/CO18347",
+          linkedin: "https://www.linkedin.com/in/shriya-verma/"
         },
         {
-           name: "Sonam Garg",
-      designation: "Event Manager",
-      photo: sonam_01Img,
-      github: "https://github.com/CO18350",
-      linkedin: "https://www.linkedin.com/in/sonam-garg-4b4a0619a/"
+          name: "Sonam Garg",
+          designation: "Event Manager",
+          photo: sonam_01Img,
+          github: "https://github.com/CO18350",
+          linkedin: "https://www.linkedin.com/in/sonam-garg-4b4a0619a/"
         },
-       
+
       ], },
     "2019 - 2020": { members: [
         {
           name: "Ritika Dhiman",
-      designation: "Chairperson",
-      photo: ritika2Img,
-      github: "https://github.com/ritika99",
-      linkedin: "http://linkedin.com/in/ritika-dhiman-3a6405160",
-      orcid: "https://orcid.org/0000-0002-4631-1237"
+          designation: "Chairperson",
+          photo: ritika2Img,
+          github: "https://github.com/ritika99",
+          linkedin: "http://linkedin.com/in/ritika-dhiman-3a6405160",
+          orcid: "https://orcid.org/0000-0002-4631-1237"
         },
         {
-         name: "Paritosh Singh",
-      designation: "Vice Chairperson",
-      photo: paritoshImg,
-      github: "https://github.com/c017344",
-      linkedin: "https://www.linkedin.com/in/paritoshsinghrahar/"
+          name: "Paritosh Singh",
+          designation: "Vice Chairperson",
+          photo: paritoshImg,
+          github: "https://github.com/c017344",
+          linkedin: "https://www.linkedin.com/in/paritoshsinghrahar/"
         },
         {
           name: "Ayush Basral",
-      designation: "Secretary",
-      photo: ayushImg,
-      github: "https://github.com/ABasral",
-      linkedin: "https://www.linkedin.com/in/ayush-basral-6a1b15147"
+          designation: "Secretary",
+          photo: ayushImg,
+          github: "https://github.com/ABasral",
+          linkedin: "https://www.linkedin.com/in/ayush-basral-6a1b15147"
         },
         {
-            name: "Nandini Sidana",
-      designation: "Treasurer",
-      photo: nandiniImg,
-      github: "https://github.com/CO17339",
-      linkedin: "https://www.linkedin.com/in/nandini-sidana-76b769185/"
+          name: "Nandini Sidana",
+          designation: "Treasurer",
+          photo: nandiniImg,
+          github: "https://github.com/CO17339",
+          linkedin: "https://www.linkedin.com/in/nandini-sidana-76b769185/"
         },
         {
-           name: "Tanishq Chamola",
-      designation: "Webmaster",
-      photo: tanishqImg,
-      github: "https://github.com/tanishqchamola",
-      linkedin: "https://www.linkedin.com/in/tanishq-chamola-503702165/"
+          name: "Tanishq Chamola",
+          designation: "Webmaster",
+          photo: tanishqImg,
+          github: "https://github.com/tanishqchamola",
+          linkedin: "https://www.linkedin.com/in/tanishq-chamola-503702165/"
         },
         {
-           name: "Neha",
-      designation: "External Public Relation Manager",
-      photo: nehaImg,
-      github: "https://github.com/CO17341-Neha",
-      linkedin: "https://www.linkedin.com/in/neha-garg-0901"
+          name: "Neha",
+          designation: "External Public Relation Manager",
+          photo: nehaImg,
+          github: "https://github.com/CO17341-Neha",
+          linkedin: "https://www.linkedin.com/in/neha-garg-0901"
         },
         {
-           name: "Keshav Tangri",
-      designation: "Design Head",
-      photo: keshavImg,
-      github: "https://github.com/keshav1245",
-      linkedin: "https://www.linkedin.com/in/keshav-t-7ab782104/"
+          name: "Keshav Tangri",
+          designation: "Design Head",
+          photo: keshavImg,
+          github: "https://github.com/keshav1245",
+          linkedin: "https://www.linkedin.com/in/keshav-t-7ab782104/"
         },
         {
-           name: "Aarushi Sood",
-      designation: "Executive Head",
-      photo: aarushiImg,
-      github: "https://github.com/co17301",
-      linkedin: "https://www.linkedin.com/in/aarushi-sood-b2b11b154/"
+          name: "Aarushi Sood",
+          designation: "Executive Head",
+          photo: aarushiImg,
+          github: "https://github.com/co17301",
+          linkedin: "https://www.linkedin.com/in/aarushi-sood-b2b11b154/"
         },
-       
+
       ], },
   },
   ACMW: {
-    "2025 - 2026": { 
-            groupPhoto: group25,
+    "2025 - 2026": {
+      groupPhoto: group25,
       members: [
         {
           name: "Ritika Kalia",
@@ -1018,8 +1018,8 @@ const teamData = {
         },
       ]
     },
-    "2024 - 2025": { 
-            members: [
+    "2024 - 2025": {
+      members: [
         {
           name: "Ayushi",
           designation: "Chairperson",
@@ -1117,9 +1117,9 @@ const teamData = {
           orcid: "https://orcid.org/0009-0008-4667-3418",
         },
       ],
-     },
-    "2023 - 2024": { 
-            members: [
+    },
+    "2023 - 2024": {
+      members: [
         {
           name: "Aishita",
           designation: "Chairperson",
@@ -1210,8 +1210,8 @@ const teamData = {
         },
       ],
     },
-    "2022 - 2023": { 
-            members: [
+    "2022 - 2023": {
+      members: [
         {
           name: "Anureet Chhabra",
           designation: "Chairperson",
@@ -1318,96 +1318,96 @@ const teamData = {
         },
       ],
     },
-     "2021 - 2022": { 
-            members: [
+    "2021 - 2022": {
+      members: [
         {
           name: "Kriti Aggarwal",
-      designation: "Chairperson",
-      photo: kritiImg,
-      github: "https://github.com/kri14",
-      linkedin: "https://www.linkedin.com/in/kriti-aggarwal-b372721a2/",
-      orcid: "https://orcid.org/0000-0002-7415-0103",
-      
+          designation: "Chairperson",
+          photo: kritiImg,
+          github: "https://github.com/kri14",
+          linkedin: "https://www.linkedin.com/in/kriti-aggarwal-b372721a2/",
+          orcid: "https://orcid.org/0000-0002-7415-0103",
+
         },
         {
-      name: "Manisha Kumari",
-      designation: "Vice Chairperson",
-      photo: manishaImg,
-      github: "https://github.com/manisha02feb",
-      linkedin: "https://www.linkedin.com/in/manisha-kumari-221837221/",
-      orcid: "https://orcid.org/0000-0002-3185-0732"
-    },
-    {
-      name: "Rishika Gaur",
-      designation: "Secretary",
-      photo: RISHIKAImg,
-      github: "https://github.com/Rishika-Gaur",
-      orcid: "https://orcid.org/0000-0002-2909-2119"
-    },
-    {
-      name: "Shreya Pandey",
-      designation: "Treasurer",
-      photo: shreya2Img,
-      github: "https://github.com/shreya20011002",
-      linkedin: "https://www.linkedin.com/in/shreya-pandey-a8875320a/",
-      orcid: "https://orcid.org/0000-0002-5990-4392"
-    },
-    {
-      name: "Ishita Chamola",
-      designation: "Membership Chair",
-      photo: ishitaImg,
-      github: "https://github.com/ishitachamola",
-      linkedin: "https://www.linkedin.com/in/ishita-chamola-89a60520a/",
-      orcid: "https://orcid.org/0000-0002-9552-6552"
-    },
-    {
-      name: "Gopal Mengi",
-      designation: "Editorial Head",
-      photo: GopalImg,
-      github: "https://github.com/GopalMengi",
-      linkedin: "https://www.linkedin.com/in/gopal-mengi-273476137/",
-      orcid: "https://orcid.org/0000-0001-8702-642X"
-    },
-    {
-      name: "Ishleen Kaur",
-      designation: "Design Head",
-      photo: ishleenImg,
-      github: "https://github.com/ishleenk25",
-      linkedin: "https://www.linkedin.com/in/ishleen-kaur-4b4a43129/",
-      orcid: "https://orcid.org/0000-0002-2324-3908"
-    },
-    {
-      name: "Anamika Sharma",
-      designation: "Executive Member Head",
-      photo: anamikaImg,
-      github: "https://github.com/anamika-sharma1",
-      linkedin: "https://www.linkedin.com/in/anamika-sharma-65576a21b/",
-      orcid: "https://orcid.org/0000-0002-3989-2224"
-    },
-    {
-      name: "Dhriti Bhasin",
-      designation: "External PR Head",
-      photo: dhritiImg,
-      github: "https://github.com/Dhriti11",
-      linkedin: "https://www.linkedin.com/in/dhriti-bhasin-099128173/",
-      orcid: "https://orcid.org/0000-0001-9451-3023"
-    },
-    {
-      name: "Uday Madan",
-      designation: "Social Media Manager",
-      photo: udayImg,
-      github: "https://github.com/UMwarrior",
-      linkedin: "https://www.linkedin.com/in/uday-madan-14753820b/",
-      orcid: "https://orcid.org/0000-0003-4354-166X"
-    },
-    {
-      name: "Deepak Mahto",
-      designation: "Event Manager",
-      photo: deepakImg,
-      github: "https://github.com/deepakm12",
-      linkedin: "https://www.linkedin.com/in/deepak-mahto-196694200/",
-      orcid: "https://orcid.org/0000-0003-2826-9055"
-    },
+          name: "Manisha Kumari",
+          designation: "Vice Chairperson",
+          photo: manishaImg,
+          github: "https://github.com/manisha02feb",
+          linkedin: "https://www.linkedin.com/in/manisha-kumari-221837221/",
+          orcid: "https://orcid.org/0000-0002-3185-0732"
+        },
+        {
+          name: "Rishika Gaur",
+          designation: "Secretary",
+          photo: RISHIKAImg,
+          github: "https://github.com/Rishika-Gaur",
+          orcid: "https://orcid.org/0000-0002-2909-2119"
+        },
+        {
+          name: "Shreya Pandey",
+          designation: "Treasurer",
+          photo: shreya2Img,
+          github: "https://github.com/shreya20011002",
+          linkedin: "https://www.linkedin.com/in/shreya-pandey-a8875320a/",
+          orcid: "https://orcid.org/0000-0002-5990-4392"
+        },
+        {
+          name: "Ishita Chamola",
+          designation: "Membership Chair",
+          photo: ishitaImg,
+          github: "https://github.com/ishitachamola",
+          linkedin: "https://www.linkedin.com/in/ishita-chamola-89a60520a/",
+          orcid: "https://orcid.org/0000-0002-9552-6552"
+        },
+        {
+          name: "Gopal Mengi",
+          designation: "Editorial Head",
+          photo: GopalImg,
+          github: "https://github.com/GopalMengi",
+          linkedin: "https://www.linkedin.com/in/gopal-mengi-273476137/",
+          orcid: "https://orcid.org/0000-0001-8702-642X"
+        },
+        {
+          name: "Ishleen Kaur",
+          designation: "Design Head",
+          photo: ishleenImg,
+          github: "https://github.com/ishleenk25",
+          linkedin: "https://www.linkedin.com/in/ishleen-kaur-4b4a43129/",
+          orcid: "https://orcid.org/0000-0002-2324-3908"
+        },
+        {
+          name: "Anamika Sharma",
+          designation: "Executive Member Head",
+          photo: anamikaImg,
+          github: "https://github.com/anamika-sharma1",
+          linkedin: "https://www.linkedin.com/in/anamika-sharma-65576a21b/",
+          orcid: "https://orcid.org/0000-0002-3989-2224"
+        },
+        {
+          name: "Dhriti Bhasin",
+          designation: "External PR Head",
+          photo: dhritiImg,
+          github: "https://github.com/Dhriti11",
+          linkedin: "https://www.linkedin.com/in/dhriti-bhasin-099128173/",
+          orcid: "https://orcid.org/0000-0001-9451-3023"
+        },
+        {
+          name: "Uday Madan",
+          designation: "Social Media Manager",
+          photo: udayImg,
+          github: "https://github.com/UMwarrior",
+          linkedin: "https://www.linkedin.com/in/uday-madan-14753820b/",
+          orcid: "https://orcid.org/0000-0003-4354-166X"
+        },
+        {
+          name: "Deepak Mahto",
+          designation: "Event Manager",
+          photo: deepakImg,
+          github: "https://github.com/deepakm12",
+          linkedin: "https://www.linkedin.com/in/deepak-mahto-196694200/",
+          orcid: "https://orcid.org/0000-0003-2826-9055"
+        },
       ],
     },
   },
@@ -1423,36 +1423,35 @@ const groupPhotos = {
     combined: "",
     acm: group24,
     acmw: wgroup24,
-},
+  },
   "2023 - 2024": {
     combined: "",
     acm: group23,
     acmw: wgroup23,
-},
+  },
   "2022 - 2023": {
     combined: cgroup22,
     acm: group22,
     acmw: wgroup22,
-},
+  },
 };
 
 export default function TeamPage() {
   const [selectedTeamType, setSelectedTeamType] = useState("ACM");
   const filteredYears =
-    selectedTeamType === "ACMW"
-      ? allYears.filter((y) =>
-          ["2025 - 2026", "2024 - 2025", "2023 - 2024", "2022 - 2023" , "2021 - 2022"].includes(y)
-        )
-      : allYears;
+      selectedTeamType === "ACMW"
+          ? allYears.filter((y) =>
+              ["2025 - 2026", "2024 - 2025", "2023 - 2024", "2022 - 2023", "2021 - 2022"].includes(y)
+          )
+          : allYears;
   const [selectedYear, setSelectedYear] = useState(filteredYears[0]);
   const [fade, setFade] = useState(true);
 
   useEffect(() => {
     if (!filteredYears.includes(selectedYear)) {
-      setSelectedYear(filteredYears);
+      setSelectedYear(filteredYears[0]);
     }
-    // eslint-disable-next-line
-  }, [selectedTeamType, filteredYears]);
+  }, [selectedTeamType, filteredYears, selectedYear]);
 
   useEffect(() => {
     setFade(false);
@@ -1462,119 +1461,164 @@ export default function TeamPage() {
 
   const currentTeam = teamData[selectedTeamType]?.[selectedYear] || null;
 
-  /* ----- RENDER ----- */
   return (
-    <div className={`${styles["team-page"]} ${styles["pro-bg"]}`}>
-      <div className={styles["title-bar"]}>
-        <div className={styles["title-glow"]}>Our Team</div>
-      </div>
-      {/* Year Tabs */}
-      <div className={`${styles["tab-group"]} ${styles["year-tabs"]}`}>
-        {filteredYears.map((year) => (
-          <button
-            key={year}
-            className={`${styles["tab-chip"]}${selectedYear === year ? " " + styles.active : ""}`}
-            onClick={() => setSelectedYear(year)}
-            type="button"
-          >
-            {year}
-          </button>
-        ))}
-      </div>
-
-      {/* Combined Group Photo */}
-      {groupPhotos[selectedYear]?.combined && (
-        <div className={`${styles["group-photo"]} ${styles["fade-in"]} ${styles["pro-photo-shadow"]} ${fade ? styles.visible : styles.hidden}`}>
-          <img src={groupPhotos[selectedYear].combined} alt={`${selectedYear} Combined Group`} />
+      <div className={styles["team-page"]}>
+        <div className={styles["title-container"]}>
+          <h1 className={styles["main-title"]}>Our Team</h1>
+          <p className={styles["subtitle"]}>Meet the talented individuals behind our success</p>
         </div>
-      )}
 
-      {/* ACM/ACMW Tabs */}
-      <div className={`${styles["tab-group"]} ${styles["team-type-tabs"]}`}>
-        {teamTypes.map((type) => (
-          <button
-            key={type}
-            className={`${styles["tab-chip"]}${selectedTeamType === type ? " " + styles.active : ""}`}
-            onClick={() => setSelectedTeamType(type)}
-            type="button"
-          >
-            {type}
-          </button>
-        ))}
-      </div>
+        {/* Year Selection */}
+        <div className={styles["selection-container"]}>
+          <div className={styles["selection-group"]}>
+            <h3 className={styles["selection-label"]}>Select Year</h3>
+            <div className={styles["year-tabs"]}>
+              {filteredYears.map((year) => (
+                  <button
+                      key={year}
+                      className={`${styles["selection-tab"]} ${
+                          selectedYear === year ? styles["active-tab"] : ""
+                      }`}
+                      onClick={() => setSelectedYear(year)}
+                      type="button"
+                  >
+                    {year}
+                  </button>
+              ))}
+            </div>
+          </div>
 
-      {/* Individual Team Group Photo */}
-      {selectedTeamType === "ACM" && groupPhotos[selectedYear]?.acm && (
-        <div className={`${styles["group-photo"]} ${styles["fade-in"]} ${styles["pro-photo-shadow"]} ${fade ? styles.visible : styles.hidden}`}>
-          <img src={groupPhotos[selectedYear].acm} alt={`${selectedYear} ACM Group`} />
+          {/* Team Type Selection */}
+          <div className={styles["selection-group"]}>
+            <h3 className={styles["selection-label"]}>Select Team</h3>
+            <div className={styles["team-type-tabs"]}>
+              {teamTypes.map((type) => (
+                  <button
+                      key={type}
+                      className={`${styles["selection-tab"]} ${
+                          selectedTeamType === type ? styles["active-tab"] : ""
+                      }`}
+                      onClick={() => setSelectedTeamType(type)}
+                      type="button"
+                  >
+                    {type}
+                  </button>
+              ))}
+            </div>
+          </div>
         </div>
-      )}
-      {selectedTeamType === "ACMW" && groupPhotos[selectedYear]?.acmw && (
-        <div className={`${styles["group-photo"]} ${styles["fade-in"]} ${styles["pro-photo-shadow"]} ${fade ? styles.visible : styles.hidden}`}>
-          <img src={groupPhotos[selectedYear].acmw} alt={`${selectedYear} ACMW Group`} />
-        </div>
-      )}
 
-      {/* Members */}
-<div className={`${styles["team-members"]} ${styles["fade-in"]} ${styles["center-members"]} ${fade ? styles.visible : styles.hidden}`}>
-  {currentTeam?.members?.length > 0 ? (
-    currentTeam.members.map((member, idx) => (
-      <div
-        className={`${styles["team-card"]} ${styles["pro-card"]}`}
-        key={idx}
-        style={{ animationDelay: `${0.1 + idx * 0.1}s` }}
-      >
-        <div className={styles["pro-photo-bg"]}>
-          <img src={member.photo} alt={member.name} />
-        </div>
-        <h3 className={styles["pro-name"]}>{member.name}</h3>
-        <p className={styles["pro-role"]}>{member.designation}</p>
-        <div className={styles["team-socials"]}>
-          {member.github && (
-            <a
-              href={member.github}
-              className={`${styles["social-icon"]} ${styles.github}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              title="GitHub"
-            >
-              <svg height="22" width="22" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.2.8-.5v-1.7c-3.3.7-4-1.5-4-1.5-.5-1.1-1.3-1.4-1.3-1.4-1-.7.1-.7.1-.7 1.1.1 1.7 1.1 1.7 1.1 1 .1.6-1.1.6-1.1-.6-1-.9-1.2-1.7-1.2-.4 0-.2-.2-.1-.2 1.8 0 2.6 1.6 2.6 1.6.6 1.3 1.6 1 2.1.8.1-.4.4-.7.7-.9-2.7-.3-5.6-1.3-5.6-5.7 0-1.3.5-2.3 1.3-3.1-.2-.3-.6-1.4.1-2.8 0 0 1-.3 3.3 1.2l.9-.2c.9-.2 1.8-.2 2.7 0l.9.2c2.3-1.5 3.3-1.2 3.3-1.2.7 1.4.3 2.5.1 2.8.8.8 1.3 1.8 1.3 3.1 0 4.4-2.9 5.4-5.6 5.7.4.3.8.9.8 1.8v2.7c0 .3.2.6.7.5A12 12 0 0 0 12 .3"/>
-              </svg>
-            </a>
+        {/* Combined Group Photo */}
+        {groupPhotos[selectedYear]?.combined && (
+            <div className={`${styles["group-photo-container"]} ${fade ? styles.visible : styles.hidden}`}>
+              <div className={styles["photo-label"]}>Combined Team Photo</div>
+              <div className={styles["group-photo"]}>
+                <img src={groupPhotos[selectedYear].combined} alt={`${selectedYear} Combined Group`} />
+              </div>
+            </div>
+        )}
+
+        {/* Individual Team Group Photo */}
+        {selectedTeamType === "ACM" && groupPhotos[selectedYear]?.acm && (
+            <div className={`${styles["group-photo-container"]} ${fade ? styles.visible : styles.hidden}`}>
+              <div className={styles["photo-label"]}>ACM Team Photo</div>
+              <div className={styles["group-photo"]}>
+                <img src={groupPhotos[selectedYear].acm} alt={`${selectedYear} ACM Group`} />
+              </div>
+            </div>
+        )}
+
+        {selectedTeamType === "ACMW" && groupPhotos[selectedYear]?.acmw && (
+            <div className={`${styles["group-photo-container"]} ${fade ? styles.visible : styles.hidden}`}>
+              <div className={styles["photo-label"]}>ACMW Team Photo</div>
+              <div className={styles["group-photo"]}>
+                <img src={groupPhotos[selectedYear].acmw} alt={`${selectedYear} ACMW Group`} />
+              </div>
+            </div>
+        )}
+
+        {/* Members Grid */}
+        <div className={styles["members-container"]}>
+          <h2 className={styles["members-title"]}>
+            {selectedTeamType} Team Members ({selectedYear})
+          </h2>
+
+          {currentTeam?.members?.length > 0 ? (
+              <div className={styles["members-grid"]}>
+                {currentTeam.members.map((member, idx) => (
+                    <div
+                        className={`${styles["member-card"]} ${fade ? styles.visible : styles.hidden}`}
+                        key={idx}
+                        style={{ animationDelay: `${0.1 + idx * 0.05}s` }}
+                    >
+                      <div className={styles["card-inner"]}>
+                        <div className={styles["member-image-container"]}>
+                          <img
+                              src={member.photo || "/default-avatar.png"}
+                              alt={member.name}
+                              className={styles["member-image"]}
+                              onError={(e) => {
+                                e.target.src = "/default-avatar.png";
+                              }}
+                          />
+                        </div>
+
+                        <div className={styles["member-info"]}>
+                          <h3 className={styles["member-name"]}>{member.name}</h3>
+                          <p className={styles["member-role"]}>{member.designation}</p>
+
+                          <div className={styles["social-links"]}>
+                            {member.github && (
+                                <a
+                                    href={member.github}
+                                    className={styles["social-link"]}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    title="GitHub"
+                                >
+                                  <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.2.8-.5v-1.7c-3.3.7-4-1.5-4-1.5-.5-1.1-1.3-1.4-1.3-1.4-1-.7.1-.7.1-.7 1.1.1 1.7 1.1 1.7 1.1 1 .1.6-1.1.6-1.1-.6-1-.9-1.2-1.7-1.2-.4 0-.2-.2-.1-.2 1.8 0 2.6 1.6 2.6 1.6.6 1.3 1.6 1 2.1.8.1-.4.4-.7.7-.9-2.7-.3-5.6-1.3-5.6-5.7 0-1.3.5-2.3 1.3-3.1-.2-.3-.6-1.4.1-2.8 0 0 1-.3 3.3 1.2l.9-.2c.9-.2 1.8-.2 2.7 0l.9.2c2.3-1.5 3.3-1.2 3.3-1.2.7 1.4.3 2.5.1 2.8.8.8 1.3 1.8 1.3 3.1 0 4.4-2.9 5.4-5.6 5.7.4.3.8.9.8 1.8v2.7c0 .3.2.6.7.5A12 12 0 0 0 12 .3"/>
+                                  </svg>
+                                </a>
+                            )}
+
+                            {member.linkedin && (
+                                <a
+                                    href={member.linkedin}
+                                    className={styles["social-link"]}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    title="LinkedIn"
+                                >
+                                  <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M22.23 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.72V1.72c0-.95-.79-1.72-1.77-1.72zM7.1 20.45H3.56V9H7.1v11.45zM5.33 7.59a2.08 2.08 0 1 1 0-4.16 2.08 2.08 0 0 1 0 4.16zM20.45 20.45h-3.53v-5.61c0-1.34-.03-3.07-1.87-3.07-1.87 0-2.16 1.46-2.16 2.97v5.71h-3.51V9h3.37v1.56h.05c.47-.89 1.62-1.82 3.34-1.82 3.58 0 4.24 2.36 4.24 5.44v6.27z"/>
+                                  </svg>
+                                </a>
+                            )}
+
+                            {member.orcid && (
+                                <a
+                                    href={member.orcid}
+                                    className={styles["social-link"]}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    title="ORCID"
+                                >
+                                  <img src={orcidIcon} alt="ORCID" />
+                                </a>
+                            )}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                ))}
+              </div>
+          ) : (
+              <div className={styles["no-members"]}>
+                <p>No team data available for this selection.</p>
+              </div>
           )}
-          {member.linkedin && (
-            <a
-              href={member.linkedin}
-              className={`${styles["social-icon"]} ${styles.linkedin}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              title="LinkedIn"
-            >
-              <svg height="22" width="22" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M22.23 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.72V1.72c0-.95-.79-1.72-1.77-1.72zM7.1 20.45H3.56V9H7.1v11.45zM5.33 7.59a2.08 2.08 0 1 1 0-4.16 2.08 2.08 0 0 1 0 4.16zM20.45 20.45h-3.53v-5.61c0-1.34-.03-3.07-1.87-3.07-1.87 0-2.16 1.46-2.16 2.97v5.71h-3.51V9h3.37v1.56h.05c.47-.89 1.62-1.82 3.34-1.82 3.58 0 4.24 2.36 4.24 5.44v6.27z"/>
-              </svg>
-            </a>
-          )}
-          {member.orcid && (
-            <a
-              href={member.orcid}
-              className={`${styles["social-icon"]} ${styles.orcid}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              title="ORCID"
-            >
-              <img src={orcidIcon} alt="ORCID" style={{ width: "27px", height: "27px", borderRadius: "50%" }} />
-            </a>
-          )}
         </div>
       </div>
-    ))
-  ) : (
-    <p className={styles["no-data"]}>No team data available for this year.</p>
-  )}
-</div>
-
-    </div>
   );
 }
