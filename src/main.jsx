@@ -22,7 +22,8 @@ import ScrollToTop from "./components/ScrollToTop.jsx";
 import ContactSection from "./pages/ContactSection.jsx";
 import EventDetails from "./pages/EventDetails.jsx";
 import CodeforCause from "./components/CodeforCause.jsx";
-import CareerPathways from "./components/CareerPathways.jsx"
+import CareerPathways from "./components/CareerPathways.jsx";
+import CodeforTechnology from "./components/CodeforTechnology.jsx";
 
 import "./index.css";
 
@@ -111,6 +112,7 @@ const AppWrapper = () => {
               <Route path="/event-details" element={<EventDetails />} />
               <Route path="/code-for-cause" element={<CodeforCause />} />
               <Route path="/career-pathways" element={<CareerPathways />} />
+              <Route path="/code-for-technology" element={<CodeforTechnology />} />
               <Route path="*" element={<h2>404 - Page Not Found</h2>} />
             </Routes>
           </main>
