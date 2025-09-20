@@ -28,7 +28,7 @@
     position: relative;
     color: white;
     font-weight: bold;
-    font-size: 1.4em;
+    font-size: 1.2em; /* slightly smaller font */
     cursor: pointer;
     transition: transform 0.3s ease;
     display: block;
@@ -60,63 +60,64 @@
 
 .socialIcon .inner {
     position: absolute;
-    top: -30px;
-    left: 20px;
-    height: 60px;
-    width: 35px;
+    top: -22px;
+    left: 12px;
+    height: 45px;
+    width: 28px;
     text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 18px;
+    font-size: 15px;
 }
 
+/* Reduced size shapes */
 .facebook {
-    border-left: solid 60px rgb(22, 161, 152);
-    border-top: solid 60px transparent;
-    border-bottom: solid 60px transparent;
+    border-left: solid 45px rgb(22, 161, 152);
+    border-top: solid 45px transparent;
+    border-bottom: solid 45px transparent;
 }
 
 .facebook .inner {
-    right: 20px;
+    right: 12px;
     left: auto;
 }
 
 .twitter {
-    border-right: solid 60px rgb(99, 203, 197);
-    border-top: solid 60px transparent;
-    border-bottom: solid 60px transparent;
-    margin-top: -60px;
+    border-right: solid 45px rgb(99, 203, 197);
+    border-top: solid 45px transparent;
+    border-bottom: solid 45px transparent;
+    margin-top: -45px;
 }
 
 .linkedin {
-    border-left: solid 60px rgb(56, 184, 177);
-    border-top: solid 60px transparent;
-    border-bottom: solid 60px transparent;
-    margin-top: -60px;
+    border-left: solid 45px rgb(56, 184, 177);
+    border-top: solid 45px transparent;
+    border-bottom: solid 45px transparent;
+    margin-top: -45px;
 }
 
 .linkedin .inner {
-    right: 20px;
+    right: 12px;
     left: auto;
 }
 
 .instagram {
-    border-right: solid 60px rgb(80, 200, 190);
-    border-top: solid 60px transparent;
-    border-bottom: solid 60px transparent;
-    margin-top: -60px;
+    border-right: solid 45px rgb(80, 200, 190);
+    border-top: solid 45px transparent;
+    border-bottom: solid 45px transparent;
+    margin-top: -45px;
 }
 
 .youtube {
-    border-left: solid 60px rgb(45, 170, 165);
-    border-top: solid 60px transparent;
-    border-bottom: solid 60px transparent;
-    margin-top: -60px;
+    border-left: solid 45px rgb(45, 170, 165);
+    border-top: solid 45px transparent;
+    border-bottom: solid 45px transparent;
+    margin-top: -45px;
 }
 
 .youtube .inner {
-    right: 20px;
+    right: 12px;
     left: auto;
 }
 
@@ -141,55 +142,55 @@
     }
 
     .facebook {
-        border-left: solid 40px rgb(22, 161, 152);
-        border-top: solid 35px transparent;
-        border-bottom: solid 35px transparent;
+        border-left: solid 30px rgb(22, 161, 152);
+        border-top: solid 25px transparent;
+        border-bottom: solid 25px transparent;
     }
 
     .twitter {
-        border-right: solid 40px rgb(99, 203, 197);
-        border-top: solid 35px transparent;
-        border-bottom: solid 35px transparent;
-        margin-left: -25px; /* Overlap horizontally */
+        border-right: solid 30px rgb(99, 203, 197);
+        border-top: solid 25px transparent;
+        border-bottom: solid 25px transparent;
+        margin-left: -18px; /* Overlap horizontally */
         margin-top: 0;
     }
 
     .linkedin {
-        border-left: solid 40px rgb(56, 184, 177);
-        border-top: solid 35px transparent;
-        border-bottom: solid 35px transparent;
-        margin-left: -25px; /* Overlap horizontally */
+        border-left: solid 30px rgb(56, 184, 177);
+        border-top: solid 25px transparent;
+        border-bottom: solid 25px transparent;
+        margin-left: -18px; /* Overlap horizontally */
         margin-top: 0;
     }
 
     .instagram {
-        border-right: solid 40px rgb(80, 200, 190);
-        border-top: solid 35px transparent;
-        border-bottom: solid 35px transparent;
-        margin-left: -25px; /* Overlap horizontally */
+        border-right: solid 30px rgb(80, 200, 190);
+        border-top: solid 25px transparent;
+        border-bottom: solid 25px transparent;
+        margin-left: -18px; /* Overlap horizontally */
         margin-top: 0;
     }
 
     .youtube {
-        border-left: solid 40px rgb(45, 170, 165);
-        border-top: solid 35px transparent;
-        border-bottom: solid 35px transparent;
-        margin-left: -25px; /* Overlap horizontally */
+        border-left: solid 30px rgb(45, 170, 165);
+        border-top: solid 25px transparent;
+        border-bottom: solid 25px transparent;
+        margin-left: -18px; /* Overlap horizontally */
         margin-top: 0;
     }
 
     .socialIcon .inner {
-        top: -17.5px;
-        left: 15px;
-        height: 35px;
-        width: 25px;
-        font-size: 14px;
+        top: -13px;
+        left: 10px;
+        height: 25px;
+        width: 18px;
+        font-size: 12px;
     }
 
     .facebook .inner,
     .linkedin .inner,
     .youtube .inner {
-        right: 15px;
+        right: 10px;
         left: auto;
     }
 }
