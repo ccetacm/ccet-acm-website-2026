@@ -21,6 +21,7 @@ import TalkWithTechies from "./components/TalkWithTechies.jsx";
 import ScrollToTop from "./components/ScrollToTop.jsx";
 import ContactSection from "./pages/ContactSection.jsx";
 import EventDetails from "./pages/EventDetails.jsx";
+import CodeforCause from "./components/CodeforCause.jsx";
 
 import "./index.css";
 
@@ -107,6 +108,7 @@ const AppWrapper = () => {
               <Route path="/talk-with-techies" element={<TalkWithTechies />} />
               <Route path="/contact-section" element={<ContactSection />} />
               <Route path="/event-details" element={<EventDetails />} />
+              <Route path="/code-for-cause" element={<CodeforCause />} />
               <Route path="*" element={<h2>404 - Page Not Found</h2>} />
             </Routes>
           </main>
