@@ -3232,7 +3232,7 @@ const styles = `
   color: #222c3d;
   min-height: 100vh;
   width: 100%;
-  margin-top:-70px;
+  margin-top:-20px;
   margin-bottom: 18px;
 }
 
