@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Initiatives from "./components/Initiatives";
+import Initiatives from "./components/CoreActs.jsx";
 import Event from "./components/Event";
 import Vision from "./components/Vision";
 import MagazineScroller from "./components/MagazineScroller";
