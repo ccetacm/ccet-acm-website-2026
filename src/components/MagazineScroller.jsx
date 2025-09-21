@@ -6,22 +6,6 @@ import * as pdfjsLib from "pdfjs-dist";
 import pdfWorker from "pdfjs-dist/build/pdf.worker.min?url";
 import "./MagazineScroller.css";
 
-// Import covers
-// import cover1 from "../assets/Magazine/covers/Volume 6-Issue_1_jan-feb(cover).jpg";
-// import cover2 from "../assets/Magazine/covers/Volume 6-Issue_2_mar-apr(cover).jpg";
-// import cover3 from "../assets/Magazine/covers/Volume 6-Issue_3_may-jun(cover).jpg";
-// import cover4 from "../assets/Magazine/covers/magzine4.jpg";
-// import cover5 from "../assets/Magazine/covers/magzine5.jpg";
-// import cover6 from "../assets/Magazine/covers/magzine6.jpg";
-
-// Import PDFs
-// import pdf1 from "../assets/Magazine/pdfs/Volume 6-Issue_1_jan-feb_pdf.pdf";
-// import pdf2 from "../assets/Magazine/pdfs/Volume 6-Issue_2_mar-apr_pdf.pdf";
-// import pdf3 from "../assets/Magazine/pdfs/Volume 6-Issue_3_may-jun_pdf.pdf";
-//import pdf4 from "../../assets/Magazine/pdfs/magzine4.pdf";
-//import pdf5 from "../../assets/Magazine/pdfs/magzine5.pdf";
-//import pdf6 from "../../assets/Magazine/pdfs/magzine6.pdf";
-
 pdfjsLib.GlobalWorkerOptions.workerSrc = pdfWorker;
 
 export default function BookShowcase() {

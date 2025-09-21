@@ -1,0 +1,265 @@
+.app {
+  --blue-heading: #00296b;
+  --blue-light-bg: #CAF0F8;
+  --blue-white: #F5FCFF;
+  --blue-white-2: #EDF6FB;
+  --light-box-bg: #e8f8ff;
+
+  --blue-1: #023E8A;
+  --blue-2: #0077B6;
+  --blue-3: #0096C7;
+  --blue-4: #00B4D8;
+  --blue-5: #48CAE4;
+  --blue-6: #90E0EF;
+  --blue-7: #ADE8F4;
+  --blue-8: #CAF0F8;
+  --blue-9: #E0FBFC;
+  --blue-10: #F0FAFF;
+
+  --cyan-1: #0077B6;
+  --cyan-2: #023E8A;
+  --cyan-3: #0096C7;
+  --cyan-4: #00B4D8;
+  --cyan-5: #48CAE4;
+  --cyan-6: #90E0EF;
+  --cyan-7: #ADE8F4;
+  --cyan-8: #CAF0F8;
+
+  --text-dark: #03045E;
+
+  background-color: var(--blue-light-bg);
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  color: var(--text-dark);
+}
+
+/* === Layout === */
+.pageBackground {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  background: linear-gradient(to bottom, var(--blue-white), var(--blue-10));
+}
+
+/* === Stats Section === */
+.statsSection {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  padding: 40px 20px;
+  width: 100%;
+  max-width: 1150px;
+  margin: 40px auto;
+  box-sizing: border-box;
+  background: var(--light-box-bg);
+  border: 1.5px solid var(--cyan-5);
+  border-radius: 25px;
+  box-shadow: 0 6px 16px rgba(0, 123, 255, 0.08);
+  backdrop-filter: blur(3px);
+}
+
+.statBox {
+  text-align: center;
+  margin: 10px;
+  min-width: 120px;
+  flex: 1;
+}
+
+.iconGradient {
+  font-size: 60px;
+  margin-bottom: 8px;
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.iconGradient:hover {
+  transform: scale(1.1);
+}
+
+.iconGradient svg path {
+  fill: url(#blue-gradient);
+}
+
+.statNumber {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--blue-heading);
+}
+
+.statLabel {
+  font-size: 1.1rem;
+  margin-top: 5px;
+}
+
+/* === Vision Section === */
+.visionCard {
+  background-color: var(--light-box-bg);
+  color: var(--blue-heading);
+  border-radius: 25px;
+  padding: 40px 30px;
+  max-width: 1100px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0, 123, 255, 0.08);
+  border: 1.5px solid var(--cyan-4);
+  margin: 50px auto;
+}
+
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.visionHeading {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: var(--blue-heading);
+}
+
+.visionText {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  color: var(--cyan-2);
+}
+
+/* === Buttons === */
+.buttonGroup {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.joinButton,
+.learnButton {
+  padding: 12px 24px;
+  font-size: 0.95rem;
+  background-color: #03045E;
+  color: #f2f5f6;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 160px;
+  box-shadow: 0 5px 15px rgba(0, 123, 255, 0.1);
+}
+
+.joinButton:hover,
+.learnButton:hover {
+  background-color: #CAF0F8;
+  color: #03045E;
+}
+
+/* === Mobile Responsiveness === */
+@media (max-width: 768px) {
+  .statsSection {
+    flex-direction: column;
+    gap: 30px;
+    width: 90%;
+    padding: 30px 15px;
+  }
+
+  .statBox {
+    min-width: auto;
+    width: 90%;
+  }
+
+  .iconGradient {
+    font-size: 45px;
+  }
+
+  .statNumber {
+    font-size: 1.8rem;
+  }
+
+  .statLabel {
+    font-size: 1rem;
+  }
+
+  .visionCard {
+    padding: 20px;
+    margin: 30px;
+  }
+
+  .visionHeading {
+    font-size: 2rem;
+  }
+
+  .visionText {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+
+  .buttonGroup {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .joinButton,
+  .learnButton {
+    width: 100%;
+    font-size: 1rem;
+    padding: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .visionHeading {
+    font-size: 1.8rem;
+  }
+
+  .visionText {
+    font-size: 0.95rem;
+  }
+
+  .iconGradient {
+    font-size: 40px;
+  }
+}
+
+.headingWithIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 10px;
+}
+
+.headingIcon {
+  font-size: 2.65rem;
+  position: relative;
+  display: inline-block;
+  animation: pulse 3s ease-in-out infinite;
+  top: 0.45rem;
+}
+
+.headingIcon path {
+  fill: url(#blue-gradient-heading) !important;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    text-shadow: 0 0 6px rgba(0, 180, 216, 0.5);
+  }
+  50% {
+    transform: scale(1.08);
+    text-shadow: 0 0 12px rgba(0, 180, 216, 0.8);
+  }
+  100% {
+    transform: scale(1);
+    text-shadow: 0 0 6px rgba(0, 180, 216, 0.5);
+  }
+}
