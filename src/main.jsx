@@ -20,7 +20,6 @@ import ICRG from "./pages/icrg.jsx";
 import TalkWithTechies from "./components/TalkWithTechies.jsx";
 import ScrollToTop from "./components/ScrollToTop.jsx";
 import ContactSection from "./pages/ContactSection.jsx";
-import EventDetails from "./pages/EventDetails.jsx";
 import CodeforCause from "./components/CodeforCause.jsx";
 import CareerPathways from "./components/CareerPathways.jsx";
 import CodeforTechnology from "./components/CodeforTechnology.jsx";
@@ -109,7 +108,6 @@ const AppWrapper = () => {
               <Route path="/TalkWithTechies" element={<TalkWithTechies />} />
               <Route path="/talk-with-techies" element={<TalkWithTechies />} />
               <Route path="/contact-section" element={<ContactSection />} />
-              <Route path="/event-details" element={<EventDetails />} />
               <Route path="/code-for-cause" element={<CodeforCause />} />
               <Route path="/career-pathways" element={<CareerPathways />} />
               <Route path="/code-for-technology" element={<CodeforTechnology />} />
