@@ -157,21 +157,22 @@ export default function BookShowcase() {
     {
       id: "book4",
       number: 4,
-      title: "Data Science Fundamentals",
-      cover: "/Magazine/covers/magzine4.jpg",
-      // pdf: pdf4,
+      title: "Introduction to Quantum Computing",
+      cover: "/Magazine/covers/Volume 6-Issue_4_jul-aug(cover).jpg",
+      pdf: "/Magazine/pdfs/Volume 6-Issue_4_jul-aug_pdf.pdf",
       month: "JUL-AUG",
       spineColor: "black",
       backColor: "black",
       backText:
-          "Unlock the power of data with comprehensive coverage of statistical analysis, machine learning, and data visualization. Learn to extract meaningful insights from complex datasets and make data-driven decisions.",
+          "An advanced section of computer science that makes use of the unique rules of quantum physics to carry out computations.",
     },
     {
       id: "book5",
       number: 5,
       title: "Web Development Guide",
       cover: "/Magazine/covers/magzine5.jpg",
-      // pdf: pdf5,
+      pdf: "/Magazine/pdfs/Volume 5-Issue_5_sept-oct_pdf.pdf",
+      
       month: "SEP-OCT",
       spineColor: "#593aaf",
       backColor: "#593aaf",
@@ -183,7 +184,8 @@ export default function BookShowcase() {
       number: 6,
       title: "AI & Machine Learning",
       cover: "/Magazine/covers/magzine6.jpg",
-      // pdf: pdf6,
+      pdf: "/Magazine/pdfs/Volume 5-Issue_6_nov-dec_pdf.pdf",
+      
       month: "NOV-DEC",
       spineColor: "#223D96",
       backColor: "#223D96",
