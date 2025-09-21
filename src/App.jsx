@@ -13,7 +13,6 @@ const App = () => {
     const [startHeroAnimation, setStartHeroAnimation] = useState(false);
 
     useEffect(() => {
-        // Since we have a global loader in main.jsx, we can start animations immediately
         setStartHeroAnimation(true);
     }, []);
 
