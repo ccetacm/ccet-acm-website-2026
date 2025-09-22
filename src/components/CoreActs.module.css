@@ -19,14 +19,13 @@
 }
 
 .container {
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 24px;
   position: relative;
   z-index: 1;
 }
 
-/* Header Styles */
 .header {
   text-align: center;
   margin-bottom: 60px;
@@ -55,18 +54,21 @@
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 32px;
   margin-top: 48px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .card {
   --card-bg-color: rgba(255, 255, 255, 0.95);
-  --border-radius: 20px;
+  --border-radius: 18px;
   --border-size: 4px;
   background: var(--card-bg-color);
   border-radius: var(--border-radius);
-  padding: 32px;
+  padding: 24px;
   box-shadow:
           0 4px 6px -1px rgba(0, 0, 0, 0.1),
           0 2px 4px -1px rgba(0, 0, 0, 0.06);
@@ -76,6 +78,7 @@
   position: relative;
   overflow: hidden;
   z-index: 0;
+  height: 480px; /* Reduced from 550px */
 }
 
 .card::before {
@@ -100,7 +103,6 @@
   transition: opacity 0.4s ease;
 }
 
-/* Inner card layer */
 .card::after {
   content: '';
   position: absolute;
@@ -136,24 +138,25 @@
   outline-offset: 2px;
 }
 
-/* Card Content Layout */
 .cardContent {
   display: flex;
   flex-direction: column;
   height: 100%;
-  gap: 5px;
+  gap: 8px;
   position: relative;
   z-index: 1;
 }
 
 .animationContainer {
-  height: 250px;
+  height: 280px; /* Square-like proportions */
+  width: 280px; /* Added width to make it square */
+  max-width: 100%; /* Ensure it doesn't overflow card */
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 16px;
   padding: 20px;
-  margin-bottom: 8px;
+  margin: 0 auto 12px auto; /* Center horizontally */
   position: relative;
   overflow: hidden;
 }
@@ -215,7 +218,7 @@
 
 .cardDescription {
   color: #64748b;
-  font-size: 1rem;
+  font-size: 0.9rem;
   line-height: 1.6;
   margin: 0;
   display: -webkit-box;
@@ -225,22 +228,21 @@
   text-align: center;
 }
 
-/* Card Footer */
 .cardFooter {
   margin-top: auto;
-  padding-top: 8px;
+  padding-top: 12px;
 }
 
 .learnMoreButton {
   display: block;
   align-items: center;
   gap: 8px;
-  padding: 12px 24px;
+  padding: 8px 16px;
   background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
   color: white;
   border: none;
   border-radius: 12px;
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -282,11 +284,33 @@
   transform: translateX(4px);
 }
 
-/* Responsive Design */
-@media (max-width: 1200px) {
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 1200px;
+    gap: 32px;
+  }
+
+  .card {
+    height: 480px; /* Reduced from 550px */
+  }
+}
+
+@media (max-width: 1023px) {
   .grid {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
+    max-width: none;
+  }
+
+  .card {
+    height: auto;
+  }
+
+  .animationContainer {
+    height: 300px; /* Square-like for tablet */
+    width: 300px;
+    max-width: calc(100% - 40px); /* Account for card padding */
   }
 }
 
@@ -326,9 +350,11 @@
   }
 
   .animationContainer {
-    height: 350px;
+    height: 260px; /* Square-like for mobile */
+    width: 260px;
+    max-width: calc(100% - 32px); /* Account for card padding */
     padding: 16px;
-    margin-bottom: 4px;
+    margin: 0 auto 4px auto;
   }
 
   .cardTitle {
@@ -352,12 +378,14 @@
 
   .card {
     padding: 20px;
-    height: 450px;
+    height: 480px; /* Reduced from 550px */
   }
 
   .animationContainer {
-    height: 200px;
-    padding: 20px;
+    height: 220px; /* Square-like for small mobile */
+    width: 220px;
+    max-width: calc(100% - 40px); /* Account for card padding */
+    padding: 16px;
   }
 
   .cardTitle {
