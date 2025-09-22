@@ -163,7 +163,7 @@ export default function MagazineScroller() {
   return (
       <div className={styles.magazineContainer}>
         <header className={styles.header}>
-          <h1 className={styles.title}>DIGITAL OUTLET</h1>
+          <h1 className={styles.title}>Digital Outlet</h1>
         </header>
 
         <div className={styles.bookGrid}>

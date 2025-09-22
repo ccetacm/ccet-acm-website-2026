@@ -129,7 +129,7 @@ export default function Event() {
 
   return (
     <div >
-      <h2 className="event-heading">EVENTS</h2>
+      <h2 className="event-heading">Events</h2>
       <div className="carousel-viewport" ref={containerRef}>
         <ul className="carousel" ref={carouselRef}>
           {imageFiles.map((file, i) => (
