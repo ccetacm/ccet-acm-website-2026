@@ -29,7 +29,7 @@
 
   background: linear-gradient(
           to bottom,
-          #caf0f8 0%,    /* light at top */ rgb(248, 250, 252) 50%,   /* darker in the middle */ rgb(248, 250, 252) 0%   /* light at bottom */
+          rgba(202, 240, 248, 0.4) 0%,    /* light at top */ rgba(248, 250, 252, 0.4) 50%,   /* darker in the middle */ rgba(248, 250, 252, 0.4) 0%   /* light at bottom */
   );
   margin: 0;
   padding: 0;

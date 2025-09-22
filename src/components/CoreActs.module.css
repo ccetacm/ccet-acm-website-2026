@@ -2,7 +2,7 @@
   padding: 80px 0;
   background: linear-gradient(
           to bottom,
-          #f8fafc 0%,    /* light at top */ rgb(248, 250, 252) 0%,   /* darker in the middle */ rgb(202, 240, 248) 50%   /* light at bottom */
+          rgba(248, 250, 252, 0.52) 0%,    /* light at top */ rgba(248, 250, 252, 0.45) 0%,   /* darker in the middle */ rgba(202, 240, 248, 0.46) 50%   /* light at bottom */
   );
 
   min-height: 100vh;
