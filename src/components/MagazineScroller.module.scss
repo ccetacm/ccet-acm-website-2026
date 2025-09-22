@@ -10,7 +10,13 @@ $mobile-book-depth: 35px;
 .magazineContainer {
   width: 100%;
   min-height: 100vh;
-  background: linear-gradient(135deg, rgba(18, 105, 115, 0.62) 0%, #114183 100%);
+  background: linear-gradient(
+                  to bottom,
+                  rgba(18, 105, 115, 0.3) 0%,   /* light at top */
+                  rgba(17, 65, 131, 0.81) 50%,                  /* dark in the middle */
+                  rgba(18, 105, 115, 0.3) 100%  /* light at bottom */
+  );
+
   padding: 2rem 1rem;
   font-family: system-ui, -apple-system, sans-serif;
 }
@@ -22,7 +28,7 @@ $mobile-book-depth: 35px;
 
 .title {
   font-size: clamp(2.5rem, 5vw, 4rem);
-  color: white;
+  color: #ffffff;
   font-weight: 700;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   margin: 0;
@@ -385,7 +391,7 @@ $mobile-book-depth: 35px;
 }
 
 .bookInfo {
-  color: white;
+  color: #ffffff;
   padding: 1rem;
   background: rgba(255, 255, 255, 0.05);
   border-radius: 12px;
@@ -409,7 +415,8 @@ $mobile-book-depth: 35px;
   p {
     line-height: 1.6;
     opacity: 0.9;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
+    font-weight: 600;
   }
 }
 

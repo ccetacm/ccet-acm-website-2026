@@ -1,10 +1,9 @@
-/* Team Cards Component - Unique CSS to avoid conflicts */
 .team-main-heading {
   text-align: center;
   font-size: 4.5rem;
   font-weight: 700;
   margin: 2rem 0;
-  color: #002d72;
+  color: #ffffff;
   letter-spacing: 2px;
   text-transform: uppercase;
   margin-bottom: 35px;;
@@ -33,7 +32,11 @@
   min-height: 100vh;
   padding: 2rem 0;
   /* Changed background from dark to light blue #CAF0F8 */
-  background: #caf0f8;
+  background: linear-gradient(
+          to bottom,
+          rgba(18, 105, 115, 0.3) 0%,
+          rgb(7, 49, 96) 100%
+  );
 }
 
 .team-cards-wrapper {
@@ -87,13 +90,12 @@
 }
 
 .team-cards-title-acm {
-  /* Changed color to #002D72 as requested */
-  color: #002d72;
+  color: #ffffff;
 }
 
 .team-cards-title-acmw {
   /* Changed color to #002D72 for consistency */
-  color: #002d72;
+  color: #ffffff;
 }
 
 .team-card-carousel {

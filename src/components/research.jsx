@@ -73,17 +73,23 @@ const ResearchLabIsolated = () => {
       {/* --- Styles --- */}
       <style>{`
         .research-lab-isolated-wrapper {
-          padding: 20px;
-          display: flex;
-          justify-content: center;
-        }
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    background: linear-gradient(
+        to bottom,
+        #F8FAFCFF 0%,   /* light at top */
+        rgba(18, 105, 115, 0.3) 100%  /* light at bottom */
+    );
+}
+
 
         .research-lab-isolated-card {
           display: flex;
           justify-content: space-between;
           align-items: center;
           gap: 40px;
-          background: #e8f8ff;
+          background: #114183CE;
           border-radius: 16px;
           padding: 40px;
           max-width: 1100px;
@@ -115,7 +121,7 @@ const ResearchLabIsolated = () => {
         .research-lab-isolated-title {
           font-size: 32px;
           font-weight: 700;
-          color: #00296b;
+          color: white;
           line-height: 1.3;
           margin-bottom: 4px;
         }
@@ -124,7 +130,7 @@ const ResearchLabIsolated = () => {
           display: block;
           font-size: 18px;
           font-weight: 600;
-          color: #00296b;
+          color: white;
           margin-top: 8px;
         }
 
@@ -132,7 +138,7 @@ const ResearchLabIsolated = () => {
           font-size: 22px;
           font-weight: 700;
           margin: 28px 0 16px;
-          color: #00296b;
+          color: white;
         }
 
         .research-lab-isolated-focus-grid {
