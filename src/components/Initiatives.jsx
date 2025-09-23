@@ -38,7 +38,7 @@ const Gallery = () => {
       anim: "/animations/Online Teaching.json",
       title: "Healthy Byte",
       desc: "Empowering you with essential skills for a healthier tomorrow.",
-      link: "#healthy-byte",
+      link: "#/healthy-byte",
     },
   ];
 
