@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Initiatives from "./components/Initiatives";
+import Initiatives from "./components/CoreActs.jsx";
 import Event from "./components/Event";
 import Vision from "./components/Vision";
 import MagazineScroller from "./components/MagazineScroller";
@@ -13,7 +13,6 @@ const App = () => {
     const [startHeroAnimation, setStartHeroAnimation] = useState(false);
 
     useEffect(() => {
-        // Since we have a global loader in main.jsx, we can start animations immediately
         setStartHeroAnimation(true);
     }, []);
 

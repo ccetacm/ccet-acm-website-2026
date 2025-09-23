@@ -19,10 +19,10 @@ import magzine17 from "/Magazine/covers/magzine17.png";
 import magzine18 from "/Magazine/covers/magzine18.png";
 import magzine19 from "/Magazine/covers/magzine19.png";
 import magzine20 from "/Magazine/covers/magzine20.png";
-import magzine21 from "/Magazine/covers/Volume 6-Issue_1_jan-feb(cover).jpg";
-import magzine22 from "/Magazine/covers/Volume 6-Issue_2_mar-apr(cover).jpg";
-import magzine23 from "/Magazine/covers/Volume 6-Issue_3_may-jun(cover).jpg";
-import magzine24 from "/Magazine/covers/Volume 6-Issue_4_jul-aug(cover).jpg";
+import magzine21 from "/Magazine/covers/magazine21.jpg";
+import magzine22 from "/Magazine/covers/magazine22.jpg";
+import magzine23 from "/Magazine/covers/magazine23.jpg";
+import magzine24 from "/Magazine/covers/magazine24.jpg";
 
 const magazines = [
   {

@@ -3222,29 +3222,19 @@ const mentorsData = [
 
 // Scoped styles for Mentors component only - no global body override
 const styles = `
-.mentors-section {
-  background: caf0f8;
-  background-attachment: fixed;
-  padding: 1rem 2dvw;
-  font-family: 'Segoe UI', sans-serif;
-  margin: 200px;
-  margin-left: 0;
-  color: #222c3d;
-  min-height: 100vh;
-  width: 100%;
-  margin-top:-70px;
-  margin-bottom: 18px;
-}
-
 .mentors-section h1 {
-
+  background: linear-gradient(
+        to bottom,
+        rgba(18, 105, 115, 0.3) 0%,   /* light at top */
+        rgba(18, 105, 115, 0.3) 100%  /* light at bottom */
+    );
+    bac
   text-align: center;
   color: #274472;
   margin-bottom: 1.5rem;
   font-weight: 700;
   font-size: 2.5em;
   letter-spacing: 0.06em;
- 
 }
 
 .mentors-section .card__container {
@@ -3252,7 +3242,13 @@ const styles = `
   flex-wrap: wrap;
   gap: 2.5rem;
   justify-content: center;
+  margin-top: -40px;
   padding: 2rem 0;
+  background: linear-gradient(
+        to bottom,
+        rgba(18, 105, 115, 0.3) 0%,   /* light at top */
+        rgba(18, 105, 115, 0.3) 100%  /* light at bottom */
+    );
 }
 
 .mentors-section .card {
@@ -4617,13 +4613,13 @@ export default function Mentors() {
           display: "grid",
           placeItems: "center",
           fontSize: "clamp(2rem, 5vw, 4rem)",
-          color: "#00296b",
+          color: "#ffffff",
           fontWeight: 700,
           marginTop: 0,
           marginBottom: "40px",
         }}
       >
-        MENTORS
+        Mentors
       </h1>
 
       <article className="card__container">
