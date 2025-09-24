@@ -2,8 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { teamMembers } from "../data/teamMembers";
-import "./testimonials.css"; // Changed from testimonials.css to unique team-cards.css
-// import acmteam from "../assets/testimonials/acm-team.jpg";
+import "./testimonials.css"; 
 
 const ArrowLeft = () => (
   <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -29,20 +28,25 @@ const LinkedInIcon = () => (
   </svg>
 );
 
+
 const Button = ({ children, href, className = "" }) => {
   const baseClasses =
     "inline-flex items-center justify-center px-6 py-3 text-sm font-medium rounded-lg transition-all duration-200 bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2";
 
   if (href) {
     return (
-      <a href={href} className={`btn-primary ${className}`}>
+      <a href={href} className={`${baseClasses} ${className}`}>
         {children}
       </a>
     );
   }
-
-  return <button className={`btn-primary ${className}`}>{children}</button>;
-};
+  
+  return (
+    <button type="button" className={`${baseClasses} ${className}`}>
+      {children}
+    </button>
+    );
+  };
 
 const Section = ({ children }) => (
   <section className="section-gradient">{children}</section>
@@ -58,6 +62,8 @@ const Team = () => {
   const [isACMWAutoPlaying, setIsACMWAutoPlaying] = useState(true);
   const [isACMAnimating, setIsACMAnimating] = useState(false);
   const [isACMWAnimating, setIsACMWAnimating] = useState(false);
+  const [ACMAnimationDirection, setACMAnimationDirection] = useState("right");
+  const [ACMWAnimationDirection, setACMWAnimationDirection] = useState("right");
 
   const currentTeamData = teamMembers[defaultYear] || [];
 
@@ -96,8 +102,22 @@ const Team = () => {
     return () => clearInterval(interval);
   }, [isACMWAutoPlaying, acmwMembers.length]);
 
+  // Pause and resume autoplay for ACM
+const pauseACMAutoplay = () => setIsACMAutoPlaying(false);
+const resumeACMAutoplay = () => {
+  setIsACMAutoPlaying(true);
+};
+
+// Pause and resume autoplay for ACM-W
+const pauseACMWAutoplay = () => setIsACMWAutoPlaying(false);
+const resumeACMWAutoplay = () => {
+  setIsACMWAutoPlaying(true);
+};
+
+
   const handleACMNext = () => {
     setIsACMAutoPlaying(false);
+    setACMAnimationDirection("right"); 
     setIsACMAnimating(true);
     setTimeout(() => setIsACMAnimating(false), 300);
     setCurrentACMIndex((prevIndex) =>
@@ -107,6 +127,7 @@ const Team = () => {
 
   const handleACMPrev = () => {
     setIsACMAutoPlaying(false);
+    setACMAnimationDirection("left");
     setIsACMAnimating(true);
     setTimeout(() => setIsACMAnimating(false), 300);
     setCurrentACMIndex((prevIndex) =>
@@ -116,6 +137,7 @@ const Team = () => {
 
   const handleACMWNext = () => {
     setIsACMWAutoPlaying(false);
+    setACMWAnimationDirection("right");
     setIsACMWAnimating(true);
     setTimeout(() => setIsACMWAnimating(false), 300);
     setCurrentACMWIndex((prevIndex) =>
@@ -125,6 +147,7 @@ const Team = () => {
 
   const handleACMWPrev = () => {
     setIsACMWAutoPlaying(false);
+    setACMWAnimationDirection("left"); 
     setIsACMWAnimating(true);
     setTimeout(() => setIsACMWAnimating(false), 300);
     setCurrentACMWIndex((prevIndex) =>
@@ -132,17 +155,25 @@ const Team = () => {
     );
   };
 
-  const MemberCard = ({ member, isAnimating, onNext, onPrev }) => (
-    <div className="team-card-carousel">
+  const MemberCard = ({ member, isAnimating, onNext, onPrev, animationDirection }) => (
+    <div className="team-card-carousel"
+    onMouseEnter={member.category === "ACM" ? pauseACMAutoplay : pauseACMWAutoplay}
+    onMouseLeave={member.category === "ACM" ? resumeACMAutoplay : resumeACMWAutoplay}
+    >
       {" "}
       {/* Changed from team-carousel to unique class */}
-      <div
+      {/* <div
         className={`team-card-member ${
           isAnimating ? "team-card-animating" : ""
         }`}
         key={member.id}
+      > */}
+      <div
+      className={`team-card-member ${isAnimating ? `team-card-animating-${animationDirection}` : ""}`}
+      key={member.id}
       >
         {" "}
+        <div className="team-card-member-inner">
         {/* Changed to unique class names */}
         <div className="team-card-background"></div>{" "}
         {/* Changed to unique class name */}
@@ -166,11 +197,7 @@ const Team = () => {
             <img
               src={
                 member.image ||
-                "/placeholder.svg?height=192&width=192&query=team member headshot" ||
-                "/placeholder.svg" ||
-                "/placeholder.svg" ||
-                "/placeholder.svg" ||
-                "/placeholder.svg"
+                "/placeholder.svg?height=192&width=192&query=team member headshot"
               }
               alt={member.name}
               className="team-card-avatar-image" // Changed to unique class name
@@ -259,6 +286,7 @@ const Team = () => {
         </div>
       </div>
     </div>
+  </div>
   );
 
   return (
@@ -295,6 +323,7 @@ const Team = () => {
               <MemberCard
                 member={acmMembers[currentACMIndex]}
                 isAnimating={isACMAnimating}
+                animationDirection={ACMAnimationDirection}
                 onNext={handleACMNext}
                 onPrev={handleACMPrev}
               />
@@ -314,6 +343,7 @@ const Team = () => {
               <MemberCard
                 member={acmwMembers[currentACMWIndex]}
                 isAnimating={isACMWAnimating}
+                animationDirection={ACMWAnimationDirection}  
                 onNext={handleACMWNext}
                 onPrev={handleACMWPrev}
               />
