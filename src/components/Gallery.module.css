@@ -1,72 +1,88 @@
-/* ---------- Gallery.module.css ---------- */
-
-/* ---------- Section Styling ---------- */
 .gallerySection {
-  background-color: #ffffff;
-  padding: 60px 20px;
+  background-color: #f8f9fa;
+  padding: 80px 20px;
   text-align: center;
+  position: relative;
+  overflow: hidden;
+  margin-top: -100px;
+}
+
+.galleryHeader {
+  max-width: 800px;
+  margin: 0 auto 60px;
 }
 
 .galleryHeading {
-  font-size: clamp(2rem, 5vw, 3rem);
-  font-weight: 700;
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 800;
   color: #00296b;
-  margin-bottom: 10px;
+  margin-bottom: 16px;
+  position: relative;
+  display: inline-block;
+}
+
+.galleryHeading::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #00296b, #00509d);
+  border-radius: 2px;
 }
 
 .gallerySubtitle {
-  font-size: 1.1rem;
-  color: #333;
-  margin-bottom: 40px;
+  font-size: 1.2rem;
+  color: #4a5568;
+  margin-bottom: 0;
+  font-weight: 400;
 }
 
 /* ---------- Gallery Layout ---------- */
 .gallery {
   display: flex;
-  flex-wrap: nowrap;          /* stop wrapping columns */
+  flex-wrap: nowrap;
   justify-content: center;
   align-items: flex-start;
-  gap: 100px;
+  gap: 24px;
   width: 100%;
-  margin: 0;
-  padding: 12px 24px;
+  margin: 0 auto;
+  padding: 12px;
   box-sizing: border-box;
-  
-  overflow-y: hidden;         /* hide vertical overflow of container */
-  scroll-behavior: smooth;    /* smooth horizontal scroll */
+  overflow-y: hidden;
+  max-width: 1440px;
 }
 
 .galleryStripWrapper {
-  
-  flex: 0 0 calc((100% - 2*50px)/3);  /* 50px = gap */
-  max-width: calc((100% - 2*50px)/3);
+  flex: 0 0 calc((100% - 48px) / 3);
+  max-width: calc((100% - 48px) / 3);
   box-sizing: border-box;
   padding: 12px 8px;
-  border-right: 2px solid rgba(0,0,0,0.06);
   display: flex;
   justify-content: center;
   margin: 18px 0;
   align-self: flex-start;
-}
-
-.galleryStripWrapperLast {
-  border-right: none;
+  position: relative;
 }
 
 .galleryStrip {
   width: 100%;
   height: calc(100vh - 180px);
+  min-height: 600px;
   display: flex;
   flex-direction: column;
   overflow: hidden;
   align-items: center;
   will-change: transform;
+  border-radius: 12px;
 }
 
 .stripInner {
   display: flex;
   flex-direction: column;
-  gap: 28px;
+  gap: 24px;
   transform: translateY(0);
   will-change: transform;
   backface-visibility: hidden;
@@ -79,126 +95,156 @@
   max-width: 100%;
   background: #fff;
   border-radius: 12px;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   overflow: hidden;
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  transition: all 0.35s ease;
   cursor: pointer;
   text-align: center;
+  position: relative;
+}
+
+.photo::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, transparent 60%, rgba(0, 0, 0, 0.7));
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  z-index: 1;
+  pointer-events: none;
 }
 
 .photoImage {
   width: 100%;
   display: block;
   overflow: hidden;
+  position: relative;
 }
 
 .photoImage img {
   width: 100%;
-  height: 240px;
+  height: 260px;
   object-fit: cover;
   display: block;
-  border-radius: 12px 12px 0 0;
-  transition: transform 0.35s ease;
+  transition: transform 0.5s ease;
 }
 
 .photoName {
-  padding: 10px;
-  font-weight: 600;
-  background-color: #CAF0F8;
+  padding: 16px 12px;
+  font-weight: 700;
+  background-color: #fff;
   text-transform: uppercase;
-  font-size: 18px;
-  letter-spacing: 1px;
-  -webkit-text-stroke: 1px #00296b;
-  color: transparent;
-  transition: color 0.35s ease;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  color: #00296b;
+  transition: all 0.35s ease;
+  position: relative;
+  z-index: 2;
+  border-top: 1px solid #e2e8f0;
 }
 
 .photo:hover {
-  transform: scale(1.06) translateX(8px);
-  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.2);
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
 }
+
+.photo:hover::before {
+  opacity: 1;
+}
+
 .photo:hover img {
-  transform: scale(1.08);
+  transform: scale(1.05);
 }
+
 .photo:hover .photoName {
-  color: #00296b;
+  background-color: #00296b;
+  color: white;
 }
 
 /* ---------- Responsive Breakpoints ---------- */
 
-
-/* Small tablets and small desktops */
-@media (min-width: 700px) and (max-width: 949px) {
-  .gallery {
-    padding: 12px 20px;
-    gap: 24px;
-    overflow-x: hidden;
-    overflow-y: hidden;
+/* Tablets and small desktops */
+@media (min-width: 701px) and (max-width: 949px) {
+  .gallerySection {
+    padding: 60px 20px;
+    margin-top: -80px;
   }
 
-  .galleryStripWrapper {
-    flex: 0 0 50%;
-    max-width: 50%;
+  .gallery {
+    gap: 16px;
     padding: 12px;
   }
 
+  .galleryStripWrapper {
+    flex: 0 0 calc((100% - 16px) / 2);
+    max-width: calc((100% - 16px) / 2);
+    padding: 10px;
+  }
+
   .galleryStrip {
-    height: calc(100vh - 56px); /* fixed height like desktop */
-    overflow-y: auto;            /* allow vertical scroll inside strips */
-    -webkit-overflow-scrolling: touch;
+    height: calc(100vh - 160px);
+    min-height: 500px;
   }
 
   .photoImage img {
-    height: 200px;   /* resize images for smaller screens */
-    min-height: 160px;
-  }
-
-  .photo {
-    max-width: 100%;
-    margin: 0 auto;
+    height: 220px;
   }
 }
 
+/* Mobile devices */
+@media (max-width: 700px) {
+  .gallerySection {
+    padding: 40px 16px;
+    margin-top: -50px;
+  }
 
-/* Mobile adjustments */
-@media (max-width: 699px) {
+  .galleryHeader {
+    margin-bottom: 40px;
+  }
+
   .gallery {
-    padding: 10px;
-    gap: 16px;
-    overflow-x: hidden;      /* no horizontal scroll */
-    overflow-y: hidden;      /* hide vertical overflow for gallery container */
+    gap: 0;
+    padding: 8px;
+    flex-direction: column;
+    align-items: center;
   }
 
   .galleryStripWrapper {
     flex: 0 0 100%;
     max-width: 100%;
-    border-right: none;
-    padding: 10px 0;
+    padding: 8px 0;
+    margin: 8px 0;
   }
 
   .galleryStrip {
-    height: calc(100vh - 180px);  /* fixed height like desktop */
-    overflow-y: auto;             /* allow vertical scroll inside each strip */
-    -webkit-overflow-scrolling: touch; /* smooth scroll for mobile devices */
-  }
-
-  .photoImage img {
-    height: 180px;   /* slightly smaller images for mobile */
-    min-height: 140px;
-  }
-
-  .photo {
-    max-width: 100%;
+    height: auto;
+    min-height: unset;
+    max-width: 400px;
     margin: 0 auto;
   }
 
-  .photoName {
-    -webkit-text-stroke: 0.8px #00296b;
-    font-size: 16px;
-    color: #00296b;
+  .stripInner {
+    gap: 20px;
+  }
+
+  .photoImage img {
+    height: 200px;
+  }
+
+  /* Stop animation on mobile */
+  .stripInner {
+    transform: none !important;
+    gap: 20px;
+  }
+
+  .galleryStrip {
+    overflow-y: visible;
+    height: auto;
   }
 }
-
 
 /* ---------- Lightbox Styling ---------- */
 .lightbox {
@@ -208,65 +254,78 @@
   justify-content: center;
   align-items: center;
   z-index: 10000;
-  background: rgba(0, 0, 0, 0.9);
+  background: rgba(0, 0, 0, 0.92);
   padding: 24px;
+  backdrop-filter: blur(8px);
 }
 
 .lightboxActive {
   display: flex;
-  animation: lightboxFade 0.18s ease-out;
+  animation: lightboxFade 0.2s ease-out;
 }
 
 @keyframes lightboxFade {
   from {
     opacity: 0;
-    transform: scale(0.995);
+    backdrop-filter: blur(0);
   }
   to {
     opacity: 1;
-    transform: scale(1);
+    backdrop-filter: blur(8px);
   }
 }
 
 .lightboxContent {
   max-width: 95%;
-  width: 100%;
+  width: auto;
   max-height: 90vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
+  gap: 16px;
 }
 
-.lightboxContent img {
-  max-width: 75vw;
-  max-height: 85vh;
+.lightboxImg {
+  max-width: 85vw;
+  max-height: 75vh;
   border-radius: 12px;
-  box-shadow: 0 10px 36px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+  object-fit: contain;
 }
 
 .lightboxCaption {
   color: #fff;
-  font-size: 1.05rem;
+  font-size: 1.2rem;
   text-align: center;
+  font-weight: 500;
+  background: rgba(0, 41, 107, 0.8);
+  padding: 10px 20px;
+  border-radius: 8px;
+  max-width: 80%;
 }
 
 .lightboxClose {
   position: absolute;
-  top: 18px;
-  right: 22px;
-  background: #00296b;
+  top: 24px;
+  right: 24px;
+  background: rgba(255, 255, 255, 0.1);
   color: #fff;
   border: none;
-  padding: 8px 12px;
-  border-radius: 6px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
   cursor: pointer;
-  font-size: 1rem;
-  transition: background 0.18s ease;
+  font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(4px);
 }
 
 .lightboxClose:hover {
-  background: #0066d6;
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
 }
 
 .lightboxPrev,
@@ -274,28 +333,73 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.1);
   border: none;
   color: #fff;
-  font-size: 1.6rem;
-  padding: 10px 12px;
+  width: 56px;
+  height: 56px;
+  font-size: 1.8rem;
   border-radius: 50%;
   cursor: pointer;
   z-index: 10001;
-  transition: background 0.18s ease;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(4px);
 }
 
 .lightboxPrev {
-  left: 26px;
+  left: 24px;
 }
 
 .lightboxNext {
-  right: 26px;
+  right: 24px;
 }
 
 .lightboxPrev:hover,
 .lightboxNext:hover {
-  background: rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-50%) scale(1.1);
+}
+
+/* Mobile lightbox adjustments */
+@media (max-width: 700px) {
+  .lightbox {
+    padding: 16px;
+  }
+
+  .lightboxImg {
+    max-width: 95vw;
+  }
+
+  .lightboxCaption {
+    font-size: 1rem;
+    max-width: 95%;
+  }
+
+  .lightboxClose {
+    top: 16px;
+    right: 16px;
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+  }
+
+  .lightboxPrev,
+  .lightboxNext {
+    width: 44px;
+    height: 44px;
+    font-size: 1.5rem;
+  }
+
+  .lightboxPrev {
+    left: 12px;
+  }
+
+  .lightboxNext {
+    right: 12px;
+  }
 }
 
 /* ---------- Accessibility ---------- */
@@ -308,6 +412,19 @@
 }
 
 button:focus {
-  outline: 3px solid rgba(0, 123, 255, 0.25);
+  outline: 3px solid rgba(0, 123, 255, 0.5);
   outline-offset: 2px;
+}
+
+/* Prevent animation on reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .stripInner {
+    animation: none;
+    transform: none !important;
+  }
+
+  .photo,
+  .photo img {
+    transition: none;
+  }
 }

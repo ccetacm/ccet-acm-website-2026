@@ -1,8 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./DigitalOutlet.module.css";
 import magazines from "../data/magazinesData";
 
 const DigitalOutlet = () => {
+  const [selectedFilter, setSelectedFilter] = useState("All");
+
   // 🎨 Canvas background animation (circuit effect)
   useEffect(() => {
     const canvas = document.getElementById("particle-canvas");
@@ -27,7 +29,6 @@ const DigitalOutlet = () => {
           dx: (Math.random() - 0.5) * 0.3,
           dy: (Math.random() - 0.5) * 0.3,
           radius: 2,
-          
         });
       }
     }
@@ -75,9 +76,18 @@ const DigitalOutlet = () => {
     return () => window.removeEventListener("resize", resizeCanvas);
   }, []);
 
+  // 🔎 Filter logic
+  const filteredMagazines =
+    selectedFilter === "All"
+      ? magazines
+      : magazines.filter((mag) =>
+          mag.tags.some((tag) =>
+            tag.label.toLowerCase() === selectedFilter.toLowerCase()
+          )
+        );
+
   return (
     <div className={styles.page}>
-      {/* <Header_Hero_SocialMedia /> */}
       {/* Header */}
       <header className={styles.siteHeader}>
         <h1 className={styles.title}>DIGITAL OUTLET</h1>
@@ -90,33 +100,28 @@ const DigitalOutlet = () => {
       <section className={styles.filterSection}>
         <h2 className={styles.filterTitle}>Filter by:</h2>
         <div className={styles.filterGrid}>
-          <button className={styles.filterChip}>
-            <i className="fas fa-link"></i> Blockchain
-          </button>
-          <button className={styles.filterChip}>
-            <i className="fas fa-balance-scale"></i> Decentralization
-          </button>
-          <button className={styles.filterChip}>
-            <i className="fas fa-coins"></i> Crypto
-          </button>
-          <button className={styles.filterChip}>
-            <i className="fas fa-globe"></i> Web3
-          </button>
-          <button className={styles.filterChip}>
-            <i className="fas fa-robot"></i> AI
-          </button>
-          <button className={styles.filterChip}>
-            <i className="fas fa-brain"></i> Machine Learning
-          </button>
-          <button className={styles.filterChip}>
-            <i className="fas fa-database"></i> Data Science
-          </button>
-          <button className={styles.filterChip}>
-            <i className="fas fa-lightbulb"></i> Innovation
-          </button>
-          <button className={styles.filterChip}>
-            <i className="fas fa-microchip"></i> Technology
-          </button>
+          {[
+            "All",
+            "Blockchain",
+            "Decentralization",
+            "Crypto",
+            "Web3",
+            "AI",
+            "Machine Learning",
+            "Data Science",
+            "Innovation",
+            "Technology",
+          ].map((filter) => (
+            <button
+              key={filter}
+              className={`${styles.filterChip} ${
+                selectedFilter === filter ? styles.activeChip : ""
+              }`}
+              onClick={() => setSelectedFilter(filter)}
+            >
+              {filter}
+            </button>
+          ))}
         </div>
       </section>
 
@@ -127,7 +132,7 @@ const DigitalOutlet = () => {
       {/* Magazine Wall */}
       <main>
         <section className={styles.magazineWall} aria-live="polite">
-          {magazines.map((mag) => (
+          {filteredMagazines.map((mag) => (
             <article key={mag.id} className={styles.magCard}>
               <img
                 src={mag.image}
@@ -147,12 +152,19 @@ const DigitalOutlet = () => {
                   ))}
                 </div>
                 <div className={styles.magActions}>
-                  <button className={styles.btnPreview}>
+                  <button
+                    className={styles.btnPreview}
+                    onClick={() => window.open(mag.pdf, "_blank")}
+                  >
                     <i className="fas fa-eye"></i> Preview
                   </button>
-                  <button className={styles.btnDownload}>
-                    <i className="fas fa-download"></i> Download
-                  </button>
+
+                  <a href={mag.pdf} download>
+                    <button className={styles.btnDownload}>
+                      <i className="fas fa-download"></i>
+                      Download
+                    </button>
+                  </a>
                 </div>
               </div>
             </article>

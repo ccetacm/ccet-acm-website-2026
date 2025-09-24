@@ -125,7 +125,7 @@
 /* ACM Letters 3D effect and animations */
 .drawPath {
     fill: none;
-    stroke: #070f34;
+    stroke: #1c588a;
     stroke-width: 5px;
     stroke-dasharray: 2000;
     stroke-dashoffset: 2000;
@@ -134,8 +134,8 @@
 }
 
 .fillPath {
-    fill: #070f34;
-    stroke: #070f34;
+    fill: #013255;
+    stroke: #013255FF;
     stroke-width: 5px;
     opacity: 0;
     animation: fill 1s ease forwards 4.2s;

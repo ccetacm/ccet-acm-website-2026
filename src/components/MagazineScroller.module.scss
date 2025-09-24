@@ -1,0 +1,1053 @@
+$book-width: 300px;
+$book-height: 450px;
+$book-depth: 50px; // for spine and side faces
+
+// Mobile variables
+$mobile-book-width: 220px;
+$mobile-book-height: 320px;
+$mobile-book-depth: 35px;
+
+.magazineContainer {
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(
+                  to bottom,
+                  rgba(18, 105, 115, 0.3) 0%,   /* light at top */
+                  rgba(17, 65, 131, 0.81) 50%,                  /* dark in the middle */
+                  rgba(18, 105, 115, 0.3) 100%  /* light at bottom */
+  );
+
+  padding: 2rem 1rem;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  color: #ffffff;
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  margin: 0;
+  letter-spacing: 2px;
+}
+
+.bookGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  gap: 4rem 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  justify-items: center;
+}
+
+.bookItem {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 2rem;
+  width: 100%;
+  max-width: 600px;
+}
+
+.rightSideContent {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.controlPanel {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: row; /* 👈 Changed from column to row */
+  gap: 1rem;           /* optional: add spacing between items */
+  justify-content: center; /* keeps them centered horizontally */
+  z-index: 100;
+}
+
+.controlButtons {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.controlButton {
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.8rem;
+  text-align: center;
+  border-radius: 8px;
+  font-size: 0.7rem;
+  transition: all 0.3s ease;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  &:hover {
+    color: white;
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+  }
+
+  &.active {
+    color: white;
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.4);
+  }
+
+  &:last-child {
+    background: rgba(76, 175, 80, 0.2);
+
+    &:hover {
+      background: rgba(76, 175, 80, 0.3);
+    }
+  }
+}
+
+.bookWrapper {
+  width: $book-width;
+  height: $book-height;
+  position: relative;
+  perspective: 2000px;
+  transition: transform 0.5s ease;
+  flex-shrink: 0;
+
+  &:hover {
+    transform: scale(1.02);
+  }
+}
+
+.bookContent {
+  width: $book-width;
+  height: $book-height;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.5s ease;
+}
+
+.bookFront {
+  width: $book-width;
+  height: $book-height;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-style: preserve-3d;
+  transform-origin: 0% 50%;
+  transition: transform 0.5s ease;
+  transform: translate3d(0, 0, $book-depth / 2);
+  z-index: 10;
+}
+
+.bookCover {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-size: cover;
+  background-position: center;
+  border-radius: 0 8px 8px 0;
+  box-shadow: inset 4px 0 10px rgba(0, 0, 0, 0.1),
+  0 0 20px rgba(0, 0, 0, 0.3);
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 10px;
+    bottom: 0;
+    width: 3px;
+    background: rgba(0, 0, 0, 0.1);
+    box-shadow: 1px 0 3px rgba(255, 255, 255, 0.1);
+  }
+}
+
+.spineText {
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%) rotate(-90deg);
+  color: white;
+  font-weight: bold;
+  font-size: 0.8rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+  letter-spacing: 1px;
+}
+
+.bookCoverBack {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: #000;
+  backface-visibility: hidden;
+  transform: rotateY(-180deg);
+  border-radius: 0 8px 8px 0;
+}
+
+.bookPage {
+  width: calc(#{$book-width} - 10px);
+  height: calc(#{$book-height} - 10px);
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  background: white;
+  z-index: 9;
+  border-radius: 0 6px 6px 0;
+  box-shadow: inset 3px 0 10px rgba(0, 0, 0, 0.1);
+  transform: translate3d(0, 0, $book-depth / 2 - 1);
+  display: none;
+}
+
+.insideContent {
+  padding: 2rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.pagePreview {
+  h3 {
+    color: #333;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+  }
+
+  p {
+    color: #666;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+  }
+}
+
+.previewImage {
+  width: 120px;
+  height: 160px;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.bookBack {
+  width: $book-width;
+  height: $book-height;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 8px 0 0 8px;
+  transform: rotateY(-180deg) translate3d(0, 0, $book-depth / 2);
+  z-index: 8;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.backContent {
+  padding: 2rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: white;
+
+  h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+    padding-bottom: 0.5rem;
+  }
+
+  p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    opacity: 0.9;
+  }
+}
+
+.backSpine {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%) rotate(90deg);
+  color: white;
+  font-weight: bold;
+  font-size: 0.8rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.bookSpine {
+  width: $book-depth;
+  height: $book-height;
+  position: absolute;
+  top: 0;
+  left: -($book-depth / 2);
+  background: #29303a;
+  box-shadow: 1px 0 0 #29303a, -1px 0 0 #29303a;
+  transform: rotateY(-90deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spineLabel {
+  color: white;
+  font-weight: bold;
+  font-size: 0.8rem;
+  transform: rotate(-90deg);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+  white-space: nowrap;
+}
+
+.bookTop {
+  width: calc(#{$book-width} - 10px);
+  height: $book-depth;
+  position: absolute;
+  top: -20px;
+  left: 5px;
+  background: #eeefe9;
+  transform: rotateX(90deg);
+  backface-visibility: hidden;
+}
+
+.bookRight {
+  width: $book-depth;
+  height: calc(#{$book-height} - 10px);
+  position: absolute;
+  top: 5px;
+  right: -20px;
+  background: #eeefe9;
+  box-shadow: 0 1px 0 #eeefe9, 0 -1px 0 #eeefe9;
+  transform: rotateY(90deg);
+  backface-visibility: hidden;
+}
+
+.bookBottom {
+  width: calc(#{$book-width} - 10px);
+  height: $book-depth;
+  position: absolute;
+  bottom: -20px;
+  left: 5px;
+  background: #eeefe9;
+  transform: rotateX(-90deg);
+  backface-visibility: hidden;
+}
+
+.viewCover {
+  .bookContent {
+    transform: rotateY(-30deg);
+
+    &:hover {
+      transform: rotateY(-40deg);
+    }
+  }
+}
+
+.viewBack {
+  .bookContent {
+    transform: rotateY(180deg);
+
+    &:hover {
+      transform: rotateY(140deg);
+    }
+  }
+}
+
+.viewOpen {
+  .bookWrapper {
+    transform: translate3d(10%, 0, 0);
+  }
+
+  .bookFront {
+    transform: translate3d(0, 0, $book-depth / 2) rotateY(-160deg);
+  }
+
+  .bookPage {
+    display: flex;
+  }
+}
+
+.bookInfo {
+  color: #ffffff;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+    padding-bottom: 0.5rem;
+
+    span {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 400;
+      opacity: 0.8;
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  p {
+    line-height: 1.6;
+    opacity: 0.9;
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+}
+
+// Updated PDF Modal styles
+.pdfModal {
+  position: fixed;
+  top: 45px;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(5px);
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.pdfContent {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border-radius: 0;
+  width: auto;
+  height: auto;
+  max-width: none;
+  max-height: none;
+  padding: 0;
+  box-shadow: none;
+}
+
+.closeButton {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  background: rgba(255, 68, 68, 0.9);
+  color: white;
+  border: none;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  font-size: 1.5rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1002;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+
+  &:hover {
+    background: rgba(204, 0, 0, 0.9);
+    transform: scale(1.1);
+  }
+}
+
+.flipPage {
+  width: 100%;
+  height: 100%;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  box-sizing: border-box;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.pageImage {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: scale-down;
+}
+
+.loadingMessage {
+  color: white;
+  font-size: 1.5rem;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 2rem;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+}
+
+.errorMessage {
+  color: #ff6b6b;
+  font-size: 1.5rem;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 2rem;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+}
+
+@media (max-width: 480px) {
+  .magazineContainer {
+    padding: 1rem 0.5rem;
+  }
+
+  .header {
+    margin-bottom: 2rem;
+  }
+
+  .title {
+    font-size: 2rem;
+    letter-spacing: 1px;
+  }
+
+  .bookGrid {
+    grid-template-columns: 1fr;
+    gap: 3rem 1rem;
+    padding: 0 0.5rem;
+  }
+
+  .bookItem {
+    flex-direction: column;
+    align-items: center;
+    max-width: 100%;
+    gap: 1.5rem;
+  }
+
+  .rightSideContent {
+    width: 100%;
+    align-items: center;
+  }
+
+  .controlPanel {
+    width: 100%;
+    max-width: 280px;
+    padding: 0.8rem;
+  }
+
+  .controlTitle {
+    font-size: 0.8rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .controlButtons {
+    gap: 0.4rem;
+  }
+
+  .controlButton {
+    padding: 0.6rem;
+    font-size: 0.65rem;
+    width: 50px;
+    height: 50px;
+  }
+
+  .bookWrapper {
+    width: $mobile-book-width;
+    height: $mobile-book-height;
+    perspective: 1500px;
+
+    &:hover {
+      transform: scale(1.01);
+    }
+  }
+
+  .bookContent {
+    width: $mobile-book-width;
+    height: $mobile-book-height;
+  }
+
+  .bookFront {
+    width: $mobile-book-width;
+    height: $mobile-book-height;
+    transform: translate3d(0, 0, $mobile-book-depth / 2);
+  }
+
+  .bookBack {
+    width: $mobile-book-width;
+    height: $mobile-book-height;
+    transform: rotateY(-180deg) translate3d(0, 0, $mobile-book-depth / 2);
+  }
+
+  .bookSpine {
+    width: $mobile-book-depth;
+    height: $mobile-book-height;
+    left: -($mobile-book-depth / 2);
+  }
+
+  .bookPage {
+    width: calc(#{$mobile-book-width} - 8px);
+    height: calc(#{$mobile-book-height} - 8px);
+    top: 4px;
+    left: 4px;
+    transform: translate3d(0, 0, $mobile-book-depth / 2 - 1);
+  }
+
+  .bookTop {
+    width: calc(#{$mobile-book-width} - 8px);
+    height: $mobile-book-depth;
+    top: -15px;
+    left: 4px;
+  }
+
+  .bookRight {
+    width: $mobile-book-depth;
+    height: calc(#{$mobile-book-height} - 8px);
+    top: 4px;
+    right: -15px;
+  }
+
+  .bookBottom {
+    width: calc(#{$mobile-book-width} - 8px);
+    height: $mobile-book-depth;
+    bottom: -15px;
+    left: 4px;
+  }
+
+  // Adjust 3D effects for mobile
+  .viewCover .bookContent {
+    transform: rotateY(-25deg);
+
+    &:hover {
+      transform: rotateY(-30deg);
+    }
+  }
+
+  .viewBack .bookContent {
+    transform: rotateY(175deg);
+
+    &:hover {
+      transform: rotateY(150deg);
+    }
+  }
+
+  .viewOpen {
+    .bookWrapper {
+      transform: translate3d(5%, 0, 0);
+    }
+
+    .bookFront {
+      transform: translate3d(0, 0, $mobile-book-depth / 2) rotateY(-140deg);
+    }
+  }
+
+  .insideContent {
+    padding: 1rem;
+  }
+
+  .pagePreview {
+    h3 {
+      font-size: 1.1rem;
+    }
+
+    p {
+      font-size: 0.8rem;
+      margin-bottom: 1rem;
+    }
+  }
+
+  .previewImage {
+    width: 80px;
+    height: 110px;
+  }
+
+  .backContent {
+    padding: 1.2rem;
+
+    h3 {
+      font-size: 1rem;
+      margin-bottom: 0.8rem;
+    }
+
+    p {
+      font-size: 0.8rem;
+    }
+  }
+
+  .spineText {
+    left: 10px;
+    font-size: 0.7rem;
+  }
+
+  .backSpine {
+    right: 10px;
+    font-size: 0.7rem;
+  }
+
+  .spineLabel {
+    font-size: 0.7rem;
+  }
+
+  .bookInfo {
+    text-align: center;
+    padding: 0.5rem;
+
+    h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.8rem;
+
+      span {
+        font-size: 0.8rem;
+        margin-bottom: 0.3rem;
+      }
+    }
+
+    p {
+      font-size: 0.85rem;
+      line-height: 1.5;
+    }
+  }
+
+  .closeButton {
+    top: 10px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+
+  .loadingMessage,
+  .errorMessage {
+    font-size: 1.2rem;
+    padding: 1.5rem;
+    margin: 1rem;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .magazineContainer {
+    padding: 1.5rem 1rem;
+  }
+
+  .bookGrid {
+    grid-template-columns: 1fr;
+    gap: 3rem 1.5rem;
+    padding: 0 1rem;
+  }
+
+  .bookItem {
+    flex-direction: column;
+    align-items: center;
+    max-width: 100%;
+    gap: 2rem;
+  }
+
+  .rightSideContent {
+    width: 100%;
+    align-items: center;
+  }
+
+  .controlPanel {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .bookWrapper {
+    width: 260px;
+    height: 370px;
+    perspective: 1800px;
+  }
+
+  .bookContent {
+    width: 260px;
+    height: 370px;
+  }
+
+  .bookFront {
+    width: 260px;
+    height: 370px;
+    transform: translate3d(0, 0, 40px);
+  }
+
+  .bookBack {
+    width: 260px;
+    height: 370px;
+    transform: rotateY(-180deg) translate3d(0, 0, 40px);
+  }
+
+  .bookSpine {
+    width: 40px;
+    height: 370px;
+    left: -20px;
+  }
+
+  .bookPage {
+    width: 252px;
+    height: 362px;
+    top: 4px;
+    left: 4px;
+    transform: translate3d(0, 0, 39px);
+  }
+
+  .bookTop {
+    width: 252px;
+    height: 40px;
+    top: -18px;
+    left: 4px;
+  }
+
+  .bookRight {
+    width: 40px;
+    height: 362px;
+    top: 4px;
+    right: -18px;
+  }
+
+  .bookBottom {
+    width: 252px;
+    height: 40px;
+    bottom: -18px;
+    left: 4px;
+  }
+
+  .viewOpen {
+    .bookWrapper {
+      transform: translate3d(8%, 0, 0);
+    }
+
+    .bookFront {
+      transform: translate3d(0, 0, 40px) rotateY(-150deg);
+    }
+  }
+
+  .insideContent {
+    padding: 1.5rem;
+  }
+
+  .pagePreview {
+    h3 {
+      font-size: 1.3rem;
+    }
+
+    p {
+      font-size: 0.9rem;
+    }
+  }
+
+  .previewImage {
+    width: 100px;
+    height: 130px;
+  }
+
+  .backContent {
+    padding: 1.5rem;
+
+    h3 {
+      font-size: 1.1rem;
+    }
+
+    p {
+      font-size: 0.85rem;
+    }
+  }
+
+  .bookInfo {
+    text-align: center;
+    padding: 1rem;
+
+    h3 {
+      font-size: 1.3rem;
+
+      span {
+        font-size: 0.85rem;
+      }
+    }
+
+    p {
+      font-size: 0.9rem;
+    }
+  }
+
+  .closeButton {
+    top: 15px;
+    right: 15px;
+    width: 45px;
+    height: 45px;
+    font-size: 1.3rem;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .bookGrid {
+    grid-template-columns: 1fr;
+    max-width: 800px;
+    gap: 3rem;
+  }
+
+  .bookItem {
+    flex-direction: column;
+    align-items: center;
+    max-width: 100%;
+    gap: 2.5rem;
+  }
+
+  .rightSideContent {
+    width: 100%;
+    align-items: center;
+  }
+
+  .controlPanel {
+    width: 320px;
+  }
+
+  .bookWrapper {
+    width: 280px;
+    height: 420px;
+  }
+
+  .bookContent {
+    width: 280px;
+    height: 420px;
+  }
+
+  .bookFront {
+    width: 280px;
+    height: 420px;
+    transform: translate3d(0, 0, 45px);
+  }
+
+  .bookBack {
+    width: 280px;
+    height: 420px;
+    transform: rotateY(-180deg) translate3d(0, 0, 45px);
+  }
+
+  .bookSpine {
+    width: 45px;
+    height: 420px;
+    left: -22.5px;
+  }
+
+  .bookPage {
+    width: 272px;
+    height: 412px;
+    top: 4px;
+    left: 4px;
+    transform: translate3d(0, 0, 44px);
+  }
+
+  .bookTop {
+    width: 272px;
+    height: 45px;
+    top: -18px;
+    left: 4px;
+  }
+
+  .bookRight {
+    width: 45px;
+    height: 412px;
+    top: 4px;
+    right: -18px;
+  }
+
+  .bookBottom {
+    width: 272px;
+    height: 45px;
+    bottom: -18px;
+    left: 4px;
+  }
+
+  .viewOpen {
+    .bookFront {
+      transform: translate3d(0, 0, 45px) rotateY(-155deg);
+    }
+  }
+}
+
+@media (min-width: 1025px) {
+  .bookGrid {
+    grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+  }
+
+  .bookItem {
+    gap: 2rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  .bookGrid {
+    max-width: 1600px;
+  }
+
+  .bookItem {
+    max-width: 700px;
+    gap: 3rem;
+  }
+}
+
+@media (max-height: 500px) and (orientation: landscape) {
+  .bookWrapper {
+    width: 200px !important;
+    height: 280px !important;
+  }
+
+  .bookContent {
+    width: 200px !important;
+    height: 280px !important;
+  }
+
+  .bookFront {
+    width: 200px !important;
+    height: 280px !important;
+  }
+
+  .bookBack {
+    width: 200px !important;
+    height: 280px !important;
+  }
+
+  .bookPage {
+    width: 194px !important;
+    height: 274px !important;
+  }
+
+  .insideContent {
+    padding: 0.8rem;
+  }
+
+  .pagePreview {
+    h3 {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      font-size: 0.75rem;
+      margin-bottom: 0.8rem;
+    }
+  }
+
+  .previewImage {
+    width: 60px;
+    height: 80px;
+  }
+}

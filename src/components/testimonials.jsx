@@ -264,7 +264,7 @@ const Team = () => {
   return (
     <div className="team-cards-container">
       {/* NEW MAIN HEADING */}
-      <h1 className="team-main-heading">ACM TEAM</h1>
+      <h1 className="team-main-heading">ACM-Team</h1>
 
       {/* NEW GROUP IMAGE */}
       <div className="team-group-image-container">
@@ -273,8 +273,7 @@ const Team = () => {
           alt="ACM Team Group"
           className="team-group-image"
         />
-      </div> 
-    <div className="team-cards-container">
+      </div>
       {" "}
       {/* Changed to unique container class */}
       <div className="team-cards-wrapper">
@@ -325,7 +324,6 @@ const Team = () => {
           </div>
         </div>
       </div>
-    </div>
     </div>
   );
 };

@@ -274,7 +274,7 @@ export const events = [
 ];
 
 // Competitions Data
-export const achievements = [
+export const competitions = [
     {
         title: "BYTE BRAWL",
         location: "Nov 12, 2024",
@@ -315,54 +315,18 @@ export const achievements = [
         title: "DESIGN SCAPE",
         location: "Nov 12, 2024",
         description: "DesignScape encouraged participants to unleash their creativity using Canva, Figma, and Adobe tools. Contestants focused on visual storytelling, UI design, and brand identity, creating designs judged on innovation, aesthetics, and technical execution. The competition highlighted the perfect mix of artistic skill and practical design knowledge.",
-        duration: "3 Hours",
-        difficulty: "Creative",
+        duration: "2 Hours",
+        difficulty: "Intermediate",
         groupSize: "100+ Designers",
         background: "/Events/Apratim-DesignScape/DesignScape.jpeg",
         cardImage: "/Events/Apratim-DesignScape/DesignScape.jpeg",
         images: ["/Events/Apratim-DesignScape/DesignScape.jpeg"],
         reactions: {
-            "❤️": { count: 72, text: "designers loved this creative challenge" },
-            "😊": { count: 58, text: "designers enjoyed the design process" },
-            "👍": { count: 84, text: "designers found it very inspiring" },
+            "❤️": { count: 78, text: "designers loved the creative challenge" },
+            "😊": { count: 65, text: "designers enjoyed showcasing their skills" },
+            "👍": { count: 92, text: "designers found it very inspiring" },
             "😢": { count: 18, text: "people regret missing this competition" },
-            "🎯": { count: 61, text: "designers showcased incredible creativity" }
-        }
-    },
-    {
-        title: "QUIZATHON: RAPID FIRE",
-        location: "Nov 13, 2024",
-        description: "Rapid Fire was an exciting offline quiz covering programming, computer science concepts, and emerging technologies. Conducted via Kahoot, participants competed in real-time using their devices, answering questions on algorithms, ML, blockchain, and cybersecurity. The interactive format made it both educational and highly engaging.",
-        duration: "2 Hours",
-        difficulty: "Intermediate",
-        groupSize: "80+ Participants",
-        background: "/Events/Apratim-Quizathon/Quizathon.jpeg",
-        cardImage: "/Events/Apratim-Quizathon/Quizathon.jpeg",
-        images: ["/Events/Apratim-Quizathon/Quizathon.jpeg"],
-        reactions: {
-            "❤️": { count: 45, text: "participants loved the quiz format" },
-            "😊": { count: 52, text: "participants enjoyed the competition" },
-            "👍": { count: 67, text: "participants found it very engaging" },
-            "😢": { count: 12, text: "people regret missing this quiz" },
-            "🎯": { count: 38, text: "participants tested their knowledge" }
-        }
-    },
-    {
-        title: "TECHSCRIBE",
-        location: "Nov 13, 2024",
-        description: "TechScribe was a creative article-writing competition aimed at enhancing technical communication skills. Participants wrote on emerging technologies and digital innovation, demonstrating originality, research skills, and clear writing. The event encouraged critical thinking and allowed writers to present complex ideas in an engaging, accessible manner.",
-        duration: "3 Hours",
-        difficulty: "Creative",
-        groupSize: "60+ Writers",
-        background: "/Events/Apratim-Techscribe/Techscribe.jpeg",
-        cardImage: "/Events/Apratim-Techscribe/Techscribe.jpeg",
-        images: ["/Events/Apratim-Techscribe/Techscribe.jpeg"],
-        reactions: {
-            "❤️": { count: 34, text: "writers loved expressing their ideas" },
-            "😊": { count: 29, text: "writers enjoyed the writing challenge" },
-            "👍": { count: 41, text: "writers found it very thought-provoking" },
-            "😢": { count: 8, text: "people regret missing this competition" },
-            "🎯": { count: 32, text: "writers showcased excellent creativity" }
+            "🎯": { count: 56, text: "designers created amazing visuals" }
         }
     }
 ];
