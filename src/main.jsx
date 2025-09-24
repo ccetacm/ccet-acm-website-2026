@@ -4,12 +4,10 @@ import { HashRouter as Router, Routes, Route } from "react-router-dom";
 
 import App from "./App.jsx";
 import About from "./pages/About.jsx";
-import Initiatives from "./components/Initiatives.jsx";
-import Event from "./components/Event.jsx";
+import Initiatives from "./components/CoreActs.jsx";
+import Event from "./pages/Events.jsx";
 import Vision from "./components/Vision.jsx";
-import MagazineScroller from "./components/MagazineScroller.jsx";
 import Teams from "./pages/teampage.jsx";
-import ResearchLabIsolated from "./components/research.jsx";
 import Mentors from "./components/Mentors.jsx";
 import Gallery from "./components/Gallery.jsx";
 import DigitalOutlet from "./components/DigitalOutlet.jsx";
@@ -21,16 +19,11 @@ import ACMW from "./pages/acmw.jsx";
 import ICRG from "./pages/icrg.jsx";
 import TalkWithTechies from "./components/TalkWithTechies.jsx";
 import ScrollToTop from "./components/ScrollToTop.jsx";
-
-
-// Import images for logos
-// import nepImg from "./assets/Header_Main/NEP_2020.png";
-// import ccetImg from "./assets/Header_Main/ccetLogo.png";
-// import sdgImg from "./assets/Header_Main/SDG.png";
-// import puImg from "./assets/Header_Main/pu-logo.png";
-// import acmImg from "./assets/Header_Main/acmlogo.png";
-// import acmw from "./assets/Header_Main/acmw.png";
-// import logoImg from "./assets/Header_Main/logo.png";
+import ContactSection from "./pages/ContactSection.jsx";
+import CodeforCause from "./components/CodeforCause.jsx";
+import CareerPathways from "./components/CareerPathways.jsx";
+import CodeforTechnology from "./components/CodeforTechnology.jsx";
+import HealthyByte from "./components/HealthyByte.jsx";
 
 import "./index.css";
 
@@ -107,7 +100,9 @@ const AppWrapper = () => {
               <Route path="/vision" element={<Vision />} />
               <Route path="/events" element={<Event />} />
               <Route path="/research" element={<Resources />} />
+
               {/* <Route path="/magazine" element={<MagazineScroller />} /> */}
+
               <Route path="/magazine" element={<DigitalOutlet />} />
               <Route path="/mentors" element={<Mentors />} />
               <Route path="/teams" element={<Teams />} />
@@ -116,6 +111,11 @@ const AppWrapper = () => {
               <Route path="/gallery" element={<Gallery />} />
               <Route path="/TalkWithTechies" element={<TalkWithTechies />} />
               <Route path="/talk-with-techies" element={<TalkWithTechies />} />
+              <Route path="/contact-section" element={<ContactSection />} />
+              <Route path="/code-for-cause" element={<CodeforCause />} />
+              <Route path="/career-pathways" element={<CareerPathways />} />
+              <Route path="/code-for-technology" element={<CodeforTechnology />} />
+               <Route path="/healthy-byte" element={<HealthyByte />} />
               <Route path="*" element={<h2>404 - Page Not Found</h2>} />
             </Routes>
           </main>

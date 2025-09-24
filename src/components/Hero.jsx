@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import styles from "./Hero.module.css";
 // import backgroundVideo from "../assets/Header_Main/Video.mp4";
 import HeroText from "./HeroText";
+import NewsTicker from "./NewsTicker";
 
 // import img1 from "../assets/1 (1).jpg";
 // import img2 from "../assets/1 (3).jpg";
@@ -144,22 +145,9 @@ const Hero = ({ startAnimation, cards }) => {
                 </div>
             </div>
 
-            {/* Enhanced Breaking Bar */}
-            <div className={`${styles.breakingBar} ${startAnimation ? styles.animate : ""}`}>
-                <div className={styles.scrollingText}>
-                    <span className={styles.barText}>◆ Innovation in Computing</span>
-                    <span className={styles.barSeparator}>◦</span>
-                    <span className={styles.barText}>◆ Research Excellence</span>
-                    <span className={styles.barSeparator}>◦</span>
-                    <span className={styles.barText}>◆ Student Development</span>
-                    <span className={styles.barSeparator}>◦</span>
-                    <span className={styles.barText}>◆ Technology Leadership</span>
-                    <span className={styles.barSeparator}>◦</span>
-                    <span className={styles.barText}>◆ Professional Growth</span>
-                    <span className={styles.barSeparator}>◦</span>
-                    <span className={styles.barText}>◆ Industry Collaboration</span>
-                    <span className={styles.barSeparator}>◦</span>
-                </div>
+            {/* News Ticker positioned below hero */}
+            <div className={styles.newsTickerContainer}>
+                <NewsTicker />
             </div>
         </>
     );

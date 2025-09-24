@@ -1,16 +1,8 @@
-
-
-
-
-
 .fullSite {
   background-color: #f8f9fa;
   color: #2c3e50;
   font-family: 'Segoe UI', Arial, sans-serif;
-  
 }
-
-
 
 .container {
   position: relative;
@@ -78,7 +70,7 @@
 .btn-primary {
   background: linear-gradient(135deg, #3498db 0%, #74b9ff 100%);
   color: #ffffff;
-  box-shadow:  0 5px 25px rgba(52, 152, 219, 0.15);
+  box-shadow: 0 5px 25px rgba(52, 152, 219, 0.15);
 }
 
 .btn-primary:hover {
@@ -378,13 +370,13 @@
   padding: 24px;
   border-radius: 12px;
   transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
-  box-shadow:  0 2px 10px rgba(52, 152, 219, 0.1);
+  box-shadow: 0 2px 10px rgba(52, 152, 219, 0.1);
 }
 
 .objective-card:hover {
   transform: translateY(-6px);
   border-color: #3498db;
-  box-shadow:  0 5px 25px rgba(52, 152, 219, 0.15);
+  box-shadow: 0 5px 25px rgba(52, 152, 219, 0.15);
 }
 
 .objective-card .num {
@@ -423,12 +415,12 @@
   text-align: center;
   border: 1px solid #5dade2;
   transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
-  box-shadow:  0 2px 10px rgba(52, 152, 219, 0.1);
+  box-shadow: 0 2px 10px rgba(52, 152, 219, 0.1);
 }
 
 .stat-card:hover {
   border-color: #3498db;
-  box-shadow:  0 5px 25px rgba(52, 152, 219, 0.15);
+  box-shadow: 0 5px 25px rgba(52, 152, 219, 0.15);
 }
 
 .stat-card i {
@@ -463,13 +455,13 @@
   transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
   display: flex;
   flex-direction: column;
-  box-shadow:  0 2px 10px rgba(52, 152, 219, 0.1);
+  box-shadow: 0 2px 10px rgba(52, 152, 219, 0.1);
 }
 
 .event-card:hover {
   border-color: #3498db;
   transform: translateY(-6px) scale(1.02);
-  box-shadow:  0 5px 25px rgba(52, 152, 219, 0.15);
+  box-shadow: 0 5px 25px rgba(52, 152, 219, 0.15);
 }
 
 .event-card img {
@@ -924,8 +916,6 @@
   }
 }
 
-
-
 .timeline-item {
   opacity: 0;
   animation: fadeIn 1s forwards;
@@ -1220,8 +1210,6 @@ td {
   align-items: center;
   gap: 8px;
 }
-
-
 
 .pub-row {
   border-bottom: 1px solid rgba(55, 65, 81, 0.5);
