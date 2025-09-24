@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+.mentorsContainer {
+    max-width: auto;
+    margin: 0 auto;
+    padding: 2rem;
+    background: linear-gradient(
+            to bottom,
+            rgba(18, 105, 115, 0.3) 0%,
+            rgba(18, 105, 115, 0.3) 100%
+    );
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.title {
+    text-align: center;
+    font-size: 4rem;
+    margin-bottom: 3rem;
+    color: #ffffff;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-weight: 700;
+}
+
+.mentorsGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    justify-items: center;
+    align-items: start;
+}
+
+.mentorCard {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    position: relative;
+    overflow: hidden;
+    margin: 0;
+    width: 310px;
+    height: 280px;
+    background-color: #f8f9fa;
+    color: #2c3e50;
+    text-align: left;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+    border-radius: 50px;
+    display: block;
+}
+
+.mentorCard * {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transition: all 0.45s ease-in-out;
+    transition: all 0.45s ease-in-out;
+}
+
+.mentorCard img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 8px;
+}
+
+.mentorCard .mentorCaption {
+    position: absolute;
+    left: 20px;
+    right: 20px;
+    bottom: 10px;
+    padding: 10px 20px;
+    z-index: 1;
+    background: rgba(17, 65, 131, 0.8);
+    border-radius: 40px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.mentorCard .mentorName,
+.mentorCard .mentorTitle {
+    margin: 0;
+}
+
+.mentorCard .mentorName {
+    display: block;
+    letter-spacing: -0.5px;
+    font-weight: 400;
+    margin-bottom: 5px;
+    font-size: 1rem;
+    color: #ffffff;
+    text-align: center;
+}
+
+.mentorCard .mentorName span {
+    font-weight: 600;
+}
+
+.mentorCard .mentorTitle {
+    display: block;
+    font-size: 0.85em;
+    opacity: 0.8;
+    color: #ffffff;
+    font-weight: 400;
+    text-align: center;
+}
+
+.mentorCard .cardLink {
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    position: absolute;
+    z-index: 2;
+    border-radius: 8px;
+}
+
+/* Hover effects */
+.mentorCard:hover img,
+.mentorCard.hover img {
+    transform: scale(1.05);
+}
+
+.mentorCard:hover .mentorCaption,
+.mentorCard.hover .mentorCaption {
+    background: rgb(17, 65, 131);
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.mentorCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .mentorsGrid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+
+    .mentorCard {
+        width: 280px;
+        height: 280px;
+    }
+}
+
+@media (max-width: 768px) {
+    .mentorsContainer {
+        padding: 1rem;
+    }
+
+    .mentorsGrid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .title {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .mentorCard {
+        width: 100%;
+        max-width: 320px;
+        height: 290px;
+    }
+}
+
+@media (max-width: 480px) {
+    .mentorCard {
+        height: 300px;
+    }
+
+    .mentorCard .mentorCaption {
+        left: 15px;
+        right: 15px;
+        bottom: 15px;
+        padding: 8px 15px;
+    }
+
+    .mentorCard .mentorName {
+        font-size: 0.9rem;
+    }
+
+    .mentorCard .mentorTitle {
+        font-size: 0.8em;
+    }
+}

@@ -24,6 +24,7 @@ import CodeforCause from "./components/CodeforCause.jsx";
 import CareerPathways from "./components/CareerPathways.jsx";
 import CodeforTechnology from "./components/CodeforTechnology.jsx";
 import HealthyByte from "./components/HealthyByte.jsx";
+import MentorProfile from "./components/MentorProfile.jsx";
 
 import "./index.css";
 
@@ -112,7 +113,8 @@ const AppWrapper = () => {
               <Route path="/code-for-cause" element={<CodeforCause />} />
               <Route path="/career-pathways" element={<CareerPathways />} />
               <Route path="/code-for-technology" element={<CodeforTechnology />} />
-               <Route path="/healthy-byte" element={<HealthyByte />} />
+              <Route path="/healthy-byte" element={<HealthyByte />} />
+              <Route path="/mentors/:mentorName" element={<MentorProfile />} />
               <Route path="*" element={<h2>404 - Page Not Found</h2>} />
             </Routes>
           </main>
