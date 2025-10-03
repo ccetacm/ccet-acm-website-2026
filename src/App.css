@@ -2,19 +2,3 @@ html, body {
   overflow-x: hidden;
   width: 100%;
 }
-@media (max-width: 768px) {
-  .digital-outlet-heading {
-    font-size: 1.8rem;
-    line-height: 1.2;
-    text-align: center;
-  }
-
-  .phone-mockup-section {
-    display: none;
-  }
-
-  .header-hero-socialmedia {
-    padding-bottom: 0;
-    margin-bottom: 0;
-  }
-}
