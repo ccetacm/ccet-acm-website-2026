@@ -1,0 +1,37 @@
+.homeContainer {
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    position: relative;
+}
+
+/* Optional: Add spacing between sections */
+.homeContainer > * {
+    position: relative;
+}
+
+/* Make social media component fixed on the side */
+.homeContainer :global(.social-media-wrapper) {
+    position: fixed !important;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1000;
+    left: 0; /* Change to right: 0; if you want it on the right side */
+}
+
+/* Optional: Add consistent section padding */
+.homeContainer section {
+    padding: 2rem 0;
+}
+
+@media (max-width: 768px) {
+    .homeContainer section {
+        padding: 1.5rem 0;
+    }
+
+    /* Hide or adjust social media on mobile if needed */
+    .homeContainer :global(.social-media-wrapper) {
+        display: none; /* Or adjust positioning for mobile */
+    }
+}
