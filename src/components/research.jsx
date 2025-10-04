@@ -78,7 +78,7 @@ const ResearchLabIsolated = () => {
     justify-content: center;
     background: linear-gradient(
         to bottom,
-        #F8FAFCFF 0%,   /* light at top */
+        #CAF0F875 0%,   /* light at top */
         rgba(18, 105, 115, 0.3) 100%  /* light at bottom */
     );
 }
