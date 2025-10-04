@@ -148,33 +148,35 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: linear-gradient(135deg, rgba(0, 102, 204, 0.9), rgba(0, 45, 114, 0.9));
-  border: 2px solid #00d4ff;
+  background: transparent;
+  border: none;
   border-radius: 50%;
-  width: 56px;
-  height: 56px;
+  width: 32px;
+  height: 32px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #00d4ff;
+  color: #ffffff;
   cursor: pointer;
   transition: all 0.3s ease;
   z-index: 10;
-  font-size: 24px;
-  font-weight: bold;
-  box-shadow: 0 4px 20px rgba(0, 212, 255, 0.4);
+  font-size: 18px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.team-card-carousel:hover .team-card-btn {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .team-card-btn:hover {
-  background: linear-gradient(135deg, rgba(0, 212, 255, 0.95), rgba(0, 102, 204, 0.95));
-  border-color: #4a90e2;
-  transform: translateY(-50%) scale(1.15);
-  box-shadow: 0 6px 30px rgba(0, 212, 255, 0.6);
+  transform: translateY(-50%) scale(1.2);
   color: #ffffff;
 }
 
 .team-card-btn:active {
-  transform: translateY(-50%) scale(1.08);
+  transform: translateY(-50%) scale(1.1);
 }
 
 .team-card-btn-left {
