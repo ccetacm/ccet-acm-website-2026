@@ -139,17 +139,9 @@ const Team = () => {
       <div className="team-cards-container">
         <h1 className="team-main-heading">ACM-Team</h1>
 
-        <div className="team-group-image-container">
-          <img
-              src="/testimonials/acm-team.jpg"
-              alt="ACM Team Group"
-              className="team-group-image"
-          />
-        </div>
-
         <div className="team-cards-wrapper">
           <div className="team-cards-row">
-            {/* ACM Section */}
+            {/* ACM Section - Left */}
             <div className="team-cards-section team-cards-section-left">
               <div className="team-cards-heading">
                 <h2 className="team-cards-title team-cards-title-acm">ACM</h2>
@@ -166,7 +158,21 @@ const Team = () => {
               )}
             </div>
 
-            {/* ACM-W Section */}
+            {/* Team Group Image - Center */}
+            <div className="team-cards-section team-cards-section-center">
+              <div className="team-cards-heading">
+                <h2 className="team-cards-title" style={{ color: '#ffffff' }}>TEAM</h2>
+              </div>
+              <div className="team-group-image-container">
+                <img
+                    src="/testimonials/acm-team.jpg"
+                    alt="ACM Team Group"
+                    className="team-group-image"
+                />
+              </div>
+            </div>
+
+            {/* ACM-W Section - Right */}
             <div className="team-cards-section team-cards-section-right">
               <div className="team-cards-heading">
                 <h2 className="team-cards-title team-cards-title-acmw">ACM-W</h2>
