@@ -16,22 +16,21 @@
   height: 500px;
   margin: 0 auto 2rem;
   border-radius: 12px;
-  border: 4px solid #fff; /* clean white border */
+  border: 4px solid #fff;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
   object-fit: cover;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .team-group-image:hover {
-  transform: scale(1.02); /* slight zoom */
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25); /* deeper shadow */
+  transform: scale(1.02);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
 }
 
 .team-cards-container {
   width: 100%;
   min-height: 100vh;
   padding: 2rem 0;
-  /* Changed background from dark to light blue #CAF0F8 */
   background: linear-gradient(
           to bottom,
           rgba(18, 105, 115, 0.3) 0%,
@@ -50,30 +49,22 @@
   display: flex;
   flex-direction: row;
   width: 100%;
-  /* Reduced gap from 2rem to 0.5rem to decrease space between cards */
-  /* Reduced gap from 0.5rem to 0.25rem to further decrease space between cards */
   gap: 5rem;
   justify-content: center;
 }
 
 .team-cards-section {
-  /* Reduced card width from 40% to 35% for more compact layout */
-  /* Reduced card width from 35% to 30% for more compact layout */
   width: 30%;
-  max-width: 30%;
+  max-width: 50%;
   flex: 0 0 30%;
   box-sizing: border-box;
 }
 
 .team-cards-section-left {
-  /* Reduced padding from 1rem to 0.25rem */
-  /* Reduced padding from 0.25rem to 0.125rem */
   padding-right: 0.125rem;
 }
 
 .team-cards-section-right {
-  /* Reduced padding from 1rem to 0.25rem */
-  /* Reduced padding from 0.25rem to 0.125rem */
   padding-left: 0.125rem;
 }
 
@@ -94,7 +85,6 @@
 }
 
 .team-cards-title-acmw {
-  /* Changed color to #002D72 for consistency */
   color: #ffffff;
 }
 
@@ -105,17 +95,15 @@
   margin: 0 auto;
 }
 
+/* Simplified card for image only */
 .team-card-member {
   position: relative;
-  /* Updated to professional white background with subtle shadow */
-  background: #ffffff;
+  background: transparent;
   border-radius: 16px;
-  padding: 2rem;
-  /* Enhanced shadow for more professional look */
-  box-shadow: 0 8px 32px rgba(0, 45, 114, 0.12);
+  padding: 0;
+  border: none;
+  box-shadow: none;
   transition: all 0.3s ease;
-  /* Updated border with professional navy color */
-  border: 1px solid rgba(0, 45, 114, 0.08);
 }
 
 .team-card-member.team-card-animating {
@@ -123,16 +111,9 @@
   opacity: 0.8;
 }
 
+/* Removed background since we don't need it */
 .team-card-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  /* Updated gradient with professional navy tones */
-  background: linear-gradient(135deg, rgba(0, 45, 114, 0.02) 0%, rgba(0, 45, 114, 0.04) 100%);
-  border-radius: 16px;
-  opacity: 0.5;
+  display: none;
 }
 
 .team-card-avatar-container {
@@ -140,60 +121,50 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0; /* Removed margin since no other content */
 }
 
 .team-card-btn {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  /* Removed box styling - no background, border, or shadow */
-  background: none;
+  background: rgba(0, 0, 0, 0.5);
   border: none;
-  border-radius: 0;
+  border-radius: 50%;
   width: 48px;
   height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
-  /* Changed to dark blue color #002D72 */
-  color: #002d72;
+  color: white;
   cursor: pointer;
   transition: all 0.3s ease;
   z-index: 10;
-  /* Removed box-shadow */
   font-size: 24px;
   font-weight: bold;
 }
 
 .team-card-btn:hover {
-  /* Simplified hover - just color change and slight scale */
-  color: #0066cc;
-  transform: translateY(-50%) scale(1.2);
-  background: none;
-  box-shadow: none;
+  background: rgba(0, 0, 0, 0.7);
+  transform: translateY(-50%) scale(1.1);
 }
 
 .team-card-btn:active {
-  /* Simplified active state */
-  transform: translateY(-50%) scale(1.1);
-  color: #002d72;
+  transform: translateY(-50%) scale(1.05);
 }
 
 .team-card-btn-left {
-  /* Moved left arrow much closer to photo, from -20px to -10px */
-  left: 30px;
+  left: -20px;
 }
 
 .team-card-btn-right {
-  /* Moved right arrow much closer to photo, from -20px to -10px */
-  right: 30px;
+  right: -20px;
 }
 
 .team-card-avatar {
   position: relative;
-  width: 120px;
-  height: 120px;
+  width: 200px; /* Increased size since it's the only content */
+  height: 200px;
   margin: 0 auto;
 }
 
@@ -204,115 +175,31 @@
   right: -4px;
   bottom: -4px;
   border-radius: 50%;
-  /* Updated gradient with professional navy and complementary colors */
   background: linear-gradient(45deg, #002d72, #0066cc, #4a90e2);
-  /* Removed rotation animation to stop the spinning effect */
 }
 
 .team-card-avatar-image {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
+  width: 200px; /* Increased size */
+  height: 200px;
+  border-radius: 20%;
   object-fit: cover;
   position: relative;
   z-index: 2;
   border: 4px solid #caf0f8;
+  transition: transform 0.3s ease;
 }
 
+.team-card-avatar-image:hover {
+  transform: scale(1.05);
+}
+
+/* Hide all member info content */
 .team-card-member-info {
-  text-align: center;
-  position: relative;
-  z-index: 2;
-}
-
-.team-card-member-details {
-  margin-bottom: 1.5rem;
-}
-
-.team-card-member-name {
-  font-size: 1.5rem;
-  font-weight: bold;
-  /* Updated to professional navy color */
-  color: #002d72;
-  margin: 0 0 0.5rem 0;
-}
-
-.team-card-member-role {
-  font-size: 1rem;
-  /* Updated to professional gray color */
-  color: #4a5568;
-  margin: 0 0 1rem 0;
-}
-
-.team-card-member-category-badge {
-  display: inline-block;
-  /* Updated badge with professional navy background */
-  background: rgba(0, 45, 114, 0.08);
-  border: 1px solid rgba(0, 45, 114, 0.15);
-  border-radius: 20px;
-  padding: 0.25rem 0.75rem;
-}
-
-.team-card-member-category {
-  font-size: 0.875rem;
-  /* Updated category text to professional navy */
-  color: #002d72;
-  font-weight: 500;
-}
-
-.team-card-social-icons-container {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-}
-
-.team-card-social-icon-link {
-  color: #4a5568;
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
-  /* Enhanced social icon styling with gradient and better shadows */
-  background: linear-gradient(135deg, rgba(0, 45, 114, 0.08), rgba(0, 102, 204, 0.05));
-  cursor: pointer;
-  border: 1px solid rgba(0, 45, 114, 0.1);
-  box-shadow: 0 2px 8px rgba(0, 45, 114, 0.1);
-}
-
-.team-card-social-icon-link:hover {
-  color: #ffffff;
-  /* Enhanced hover state with gradient background */
-  background: linear-gradient(135deg, #002d72, #0066cc);
-  transform: translateY(-3px);
-  box-shadow: 0 4px 16px rgba(0, 45, 114, 0.25);
-}
-
-.team-card-social-icon-disabled {
-  opacity: 0.4;
-  cursor: not-allowed;
-  pointer-events: none;
-}
-
-.team-card-social-icon-disabled:hover {
-  color: #4a5568;
-  background: rgba(0, 45, 114, 0.05);
-  transform: none;
-}
-
-.team-card-orcid-link {
-  font-size: 0.75rem;
-  font-weight: bold;
-  width: auto;
-  padding: 0 0.75rem;
-  border-radius: 20px;
+  display: none;
 }
 
 .team-cards-no-members {
-  /* Updated text color to professional navy */
-  color: #002d72;
+  color: #ffffff;
   text-align: center;
   padding: 2rem;
   font-size: 1.125rem;
@@ -335,7 +222,14 @@
   .team-cards-section-right {
     padding: 0;
   }
+
+  .team-card-avatar,
+  .team-card-avatar-image {
+    width: 160px;
+    height: 160px;
+  }
 }
+
 @media (max-width: 1024px) {
   .team-main-heading {
     font-size: 4.5rem;
@@ -346,7 +240,6 @@
   }
 }
 
-/* Mobiles (≤768px) */
 @media (max-width: 768px) {
   .team-main-heading {
     font-size: 4rem;
@@ -359,7 +252,6 @@
   }
 }
 
-/* Small Mobiles (≤480px) */
 @media (max-width: 480px) {
   .team-main-heading {
     font-size: 3.5rem;
@@ -368,5 +260,11 @@
   .team-group-image {
     max-width: 100%;
     border-radius: 8px;
+  }
+
+  .team-card-avatar,
+  .team-card-avatar-image {
+    width: 140px;
+    height: 140px;
   }
 }
