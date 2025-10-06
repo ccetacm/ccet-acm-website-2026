@@ -49,7 +49,7 @@ export const mentorsData = [
     },
     {
         name: "Dr. Sudhakar Kumar",
-        title: "Faculty Sponser ACM, Assistant Professor CSE CCTE CHD",
+        title: "Faculty Sponser ACM, Assistant Professor CSE CCET CHD",
         additionalImg: "/mentors/sudhakar-additional.png",
         about:
             "Dr. Sudhakar Kumar is a leading researcher in artificial intelligence, machine learning, and computational intelligence with over 10 years of academic experience. His work spans across scalable architectures, optimization techniques, and the application of AI in cybersecurity.",

@@ -31,7 +31,7 @@ export const drSudhakarEducation = [
     },
     {
         degree: "B.Tech in Information Technology",
-        institution: "NIT Jalandhar",
+        institution: "Kalyani Government Engineering College",
         date: "2011",
         dissertation: "Secure Distributed Systems",
     },
