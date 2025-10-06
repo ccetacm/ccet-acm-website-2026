@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { mentorsData } from '../data/Mentors/index';
 import { useParams, Link } from 'react-router-dom';
+import { Mail, Linkedin, GraduationCap, Award } from 'lucide-react';
 import styles from './MentorProfile.module.css';
 
 const MentorProfile = () => {
@@ -51,7 +52,17 @@ const MentorProfile = () => {
         }
 
         const selectedPubs = selectedYear ? mentor.publications[selectedYear] : [];
-        const pubsArray = Array.isArray(selectedPubs) ? selectedPubs : (selectedPubs ? [selectedPubs] : []);
+        let pubsArray = Array.isArray(selectedPubs) ? selectedPubs : (selectedPubs ? [selectedPubs] : []);
+
+        // Sort publications by type (Journal first, then Conference, then others)
+        const typeOrder = { 'journal': 1, 'conference': 2 };
+        pubsArray = pubsArray.sort((a, b) => {
+            const typeA = a.type?.toLowerCase() || 'other';
+            const typeB = b.type?.toLowerCase() || 'other';
+            const orderA = typeOrder[typeA] || 999;
+            const orderB = typeOrder[typeB] || 999;
+            return orderA - orderB;
+        });
 
         return (
             <div className={styles.publicationsContainer}>
@@ -64,11 +75,6 @@ const MentorProfile = () => {
                             onClick={() => setSelectedYear(year)}
                         >
                             {year}
-                            <span className={styles.publicationCount}>
-                                {Array.isArray(mentor.publications[year])
-                                    ? mentor.publications[year].length
-                                    : 1}
-                            </span>
                         </button>
                     ))}
                 </div>
@@ -107,15 +113,6 @@ const MentorProfile = () => {
                                             {pub.doi && (
                                                 <p className={styles.doi}>
                                                     <strong>DOI:</strong> {pub.doi}
-                                                </p>
-                                            )}
-
-                                            {pub.impact && (
-                                                <p className={styles.impact}>
-                                                    <strong>Impact:</strong>
-                                                    <span className={`${styles.impactBadge} ${styles[pub.impact?.toLowerCase().replace(/\s+/g, '')]}`}>
-                                                        {pub.impact}
-                                                    </span>
                                                 </p>
                                             )}
                                         </div>
@@ -163,22 +160,22 @@ const MentorProfile = () => {
                         <div className={styles.socialLinks}>
                             {mentor.social.email && (
                                 <a href={mentor.social.email} className={styles.socialButton}>
-                                    Email
+                                    <Mail size={20} />
                                 </a>
                             )}
                             {mentor.social.linkedin && (
                                 <a href={mentor.social.linkedin} target="_blank" rel="noopener noreferrer" className={styles.socialButton}>
-                                    LinkedIn
+                                    <Linkedin size={20} />
                                 </a>
                             )}
                             {mentor.social.scholar && (
                                 <a href={mentor.social.scholar} target="_blank" rel="noopener noreferrer" className={styles.socialButton}>
-                                    Google Scholar
+                                    <GraduationCap size={20} />
                                 </a>
                             )}
                             {mentor.social.orcid && (
                                 <a href={mentor.social.orcid} target="_blank" rel="noopener noreferrer" className={styles.socialButton}>
-                                    ORCID
+                                    <Award size={20} />
                                 </a>
                             )}
                         </div>
