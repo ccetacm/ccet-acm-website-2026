@@ -6,10 +6,18 @@ html {
 
 body {
     background-image: url('/background.png');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+    background-size: cover;         /* Fill screen proportionally */
+    background-position: center;    /* Center the image */
     background-repeat: no-repeat;
-    background-color: #f0f0f0; /* Fallback color */
+    background-color: #f0f0f0;      /* Fallback color */
+    background-attachment: scroll;  /* Fix for mobile scaling */
+}
+
+/* Mobile-specific fix */
+@media (max-width: 768px) {
+    body {
+        background-attachment: scroll;
+        background-position: top center;
+    }
 }
 

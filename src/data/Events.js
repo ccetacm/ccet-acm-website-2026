@@ -1,6 +1,204 @@
 // Events Data
 export const events = [
     {
+        title: "GENERATIVE AI",
+        location: "August 22, 2025",
+        description: "ACM-W hosted a session on Generative AI, exploring how this technology is shaping the present and transforming the future. Speakers Aanshi Bansal and Bhavya shared key insights, while participants engaged in thought-provoking discussions on the potential of AI.",
+        duration: "2 Hours",
+        difficulty: "Beginner to Intermediate",
+        groupSize: "50+ Students",
+        background: "/Events/GenerativeAI/GenerativeAI1.jpeg",
+        cardImage: "/Events/GenerativeAI/GenerativeAI2.jpeg",
+        images: [
+            "/Events/GenerativeAI/GenerativeAI1.jpeg",
+            "/Events/GenerativeAI/GenerativeAI3.jpeg",
+            "/Events/GenerativeAI/GenerativeAI4.jpeg",
+            "/Events/GenerativeAI/GenerativeAI5.jpeg",
+        ],
+        reactions: {
+            "❤️": { count: 45, text: "participants loved learning about Generative AI" },
+            "😊": { count: 38, text: "people enjoyed the interactive discussion" },
+            "👍": { count: 50, text: "found it very informative" },
+            "😢": { count: 4, text: "people regretted missing the session" },
+            "🎯": { count: 42, text: "participants gained valuable AI insights" }
+        }
+    },
+    {
+        title: "MACHINE LEARNING 101",
+        location: "February 10, 2025",
+        description: "The Machine Learning 101 session by CCET ACM Student Chapter introduced fundamental ML concepts, including supervised, unsupervised, and reinforcement learning, along with hands-on linear regression. Speakers Jasjeet Singh and Samar Pratap Singh shared practical tips on training models and using Kaggle effectively. The session was engaging, informative, and well-received by all participants.",
+        duration: "3 Hours",
+        difficulty: "Beginner to Intermediate",
+        groupSize: "50+ Students",
+        background: "/Events/ML101/ML101-1.jpg",
+        cardImage: "/Events/ML101/ML101-2.jpg",
+        images: [
+            "/Events/ML101/ML101-1.jpg",
+            "/Events/ML101/ML101-2.jpg",
+            "/Events/ML101/ML101-3.jpg",
+            "/Events/ML101/ML101-4.jpg",
+            "/Events/ML101/ML101-5.jpg",
+            "/Events/ML101/ML101-6.jpg"
+        ],
+        reactions: {
+            "❤️": { count: 40, text: "people loved the session content" },
+            "😊": { count: 35, text: "people enjoyed hands-on ML practice" },
+            "👍": { count: 45, text: "people found it very informative" },
+            "😢": { count: 3, text: "people regretted missing the session" },
+            "🎯": { count: 38, text: "people learned practical ML implementation" }
+        }
+    },
+    {
+        title: "OOPS WORKSHOP",
+        location: "February 6, 2025",
+        description: "The Object-Oriented Programming (OOP) workshop covered core concepts like Classes & Objects, Inheritance, Polymorphism, Encapsulation, and Abstraction. With interactive discussions and real-world examples, participants learned how OOP improves code efficiency, scalability, and reusability. Thanks to Vanshika Singla and Ravina Mittal for delivering such an engaging and impactful session, and to all attendees for making it a success.",
+        duration: "1 Day",
+        difficulty: "Intermediate",
+        groupSize: "70+ Students",
+        background: "/Events/OOPWorkshop/OOPWorkshop1.jpg",
+        cardImage: "/Events/OOPWorkshop/OOPWorkshop2.jpg",
+        images: [
+            "/Events/OOPWorkshop/OOPWorkshop1.jpg",
+            "/Events/OOPWorkshop/OOPWorkshop2.jpg",
+            "/Events/OOPWorkshop/OOPWorkshop3.jpg",
+            "/Events/OOPWorkshop/OOPWorkshop4.jpg",
+            "/Events/OOPWorkshop/OOPWorkshop5.jpg",
+            "/Events/OOPWorkshop/OOPWorkshop6.jpg"
+        ],
+        reactions: {
+            "❤️": { count: 42, text: "people loved learning OOP" },
+            "😊": { count: 36, text: "people enjoyed this session" },
+            "👍": { count: 48, text: "people found it very useful" },
+            "😢": { count: 7, text: "people regret missing this workshop" },
+            "🎯": { count: 39, text: "people mastered key OOP concepts" }
+        }
+    },
+    {
+        title: "DSA BOOTCAMP",
+        location: "January 30, 2025",
+        description: "The DSA Bootcamp by CCET ACM Student Chapter provided an interactive session on Data Structures and Algorithms, covering key concepts, problem-solving techniques, and hands-on coding exercises. Participants enhanced their coding skills and prepared for competitive programming and technical interviews.",
+        duration: "3 Hours",
+        difficulty: "Beginner to Intermediate",
+        groupSize: "20 Students",
+        background: "/Events/DSABootcamp/DSABootcamp1.jpg",
+        cardImage: "/Events/DSABootcamp/DSABootcamp7.jpeg",
+        images: [
+            "/Events/DSABootcamp/DSABootcamp1.jpg",
+            "/Events/DSABootcamp/DSABootcamp2.jpg",
+            "/Events/DSABootcamp/DSABootcamp3.jpg",
+            "/Events/DSABootcamp/DSABootcamp4.jpeg",
+            "/Events/DSABootcamp/DSABootcamp5.jpeg",
+            "/Events/DSABootcamp/DSABootcamp6.jpeg"
+        ],
+        reactions: {
+            "❤️": { count: 19, text: "participants loved the problem-solving exercises" },
+            "😊": { count: 16, text: "enjoyed the interactive coding session" },
+            "👍": { count: 20, text: "found it very informative" },
+            "😢": { count: 2, text: "people regretted missing the bootcamp" },
+            "🎯": { count: 18, text: "participants strengthened their DSA skills" }
+        }
+    },
+    {
+        title: "JAVASCRIPT BOOTCAMP",
+        location: "January 22, 2025",
+        description: "The JavaScript Bootcamp by CCET ACM Student Chapter introduced participants to core JavaScript concepts, including variables, operators, loops, functions, and event handling. Attendees engaged in hands-on coding exercises, enhancing their web development skills through an interactive and practical session.",
+        duration: "3 Hours",
+        difficulty: "Beginner",
+        groupSize: "19 Students",
+        background: "/Events/JSBootcamp/JSBootcamp1.jpg",
+        cardImage: "/Events/JSBootcamp/JSBootcamp7.jpeg",
+        images: [
+            "/Events/JSBootcamp/JSBootcamp1.jpg",
+            "/Events/JSBootcamp/JSBootcamp2.jpg",
+            "/Events/JSBootcamp/JSBootcamp3.jpeg",
+            "/Events/JSBootcamp/JSBootcamp4.jpeg",
+            "/Events/JSBootcamp/JSBootcamp5.jpeg",
+            "/Events/JSBootcamp/JSBootcamp6.jpeg"
+        ],
+        reactions: {
+            "❤️": { count: 18, text: "participants loved the hands-on coding" },
+            "😊": { count: 15, text: "people enjoyed the interactive session" },
+            "👍": { count: 19, text: "found it very informative" },
+            "😢": { count: 1, text: "people regretted missing the session" },
+            "🎯": { count: 16, text: "participants improved their JS skills" }
+        }
+    },
+    {
+        title: "RESUME BUILDING",
+        location: "October 4, 2024",
+        description: "On 4th October 2024, CCET ACM and ACM-W student chapters organized a 'Resume Building' session led by Samar Pratap Singh. The workshop covered structuring resumes, highlighting achievements, using ATS-friendly keywords, and tailoring content for different industries. Students gained practical strategies to make their resumes stand out and actively engaged in improving their profiles.",
+        duration: "4 Hours",
+        difficulty: "Beginner-Friendly",
+        groupSize: "52 Students",
+        background: "/Events/ResumeBuilding/ResumeBuilding1.jpg",
+        cardImage: "/Events/ResumeBuilding/ResumeBuilding2.jpg",
+        images: [
+            "/Events/ResumeBuilding/ResumeBuilding1.jpg",
+            "/Events/ResumeBuilding/ResumeBuilding2.jpg",
+            "/Events/ResumeBuilding/ResumeBuilding3.jpg",
+            "/Events/ResumeBuilding/ResumeBuilding4.jpg",
+            "/Events/ResumeBuilding/ResumeBuilding3.jpg",
+            "/Events/ResumeBuilding/ResumeBuilding4.jpg"
+        ],
+        reactions: {
+            "❤️": { count: 35, text: "people loved the resume tips" },
+            "😊": { count: 28, text: "people enjoyed the interactive session" },
+            "👍": { count: 42, text: "people found it very practical" },
+            "😢": { count: 5, text: "people regretted missing this session" },
+            "🎯": { count: 30, text: "people improved their resumes significantly" }
+        }
+    },
+    {
+        title: "HACKTOBERFEST DAY 1",
+        location: "October 1, 2024",
+        description: "CCET ACM Students Chapter's Hacktoberfest session featured Sahil Garg explaining open-source contributions and motivating students to engage in collaborative tech development. Students learned about Git, GitHub workflows, and how to make their first pull requests to contribute to open-source projects worldwide.",
+        duration: "3 Hours",
+        difficulty: "Intermediate",
+        groupSize: "60+ Students",
+        background: "/Events/HacktoberfestDay1/HacktofestDay1-1.jpg",
+        cardImage: "/Events/HacktoberfestDay1/HacktofestDay1-2.jpg",
+        images: [
+            "/Events/HacktoberfestDay1/HacktofestDay1-1.jpg",
+            "/Events/HacktoberfestDay1/HacktofestDay1-2.jpg",
+            "/Events/HacktoberfestDay1/HacktofestDay1-3.jpg",
+            "/Events/HacktoberfestDay1/HacktofestDay1-4.jpg",
+            "/Events/HacktoberfestDay1/HacktofestDay1-5.jpg",
+            "/Events/HacktoberfestDay1/HacktofestDay1-6.jpg"
+        ],
+        reactions: {
+            "❤️": { count: 29, text: "people loved this hands-on session" },
+            "😊": { count: 22, text: "people enjoyed learning Git" },
+            "👍": { count: 38, text: "people found this very practical" },
+            "😢": { count: 6, text: "people regret missing Hacktoberfest" },
+            "🎯": { count: 33, text: "people made their first open-source contribution" }
+        }
+    },
+    {
+        title: "INTRODUCTION TO DOMAINS",
+        location: "September 27, 2024",
+        description: "CCET ACM and ACM-W Student Chapters hosted an introduction to domains session by Vanshika Chikara! Explored diverse technology career paths for students. The session covered various tech domains including web development, data science, cybersecurity, AI/ML, and mobile app development, helping students identify their areas of interest.",
+        duration: "2 Hours",
+        difficulty: "Beginner",
+        groupSize: "80+ Students",
+        background: "/Events/IntroductionToDomains/IntroductionToDomains1.jpg",
+        cardImage: "https://images.unsplash.com/photo-1556761175-4b46a572b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+        images: [
+            "/Events/IntroductionToDomains/IntroductionToDomains1.jpg",
+            "/Events/IntroductionToDomains/IntroductionToDomains2.jpg",
+            "/Events/IntroductionToDomains/IntroductionToDomains3.jpg",
+            "/Events/IntroductionToDomains/IntroductionToDomains4.jpg",
+            "/Events/IntroductionToDomains/IntroductionToDomains5.jpg",
+            "/Events/IntroductionToDomains/IntroductionToDomains6.jpg"
+        ],
+        reactions: {
+            "❤️": { count: 34, text: "people loved learning about domains" },
+            "😊": { count: 28, text: "people enjoyed this session" },
+            "👍": { count: 41, text: "people found this very informative" },
+            "😢": { count: 8, text: "people regret missing this session" },
+            "🎯": { count: 35, text: "people discovered their tech interests" }
+        }
+    },
+    {
         title: "WORDPRESS WORKSHOP",
         location: "August 23, 2024",
         description: "The CCET ACM and ACM-W Student Chapters hosted a comprehensive website building workshop on 23rd August 2024. Students learned to navigate WordPress's user-friendly interface and powerful development tools. Participants gained hands-on experience in creating responsive websites, customizing themes, and implementing various plugins to enhance functionality.",
@@ -51,106 +249,6 @@ export const events = [
         }
     },
     {
-        title: "INTRODUCTION TO DOMAINS",
-        location: "September 27, 2024",
-        description: "CCET ACM and ACM-W Student Chapters hosted an introduction to domains session by Vanshika Chikara! Explored diverse technology career paths for students. The session covered various tech domains including web development, data science, cybersecurity, AI/ML, and mobile app development, helping students identify their areas of interest.",
-        duration: "2 Hours",
-        difficulty: "Beginner",
-        groupSize: "80+ Students",
-        background: "/Events/IntroductionToDomains/IntroductionToDomains1.jpg",
-        cardImage: "https://images.unsplash.com/photo-1556761175-4b46a572b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
-        images: [
-            "/Events/IntroductionToDomains/IntroductionToDomains1.jpg",
-            "/Events/IntroductionToDomains/IntroductionToDomains2.jpg",
-            "/Events/IntroductionToDomains/IntroductionToDomains3.jpg",
-            "/Events/IntroductionToDomains/IntroductionToDomains4.jpg",
-            "/Events/IntroductionToDomains/IntroductionToDomains5.jpg",
-            "/Events/IntroductionToDomains/IntroductionToDomains6.jpg"
-        ],
-        reactions: {
-            "❤️": { count: 34, text: "people loved learning about domains" },
-            "😊": { count: 28, text: "people enjoyed this session" },
-            "👍": { count: 41, text: "people found this very informative" },
-            "😢": { count: 8, text: "people regret missing this session" },
-            "🎯": { count: 35, text: "people discovered their tech interests" }
-        }
-    },
-    {
-        title: "HACKTOBERFEST DAY 1",
-        location: "October 1, 2024",
-        description: "CCET ACM Students Chapter's Hacktoberfest session featured Sahil Garg explaining open-source contributions and motivating students to engage in collaborative tech development. Students learned about Git, GitHub workflows, and how to make their first pull requests to contribute to open-source projects worldwide.",
-        duration: "3 Hours",
-        difficulty: "Intermediate",
-        groupSize: "60+ Students",
-        background: "/Events/HacktoberfestDay1/HacktofestDay1-1.jpg",
-        cardImage: "/Events/HacktoberfestDay1/HacktofestDay1-2.jpg",
-        images: [
-            "/Events/HacktoberfestDay1/HacktofestDay1-1.jpg",
-            "/Events/HacktoberfestDay1/HacktofestDay1-2.jpg",
-            "/Events/HacktoberfestDay1/HacktofestDay1-3.jpg",
-            "/Events/HacktoberfestDay1/HacktofestDay1-4.jpg",
-            "/Events/HacktoberfestDay1/HacktofestDay1-5.jpg",
-            "/Events/HacktoberfestDay1/HacktofestDay1-6.jpg"
-        ],
-        reactions: {
-            "❤️": { count: 29, text: "people loved this hands-on session" },
-            "😊": { count: 22, text: "people enjoyed learning Git" },
-            "👍": { count: 38, text: "people found this very practical" },
-            "😢": { count: 6, text: "people regret missing Hacktoberfest" },
-            "🎯": { count: 33, text: "people made their first open-source contribution" }
-        }
-    },
-    {
-        title: "RESUME BUILDING",
-        location: "October 4, 2024",
-        description: "On 4th October 2024, CCET ACM and ACM-W student chapters organized a 'Resume Building' session led by Samar Pratap Singh. The workshop covered structuring resumes, highlighting achievements, using ATS-friendly keywords, and tailoring content for different industries. Students gained practical strategies to make their resumes stand out and actively engaged in improving their profiles.",
-        duration: "4 Hours",
-        difficulty: "Beginner-Friendly",
-        groupSize: "52 Students",
-        background: "/Events/ResumeBuilding/ResumeBuilding1.jpg",
-        cardImage: "/Events/ResumeBuilding/ResumeBuilding2.jpg",
-        images: [
-            "/Events/ResumeBuilding/ResumeBuilding1.jpg",
-            "/Events/ResumeBuilding/ResumeBuilding2.jpg",
-            "/Events/ResumeBuilding/ResumeBuilding3.jpg",
-            "/Events/ResumeBuilding/ResumeBuilding4.jpg",
-            "/Events/ResumeBuilding/ResumeBuilding3.jpg",
-            "/Events/ResumeBuilding/ResumeBuilding4.jpg"
-        ],
-        reactions: {
-            "❤️": { count: 35, text: "people loved the resume tips" },
-            "😊": { count: 28, text: "people enjoyed the interactive session" },
-            "👍": { count: 42, text: "people found it very practical" },
-            "😢": { count: 5, text: "people regretted missing this session" },
-            "🎯": { count: 30, text: "people improved their resumes significantly" }
-        }
-    },
-    {
-        title: "OOPS WORKSHOP",
-        location: "February 6, 2025",
-        description: "The Object-Oriented Programming (OOP) workshop covered core concepts like Classes & Objects, Inheritance, Polymorphism, Encapsulation, and Abstraction. With interactive discussions and real-world examples, participants learned how OOP improves code efficiency, scalability, and reusability. Thanks to Vanshika Singla and Ravina Mittal for delivering such an engaging and impactful session, and to all attendees for making it a success.",
-        duration: "1 Day",
-        difficulty: "Intermediate",
-        groupSize: "70+ Students",
-        background: "/Events/OOPWorkshop/OOPWorkshop1.jpg",
-        cardImage: "/Events/OOPWorkshop/OOPWorkshop2.jpg",
-        images: [
-            "/Events/OOPWorkshop/OOPWorkshop1.jpg",
-            "/Events/OOPWorkshop/OOPWorkshop2.jpg",
-            "/Events/OOPWorkshop/OOPWorkshop3.jpg",
-            "/Events/OOPWorkshop/OOPWorkshop4.jpg",
-            "/Events/OOPWorkshop/OOPWorkshop5.jpg",
-            "/Events/OOPWorkshop/OOPWorkshop6.jpg"
-        ],
-        reactions: {
-            "❤️": { count: 42, text: "people loved learning OOP" },
-            "😊": { count: 36, text: "people enjoyed this session" },
-            "👍": { count: 48, text: "people found it very useful" },
-            "😢": { count: 7, text: "people regret missing this workshop" },
-            "🎯": { count: 39, text: "people mastered key OOP concepts" }
-        }
-    },
-    {
         title: "INTRODUCTION TO C/C++",
         location: "November 7, 2024",
         description: "CCET ACM and ACM-W student chapters hosted 'Introduction to C/C++' with 52 attendees. Speakers Divyansh Manro and Dikshant Rajput covered C/C++ basics, pointers, memory management, and real-world applications, helping students strengthen their coding foundation and problem-solving skills.",
@@ -171,104 +269,6 @@ export const events = [
             "👍": { count: 22, text: "students found it very informative" },
             "😢": { count: 5, text: "people regret missing this session" },
             "🎯": { count: 19, text: "students enhanced their coding foundation" }
-        }
-    },
-    {
-        title: "MACHINE LEARNING 101",
-        location: "February 10, 2025",
-        description: "The Machine Learning 101 session by CCET ACM Student Chapter introduced fundamental ML concepts, including supervised, unsupervised, and reinforcement learning, along with hands-on linear regression. Speakers Jasjeet Singh and Samar Pratap Singh shared practical tips on training models and using Kaggle effectively. The session was engaging, informative, and well-received by all participants.",
-        duration: "3 Hours",
-        difficulty: "Beginner to Intermediate",
-        groupSize: "50+ Students",
-        background: "/Events/ML101/ML101-1.jpg",
-        cardImage: "/Events/ML101/ML101-2.jpg",
-        images: [
-            "/Events/ML101/ML101-1.jpg",
-            "/Events/ML101/ML101-2.jpg",
-            "/Events/ML101/ML101-3.jpg",
-            "/Events/ML101/ML101-4.jpg",
-            "/Events/ML101/ML101-5.jpg",
-            "/Events/ML101/ML101-6.jpg"
-        ],
-        reactions: {
-            "❤️": { count: 40, text: "people loved the session content" },
-            "😊": { count: 35, text: "people enjoyed hands-on ML practice" },
-            "👍": { count: 45, text: "people found it very informative" },
-            "😢": { count: 3, text: "people regretted missing the session" },
-            "🎯": { count: 38, text: "people learned practical ML implementation" }
-        }
-    },
-    {
-        title: "JAVASCRIPT BOOTCAMP",
-        location: "January 22, 2025",
-        description: "The JavaScript Bootcamp by CCET ACM Student Chapter introduced participants to core JavaScript concepts, including variables, operators, loops, functions, and event handling. Attendees engaged in hands-on coding exercises, enhancing their web development skills through an interactive and practical session.",
-        duration: "3 Hours",
-        difficulty: "Beginner",
-        groupSize: "19 Students",
-        background: "/Events/JSBootcamp/JSBootcamp1.jpg",
-        cardImage: "/Events/JSBootcamp/JSBootcamp7.jpeg",
-        images: [
-            "/Events/JSBootcamp/JSBootcamp1.jpg",
-            "/Events/JSBootcamp/JSBootcamp2.jpg",
-            "/Events/JSBootcamp/JSBootcamp3.jpeg",
-            "/Events/JSBootcamp/JSBootcamp4.jpeg",
-            "/Events/JSBootcamp/JSBootcamp5.jpeg",
-            "/Events/JSBootcamp/JSBootcamp6.jpeg"
-        ],
-        reactions: {
-            "❤️": { count: 18, text: "participants loved the hands-on coding" },
-            "😊": { count: 15, text: "people enjoyed the interactive session" },
-            "👍": { count: 19, text: "found it very informative" },
-            "😢": { count: 1, text: "people regretted missing the session" },
-            "🎯": { count: 16, text: "participants improved their JS skills" }
-        }
-    },
-    {
-        title: "DSA BOOTCAMP",
-        location: "January 30, 2025",
-        description: "The DSA Bootcamp by CCET ACM Student Chapter provided an interactive session on Data Structures and Algorithms, covering key concepts, problem-solving techniques, and hands-on coding exercises. Participants enhanced their coding skills and prepared for competitive programming and technical interviews.",
-        duration: "3 Hours",
-        difficulty: "Beginner to Intermediate",
-        groupSize: "20 Students",
-        background: "/Events/DSABootcamp/DSABootcamp1.jpg",
-        cardImage: "/Events/DSABootcamp/DSABootcamp7.jpeg",
-        images: [
-            "/Events/DSABootcamp/DSABootcamp1.jpg",
-            "/Events/DSABootcamp/DSABootcamp2.jpg",
-            "/Events/DSABootcamp/DSABootcamp3.jpg",
-            "/Events/DSABootcamp/DSABootcamp4.jpeg",
-            "/Events/DSABootcamp/DSABootcamp5.jpeg",
-            "/Events/DSABootcamp/DSABootcamp6.jpeg"
-        ],
-        reactions: {
-            "❤️": { count: 19, text: "participants loved the problem-solving exercises" },
-            "😊": { count: 16, text: "enjoyed the interactive coding session" },
-            "👍": { count: 20, text: "found it very informative" },
-            "😢": { count: 2, text: "people regretted missing the bootcamp" },
-            "🎯": { count: 18, text: "participants strengthened their DSA skills" }
-        }
-    },
-    {
-        title: "GENERATIVE AI",
-        location: "August 22, 2025",
-        description: "ACM-W hosted a session on Generative AI, exploring how this technology is shaping the present and transforming the future. Speakers Aanshi Bansal and Bhavya shared key insights, while participants engaged in thought-provoking discussions on the potential of AI.",
-        duration: "2 Hours",
-        difficulty: "Beginner to Intermediate",
-        groupSize: "50+ Students",
-        background: "/Events/GenerativeAI/GenerativeAI1.jpeg",
-        cardImage: "/Events/GenerativeAI/GenerativeAI2.jpeg",
-        images: [
-            "/Events/GenerativeAI/GenerativeAI1.jpeg",
-            "/Events/GenerativeAI/GenerativeAI3.jpeg",
-            "/Events/GenerativeAI/GenerativeAI4.jpeg",
-            "/Events/GenerativeAI/GenerativeAI5.jpeg",
-        ],
-        reactions: {
-            "❤️": { count: 45, text: "participants loved learning about Generative AI" },
-            "😊": { count: 38, text: "people enjoyed the interactive discussion" },
-            "👍": { count: 50, text: "found it very informative" },
-            "😢": { count: 4, text: "people regretted missing the session" },
-            "🎯": { count: 42, text: "participants gained valuable AI insights" }
         }
     }
 ];
