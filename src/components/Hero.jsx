@@ -1,18 +1,17 @@
 "use client";
 import { useState, useEffect } from "react";
 import styles from "./Hero.module.css";
-// import backgroundVideo from "../assets/Header_Main/Video.mp4";
 import HeroText from "./HeroText";
 import NewsTicker from "./NewsTicker";
-
-// import img1 from "../assets/1 (1).jpg";
-// import img2 from "../assets/1 (3).jpg";
-// import img3 from "../assets/1 (7).jpg";
-// import img4 from "../assets/1 (10).jpg";
 
 const Hero = ({ startAnimation, cards }) => {
     const [heroAnimated, setHeroAnimated] = useState(false);
     const [currentSlide, setCurrentSlide] = useState(0);
+    const [stats, setStats] = useState({
+        members: 0,
+        events: 0,
+        projects: 0
+    });
 
     // Enhanced carousel data with tech themes
     const carouselData = [
@@ -45,6 +44,31 @@ const Hero = ({ startAnimation, cards }) => {
             status: "OPTIMIZED"
         },
     ];
+
+    // Animated counter effect for stats
+    useEffect(() => {
+        if (heroAnimated) {
+            const animateValue = (key, end, duration) => {
+                let start = 0;
+                const increment = end / (duration / 16);
+                const timer = setInterval(() => {
+                    start += increment;
+                    if (start >= end) {
+                        setStats(prev => ({ ...prev, [key]: end }));
+                        clearInterval(timer);
+                    } else {
+                        setStats(prev => ({ ...prev, [key]: Math.floor(start) }));
+                    }
+                }, 16);
+            };
+
+            setTimeout(() => {
+                animateValue('members', 300, 2000);
+                animateValue('events', 50, 2000);
+                animateValue('projects', 100, 2000);
+            }, 500);
+        }
+    }, [heroAnimated]);
 
     // Auto-advance carousel
     useEffect(() => {
@@ -88,6 +112,22 @@ const Hero = ({ startAnimation, cards }) => {
                         <p className={styles.heroSubtitle}>
                             Empowering next generation of computer scientists and technologists
                         </p>
+                    </div>
+                </div>
+
+                {/* Stats Counter */}
+                <div className={styles.statsContainer}>
+                    <div className={styles.statItem}>
+                        <span className={styles.statNumber}>{stats.members}+</span>
+                        <span className={styles.statLabel}>Members</span>
+                    </div>
+                    <div className={styles.statItem}>
+                        <span className={styles.statNumber}>{stats.events}+</span>
+                        <span className={styles.statLabel}>Events</span>
+                    </div>
+                    <div className={styles.statItem}>
+                        <span className={styles.statNumber}>{stats.projects}+</span>
+                        <span className={styles.statLabel}>Projects</span>
                     </div>
                 </div>
 
