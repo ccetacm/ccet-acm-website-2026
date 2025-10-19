@@ -1,12 +1,7 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import HTMLFlipBook from "react-pageflip";
-import * as pdfjsLib from "pdfjs-dist";
-import pdfWorker from "pdfjs-dist/build/pdf.worker.min?url";
+import { useState } from "react";
 import styles from "./MagazineScroller.module.scss";
-
-pdfjsLib.GlobalWorkerOptions.workerSrc = pdfWorker;
 
 export default function MagazineScroller() {
   const [bookStates, setBookStates] = useState({
@@ -17,62 +12,6 @@ export default function MagazineScroller() {
     book5: "cover",
     book6: "cover",
   });
-
-  const [selectedPdf, setSelectedPdf] = useState(null);
-  const [pageImages, setPageImages] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
-
-  // Detect mobile device
-  useEffect(() => {
-    const checkMobile = () => {
-      const mobile = window.innerWidth <= 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-      setIsMobile(mobile);
-    };
-
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
-
-  useEffect(() => {
-    if (!selectedPdf) {
-      setPageImages([]);
-      setLoading(false);
-      return;
-    }
-    setLoading(true);
-
-    const loadPdfPages = async () => {
-      try {
-        const loadingTask = pdfjsLib.getDocument({ url: selectedPdf });
-        const pdf = await loadingTask.promise;
-        const images = [];
-
-        for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
-          const page = await pdf.getPage(pageNum);
-          const viewport = page.getViewport({ scale: 2.0 });
-
-          const canvas = document.createElement("canvas");
-          const context = canvas.getContext("2d");
-          canvas.width = viewport.width;
-          canvas.height = viewport.height;
-
-          await page.render({ canvasContext: context, viewport }).promise;
-          images.push(canvas.toDataURL("image/jpeg", 0.95));
-        }
-
-        setPageImages(images);
-      } catch (e) {
-        console.error("PDF render error:", e);
-        setPageImages([]);
-      }
-      setLoading(false);
-    };
-
-    loadPdfPages();
-  }, [selectedPdf]);
 
   const handleBookAction = (bookId, action) => {
     setBookStates((prev) => {
@@ -87,7 +26,7 @@ export default function MagazineScroller() {
       } else if (action === "viewPdf") {
         const book = books.find((b) => b.id === bookId);
         if (book && book.pdf) {
-          setSelectedPdf(book.pdf);
+          window.open(book.pdf, '_blank');
         }
         return prev;
       }
@@ -97,10 +36,6 @@ export default function MagazineScroller() {
         [bookId]: newState,
       };
     });
-  };
-
-  const closeFlipbook = () => {
-    setSelectedPdf(null);
   };
 
   const books = [
@@ -197,7 +132,7 @@ export default function MagazineScroller() {
                       <div className={styles.insideContent}>
                         <div className={styles.pagePreview}>
                           <h3>{book.title}</h3>
-                          <p>Click "Read PDF" to view the complete magazine in flipbook format.</p>
+                          <p>Click "Read PDF" to view the complete magazine.</p>
                           <div className={styles.previewImage}>
                             <img src={book.cover} alt={`${book.title} preview`} />
                           </div>
@@ -259,63 +194,6 @@ export default function MagazineScroller() {
               </div>
           ))}
         </div>
-
-        {/* PDF Modal */}
-        {selectedPdf && (
-            <div className={styles.pdfModal}>
-              <div className={styles.pdfContent}>
-                <button
-                    className={styles.closeButton}
-                    onClick={closeFlipbook}
-                >
-                  ×
-                </button>
-                {loading ? (
-                    <div className={styles.loadingMessage}>
-                      Loading flipbook preview...
-                    </div>
-                ) : pageImages.length ? (
-                    <HTMLFlipBook
-                        width={isMobile ? 320 : 600}
-                        height={isMobile ? 480 : 800}
-                        size="stretch"
-                        minWidth={isMobile ? 280 : 400}
-                        minHeight={isMobile ? 420 : 500}
-                        maxWidth={isMobile ? 400 : 800}
-                        maxHeight={isMobile ? 600 : 1000}
-                        style={{ margin: "0 auto" }}
-                        showCover={false}
-                        flippingTime={600}
-                        usePortrait={isMobile ? true : false}
-                        startZIndex={1000}
-                        autoSize={false}
-                        clickEventForward={true}
-                        swipeDistance={isMobile ? 50 : 30}
-                        showPageCorners={!isMobile}
-                        disableFlipByClick={isMobile}
-                        mobileScrollSupport={true}
-                    >
-                      {pageImages.map((src, idx) => (
-                          <div
-                              key={idx}
-                              className={styles.flipPage}
-                          >
-                            <img
-                                src={src}
-                                alt={`Page ${idx + 1}`}
-                                className={styles.pageImage}
-                            />
-                          </div>
-                      ))}
-                    </HTMLFlipBook>
-                ) : (
-                    <div className={styles.errorMessage}>
-                      Could not preview PDF.
-                    </div>
-                )}
-              </div>
-            </div>
-        )}
       </div>
   );
 }
