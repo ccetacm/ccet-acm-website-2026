@@ -46,7 +46,7 @@
 .newsTickerContainer {
     position: relative;
     z-index: 10;
-    margin-top: -1px; /* Seamless connection */
+    margin-top: -1px;
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(10px);
     width: 100vw;
@@ -72,6 +72,7 @@
     opacity: 0;
     transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
     text-align: center;
+    margin-left: 200px;
     position: relative;
 }
 
@@ -97,6 +98,60 @@
 .heroContainer.animate .heroSubtitle {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* Stats Counter Section */
+.statsContainer {
+    position: absolute;
+    left: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    z-index: 4;
+    opacity: 0;
+    animation: fadeInStats 1.5s ease 0.8s forwards;
+}
+
+@keyframes fadeInStats {
+    to {
+        opacity: 1;
+    }
+}
+
+.statItem {
+    text-align: left;
+    padding: 15px 25px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+    min-width: 150px;
+}
+
+.statItem:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.statNumber {
+    font-size: 32px;
+    font-weight: 800;
+    color: white;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    display: block;
+}
+
+.statLabel {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.9);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 5px;
+    font-weight: 600;
 }
 
 /* PROFESSIONAL CAROUSEL */
@@ -216,12 +271,7 @@
     filter: brightness(1) contrast(1.1);
 }
 
-/* Remove HUD Overlay - not needed anymore */
-.hudOverlay {
-    display: none;
-}
-
-/* Professional Navigation Buttons - Hidden by default */
+/* Professional Navigation Buttons */
 .techBtn {
     position: absolute;
     top: 50%;
@@ -306,11 +356,6 @@
     transform: scale(1.1);
 }
 
-/* Remove Info Panel */
-.techPanel {
-    display: none;
-}
-
 /* Subtle Floating Animation */
 .heroContainer.animate .carouselFrame {
     animation: gentleFloat 6s ease-in-out infinite;
@@ -325,8 +370,14 @@
     }
 }
 
+@media (max-width: 1200px) {
+    .heroSubtitle {
+        margin-top: -20px;
+    }
+}
+
 /* Responsive Design */
-@media (max-width: 768px) {
+@media (max-width: 968px) {
     .heroContainer {
         flex-direction: column;
         justify-content: center;
@@ -334,10 +385,19 @@
         padding: 100px 0 50px;
     }
 
+    .heroSubtitle {
+        margin-top: 20px;
+    }
+
     .hero {
         max-width: 100%;
         padding: 0 20px;
         margin-bottom: 30px;
+    }
+
+    .textContainer {
+        padding: 30px 20px;
+        margin-right: 200px;
     }
 
     .techCarousel {
@@ -369,6 +429,26 @@
     .btnInner {
         font-size: 14px;
     }
+
+    .statsContainer {
+        position: static;
+        justify-content: center;
+        margin: 20px 0;
+        flex-direction: row;
+        flex-wrap: wrap;
+        transform: none;
+        gap: 15px;
+    }
+
+    .scrollIndicator {
+        display: none;
+    }
+}
+
+@media (max-width: 830px) {
+    .heroSubtitle {
+        margin-top: 100px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -385,17 +465,9 @@
     .btnInner {
         font-size: 12px;
     }
-
-    .panelTitle {
-        font-size: 16px;
-    }
-
-    .panelDesc {
-        font-size: 12px;
-    }
 }
 
-/* News Ticker Styles (for inline version) */
+/* News Ticker Styles */
 .newsTicker {
     display: flex;
     align-items: center;
