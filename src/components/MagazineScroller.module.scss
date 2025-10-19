@@ -1,6 +1,6 @@
 $book-width: 300px;
 $book-height: 450px;
-$book-depth: 50px; // for spine and side faces
+$book-depth: 50px;
 
 // Mobile variables
 $mobile-book-width: 220px;
@@ -12,11 +12,10 @@ $mobile-book-depth: 35px;
   min-height: 100vh;
   background: linear-gradient(
                   to bottom,
-                  rgba(18, 105, 115, 0.3) 0%,   /* light at top */
-                  rgba(17, 65, 131, 0.81) 50%,                  /* dark in the middle */
-                  rgba(18, 105, 115, 0.3) 100%  /* light at bottom */
+                  rgba(18, 105, 115, 0.3) 0%,
+                  rgba(17, 65, 131, 0.81) 50%,
+                  rgba(18, 105, 115, 0.3) 100%
   );
-
   padding: 2rem 1rem;
   font-family: system-ui, -apple-system, sans-serif;
 }
@@ -70,17 +69,10 @@ $mobile-book-depth: 35px;
   border-radius: 12px;
   padding: 1rem;
   display: flex;
-  flex-direction: row; /* 👈 Changed from column to row */
-  gap: 1rem;           /* optional: add spacing between items */
-  justify-content: center; /* keeps them centered horizontally */
-  z-index: 100;
-}
-
-.controlButtons {
-  display: flex;
-  gap: 0.5rem;
+  flex-direction: row;
+  gap: 1rem;
   justify-content: center;
-  flex-wrap: wrap;
+  z-index: 100;
 }
 
 .controlButton {
@@ -420,103 +412,6 @@ $mobile-book-depth: 35px;
   }
 }
 
-// Updated PDF Modal styles
-.pdfModal {
-  position: fixed;
-  top: 45px;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-  backdrop-filter: blur(5px);
-  background: rgba(0, 0, 0, 0.8);
-}
-
-.pdfContent {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: transparent;
-  border-radius: 0;
-  width: auto;
-  height: auto;
-  max-width: none;
-  max-height: none;
-  padding: 0;
-  box-shadow: none;
-}
-
-.closeButton {
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  background: rgba(255, 68, 68, 0.9);
-  color: white;
-  border: none;
-  width: 20px;
-  height: 20px;
-  cursor: pointer;
-  font-size: 1.5rem;
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1002;
-  transition: all 0.3s ease;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-
-  &:hover {
-    background: rgba(204, 0, 0, 0.9);
-    transform: scale(1.1);
-  }
-}
-
-.flipPage {
-  width: 100%;
-  height: 100%;
-  background: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px;
-  box-sizing: border-box;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.pageImage {
-  max-width: 100%;
-  max-height: 100%;
-  width: auto;
-  height: auto;
-  object-fit: scale-down;
-}
-
-.loadingMessage {
-  color: white;
-  font-size: 1.5rem;
-  text-align: center;
-  background: rgba(0, 0, 0, 0.7);
-  padding: 2rem;
-  border-radius: 12px;
-  backdrop-filter: blur(10px);
-}
-
-.errorMessage {
-  color: #ff6b6b;
-  font-size: 1.5rem;
-  text-align: center;
-  background: rgba(0, 0, 0, 0.7);
-  padding: 2rem;
-  border-radius: 12px;
-  backdrop-filter: blur(10px);
-}
-
 @media (max-width: 480px) {
   .magazineContainer {
     padding: 1rem 0.5rem;
@@ -553,15 +448,6 @@ $mobile-book-depth: 35px;
     width: 100%;
     max-width: 280px;
     padding: 0.8rem;
-  }
-
-  .controlTitle {
-    font-size: 0.8rem;
-    margin-bottom: 0.8rem;
-  }
-
-  .controlButtons {
-    gap: 0.4rem;
   }
 
   .controlButton {
@@ -633,7 +519,6 @@ $mobile-book-depth: 35px;
     left: 4px;
   }
 
-  // Adjust 3D effects for mobile
   .viewCover .bookContent {
     transform: rotateY(-25deg);
 
@@ -725,21 +610,6 @@ $mobile-book-depth: 35px;
       font-size: 0.85rem;
       line-height: 1.5;
     }
-  }
-
-  .closeButton {
-    top: 10px;
-    right: 10px;
-    width: 40px;
-    height: 40px;
-    font-size: 1.2rem;
-  }
-
-  .loadingMessage,
-  .errorMessage {
-    font-size: 1.2rem;
-    padding: 1.5rem;
-    margin: 1rem;
   }
 }
 
@@ -885,14 +755,6 @@ $mobile-book-depth: 35px;
     p {
       font-size: 0.9rem;
     }
-  }
-
-  .closeButton {
-    top: 15px;
-    right: 15px;
-    width: 45px;
-    height: 45px;
-    font-size: 1.3rem;
   }
 }
 
