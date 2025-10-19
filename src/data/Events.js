@@ -46,7 +46,29 @@ export const events = [
             "🎯": { count: 65, text: "participants gained valuable AI and cybersecurity insights" }
         }
     },
-
+    {
+        title: "Five-Year Achievements of NEP 2020",
+        location: "July 31, 2025",
+        description: "The ACM Student Chapter, CCET, organized an insightful expert talk delivered by Prof. Sunil K. Singh, Head, Department of CSE, CCET (Degree Wing), Panjab University. Centered on the theme “Towards Academic Excellence and Research-Driven Nation Building: Five-Year Achievements of NEP 2020 for Viksit Bharat @2047”, the session highlighted the transformative role of NEP 2020 in advancing academic innovation, skill development, and research excellence. Prof. Singh emphasized how education and research are vital to India’s vision of becoming a developed nation by 2047. The event saw active participation from students and faculty, making it both informative and inspiring.",
+        duration: "1.5 Hours",
+        difficulty: "Beginner to Intermediate",
+        groupSize: "25+ Participants",
+        background: "/Events/NEP2020Talk/NEP1.png",
+        cardImage: "/Events/NEP2020Talk/NEP2.png",
+        images: [
+            "/Events/NEP2020Talk/NEP1.png",
+            "/Events/NEP2020Talk/NEP3.png",
+            "/Events/NEP2020Talk/NEP4.png",
+            "/Events/NEP2020Talk/NEP5.png"
+        ],
+        reactions: {
+            "❤️": { count: 22, text: "participants appreciated the insightful session" },
+            "😊": { count: 20, text: "people enjoyed the engaging and informative talk" },
+            "👍": { count: 19, text: "found the discussion inspiring and thought-provoking" },
+            "😢": { count: 5, text: "people regretted missing the session" },
+            "🎯": { count: 23, text: "participants gained valuable insights on NEP 2020 and nation building" }
+        }
+    },
     {
         title: "GENERATIVE AI",
         location: "August 22, 2025",
