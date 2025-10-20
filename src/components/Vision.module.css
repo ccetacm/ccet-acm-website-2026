@@ -46,58 +46,6 @@
   background: linear-gradient(to bottom, var(--blue-white), var(--blue-10));
 }
 
-/* === Stats Section === */
-.statsSection {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 30px;
-  padding: 40px 20px;
-  width: 100%;
-  max-width: 1150px;
-  margin: 40px auto;
-  box-sizing: border-box;
-  background: var(--light-box-bg);
-  border: 1.5px solid var(--cyan-5);
-  border-radius: 25px;
-  box-shadow: 0 6px 16px rgba(0, 123, 255, 0.08);
-  backdrop-filter: blur(3px);
-}
-
-.statBox {
-  text-align: center;
-  margin: 10px;
-  min-width: 120px;
-  flex: 1;
-}
-
-.iconGradient {
-  font-size: 60px;
-  margin-bottom: 8px;
-  display: inline-block;
-  transition: transform 0.3s ease;
-}
-
-.iconGradient:hover {
-  transform: scale(1.1);
-}
-
-.iconGradient svg path {
-  fill: url(#blue-gradient);
-}
-
-.statNumber {
-  font-size: 2rem;
-  font-weight: bold;
-  color: var(--blue-heading);
-}
-
-.statLabel {
-  font-size: 1.1rem;
-  margin-top: 5px;
-}
-
 /* === Vision Section === */
 .visionCard {
   background-color: var(--light-box-bg);
@@ -169,30 +117,6 @@
 
 /* === Mobile Responsiveness === */
 @media (max-width: 768px) {
-  .statsSection {
-    flex-direction: column;
-    gap: 30px;
-    width: 90%;
-    padding: 30px 15px;
-  }
-
-  .statBox {
-    min-width: auto;
-    width: 90%;
-  }
-
-  .iconGradient {
-    font-size: 45px;
-  }
-
-  .statNumber {
-    font-size: 1.8rem;
-  }
-
-  .statLabel {
-    font-size: 1rem;
-  }
-
   .visionCard {
     padding: 20px;
     margin: 30px;
@@ -228,10 +152,6 @@
 
   .visionText {
     font-size: 0.95rem;
-  }
-
-  .iconGradient {
-    font-size: 40px;
   }
 }
 

@@ -1,19 +1,12 @@
 "use client";
 import React from "react";
 import { Link } from "react-router-dom";
-import CountUp from "react-countup";
-import { useInView } from "react-intersection-observer";
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLandmark, faUserGraduate, faCalendarDays, faRocket, faCompass } from "@fortawesome/free-solid-svg-icons";
+import { faRocket, faCompass } from "@fortawesome/free-solid-svg-icons";
 import styles from "./Vision.module.css";
 
 function Vision() {
-  const { ref, inView } = useInView({
-    triggerOnce: true,
-    threshold: 0.3,
-  });
-
   return (
       <div className={styles.app}>
 
@@ -43,41 +36,6 @@ function Vision() {
             </linearGradient>
           </defs>
         </svg>
-
-        {/* === Stats Section === */}
-        <motion.section
-            ref={ref}
-            className={styles.statsSection}
-            initial={{ opacity: 0, y: -50 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 1 }}
-        >
-          <div className={styles.statBox}>
-            <div className={styles.iconGradient}>
-              <FontAwesomeIcon icon={faLandmark} size="1.8x" />
-            </div>
-            <div className={styles.statNumber}>
-              {inView && <CountUp end={2015} duration={2} separator="" />}
-            </div>
-            <div className={styles.statLabel}>Year of Establishment</div>
-          </div>
-          <div className={styles.statBox}>
-            <div className={styles.iconGradient}><FontAwesomeIcon icon={faUserGraduate} size="1.8x" /></div>
-            <div className={styles.statNumber}>
-              {inView && <CountUp end={300} duration={2} />}+
-            </div>
-            <div className={styles.statLabel}>Number of ACM Students</div>
-          </div>
-          <div className={styles.statBox}>
-            <div className={styles.iconGradient}>
-              <FontAwesomeIcon icon={faCalendarDays} size="1.8x" />
-            </div>
-            <div className={styles.statNumber}>
-              {inView && <CountUp end={150} duration={2} />}+
-            </div>
-            <div className={styles.statLabel}>ACM Events</div>
-          </div>
-        </motion.section>
 
         {/* === Vision Section === */}
         <motion.section
