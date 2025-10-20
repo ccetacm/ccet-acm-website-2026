@@ -4,6 +4,7 @@
     max-width: auto;
     margin: 0 auto;
     padding: 2rem;
+    min-height: 100vh;
     background: linear-gradient(
             to bottom,
             rgba(18, 105, 115, 0.3) 0%,
@@ -22,124 +23,133 @@
 }
 
 .mentorsGrid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    justify-items: center;
-    align-items: start;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
-.mentorCard {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+.mentorRow {
+    display: grid;
+    grid-template-columns: 400px 1fr;
+    gap: 2rem;
+    align-items: center;
+    padding: 0rem 2rem;
+    transition: all 0.3s ease;
+}
+
+.imageLeft {
+    grid-template-areas: "image description";
+    grid-template-columns: 400px 1fr;
+}
+
+.imageRight {
+    grid-template-areas: "description image";
+    grid-template-columns: 1fr 400px;
+}
+
+.imageContainer {
+    grid-area: image;
     position: relative;
     overflow: hidden;
-    margin: 0;
+    border-radius: 50%;
     width: 310px;
-    height: 280px;
-    background-color: #f8f9fa;
-    color: #2c3e50;
-    text-align: left;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
-    border-radius: 50px;
-    display: block;
+    height: 310px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-.mentorCard * {
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    -webkit-transition: all 0.45s ease-in-out;
-    transition: all 0.45s ease-in-out;
+.imageLeft .imageContainer {
+    margin-left: 0;
+    margin-right: auto;
 }
 
-.mentorCard img {
+.imageRight .imageContainer {
+    margin-left: auto;
+    margin-right: 0;
+}
+
+.mentorImage {
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center;
-    position: absolute;
-    top: 0;
-    left: 0;
-    border-radius: 8px;
+    transition: transform 0.3s ease;
 }
 
-.mentorCard .mentorCaption {
-    position: absolute;
-    left: 20px;
-    right: 20px;
-    bottom: 10px;
-    padding: 10px 20px;
-    z-index: 1;
-    background: rgba(17, 65, 131, 0.8);
-    border-radius: 40px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.mentorCard .mentorName,
-.mentorCard .mentorTitle {
-    margin: 0;
-}
-
-.mentorCard .mentorName {
-    display: block;
-    letter-spacing: -0.5px;
-    font-weight: 400;
-    margin-bottom: 5px;
-    font-size: 1rem;
-    color: #ffffff;
-    text-align: center;
-}
-
-.mentorCard .mentorName span {
-    font-weight: 600;
-}
-
-.mentorCard .mentorTitle {
-    display: block;
-    font-size: 0.85em;
-    opacity: 0.8;
-    color: #ffffff;
-    font-weight: 400;
-    text-align: center;
-}
-
-.mentorCard .cardLink {
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    position: absolute;
-    z-index: 2;
-    border-radius: 8px;
-}
-
-/* Hover effects */
-.mentorCard:hover img,
-.mentorCard.hover img {
+.imageContainer:hover .mentorImage {
     transform: scale(1.05);
 }
 
-.mentorCard:hover .mentorCaption,
-.mentorCard.hover .mentorCaption {
-    background: rgb(17, 65, 131);
-    transform: translateY(-5px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+.descriptionContainer {
+    grid-area: description;
+    padding: 1rem;
 }
 
-.mentorCard:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+.mentorName {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #114183;
+    margin: 0 0 1rem 0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
-/* Responsive Design */
+.mentorTitle {
+    font-size: 1.2rem;
+    color: #114183;
+    line-height: 1.6;
+    margin: 0 0 1rem 0;
+    font-weight: 600;
+}
+
+.mentorDescription {
+    font-size: 1rem;
+    color: #34495e;
+    line-height: 1.8;
+    margin: 0 0 1.5rem 0;
+    font-weight: 600;
+    text-align: justify;
+}
+
+.cardLink {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background: #114183;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(17, 65, 131, 0.3);
+}
+
+.cardLink:hover {
+    background: #0d3366;
+    transform: translateX(5px);
+    box-shadow: 0 4px 12px rgba(17, 65, 131, 0.4);
+}
+
 @media (max-width: 1024px) {
-    .mentorsGrid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1.5rem;
+    .mentorRow {
+        gap: 2rem;
+        padding: 1.5rem;
     }
 
-    .mentorCard {
+    .imageContainer {
         width: 280px;
         height: 280px;
+    }
+
+    .mentorName {
+        font-size: 1.75rem;
+    }
+
+    .mentorTitle {
+        font-size: 1rem;
+    }
+
+    .mentorDescription {
+        font-size: 0.95rem;
     }
 }
 
@@ -148,40 +158,89 @@
         padding: 1rem;
     }
 
-    .mentorsGrid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-
     .title {
-        font-size: 2rem;
+        font-size: 2.5rem;
         margin-bottom: 2rem;
     }
 
-    .mentorCard {
-        width: 100%;
-        max-width: 320px;
-        height: 290px;
+    .mentorRow,
+    .imageLeft,
+    .imageRight {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "image"
+            "description";
+        gap: 1.5rem;
+    }
+
+    .imageContainer {
+        width: 250px;
+        height: 250px;
+        margin: 0 auto;
+    }
+
+    .imageLeft .imageContainer,
+    .imageRight .imageContainer {
+        margin: 0 auto;
+    }
+
+    .descriptionContainer {
+        text-align: center;
+    }
+
+    .mentorName {
+        font-size: 1.5rem;
+    }
+
+    .mentorTitle {
+        font-size: 0.95rem;
+    }
+
+    .mentorDescription {
+        font-size: 0.9rem;
+        text-align: center;
     }
 }
 
 @media (max-width: 480px) {
-    .mentorCard {
-        height: 300px;
+    .title {
+        font-size: 2rem;
     }
 
-    .mentorCard .mentorCaption {
-        left: 15px;
-        right: 15px;
-        bottom: 15px;
-        padding: 8px 15px;
+    .mentorRow {
+        padding: 1rem;
     }
 
-    .mentorCard .mentorName {
+    .imageContainer {
+        width: 220px;
+        height: 220px;
+        margin: 0 auto;
+    }
+
+    .imageLeft .imageContainer,
+    .imageRight .imageContainer {
+        margin: 0 auto;
+    }
+
+    .descriptionContainer {
+        text-align: center;
+    }
+
+    .mentorName {
+        font-size: 1.25rem;
+    }
+
+    .mentorTitle {
         font-size: 0.9rem;
     }
 
-    .mentorCard .mentorTitle {
-        font-size: 0.8em;
+    .mentorDescription {
+        font-size: 0.85rem;
+        text-align: center;
+    }
+
+    .cardLink {
+        padding: 0.6rem 1.25rem;
+        font-size: 0.9rem;
     }
 }
