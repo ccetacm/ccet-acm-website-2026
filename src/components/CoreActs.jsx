@@ -7,10 +7,10 @@ const CoreActs = () => {
     {
       id: 1,
       animation: "/animations/career.json",
-      title: "International Research & Sponsored Projects",
+      title: "Intelligent Computing and Research Labs",
       description:
           "Cross-border collaboration and funding in fostering innovation and research excellence.",
-      link: "#/icrg",
+      link: "#/icrl",
       category: "Research",
     },
     {
