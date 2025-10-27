@@ -23,6 +23,7 @@ import magzine21 from "/Magazine/covers/magazine21.jpg";
 import magzine22 from "/Magazine/covers/magazine22.jpg";
 import magzine23 from "/Magazine/covers/magazine23.jpg";
 import magzine24 from "/Magazine/covers/magazine24.jpg";
+import magzine25 from "/Magazine/covers/magazine25.jpg";
 
 const magazines = [
   {
@@ -281,6 +282,7 @@ const magazines = [
       { icon: "fa-lightbulb", label: "Ethics" },
     ],
   },
+  
   {
     id: 24,
     title: "Generative AI",
@@ -292,6 +294,18 @@ const magazines = [
       { icon: "fa-lightbulb", label: "Ethics" },
     ],
   },
+
+  {
+    id: 25,
+    title: "Cyber Future",
+    issue: "Issue 25 • Sept-Oct 2025",
+    image: magzine25,
+    pdf: "/Magazine/pdfs/Volume 6-Issue_5_sept-oct_pdf.pdf",
+    tags: [
+      { icon: "fa-robot", label: "AI" },
+      { icon: "fa-lightbulb", label: "Ethics" },
+    ],
+  }
 
 ];
 
