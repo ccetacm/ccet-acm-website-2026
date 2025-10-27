@@ -58,11 +58,11 @@ const Header = ({ startAnimation, logos }) => {
         { label: 'ABOUT', to: '/about' },
         { label: 'CORE ACTS', to: '/initiatives' },
         { label: 'EVENTS', to: '/events' },
-        { label: 'RESEARCH LAB', to: '/research' },
+        { label: 'ACM-W', to: '/acmw' },
         { label: 'DIGITAL OUTLET', to: '/magazine' },
         { label: 'TEAM', to: '/teams' },
         { label: 'GALLERY', to: '/gallery' },
-        { label: 'ACM-W', to: '/acmw' }
+        { label: 'ICRL', to: '/icrl' }
     ];
 
     return (
@@ -113,9 +113,9 @@ const Header = ({ startAnimation, logos }) => {
                         <Link to="/about" onClick={closeDropdowns}>About</Link>
                         <Link to="/initiatives" onClick={closeDropdowns}>Core Acts</Link>
                         <Link to="/events" onClick={closeDropdowns}>Events</Link>
-                        <Link to="/research" onClick={closeDropdowns}>Research Lab</Link>
                         <Link to="/magazine" onClick={closeDropdowns}>Digital Outlet</Link>
                         <Link to="/acmw" onClick={closeDropdowns}>ACM-W</Link>
+                        <Link to="/icrl" onClick={closeDropdowns}>ICRL</Link>
                     </div>
                 </div>
 

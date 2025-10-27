@@ -1,12 +1,11 @@
-
 import { motion } from "framer-motion";
 import "@lottiefiles/lottie-player";
-import styles from "./icrg.module.css";
+import styles from "./icrl.module.css";
 import { Player } from "@lottiefiles/react-lottie-player";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadFull } from "tsparticles";
-import React, { useEffect, useState } from "react";
-import Timeline from "../components/timeline.jsx"
+import React, { useEffect, useState, useMemo } from "react";
+import { Publications } from "../data/Mentors/data/Publications/index.js";
 
 const fadeUp = {
     hidden: { opacity: 0, y: 40 },
@@ -46,6 +45,81 @@ const fadeLeft = {
 
 function App() {
     const [engineReady, setEngineReady] = useState(false);
+    const [activeTab, setActiveTab] = useState("journals");
+    const [searchQuery, setSearchQuery] = useState("");
+    const [sortConfig, setSortConfig] = useState({ key: "year", direction: "desc" });
+
+    // Flatten and process all publications
+    const allPublications = useMemo(() => {
+        const pubs = [];
+        Object.keys(Publications).forEach(year => {
+            Publications[year].forEach(pub => {
+                pubs.push({
+                    ...pub,
+                    year: parseInt(year),
+                    displayYear: year
+                });
+            });
+        });
+        return pubs;
+    }, []);
+
+    // Filter publications based on active tab and search
+    const filteredPublications = useMemo(() => {
+        let filtered = allPublications.filter(pub => {
+            // Filter by type based on active tab
+            // Safely accessing pub.type with nullish coalescing
+            let typeMatch = false;
+            const pubType = (pub.type ?? "").toLowerCase();
+
+            switch (activeTab) {
+                case "journals":
+                    typeMatch = pubType.includes("journal");
+                    break;
+                case "books":
+                    typeMatch = pubType.includes("book");
+                    break;
+                case "conferences":
+                    typeMatch = pubType.includes("conference");
+                    break;
+                default:
+                    typeMatch = true;
+            }
+
+            // Filter by search query
+            const searchLower = searchQuery.toLowerCase();
+            const searchMatch = searchQuery === "" ||
+                (pub.title ?? "").toLowerCase().includes(searchLower) ||
+                (pub.authors ?? "").toLowerCase().includes(searchLower) ||
+                (pub.journal ?? "").toLowerCase().includes(searchLower);
+
+            return typeMatch && searchMatch;
+        });
+
+        // Sort publications
+        if (sortConfig.key) {
+            filtered.sort((a, b) => {
+                if (sortConfig.key === "year") {
+                    return sortConfig.direction === "asc" ? a.year - b.year : b.year - a.year;
+                } else {
+                    const aVal = a[sortConfig.key] || "";
+                    const bVal = b[sortConfig.key] || "";
+                    if (aVal < bVal) return sortConfig.direction === "asc" ? -1 : 1;
+                    if (aVal > bVal) return sortConfig.direction === "asc" ? 1 : -1;
+                    return 0;
+                }
+            });
+        }
+
+        return filtered;
+    }, [allPublications, activeTab, searchQuery, sortConfig]);
+
+    const handleSort = (key) => {
+        setSortConfig(prevConfig => ({
+            key,
+            direction: prevConfig.key === key && prevConfig.direction === "asc" ? "desc" : "asc"
+        }));
+    };
 
     useEffect(() => {
         initParticlesEngine(async (engine) => {
@@ -53,43 +127,42 @@ function App() {
         }).then(() => setEngineReady(true));
     }, []);
 
-
     return (
-        <>
-
-            <div className={styles.fullSite}>
-
+        <div className={styles.fullSite}>
+            {/* Hero Section */}
             <section className={styles.hero}>
                 <div className={styles["hero-shape"]}></div>
                 <div className={styles["hero-shape"]}></div>
 
-                <div id={styles["hero-particles"]}>
-                    <Particles
-                        id="tsparticles"
-                        options={{
-                            background: {
-                                color: { value: "transparent" },
-                            },
-                            fullScreen: {
-                                enable: false,
-                            },
-                            particles: {
-                                number: { value: 40 },
-                                color: { value: "#3b82f6" },
-                                links: {
-                                    enable: true,
-                                    color: "#60a5fa",
-                                    opacity: 0.25,
-                                    width: 0.7,
-                                    distance: 150,
+                {engineReady && (
+                    <div id={styles["hero-particles"]}>
+                        <Particles
+                            id="tsparticles"
+                            options={{
+                                background: {
+                                    color: { value: "transparent" },
                                 },
-                                move: { enable: true, speed: 0.6 },
-                                opacity: { value: 0.4 },
-                                size: { value: 3 },
-                            },
-                        }}
-                    />
-                </div>
+                                fullScreen: {
+                                    enable: false,
+                                },
+                                particles: {
+                                    number: { value: 40 },
+                                    color: { value: "#3b82f6" },
+                                    links: {
+                                        enable: true,
+                                        color: "#60a5fa",
+                                        opacity: 0.25,
+                                        width: 0.7,
+                                        distance: 150,
+                                    },
+                                    move: { enable: true, speed: 0.6 },
+                                    opacity: { value: 0.4 },
+                                    size: { value: 3 },
+                                },
+                            }}
+                        />
+                    </div>
+                )}
 
                 <div className={styles["hero-circle"] + " " + styles.left}></div>
                 <div className={styles["hero-circle"] + " " + styles.right}></div>
@@ -107,13 +180,13 @@ function App() {
                             <i className="fa-solid fa-globe"></i>
                             <span>Global Research Initiative</span>
                         </div>
-                        <h1>International Research &amp; Sponsored Projects</h1>
+                        <h1>Intelligent Computing and Research Labs</h1>
                         <p>
                             Fostering Global Innovation and Collaboration through groundbreaking
                             research initiatives
                         </p>
-                        <div>
-                            <a href="#" className={`${styles.btn} ${styles["btn-primary"]}`}>
+                        <div className={styles["hero-buttons"]}>
+                            <a href="#/events" className={`${styles.btn} ${styles["btn-primary"]}`}>
                                 See Our Past Events{" "}
                                 <i className="fa-solid fa-arrow-right arrow-icon"></i>
                             </a>
@@ -126,7 +199,7 @@ function App() {
                         </div>
                     </motion.div>
 
-                  
+                    {/* RIGHT ANIMATION */}
                     <motion.div
                         className={styles["hero-animation"]}
                         initial={{ opacity: 0, scale: 0.8 }}
@@ -138,15 +211,14 @@ function App() {
                             autoplay
                             loop
                             src="https://assets1.lottiefiles.com/packages/lf20_jcikwtux.json"
-                            style={{ height: "600px", width: "600px" }}
+                            className={styles["hero-lottie"]}
                         />
                     </motion.div>
                 </div>
 
-               
                 <motion.div
                     className={styles["scroll-down"]}
-                    
+                    initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.3 }}
                     viewport={{ once: true }}
@@ -155,10 +227,7 @@ function App() {
                 </motion.div>
             </section>
 
-
-
-
-
+            {/* About Section */}
             <section className={`${styles.container} ${styles["container-padding-vertical"]}`}>
                 <div className={styles.bubble}>
                     <span>A CCET Initiative</span>
@@ -171,7 +240,7 @@ function App() {
                     transition={{ duration: 0.8 }}
                     viewport={{ once: true }}
                 >
-                    Intelligent Computing and Research Group (ICRG)
+                    Intelligent Computing and Research Labs (ICRL)
                 </motion.h2>
 
                 <div className={styles["research-card"]}>
@@ -271,6 +340,7 @@ function App() {
                 </div>
             </section>
 
+            {/* Global Network Section */}
             <section
                 className={`${styles.container} ${styles["container-padding-vertical"]} ${styles["container-text-center"]}`}
             >
@@ -295,113 +365,122 @@ function App() {
                 />
             </section>
 
-            {/* Faculty Section */}
-            <section
-                className={`${styles.container} ${styles["container-padding-vertical"]} ${styles["container-text-center"]}`}
-            >
-                <motion.h2
-                    className={styles["section-title"]}
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.6 }}
-                    viewport={{ once: true }}
-                >
-                    Our Faculty
-                </motion.h2>
+            {/* REVAMPED Faculty Section */}
+            <section className={styles["faculty-section-new"]}>
+                <div className={styles["faculty-bg-gradient"]}></div>
 
-                <section className={styles["faculty-section"]}>
-                    <div className={styles["bg-effects"]}>
-                        <div className={`${styles["bg-circle"]} ${styles["top-circle"]}`}></div>
-                        <div className={`${styles["bg-circle"]} ${styles["bottom-circle"]}`}></div>
-                    </div>
+                <div className={styles.container}>
+                    <motion.div
+                        className={styles["faculty-header"]}
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8 }}
+                        viewport={{ once: true }}
+                    >
+                        <span className={styles["faculty-badge"]}>Meet Our Leaders</span>
+                        <h2 className={styles["faculty-title"]}>Faculty Leadership</h2>
+                        <p className={styles["faculty-subtitle"]}>
+                            Guiding innovation and excellence in research
+                        </p>
+                    </motion.div>
 
-                    <div className={styles.container}>
-                        {/* Section Header */}
+                    <div className={styles["faculty-cards-container"]}>
+                        {/* Faculty Card 1 */}
                         <motion.div
-                            className={styles["section-header"]}
-                            initial={{ opacity: 0, y: 30 }}
+                            className={styles["faculty-card-new"]}
+                            initial={{ opacity: 0, y: 50 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8 }}
+                            transition={{ duration: 0.6, delay: 0.1 }}
                             viewport={{ once: true }}
                         >
-                            <div className={styles.tag}>Our Leadership</div>
-                            <h2>Faculty Mentor | Faculty Sponsor</h2>
-                            <div className={styles.divider}></div>
+                            <div className={styles["faculty-card-inner"]}>
+                                <div className={styles["faculty-card-top"]}>
+                                    <div className={styles["faculty-image-wrapper"]}>
+                                        <div className={styles["faculty-image-border"]}></div>
+                                        <img
+                                            src="/icrg-imgs/mentor-2.png"
+                                            alt="Dr. Sunil K. Singh"
+                                            className={styles["faculty-image"]}
+                                        />
+                                    </div>
+                                    <div className={styles["faculty-role-badge"]}>Faculty Mentor</div>
+                                </div>
+
+                                <div className={styles["faculty-card-content"]}>
+                                    <h3 className={styles["faculty-name"]}>Dr. Sunil K. Singh</h3>
+                                    <p className={styles["faculty-position"]}>Professor & Head of Department</p>
+                                    <p className={styles["faculty-dept"]}>Computer Science & Engineering</p>
+                                    <p className={styles["faculty-institution"]}>CCET, Chandigarh</p>
+
+                                    <div className={styles["faculty-divider"]}></div>
+
+                                    <div className={styles["faculty-orcid"]}>
+                                        <i className="fa-solid fa-id-badge"></i>
+                                        <span>ORCID: 0000-0003-4876-7190</span>
+                                    </div>
+
+                                    <div className={styles["faculty-social"]}>
+                                        <a href="#" className={styles["faculty-social-link"]}>
+                                            <i className="fa-solid fa-envelope"></i>
+                                        </a>
+                                        <a href="https://www.linkedin.com/in/sudhakarkumar5/" className={styles["faculty-social-link"]}>
+                                            <i className="fa-brands fa-linkedin"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
                         </motion.div>
 
-                        {/* Faculty Cards */}
-                        <div className={styles["faculty-grid"]}>
-                            {/* Card 1 */}
-                            <motion.div
-                                className={styles["faculty-card"]}
-                                initial={{ opacity: 0, x: -40 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                transition={{ duration: 0.8, delay: 0.1 }}
-                                viewport={{ once: true }}
-                            >
-                                <div className={styles["hover-bg"]}></div>
-                                <div className={styles["card-content"]}>
-                                    <div className={styles["profile-img"]}>
-                                        <div className={styles["img-glow"]}></div>
-                                        <img src="/icrg-imgs/mentor-2.png" alt="Dr. Sunil K. Singh" />
+                        {/* Faculty Card 2 */}
+                        <motion.div
+                            className={styles["faculty-card-new"]}
+                            initial={{ opacity: 0, y: 50 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6, delay: 0.2 }}
+                            viewport={{ once: true }}
+                        >
+                            <div className={styles["faculty-card-inner"]}>
+                                <div className={styles["faculty-card-top"]}>
+                                    <div className={styles["faculty-image-wrapper"]}>
+                                        <div className={styles["faculty-image-border"]}></div>
+                                        <img
+                                            src="/icrg-imgs/mentor3.png"
+                                            alt="Dr. Sudhakar Kumar"
+                                            className={styles["faculty-image"]}
+                                        />
                                     </div>
-                                    <div className={styles["text-center"]}>
-                                        <h3>Dr. Sunil K. Singh</h3>
-                                        <p className={styles.role}>Faculty Mentor</p>
-                                        <p className={styles.position}>Professor &amp; Head of Dept.</p>
-                                        <p className={styles.institution}>CCET, Chandigarh</p>
-                                        <p className={styles.department}>COMPUTER SCI. &amp; ENG. DEPT.</p>
-                                        <p className={styles.orcid}>ORCID ID: 0000-0003-4876-7190</p>
-                                        <div className={styles["social-links"]}>
-                                            <a href="#">
-                                                <img src="/icrg-imgs/mail.png" alt="Mail" />
-                                            </a>
-                                            <a href="https://www.linkedin.com/in/sudhakarkumar5/">
-                                                <img src="/icrg-imgs/linkedin.png" alt="LinkedIn" />
-                                            </a>
-                                        </div>
-                                    </div>
+                                    <div className={styles["faculty-role-badge"]}>Faculty Sponsor</div>
                                 </div>
-                            </motion.div>
 
-                            {/* Card 2 */}
-                            <motion.div
-                                className={styles["faculty-card"]}
-                                initial={{ opacity: 0, x: 40 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                transition={{ duration: 0.8, delay: 0.2 }}
-                                viewport={{ once: true }}
-                            >
-                                <div className={styles["hover-bg"]}></div>
-                                <div className={styles["card-content"]}>
-                                    <div className={styles["profile-img"]}>
-                                        <div className={styles["img-glow"]}></div>
-                                        <img src="/icrg-imgs/mentor3.png" alt="Dr. Sudhakar Kumar" />
+                                <div className={styles["faculty-card-content"]}>
+                                    <h3 className={styles["faculty-name"]}>Dr. Sudhakar Kumar</h3>
+                                    <p className={styles["faculty-position"]}>Assistant Professor</p>
+                                    <p className={styles["faculty-dept"]}>Computer Science & Engineering</p>
+                                    <p className={styles["faculty-institution"]}>CCET, Chandigarh</p>
+
+                                    <div className={styles["faculty-divider"]}></div>
+
+                                    <div className={styles["faculty-orcid"]}>
+                                        <i className="fa-solid fa-id-badge"></i>
+                                        <span>ORCID: 0000-0001-7928-4234</span>
                                     </div>
-                                    <div className={styles["text-center"]}>
-                                        <h3>Dr. Sudhakar Kumar</h3>
-                                        <p className={styles.role}>Faculty Sponsor</p>
-                                        <p className={styles.position}>Assistant Professor</p>
-                                        <p className={styles.institution}>CCET, Chandigarh</p>
-                                        <p className={styles.department}>COMPUTER SCI. &amp; ENG. DEPT.</p>
-                                        <p className={styles.orcid}>ORCID ID: 0000-0001-7928-4234</p>
-                                        <div className={styles["social-links"]}>
-                                            <a href="#">
-                                                <img src="/icrg-imgs/linkedin.png" alt="Mail" />
-                                            </a>
-                                            <a href="https://www.linkedin.com/in/drsks/">
-                                                <img src="/icrg-imgs/mail.png" alt="LinkedIn" />
-                                            </a>
-                                        </div>
+
+                                    <div className={styles["faculty-social"]}>
+                                        <a href="#" className={styles["faculty-social-link"]}>
+                                            <i className="fa-solid fa-envelope"></i>
+                                        </a>
+                                        <a href="https://www.linkedin.com/in/drsks/" className={styles["faculty-social-link"]}>
+                                            <i className="fa-brands fa-linkedin"></i>
+                                        </a>
                                     </div>
                                 </div>
-                            </motion.div>
-                        </div>
+                            </div>
+                        </motion.div>
                     </div>
-                </section>
+                </div>
             </section>
-                        <Timeline />
 
+            {/* Stats Section */}
             <section
                 className={`${styles["container-stat"]} ${styles.container} ${styles["container-padding-vertical"]}`}
             >
@@ -415,7 +494,7 @@ function App() {
                         visible: {
                             opacity: 1,
                             transition: {
-                                staggerChildren: 0.2, // ⏱️ stagger each child by 0.2s
+                                staggerChildren: 0.2,
                             },
                         },
                     }}
@@ -461,12 +540,24 @@ function App() {
                         <h3>$25M+</h3>
                         <p>Research Funding</p>
                     </motion.div>
+
+                    {/* Card 4 - Publications Count */}
+                    <motion.div
+                        className={styles["stat-card"]}
+                        variants={{
+                            hidden: { opacity: 0, scale: 0.8 },
+                            visible: { opacity: 1, scale: 1 },
+                        }}
+                        transition={{ duration: 0.6 }}
+                    >
+                        <i className="fa-solid fa-book"></i>
+                        <h3>{allPublications.length}+</h3>
+                        <p>Research Publications</p>
+                    </motion.div>
                 </motion.div>
             </section>
 
-
-
-
+            {/* Publications Section */}
             <motion.section
                 className={styles["publications-section"]}
                 initial="hidden"
@@ -488,7 +579,7 @@ function App() {
                         variants={fadeUp}
                         custom={0.2}
                     >
-                        Explore our latest research contributions and academic publications
+                        Explore our latest research contributions and academic publications ({allPublications.length} publications spanning 2006-2025)
                     </motion.p>
 
                     {/* Search Box */}
@@ -497,35 +588,45 @@ function App() {
                         variants={fadeUp}
                         custom={0.3}
                     >
-                        <i data-feather="search" className={styles["search-icon"]}></i>
+                        <i className="fa-solid fa-search"></i>
                         <input
-                            id="searchInput"
                             type="text"
                             placeholder="Search publications..."
                             className={styles["search-input"]}
+                            value={searchQuery}
+                            onChange={(e) => setSearchQuery(e.target.value)}
                         />
                     </motion.div>
 
                     {/* Tabs */}
                     <motion.div className={styles.tabs} variants={fadeUp} custom={0.4}>
                         <button
-                            className={`${styles.tab} ${styles["tab-active"]}`}
-                            data-tab="journals"
+                            className={`${styles.tab} ${activeTab === "journals" ? styles["tab-active"] : styles["tab-inactive"]}`}
+                            onClick={() => setActiveTab("journals")}
                         >
                             Journal Papers
                         </button>
                         <button
-                            className={`${styles.tab} ${styles["tab-inactive"]}`}
-                            data-tab="books"
+                            className={`${styles.tab} ${activeTab === "books" ? styles["tab-active"] : styles["tab-inactive"]}`}
+                            onClick={() => setActiveTab("books")}
                         >
                             Books/Book Chapters
                         </button>
                         <button
-                            className={`${styles.tab} ${styles["tab-inactive"]}`}
-                            data-tab="conferences"
+                            className={`${styles.tab} ${activeTab === "conferences" ? styles["tab-active"] : styles["tab-inactive"]}`}
+                            onClick={() => setActiveTab("conferences")}
                         >
                             Conference Papers
                         </button>
+                    </motion.div>
+
+                    {/* Results Count */}
+                    <motion.div
+                        className={styles["results-count"]}
+                        variants={fadeUp}
+                        custom={0.45}
+                    >
+                        Showing {filteredPublications.length} of {allPublications.length} publications
                     </motion.div>
 
                     {/* Table */}
@@ -535,36 +636,82 @@ function App() {
                         custom={0.5}
                     >
                         <div className={styles["table-container"]}>
-                            <table id="pubTable">
+                            <table>
                                 <thead>
-                                    <tr>
-                                        <th className={styles.sortable} data-key="year">
-                                            <div className={styles["sort-header"]}>
-                                                <span>Year</span>
-                                                <i data-feather="arrow-up-down"></i>
-                                            </div>
-                                        </th>
-                                        <th className={styles.sortable} data-key="title">
-                                            <div className={styles["sort-header"]}>
-                                                <span>Title</span>
-                                                <i data-feather="arrow-up-down"></i>
-                                            </div>
-                                        </th>
-                                        <th className={styles.sortable} data-key="authors">
-                                            <div className={styles["sort-header"]}>
-                                                <span>Authors</span>
-                                                <i data-feather="arrow-up-down"></i>
-                                            </div>
-                                        </th>
-                                    </tr>
+                                <tr>
+                                    <th
+                                        className={styles.sortable}
+                                        onClick={() => handleSort("year")}
+                                    >
+                                        <div className={styles["sort-header"]}>
+                                            <span>Year</span>
+                                            <i className={`fa-solid fa-arrow-${sortConfig.key === "year" ? (sortConfig.direction === "asc" ? "up" : "down") : "up-down"}`}></i>
+                                        </div>
+                                    </th>
+                                    <th
+                                        className={styles.sortable}
+                                        onClick={() => handleSort("title")}
+                                    >
+                                        <div className={styles["sort-header"]}>
+                                            <span>Title</span>
+                                            <i className={`fa-solid fa-arrow-${sortConfig.key === "title" ? (sortConfig.direction === "asc" ? "up" : "down") : "up-down"}`}></i>
+                                        </div>
+                                    </th>
+                                    <th
+                                        className={styles.sortable}
+                                        onClick={() => handleSort("authors")}
+                                    >
+                                        <div className={styles["sort-header"]}>
+                                            <span>Authors</span>
+                                            <i className={`fa-solid fa-arrow-${sortConfig.key === "authors" ? (sortConfig.direction === "asc" ? "up" : "down") : "up-down"}`}></i>
+                                        </div>
+                                    </th>
+                                    <th>Journal/Conference</th>
+                                </tr>
                                 </thead>
-                                <tbody id="pubBody"></tbody>
+                                <tbody>
+                                {filteredPublications.map((pub, index) => (
+                                    <tr key={`${pub.year}-${index}`}>
+                                        <td>{pub.displayYear}</td>
+                                        <td>
+                                            <div className={styles["publication-title"]}>
+                                                {pub.title}
+                                                {pub.url && (
+                                                    <a href={pub.url} target="_blank" rel="noopener noreferrer" className={styles["pub-link"]}>
+                                                        <i className="fa-solid fa-external-link-alt"></i>
+                                                    </a>
+                                                )}
+                                            </div>
+                                        </td>
+                                        <td>{pub.authors}</td>
+                                        <td>
+                                            <div className={styles["publication-journal"]}>
+                                                {pub.journal}
+                                                <span className={styles["pub-type"]}>{pub.type}</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                ))}
+                                </tbody>
                             </table>
                         </div>
                     </motion.div>
+
+                    {/* No Results Message */}
+                    {filteredPublications.length === 0 && (
+                        <motion.div
+                            className={styles["no-results"]}
+                            variants={fadeUp}
+                            custom={0.6}
+                        >
+                            <i className="fa-solid fa-search"></i>
+                            <p>No publications found matching your criteria.</p>
+                        </motion.div>
+                    )}
                 </div>
             </motion.section>
 
+            {/* Events Section */}
             <motion.section
                 className={`${styles["container-stat"]} ${styles.container} ${styles["container-padding-vertical"]}`}
                 initial="hidden"
@@ -625,6 +772,7 @@ function App() {
                 </div>
             </motion.section>
 
+            {/* CTA Section */}
             <motion.section
                 className={styles.container}
                 initial="hidden"
@@ -653,7 +801,7 @@ function App() {
 
                     {/* Button */}
                     <motion.a
-                        href="#"
+                        href="#/contact-section"
                         className={`${styles.btn} ${styles["btn-primary"]}`}
                         variants={fadeUp}
                         custom={0.3}
@@ -666,10 +814,7 @@ function App() {
                     </motion.a>
                 </motion.div>
             </motion.section>
-     </div>
-
-        </>
-
+        </div>
     );
 }
 
