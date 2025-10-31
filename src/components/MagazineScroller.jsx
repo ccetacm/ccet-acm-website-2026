@@ -78,8 +78,8 @@ export default function MagazineScroller() {
     {
       id: "book5",
       title: "Web Development Guide",
-      cover: "/Magazine/covers/magzine5.jpg",
-      pdf: "/Magazine/pdfs/Volume 5-Issue_5_sept-oct_pdf.pdf",
+      cover: "/Magazine/covers/magzine25.jpg",
+      pdf: "/Magazine/pdfs/Volume 6-Issue_5_sept-oct_pdf.pdf",
       month: "SEP-OCT",
       backColor: "#593aaf",
       backText: "Build modern, responsive web applications using the latest technologies and frameworks. From frontend design to backend architecture, master the full stack of web development skills needed in today's digital landscape.",
