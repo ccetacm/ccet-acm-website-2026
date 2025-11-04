@@ -114,7 +114,7 @@ const AppWrapper = () => {
               <Route path="/career-pathways" element={<CareerPathways />} />
               <Route path="/code-for-technology" element={<CodeforTechnology />} />
               <Route path="/healthy-byte" element={<HealthyByte />} />
-              <Route path="/mentors/:mentorName" element={<MentorProfile />} />
+              <Route path="/:mentorName" element={<MentorProfile />} />
               <Route path="*" element={<h2>404 - Page Not Found</h2>} />
             </Routes>
           </main>
