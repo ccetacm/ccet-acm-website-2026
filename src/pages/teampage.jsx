@@ -8,6 +8,8 @@ import satvikImg from "../assets/2025-26/satvik.jpg";
 import sanatanImg from "../assets/2025-26/sanatan.jpg";
 import shivamImg from "../assets/2025-26/shivam.jpg";
 import dhruvImg from "../assets/2025-26/dhruv.jpg";
+import abhayImg from "../assets/2025-26/abhay.jpeg";
+import aarushiImg from "../assets/2025-26/aarushi.jpeg"
 import kritinImg from "../assets/2025-26/kritin.jpg";
 import vanshikaImg from "../assets/2025-26/vanshika.jpg";
 import sahil2Img from "../assets/2025-26/sahil.jpg";
@@ -31,10 +33,8 @@ import bhumikaImg from "../assets/2025-26/bhumika.jpg";
 import harshitaImg from "../assets/2025-26/harshita.jpg";
 import sargunImg from "../assets/2025-26/sargun.jpg";
 import shreyaImg from "../assets/2025-26/shreya.jpg";
-import anshikaImg from "../assets/2025-26/anshika.jpg"; // Assuming "anshika.jpg"
-import group25 from "../assets/2025-26/group2025.jpg";
+import anshikaImg from "../assets/2025-26/anshika.jpg";
 import cgroup25 from "../assets/2025-26/cgroup2025.jpeg";
-import wgroup25 from "../assets/2025-26/wgroup2025.jpeg";
 
 import sahilImg from "../assets/2024-25/Sahil - 1.JPG";
 import sakshamImg from "../assets/2024-25/Saksham - 1.JPG";
@@ -100,7 +100,6 @@ import sidharthImg from "../assets/2022-23/Siddharth Sharma-1.svg";
 import arjunImg from "../assets/2022-23/Arjun-1.svg";
 import shivamKImg from "../assets/2022-23/Shivam-1.svg";
 import pushkarImg from "../assets/2022-23/Pushkar-1.svg";
-import group22 from "../assets/2022-23/group22.jpg";
 import cgroup22 from "../assets/2022-23/cgroup22.jpeg";
 // Imports for ACMW 2022-2023 member images (adjust extensions and paths as per actual files)
 import anureetImg from "../assets/2022-23/Anureet-1.svg";
@@ -159,15 +158,11 @@ import shriya_01Img from "../assets/2020-21/shriya-01.svg";
 import sonam_01Img from "../assets/2020-21/sonam-01.svg";
 import tarveen_01Img from "../assets/2020-21/tanveer-01.svg";
 import uday_01Img from "../assets/2020-21/uday-01.svg";
-
-import aarushiImg from "../assets/2019-20/aarushi.svg";
 import ayushImg from "../assets/2019-20/ayush.svg";
-
 import keshavImg from "../assets/2019-20/keshav.svg";
 import nandiniImg from "../assets/2019-20/nandini.svg";
 import nehaImg from "../assets/2019-20/neha.svg";
 import paritoshImg from "../assets/2019-20/paritosh.svg";
-
 import ritika2Img from "../assets/2019-20/ritika.svg";
 import tanishqImg from "../assets/2019-20/tanishq.svg";
 
@@ -193,7 +188,6 @@ const allYears = [
 const teamData = {
   ACM: {
     "2025 - 2026": {
-      groupPhoto: group25,
       members: [
         {
           name: "Jaiveer Singh",
@@ -231,18 +225,18 @@ const teamData = {
           linkedin: "https://www.linkedin.com/in/dhruv-bali-52717b21b"
         },
         {
-          name: "Rohan",
+          name: "Abhay",
           designation: "Webmaster",
-          photo: "",
-          github: "",
+          photo: abhayImg,
+          github: "https://github.com/Abhay-1704",
           linkedin: ""
         },
         {
-          name: "Saksham",
+          name: "Aarushi",
           designation: "Design Head",
-          photo: "",
-          github: "",
-          linkedin: ""
+          photo: aarushiImg,
+          github: "https://github.com/Aarushi-Khera",
+          linkedin: "https://www.linkedin.com/in/aarushi-khera-967640291?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
         },
         {
           name: "Kritin",
@@ -316,7 +310,6 @@ const teamData = {
         },
       ]
     },
-    // ...other years here...
     "2024 - 2025": {
       groupPhoto: "", // Add if available, else keep empty or import similarly
       members: [
@@ -895,7 +888,6 @@ const teamData = {
   },
   ACMW: {
     "2025 - 2026": {
-      groupPhoto: group25,
       members: [
         {
           name: "Ritika Kalia",
@@ -998,7 +990,7 @@ const teamData = {
         {
           name: "Anshul",
           designation: "Domain Director (Android)",
-          photo: anshikaImg, // Assuming Anshul and Anshika share image, else add separately
+          photo: anshulImg,
           github: "",
           linkedin: ""
         },
@@ -1416,23 +1408,15 @@ const teamData = {
 const groupPhotos = {
   "2025 - 2026": {
     combined: cgroup25,
-    acm: group25,
-    acmw: wgroup25,
   },
   "2024 - 2025": {
     combined: "",
-    acm: group24,
-    acmw: wgroup24,
   },
   "2023 - 2024": {
     combined: "",
-    acm: group23,
-    acmw: wgroup23,
   },
   "2022 - 2023": {
     combined: cgroup22,
-    acm: group22,
-    acmw: wgroup22,
   },
 };
 
