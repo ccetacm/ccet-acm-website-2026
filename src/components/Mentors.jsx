@@ -28,7 +28,7 @@ const Mentors = () => {
                                 <p className={styles.mentorDescription}>{mentor.description}</p>
                                 {index >= mentorsData.length - 2 && (
                                     <Link
-                                        to={`/${mentor.name.toLowerCase().replace(/ /g, '-')}`}
+                                        to={`/${mentor.route.toLowerCase().replace(/ /g, '-')}`}
                                         className={styles.cardLink}
                                     >
                                         Learn More →

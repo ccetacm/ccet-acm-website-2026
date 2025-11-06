@@ -9,6 +9,7 @@ import { filterPublicationsForSudhakar } from './utils/publicationFilter';
 export const mentorsData = [
     {
         name: "Dr. Manpreet Singh Gujral",
+        route: "Manpreet Singh Gujral",
         title: "Principal CCET Degree Wing",
         imgSrc: "/mentors/mentor1.png",
         additionalImg: "",
@@ -25,6 +26,7 @@ export const mentorsData = [
     },
     {
         name: "Dr. Sunil K. Singh",
+        route: "Sunil K. Singh",
         title: "Faculty Mentor ACM, Head of CSE CCET CHD",
         imgSrc: "/mentors/mentor2.jpg",
         additionalImg: "/mentors/additionalimage.jpg",
@@ -52,6 +54,7 @@ export const mentorsData = [
     {
         name: "Dr. Sudhakar Kumar",
         title: "Faculty Sponser ACM, Assistant Professor CSE CCET CHD",
+        route: "Sudhakar Kumar",
         additionalImg: "/mentors/sudhakar-additional.png",
         description: "Dr. Sudhakar Kumar is a leading researcher in artificial intelligence, machine learning, and computational intelligence with over 10 years of academic experience. His work spans across scalable architectures, optimization techniques, and the application of AI in cybersecurity.",
         about:
