@@ -9,7 +9,7 @@ const MentorProfile = () => {
     const [selectedYear, setSelectedYear] = useState(null);
 
     const mentor = mentorsData.find(m =>
-        m.name.toLowerCase().replace(/ /g, '-') === mentorName
+        m.route.toLowerCase().replace(/ /g, '-') === mentorName
     );
 
     if (!mentor) {
