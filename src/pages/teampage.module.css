@@ -134,9 +134,10 @@
 
 .members-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 1.5rem;
   padding: 0 1rem;
+  max-width: 100%;
 }
 
 /* Member Card */
@@ -169,15 +170,17 @@
 
 .member-image-container {
   width: 100%;
-  height: 400px;
+  height: 280px;
   overflow: hidden;
   position: relative;
+  background: #f1f5f9;
 }
 
 .member-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center top;
   transition: transform 0.5s ease;
 }
 
@@ -292,13 +295,13 @@
   }
 
   .members-grid {
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 1rem;
     padding: 0 0.5rem;
   }
 
   .member-image-container {
-    height: 400px;
+    height: 250px;
   }
 }
 
