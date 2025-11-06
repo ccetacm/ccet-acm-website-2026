@@ -365,11 +365,10 @@ function App() {
                 />
             </section>
 
-            {/* REVAMPED Faculty Section */}
             <section className={styles["faculty-section-new"]}>
                 <div className={styles["faculty-bg-gradient"]}></div>
 
-                <div className={styles.container}>
+                <div className={styles["faculty-full-container"]}>
                     <motion.div
                         className={styles["faculty-header"]}
                         initial={{ opacity: 0, y: 30 }}
@@ -419,11 +418,11 @@ function App() {
                                         <span>ORCID: 0000-0003-4876-7190</span>
                                     </div>
 
-                                    <div className={styles["faculty-social"]}>
-                                        <a href="#" className={styles["faculty-social-link"]}>
-                                            <i className="fa-solid fa-envelope"></i>
+                                    <div className={styles["faculty-actions"]}>
+                                        <a href="#/sksingh" className={styles["faculty-btn"]}>
+                                            Know More <i className="fa-solid fa-arrow-right"></i>
                                         </a>
-                                        <a href="https://www.linkedin.com/in/sudhakarkumar5/" className={styles["faculty-social-link"]}>
+                                        <a href="https://www.linkedin.com/in/drsks/" className={styles["faculty-social-link"]} target="_blank" rel="noopener noreferrer">
                                             <i className="fa-brands fa-linkedin"></i>
                                         </a>
                                     </div>
@@ -465,11 +464,11 @@ function App() {
                                         <span>ORCID: 0000-0001-7928-4234</span>
                                     </div>
 
-                                    <div className={styles["faculty-social"]}>
-                                        <a href="#" className={styles["faculty-social-link"]}>
-                                            <i className="fa-solid fa-envelope"></i>
+                                    <div className={styles["faculty-actions"]}>
+                                        <a href="#/sudhakar" className={styles["faculty-btn"]}>
+                                            Know More <i className="fa-solid fa-arrow-right"></i>
                                         </a>
-                                        <a href="https://www.linkedin.com/in/drsks/" className={styles["faculty-social-link"]}>
+                                        <a href="https://www.linkedin.com/in/sudhakarkumar5/" className={styles["faculty-social-link"]} target="_blank" rel="noopener noreferrer">
                                             <i className="fa-brands fa-linkedin"></i>
                                         </a>
                                     </div>
