@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
-// import globeImg from "../assets/acmw_pg/globe.png";
-// import textImg from "../assets/acmw_pg/text.png";
-// import badge1 from "../assets/acmw_pg/badge1.png";
-// import badge2 from "../assets/acmw_pg/badge2.png";
-// import badge3 from "../assets/acmw_pg/badge3.png";
-// import webdevImg from "../assets/acmw_pg/webdev.jpg";
-// import datascienceImg from "../assets/acmw_pg/datascience.jpg";
-// import uiuxImg from "../assets/acmw_pg/uiux.jpg";
-// import acmLogo from "../assets/acmw_pg/acm-logo.png";
-// import acmwLogo from "../assets/acmw_pg/acmw-logo.png";
+// import globeImg from "../teams/acmw_pg/globe.png";
+// import textImg from "../teams/acmw_pg/text.png";
+// import badge1 from "../teams/acmw_pg/badge1.png";
+// import badge2 from "../teams/acmw_pg/badge2.png";
+// import badge3 from "../teams/acmw_pg/badge3.png";
+// import webdevImg from "../teams/acmw_pg/webdev.jpg";
+// import datascienceImg from "../teams/acmw_pg/datascience.jpg";
+// import uiuxImg from "../teams/acmw_pg/uiux.jpg";
+// import acmLogo from "../teams/acmw_pg/acm-logo.png";
+// import acmwLogo from "../teams/acmw_pg/acmw-logo.png";
 
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadFull } from "tsparticles";

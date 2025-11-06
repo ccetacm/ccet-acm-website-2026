@@ -1,170 +1,170 @@
 import React, { useState, useEffect } from "react";
 import styles from "./teampage.module.css";
 
-import orcidIcon from "../assets/orcid.png";
+import orcidIcon from "/teams/orcid.png";
 
-import jaiveerImg from "../assets/2025-26/jaiveer.jpg";
-import satvikImg from "../assets/2025-26/satvik.jpg";
-import sanatanImg from "../assets/2025-26/sanatan.jpg";
-import shivamImg from "../assets/2025-26/shivam.jpg";
-import dhruvImg from "../assets/2025-26/dhruv.jpg";
-import abhayImg from "../assets/2025-26/abhay.jpeg";
-import aarushiImg from "../assets/2025-26/aarushi.jpeg"
-import kritinImg from "../assets/2025-26/kritin.jpg";
-import vanshikaImg from "../assets/2025-26/vanshika.jpg";
-import sahil2Img from "../assets/2025-26/sahil.jpg";
-import maanitImg from "../assets/2025-26/maanit.jpg";
-import adityaImg from "../assets/2025-26/aditya.jpg";
-import japjotImg from "../assets/2025-26/japjot.jpg";
-import hiteshImg from "../assets/2025-26/hitesh.jpg";
-import anshulImg from "../assets/2025-26/anshul.jpg";
-import jasvirImg from "../assets/2025-26/jasvir.jpg";
-import jasjeetImg from "../assets/2025-26/jasjeet.jpg";
-import ritikaImg from "../assets/2025-26/ritika.jpg";
-import samritiImg from "../assets/2025-26/samriti.jpg";
-import simarImg from "../assets/2025-26/simar.jpg";
-import mehakImg from "../assets/2025-26/mehak.jpg";
-import khushiImg from "../assets/2025-26/khushi.jpg";
-import bhavyaImg from "../assets/2025-26/bhavya.jpg";
-import eshmeetImg from "../assets/2025-26/eshmeet.jpg";
-import ravinaImg from "../assets/2025-26/ravina.jpg";
-import aanshiImg from "../assets/2025-26/aanshi.jpg";
-import bhumikaImg from "../assets/2025-26/bhumika.jpg";
-import harshitaImg from "../assets/2025-26/harshita.jpg";
-import sargunImg from "../assets/2025-26/sargun.jpg";
-import shreyaImg from "../assets/2025-26/shreya.jpg";
-import anshikaImg from "../assets/2025-26/anshika.jpg";
-import cgroup25 from "../assets/2025-26/cgroup2025.jpeg";
+import jaiveerImg from "/teams/2025-26/jaiveer.jpg";
+import satvikImg from "/teams/2025-26/satvik.jpg";
+import sanatanImg from "/teams/2025-26/sanatan.jpg";
+import shivamImg from "/teams/2025-26/shivam.jpg";
+import dhruvImg from "/teams/2025-26/dhruv.jpg";
+import abhayImg from "/teams/2025-26/abhay.jpeg";
+import aarushiImg from "/teams/2025-26/aarushi.jpeg"
+import kritinImg from "/teams/2025-26/kritin.jpg";
+import vanshikaImg from "/teams/2025-26/vanshika.jpg";
+import sahil2Img from "/teams/2025-26/sahil.jpg";
+import maanitImg from "/teams/2025-26/maanit.jpg";
+import adityaImg from "/teams/2025-26/aditya.jpg";
+import japjotImg from "/teams/2025-26/japjot.jpg";
+import hiteshImg from "/teams/2025-26/hitesh.jpg";
+import anshulImg from "/teams/2025-26/anshul.jpg";
+import jasvirImg from "/teams/2025-26/jasvir.jpg";
+import jasjeetImg from "/teams/2025-26/jasjeet.jpg";
+import ritikaImg from "/teams/2025-26/ritika.jpg";
+import samritiImg from "/teams/2025-26/samriti.jpg";
+import simarImg from "/teams/2025-26/simar.jpg";
+import mehakImg from "/teams/2025-26/mehak.jpg";
+import khushiImg from "/teams/2025-26/khushi.jpg";
+import bhavyaImg from "/teams/2025-26/bhavya.jpg";
+import eshmeetImg from "/teams/2025-26/eshmeet.jpg";
+import ravinaImg from "/teams/2025-26/ravina.jpg";
+import aanshiImg from "/teams/2025-26/aanshi.jpg";
+import bhumikaImg from "/teams/2025-26/bhumika.jpg";
+import harshitaImg from "/teams/2025-26/harshita.jpg";
+import sargunImg from "/teams/2025-26/sargun.jpg";
+import shreyaImg from "/teams/2025-26/shreya.jpg";
+import anshikaImg from "/teams/2025-26/anshika.jpg";
+import cgroup25 from "/teams/2025-26/cgroup2025.jpeg";
 
-import sahilImg from "../assets/2024-25/Sahil - 1.JPG";
-import sakshamImg from "../assets/2024-25/Saksham - 1.JPG";
-import samarImg from "../assets/2024-25/Samar - 1.JPG";
-import shauryaImg from "../assets/2024-25/Shaurya - 1.png";
-import divyanshImg from "../assets/2024-25/Divyansh - 1.JPG";
-import harshitImg from "../assets/2024-25/Harshit - 1.JPG";
-import ujjwalImg from "../assets/2024-25/Ujjwalthakur-1.jpeg";
-import rajneeshImg from "../assets/2024-25/Rajneesh - 1.JPG";
-import yuvrajImg from "../assets/2024-25/Yuvraj - 1.JPG";
-import nipunImg from "../assets/2024-25/Nipun - 1.JPG";
-import dikshantImg from "../assets/2024-25/Dikshant - 1.JPG";
-import group24 from "../assets/2024-25/group24.png";
+import sahilImg from "/teams/2024-25/Sahil - 1.JPG";
+import sakshamImg from "/teams/2024-25/Saksham - 1.JPG";
+import samarImg from "/teams/2024-25/Samar - 1.JPG";
+import shauryaImg from "/teams/2024-25/Shaurya - 1.png";
+import divyanshImg from "/teams/2024-25/Divyansh - 1.JPG";
+import harshitImg from "/teams/2024-25/Harshit - 1.JPG";
+import ujjwalImg from "/teams/2024-25/Ujjwalthakur-1.jpeg";
+import rajneeshImg from "/teams/2024-25/Rajneesh - 1.JPG";
+import yuvrajImg from "/teams/2024-25/Yuvraj - 1.JPG";
+import nipunImg from "/teams/2024-25/Nipun - 1.JPG";
+import dikshantImg from "/teams/2024-25/Dikshant - 1.JPG";
+import group24 from "/teams/2024-25/group24.png";
 
 // acmw-2024
-import ayushiImg from "../assets/2024-25/Ayushi - 1.JPG";
-import simranImg from "../assets/2024-25/Simran - 1.JPG";
-import janviImg from "../assets/2024-25/Janvi - 1.JPG";
-import rimaImg from "../assets/2024-25/Rima - 1.JPG";
-import rajImg from "../assets/2024-25/Raj - 1.JPG";
-import deepikaImg from "../assets/2024-25/Deepika - 1.JPG";
-import anoopImg from "../assets/2024-25/Anoop - 1.JPG";
-import deependraImg from "../assets/2024-25/Deependra - 1.JPG";
-import vanshikacImg from "../assets/2024-25/Vanshika - 1.JPG";
-import wgroup24 from "../assets/2024-25/wgroup24.jpeg";
+import ayushiImg from "/teams/2024-25/Ayushi - 1.JPG";
+import simranImg from "/teams/2024-25/Simran - 1.JPG";
+import janviImg from "/teams/2024-25/Janvi - 1.JPG";
+import rimaImg from "/teams/2024-25/Rima - 1.JPG";
+import rajImg from "/teams/2024-25/Raj - 1.JPG";
+import deepikaImg from "/teams/2024-25/Deepika - 1.JPG";
+import anoopImg from "/teams/2024-25/Anoop - 1.JPG";
+import deependraImg from "/teams/2024-25/Deependra - 1.JPG";
+import vanshikacImg from "/teams/2024-25/Vanshika - 1.JPG";
+import wgroup24 from "/teams/2024-25/wgroup24.jpeg";
 
 // Imports for ACM 2023-2024 member images
-import saketImg from "../assets/2023-24/Saket - 1.png";
-import kanishkImg from "../assets/2023-24/Kanishk - 1.png";
-import shivam1Img from "../assets/2023-24/Shivam - 1.png";
-import saksham1Img from "../assets/2023-24/Saksham - 1.png";
-import kartikImg from "../assets/2023-24/Kartik - 1.png";
-import tusharImg from "../assets/2023-24/Tushar - 1.png";
-import manyaImg from "../assets/2023-24/Manya.jpg";
-import japanImg from "../assets/2023-24/Japan - 1.png";
-import utkarshImg from "../assets/2023-24/Utkarsh - 1.png";
-import palavashaImg from "../assets/2023-24/Palvasha - 1.png";
-import britiImg from "../assets/2023-24/Briti - 1.png";
-import group23 from "../assets/2023-24/group23.jpg";
+import saketImg from "/teams/2023-24/Saket - 1.png";
+import kanishkImg from "/teams/2023-24/Kanishk - 1.png";
+import shivam1Img from "/teams/2023-24/Shivam - 1.png";
+import saksham1Img from "/teams/2023-24/Saksham - 1.png";
+import kartikImg from "/teams/2023-24/Kartik - 1.png";
+import tusharImg from "/teams/2023-24/Tushar - 1.png";
+import manyaImg from "/teams/2023-24/Manya.jpg";
+import japanImg from "/teams/2023-24/Japan - 1.png";
+import utkarshImg from "/teams/2023-24/Utkarsh - 1.png";
+import palavashaImg from "/teams/2023-24/Palvasha - 1.png";
+import britiImg from "/teams/2023-24/Briti - 1.png";
+import group23 from "/teams/2023-24/group23.jpg";
 
 // --- Imports for ACMW 2023-24 member images ---
-import aishitaImg from "../assets/2023-24/Aishita-1.jpg";
-import mehakpImg from "../assets/2023-24/Mehak-1.jpg";
-import vanshikabImg from "../assets/2023-24/Vanshika B-1.jpg";
-import harkiranImg from "../assets/2023-24/Harkiran-1.jpg";
-import ruchikaImg from "../assets/2023-24/Ruchika - 1.png";
-import priyanshuImg from "../assets/2023-24/Priyanshu - 1.png";
-import avneetImg from "../assets/2023-24/Avneet-1.jpg";
-import simran1Img from "../assets/2023-24/Simran-1.jpg";
-import ritika1Img from "../assets/2023-24/Ritika-1.jpg";
-import wgroup23 from "../assets/2023-24/wgroup23.jpg";
+import aishitaImg from "/teams/2023-24/Aishita-1.jpg";
+import mehakpImg from "/teams/2023-24/Mehak-1.jpg";
+import vanshikabImg from "/teams/2023-24/Vanshika B-1.jpg";
+import harkiranImg from "/teams/2023-24/Harkiran-1.jpg";
+import ruchikaImg from "/teams/2023-24/Ruchika - 1.png";
+import priyanshuImg from "/teams/2023-24/Priyanshu - 1.png";
+import avneetImg from "/teams/2023-24/Avneet-1.jpg";
+import simran1Img from "/teams/2023-24/Simran-1.jpg";
+import ritika1Img from "/teams/2023-24/Ritika-1.jpg";
+import wgroup23 from "/teams/2023-24/wgroup23.jpg";
 
-import akashImg from "../assets/2022-23/Akash-1.svg";
-import tarunImg from "../assets/2022-23/Tarun- 1.svg";
-import udayImg from "../assets/2022-23/uday_1.jpg";
-import mehakp2Img from "../assets/2022-23/Mehak-1.jpeg";
-import aishita1Img from "../assets/2022-23/Aishita-1.svg";
-import devashishImg from "../assets/2022-23/Devashish- 1.svg";
-import harshit1Img from "../assets/2022-23/Harshit-1.svg";
-import nirbhikImg from "../assets/2022-23/Nirbhik-1.svg";
-import manrajImg from "../assets/2022-23/Manraj-1.svg";
-import sidharthImg from "../assets/2022-23/Siddharth Sharma-1.svg";
-import arjunImg from "../assets/2022-23/Arjun-1.svg";
-import shivamKImg from "../assets/2022-23/Shivam-1.svg";
-import pushkarImg from "../assets/2022-23/Pushkar-1.svg";
-import cgroup22 from "../assets/2022-23/cgroup22.jpeg";
+import akashImg from "/teams/2022-23/Akash-1.svg";
+import tarunImg from "/teams/2022-23/Tarun- 1.svg";
+import udayImg from "/teams/2022-23/uday_1.jpg";
+import mehakp2Img from "/teams/2022-23/Mehak-1.jpeg";
+import aishita1Img from "/teams/2022-23/Aishita-1.svg";
+import devashishImg from "/teams/2022-23/Devashish- 1.svg";
+import harshit1Img from "/teams/2022-23/Harshit-1.svg";
+import nirbhikImg from "/teams/2022-23/Nirbhik-1.svg";
+import manrajImg from "/teams/2022-23/Manraj-1.svg";
+import sidharthImg from "/teams/2022-23/Siddharth Sharma-1.svg";
+import arjunImg from "/teams/2022-23/Arjun-1.svg";
+import shivamKImg from "/teams/2022-23/Shivam-1.svg";
+import pushkarImg from "/teams/2022-23/Pushkar-1.svg";
+import cgroup22 from "/teams/2022-23/cgroup22.jpeg";
 // Imports for ACMW 2022-2023 member images (adjust extensions and paths as per actual files)
-import anureetImg from "../assets/2022-23/Anureet-1.svg";
-import soumyaImg from "../assets/2022-23/Soumya-1.svg";
-import yadviImg from "../assets/2022-23/Yadvi-1.svg";
-import smritiImg from "../assets/2022-23/Smriti-1.svg";
-import rinkaImg from "../assets/2022-23/Rinka-1.svg";
-import siddharthkImg from "../assets/2022-23/Siddharth-1.svg";
-import krishImg from "../assets/2022-23/Krish-1.svg";
-import kanishk1Img from "../assets/2022-23/Kanishk- 1.svg";
-import deepakImg from "../assets/2022-23/Deepak-1.jpeg";
-import aishita2Img from "../assets/2022-23/Aishita-1.svg";
-import vanshikab2Img from "../assets/2022-23/Vanshika-1.svg";
-import vyoamImg from "../assets/2022-23/Vyoam-1.svg";
-import samarthImg from "../assets/2022-23/Samarth-1.svg";
-import wgroup22 from "../assets/2022-23/wgroup22.jpeg";
+import anureetImg from "/teams/2022-23/Anureet-1.svg";
+import soumyaImg from "/teams/2022-23/Soumya-1.svg";
+import yadviImg from "/teams/2022-23/Yadvi-1.svg";
+import smritiImg from "/teams/2022-23/Smriti-1.svg";
+import rinkaImg from "/teams/2022-23/Rinka-1.svg";
+import siddharthkImg from "/teams/2022-23/Siddharth-1.svg";
+import krishImg from "/teams/2022-23/Krish-1.svg";
+import kanishk1Img from "/teams/2022-23/Kanishk- 1.svg";
+import deepakImg from "/teams/2022-23/Deepak-1.jpeg";
+import aishita2Img from "/teams/2022-23/Aishita-1.svg";
+import vanshikab2Img from "/teams/2022-23/Vanshika-1.svg";
+import vyoamImg from "/teams/2022-23/Vyoam-1.svg";
+import samarthImg from "/teams/2022-23/Samarth-1.svg";
+import wgroup22 from "/teams/2022-23/wgroup22.jpeg";
 
 
-import chair1Img from "../assets/2021-22/chair.svg";
+import chair1Img from "/teams/2021-22/chair.svg";
 
-import membershiphair4Img from "../assets/2021-22/4membershipchair.svg";
-import designhead7Img from "../assets/2021-22/7designhead.svg";
-
-
-import akash2Img from "../assets/2021-22/akash.svg";
-import anamikaImg from "../assets/2021-22/anamika.jpg";
-import anureet2Img from "../assets/2021-22/anureet.jpg";
-
-import DEVASHISHImg from "../assets/2021-22/DEVASHISH.jpg";
-
-import dhritiImg from "../assets/2021-22/dhriti.jpg";
-import Dipesh_SinglaImg from "../assets/2021-22/Dipesh_Singla_1.jpg";
-
-import GopalImg from "../assets/2021-22/Gopal.jpg";
-
-import ishitaImg from "../assets/2021-22/ishita.jpg";
-import ishleenImg from "../assets/2021-22/ishleen.jpg";
-import karanImg from "../assets/2021-22/karan.svg";
-import kritiImg from "../assets/2021-22/kriti.jpg";
-import manishaImg from "../assets/2021-22/manisha.jpg";
-import navjotImg from "../assets/2021-22/navjot.jpg";
-import parnitImg from "../assets/2021-22/parnit.svg";
-import RISHIKAImg from "../assets/2021-22/RISHIKA.jpg";
-import shreya2Img from "../assets/2021-22/shreya.jpg";
-import tarunaImg from "../assets/2021-22/taruna.svg";
+import membershiphair4Img from "/teams/2021-22/4membershipchair.svg";
+import designhead7Img from "/teams/2021-22/7designhead.svg";
 
 
-import aayushi_01Img from "../assets/2020-21/aayushi-01.svg";
-import anshul_01Img from "../assets/2020-21/anshul-01.png.svg";
-import inderpreet_01Img from "../assets/2020-21/inderpreet-01.svg";
-import kriti_01Img from "../assets/2020-21/kriti-01.svg";
-import manninder_01Img from "../assets/2020-21/maninder-01.svg";
-import mukesh_01Img from "../assets/2020-21/mukesh-01.svg";
-import muskaan_01Img from "../assets/2020-21/muskaan-01.svg";
-import shriya_01Img from "../assets/2020-21/shriya-01.svg";
-import sonam_01Img from "../assets/2020-21/sonam-01.svg";
-import tarveen_01Img from "../assets/2020-21/tanveer-01.svg";
-import uday_01Img from "../assets/2020-21/uday-01.svg";
-import ayushImg from "../assets/2019-20/ayush.svg";
-import keshavImg from "../assets/2019-20/keshav.svg";
-import nandiniImg from "../assets/2019-20/nandini.svg";
-import nehaImg from "../assets/2019-20/neha.svg";
-import paritoshImg from "../assets/2019-20/paritosh.svg";
-import ritika2Img from "../assets/2019-20/ritika.svg";
-import tanishqImg from "../assets/2019-20/tanishq.svg";
+import akash2Img from "/teams/2021-22/akash.svg";
+import anamikaImg from "/teams/2021-22/anamika.jpg";
+import anureet2Img from "/teams/2021-22/anureet.jpg";
+
+import DEVASHISHImg from "/teams/2021-22/DEVASHISH.jpg";
+
+import dhritiImg from "/teams/2021-22/dhriti.jpg";
+import Dipesh_SinglaImg from "/teams/2021-22/Dipesh_Singla_1.jpg";
+
+import GopalImg from "/teams/2021-22/Gopal.jpg";
+
+import ishitaImg from "/teams/2021-22/ishita.jpg";
+import ishleenImg from "/teams/2021-22/ishleen.jpg";
+import karanImg from "/teams/2021-22/karan.svg";
+import kritiImg from "/teams/2021-22/kriti.jpg";
+import manishaImg from "/teams/2021-22/manisha.jpg";
+import navjotImg from "/teams/2021-22/navjot.jpg";
+import parnitImg from "/teams/2021-22/parnit.svg";
+import RISHIKAImg from "/teams/2021-22/RISHIKA.jpg";
+import shreya2Img from "/teams/2021-22/shreya.jpg";
+import tarunaImg from "/teams/2021-22/taruna.svg";
+
+
+import aayushi_01Img from "/teams/2020-21/aayushi-01.svg";
+import anshul_01Img from "/teams/2020-21/anshul-01.png.svg";
+import inderpreet_01Img from "/teams/2020-21/inderpreet-01.svg";
+import kriti_01Img from "/teams/2020-21/kriti-01.svg";
+import manninder_01Img from "/teams/2020-21/maninder-01.svg";
+import mukesh_01Img from "/teams/2020-21/mukesh-01.svg";
+import muskaan_01Img from "/teams/2020-21/muskaan-01.svg";
+import shriya_01Img from "/teams/2020-21/shriya-01.svg";
+import sonam_01Img from "/teams/2020-21/sonam-01.svg";
+import tarveen_01Img from "/teams/2020-21/tanveer-01.svg";
+import uday_01Img from "/teams/2020-21/uday-01.svg";
+import ayushImg from "/teams/2019-20/ayush.svg";
+import keshavImg from "/teams/2019-20/keshav.svg";
+import nandiniImg from "/teams/2019-20/nandini.svg";
+import nehaImg from "/teams/2019-20/neha.svg";
+import paritoshImg from "/teams/2019-20/paritosh.svg";
+import ritika2Img from "/teams/2019-20/ritika.svg";
+import tanishqImg from "/teams/2019-20/tanishq.svg";
 
 
 

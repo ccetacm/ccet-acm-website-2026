@@ -262,33 +262,35 @@ const MentorProfile = () => {
                     <section className={styles.section}>
                         <h2 className={styles.sectionTitle}>Research Teams</h2>
 
-                        {mentor.phdTeam && mentor.phdTeam.length > 0 && (
-                            <div className={styles.teamCategory}>
-                                <h3 className={styles.teamTitle}>PhD Students</h3>
-                                <div className={styles.teamGrid}>
-                                    {mentor.phdTeam.map((member, index) => (
-                                        <div key={index} className={styles.teamMember}>
-                                            <img src={member.img} alt={member.name} className={styles.memberPhoto} />
-                                            <span className={styles.memberName}>{member.name}</span>
-                                        </div>
-                                    ))}
+                        <div className={styles.teamsContainer}>
+                            {mentor.phdTeam && mentor.phdTeam.length > 0 && (
+                                <div className={styles.teamCategory}>
+                                    <h3 className={styles.teamTitle}>PhD Students</h3>
+                                    <div className={styles.teamGrid}>
+                                        {mentor.phdTeam.map((member, index) => (
+                                            <div key={index} className={styles.teamMember}>
+                                                <img src={member.img} alt={member.name} className={styles.memberPhoto} />
+                                                <span className={styles.memberName}>{member.name}</span>
+                                            </div>
+                                        ))}
+                                    </div>
                                 </div>
-                            </div>
-                        )}
+                            )}
 
-                        {mentor.btechTeam && mentor.btechTeam.length > 0 && (
-                            <div className={styles.teamCategory}>
-                                <h3 className={styles.teamTitle}>B.Tech Students</h3>
-                                <div className={styles.teamGrid}>
-                                    {mentor.btechTeam.map((member, index) => (
-                                        <div key={index} className={styles.teamMember}>
-                                            <img src={member.img} alt={member.name} className={styles.memberPhoto} />
-                                            <span className={styles.memberName}>{member.name}</span>
-                                        </div>
-                                    ))}
+                            {mentor.btechTeam && mentor.btechTeam.length > 0 && (
+                                <div className={styles.teamCategory}>
+                                    <h3 className={styles.teamTitle}>B.Tech Students</h3>
+                                    <div className={styles.teamGrid}>
+                                        {mentor.btechTeam.map((member, index) => (
+                                            <div key={index} className={styles.teamMember}>
+                                                <img src={member.img} alt={member.name} className={styles.memberPhoto} />
+                                                <span className={styles.memberName}>{member.name}</span>
+                                            </div>
+                                        ))}
+                                    </div>
                                 </div>
-                            </div>
-                        )}
+                            )}
+                        </div>
                     </section>
                 )}
             </div>

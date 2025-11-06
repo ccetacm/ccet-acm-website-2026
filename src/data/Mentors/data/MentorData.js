@@ -75,8 +75,8 @@ export const mentorsData = [
             { name: "Naveen", img: "/mentors/team 2.jpeg" },
         ],
         btechTeam: [
-            { name: "Sahil Garg", img: "/mentors/team3.png" },
-            { name: "Japjot Singh Nanda", img: "/mentors/team4.png" },
+            { name: "Abhay Pratap Singh", img: "/teams/2025-26/abhay.jpeg" },
+            { name: "Bhavya Dhiman", img: "/teams/2025-26/bhavya.jpg" },
         ],
         social: drSudhakarSocial,
         achievements: drSudhakarAchievements,
