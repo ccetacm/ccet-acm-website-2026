@@ -469,9 +469,10 @@
 /* ================= NEW FACULTY SECTION ================= */
 .faculty-section-new {
   position: relative;
-  padding: 100px 20px;
+  padding: 100px 0;
   background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 50%, #f0f4f8 100%);
   overflow: hidden;
+  width: 100%;
 }
 
 .faculty-bg-gradient {
@@ -484,6 +485,13 @@
           radial-gradient(circle at 20% 30%, rgba(52, 152, 219, 0.08), transparent 50%),
           radial-gradient(circle at 80% 70%, rgba(116, 185, 255, 0.08), transparent 50%);
   pointer-events: none;
+}
+
+.faculty-full-container {
+  width: 100%;
+  max-width: 100%;
+  padding: 0 40px;
+  box-sizing: border-box;
 }
 
 .faculty-header {
@@ -526,9 +534,9 @@
 
 .faculty-cards-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 40px;
-  max-width: 900px;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 60px;
+  max-width: 1400px;
   margin: 0 auto;
   position: relative;
   z-index: 1;
@@ -670,10 +678,41 @@
   font-size: 1rem;
 }
 
-.faculty-social {
+.faculty-actions {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 12px;
+}
+
+.faculty-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #3498db, #5dade2);
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(52, 152, 219, 0.2);
+}
+
+.faculty-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+  background: linear-gradient(135deg, #2980b9, #3498db);
+}
+
+.faculty-btn i {
+  font-size: 0.85rem;
+  transition: transform 0.3s ease;
+}
+
+.faculty-btn:hover i {
+  transform: translateX(3px);
 }
 
 .faculty-social-link {
@@ -937,6 +976,10 @@ th {
     padding: 60px 15px;
   }
 
+  .faculty-full-container {
+    padding: 0 20px;
+  }
+
   .faculty-cards-container {
     grid-template-columns: 1fr;
     gap: 30px;
@@ -1007,8 +1050,13 @@ th {
     padding: 40px 15px;
   }
 
+  .faculty-full-container {
+    padding: 0 15px;
+  }
+
   .faculty-cards-container {
     gap: 25px;
+    grid-template-columns: 1fr;
   }
 
   .faculty-card-top {
@@ -1022,6 +1070,15 @@ th {
 
   .faculty-card-content {
     padding: 25px 20px;
+  }
+
+  .faculty-actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .faculty-btn {
+    width: 100%;
   }
 
   .cta {
@@ -1042,7 +1099,7 @@ th {
 @media print {
   .hero-buttons,
   .scroll-down,
-  .faculty-social,
+  .faculty-actions,
   .tabs,
   .search-box {
     display: none !important;
@@ -1062,8 +1119,6 @@ th {
     border: 1px solid #ccc;
   }
 }
-
-/* Add these styles to your existing icrl.module.css file */
 
 /* Publications Section Enhancements */
 .results-count {

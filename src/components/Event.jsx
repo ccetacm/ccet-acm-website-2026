@@ -1,16 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import "./Event.css";
 
-// import img1 from "../assets/1 (1).jpg";
-// import img2 from "../assets/1 (2).jpg";
-// import img3 from "../assets/1 (3).jpg";
-// import img4 from "../assets/1 (4).jpg";
-// import img5 from "../assets/1 (5).jpg";
-// import img6 from "../assets/1 (6).jpg";
-// import img7 from "../assets/1 (7).jpg";
-// import img8 from "../assets/1 (8).jpg";
-// import img9 from "../assets/1 (9).JPG";
-
 const imageFiles = [  "/1 (1).jpg",
   "/1 (2).jpg",
   "/1 (3).jpg",

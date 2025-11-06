@@ -4,7 +4,6 @@
     max-width: 1400px;
     margin: 0 auto;
     padding: 2rem;
-    background-color: rgba(17, 65, 131, 0.5);
     min-height: 100vh;
 }
 
@@ -424,51 +423,75 @@
     color: #475569;
 }
 
-/* Research Teams */
+.teamsContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+}
+
 .teamCategory {
-    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
 }
 
 .teamTitle {
-    font-size: 1.125rem;
+    font-size: 1.25rem;
     font-weight: 600;
     color: #1e293b;
-    margin: 0 0 1rem 0;
+    margin: 0 0 1.5rem 0;
+    text-align: center;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid #3b82f6;
 }
 
 .teamGrid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
 }
 
 .teamMember {
-    text-align: center;
-    background: #f8fafc;
-    padding: 1rem;
-    border-radius: 12px;
-    border: 1px solid #e2e8f0;
-    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    border: 2px solid #e2e8f0;
+    transition: all 0.3s ease;
 }
 
 .teamMember:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    transform: translateY(-6px);
+    box-shadow: 0 12px 24px -8px rgba(0, 0, 0, 0.2);
+    border-color: #3b82f6;
 }
 
 .memberPhoto {
-    width: 60px;
-    height: 60px;
+    width: 180px;
+    height: 180px;
     border-radius: 50%;
     object-fit: cover;
-    margin-bottom: 0.5rem;
+    object-position: center top;
+    margin-bottom: 1.25rem;
+    border: 4px solid #3b82f6;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.teamMember:hover .memberPhoto {
+    transform: scale(1.08);
+    border-color: #2563eb;
+    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
 }
 
 .memberName {
     display: block;
-    font-weight: 500;
+    font-weight: 700;
     color: #1e293b;
-    font-size: 0.875rem;
+    font-size: 1.125rem;
+    line-height: 1.4;
+    text-align: center;
 }
 
 .emptyState {
@@ -557,5 +580,24 @@
     /* Adjust scroll container height on mobile */
     .publicationsScrollContainer {
         max-height: 400px;
+    }
+
+    /* Adjust team member cards on mobile */
+    .teamsContainer {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .teamMember {
+        padding: 1.5rem;
+    }
+
+    .memberPhoto {
+        width: 140px;
+        height: 140px;
+    }
+
+    .memberName {
+        font-size: 1rem;
     }
 }
