@@ -19,6 +19,8 @@ jobs:
         run: npm ci
       - name: 🔨 Build Project
         run: npm run build
+      - name: 📁 Copy APIs folder to dist
+        run: cp -r ./APIs ./dist/
       - name: 📂 Sync files to cPanel
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
