@@ -1,22 +1,70 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { mentorsData } from '../data/Mentors/index';
 import { useParams, Link } from 'react-router-dom';
-import { Mail, Linkedin, GraduationCap, Award } from 'lucide-react';
+import { Mail, Linkedin, GraduationCap, Award, Github } from 'lucide-react';
 import styles from './MentorProfile.module.css';
 
 const MentorProfile = () => {
     const { mentorName } = useParams();
     const [selectedYear, setSelectedYear] = useState(null);
+    const [publications, setPublications] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
 
     const mentor = mentorsData.find(m =>
         m.route.toLowerCase().replace(/ /g, '-') === mentorName
     );
 
+    useEffect(() => {
+        const fetchMentorPublications = async () => {
+            if (!mentor) return;
+
+            try {
+                setLoading(true);
+                setError(null);
+
+                const response = await fetch(`https://ccet.acm.org/APIs/publications.php?limit=1000&sort_by=year&sort_order=desc`);
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const result = await response.json();
+
+                if (result.success) {
+                    const mentorPublications = result.data.filter(pub => {
+                        if (!pub.authors) return false;
+
+                        const authors = pub.authors.toLowerCase();
+                        const mentorNameLower = mentor.name.toLowerCase();
+
+                        const nameParts = mentor.name.split(' ').filter(part => part.length > 1);
+
+                        return nameParts.some(part =>
+                            authors.includes(part.toLowerCase())
+                        );
+                    });
+
+                    setPublications(mentorPublications);
+                } else {
+                    throw new Error(result.error || "Failed to fetch publications");
+                }
+            } catch (err) {
+                console.error("Error fetching mentor publications:", err);
+                setError(err.message);
+                setPublications([]);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchMentorPublications();
+    }, [mentor]);
+
     if (!mentor) {
         return <div className={styles.notFound}>Mentor not found</div>;
     }
 
-    // Helper function to format DOI as clickable URL
     const formatDOI = (doi) => {
         if (!doi) return null;
 
@@ -35,28 +83,57 @@ const MentorProfile = () => {
         return doi;
     };
 
+    const groupPublicationsByYear = (pubs) => {
+        const grouped = {};
+        pubs.forEach(pub => {
+            const year = pub.year?.toString() || 'Unknown';
+            if (!grouped[year]) {
+                grouped[year] = [];
+            }
+            grouped[year].push(pub);
+        });
+        return grouped;
+    };
+
     const renderPublications = () => {
-        if (!mentor.publications || Object.keys(mentor.publications).length === 0) {
+        if (loading) {
             return (
                 <div className={styles.emptyState}>
-                    <p>No publications available.</p>
+                    <div className={styles.loading}>
+                        <i className="fa-solid fa-spinner fa-spin"></i>
+                        <p>Loading publications...</p>
+                    </div>
                 </div>
             );
         }
 
-        const years = Object.keys(mentor.publications).sort((a, b) => parseInt(b) - parseInt(a));
+        if (error) {
+            return (
+                <div className={styles.emptyState}>
+                    <p>Error loading publications: {error}</p>
+                </div>
+            );
+        }
 
-        // Set initial year if not selected
+        const groupedPublications = groupPublicationsByYear(publications);
+        const years = Object.keys(groupedPublications).sort((a, b) => parseInt(b) - parseInt(a));
+
+        if (years.length === 0) {
+            return (
+                <div className={styles.emptyState}>
+                    <p>No publications found for {mentor.name}.</p>
+                </div>
+            );
+        }
+
         if (selectedYear === null && years.length > 0) {
             setSelectedYear(years[0]);
         }
 
-        const selectedPubs = selectedYear ? mentor.publications[selectedYear] : [];
-        let pubsArray = Array.isArray(selectedPubs) ? selectedPubs : (selectedPubs ? [selectedPubs] : []);
+        const selectedPubs = selectedYear ? groupedPublications[selectedYear] : [];
 
-        // Sort publications by type (Journal first, then Conference, then others)
         const typeOrder = { 'journal': 1, 'conference': 2 };
-        pubsArray = pubsArray.sort((a, b) => {
+        const sortedPubs = selectedPubs.sort((a, b) => {
             const typeA = a.type?.toLowerCase() || 'other';
             const typeB = b.type?.toLowerCase() || 'other';
             const orderA = typeOrder[typeA] || 999;
@@ -66,7 +143,6 @@ const MentorProfile = () => {
 
         return (
             <div className={styles.publicationsContainer}>
-                {/* Year Navigation */}
                 <div className={styles.yearNavigation}>
                     {years.map((year) => (
                         <button
@@ -79,20 +155,19 @@ const MentorProfile = () => {
                     ))}
                 </div>
 
-                {/* Publications List */}
                 {selectedYear && (
                     <div className={styles.publicationsList}>
                         <div className={styles.publicationsHeader}>
                             <h3>{selectedYear}</h3>
                             <span className={styles.totalCount}>
-                                {pubsArray.length} publication{pubsArray.length !== 1 ? 's' : ''}
+                                {sortedPubs.length} publication{sortedPubs.length !== 1 ? 's' : ''}
                             </span>
                         </div>
 
                         <div className={styles.publicationsScrollContainer}>
                             <div className={styles.publicationsGrid}>
-                                {pubsArray.map((pub, index) => (
-                                    <div key={index} className={styles.publicationCard}>
+                                {sortedPubs.map((pub, index) => (
+                                    <div key={`${pub.id}-${index}`} className={styles.publicationCard}>
                                         <div className={styles.cardHeader}>
                                             <h4 className={styles.publicationTitle}>{pub.title}</h4>
                                             {pub.type && (
@@ -117,10 +192,10 @@ const MentorProfile = () => {
                                             )}
                                         </div>
 
-                                        {(pub.url || pub.doi) && (
+                                        {(pub.url) && (
                                             <div className={styles.cardFooter}>
                                                 <a
-                                                    href={pub.url || formatDOI(pub.doi)}
+                                                    href={pub.url}
                                                     target="_blank"
                                                     rel="noopener noreferrer"
                                                     className={styles.viewButton}
@@ -141,7 +216,6 @@ const MentorProfile = () => {
 
     return (
         <div className={styles.container}>
-            {/* Profile Header */}
             <div className={styles.profileHeader}>
                 <div className={styles.mainImageContainer}>
                     <img
@@ -193,7 +267,6 @@ const MentorProfile = () => {
                 )}
             </div>
 
-            {/* Content Sections */}
             <div className={styles.contentSections}>
                 {/* Skills Section */}
                 {mentor.skills && mentor.skills.length > 0 && (
@@ -209,7 +282,6 @@ const MentorProfile = () => {
                     </section>
                 )}
 
-                {/* Education Section */}
                 {mentor.education && mentor.education.length > 0 && (
                     <section className={styles.section}>
                         <h2 className={styles.sectionTitle}>Education</h2>
@@ -230,13 +302,11 @@ const MentorProfile = () => {
                     </section>
                 )}
 
-                {/* Publications Section */}
                 <section className={styles.section}>
                     <h2 className={styles.sectionTitle}>Publications</h2>
                     {renderPublications()}
                 </section>
 
-                {/* Projects Section */}
                 {mentor.projects && mentor.projects.length > 0 && (
                     <section className={styles.section}>
                         <h2 className={styles.sectionTitle}>Projects</h2>
@@ -257,7 +327,6 @@ const MentorProfile = () => {
                     </section>
                 )}
 
-                {/* Research Teams */}
                 {((mentor.phdTeam && mentor.phdTeam.length > 0) || (mentor.btechTeam && mentor.btechTeam.length > 0)) && (
                     <section className={styles.section}>
                         <h2 className={styles.sectionTitle}>Research Teams</h2>
@@ -271,6 +340,32 @@ const MentorProfile = () => {
                                             <div key={index} className={styles.teamMember}>
                                                 <img src={member.img} alt={member.name} className={styles.memberPhoto} />
                                                 <span className={styles.memberName}>{member.name}</span>
+                                                {member.social && (
+                                                    <div className={styles.memberSocial}>
+                                                        {member.social.linkedin && (
+                                                            <a
+                                                                href={member.social.linkedin}
+                                                                target="_blank"
+                                                                rel="noopener noreferrer"
+                                                                className={styles.memberSocialLink}
+                                                                title="LinkedIn"
+                                                            >
+                                                                <Linkedin size={16} />
+                                                            </a>
+                                                        )}
+                                                        {member.social.github && (
+                                                            <a
+                                                                href={member.social.github}
+                                                                target="_blank"
+                                                                rel="noopener noreferrer"
+                                                                className={styles.memberSocialLink}
+                                                                title="GitHub"
+                                                            >
+                                                                <Github size={16} />
+                                                            </a>
+                                                        )}
+                                                    </div>
+                                                )}
                                             </div>
                                         ))}
                                     </div>
@@ -285,6 +380,32 @@ const MentorProfile = () => {
                                             <div key={index} className={styles.teamMember}>
                                                 <img src={member.img} alt={member.name} className={styles.memberPhoto} />
                                                 <span className={styles.memberName}>{member.name}</span>
+                                                {member.social && (
+                                                    <div className={styles.memberSocial}>
+                                                        {member.social.linkedin && (
+                                                            <a
+                                                                href={member.social.linkedin}
+                                                                target="_blank"
+                                                                rel="noopener noreferrer"
+                                                                className={styles.memberSocialLink}
+                                                                title="LinkedIn"
+                                                            >
+                                                                <Linkedin size={16} />
+                                                            </a>
+                                                        )}
+                                                        {member.social.github && (
+                                                            <a
+                                                                href={member.social.github}
+                                                                target="_blank"
+                                                                rel="noopener noreferrer"
+                                                                className={styles.memberSocialLink}
+                                                                title="GitHub"
+                                                            >
+                                                                <Github size={16} />
+                                                            </a>
+                                                        )}
+                                                    </div>
+                                                )}
                                             </div>
                                         ))}
                                     </div>
