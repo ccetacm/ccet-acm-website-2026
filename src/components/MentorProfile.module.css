@@ -601,3 +601,24 @@
         font-size: 1rem;
     }
 }
+
+.memberSocial {
+    display: flex;
+    gap: 8px;
+    margin-top: 8px;
+    justify-content: center;
+}
+
+.memberSocialLink {
+    color: #666;
+    transition: color 0.2s ease;
+    padding: 4px;
+}
+
+.memberSocialLink:hover {
+    color: #0077b5; /* LinkedIn blue */
+}
+
+.memberSocialLink:nth-child(2):hover {
+    color: #333; /* GitHub black */
+}

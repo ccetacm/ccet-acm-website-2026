@@ -5,7 +5,6 @@ import { Player } from "@lottiefiles/react-lottie-player";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadFull } from "tsparticles";
 import React, { useEffect, useState, useMemo } from "react";
-import { Publications } from "../data/Mentors/data/Publications/index.js";
 
 const fadeUp = {
     hidden: { opacity: 0, y: 40 },
@@ -48,39 +47,84 @@ function App() {
     const [activeTab, setActiveTab] = useState("journals");
     const [searchQuery, setSearchQuery] = useState("");
     const [sortConfig, setSortConfig] = useState({ key: "year", direction: "desc" });
+    const [publications, setPublications] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
 
-    // Flatten and process all publications
-    const allPublications = useMemo(() => {
-        const pubs = [];
-        Object.keys(Publications).forEach(year => {
-            Publications[year].forEach(pub => {
-                pubs.push({
-                    ...pub,
-                    year: parseInt(year),
-                    displayYear: year
-                });
-            });
-        });
-        return pubs;
+    const API_BASE_URL = "https://ccet.acm.org/APIs/publications.php";
+
+    // Fetch publications from backend
+    useEffect(() => {
+        const fetchPublications = async () => {
+            try {
+                setLoading(true);
+                setError(null);
+
+                const response = await fetch(`${API_BASE_URL}?limit=1000&sort_by=year&sort_order=desc`);
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const result = await response.json();
+
+                if (result.success) {
+                    setPublications(result.data || []);
+                } else {
+                    throw new Error(result.error || "Failed to fetch publications");
+                }
+            } catch (err) {
+                console.error("Error fetching publications:", err);
+                setError(err.message);
+                setPublications([]);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchPublications();
     }, []);
+
+    // Debug: Log publications data structure
+    useEffect(() => {
+        if (!loading && publications.length > 0) {
+            console.log('Total publications:', publications.length);
+            console.log('Sample publication:', publications[0]);
+            console.log('All unique types:', [...new Set(publications.map(p => p.type))]);
+            console.log('Types breakdown:', {
+                journals: publications.filter(p => (p.type ?? "").toLowerCase().includes("journal")).length,
+                books: publications.filter(p => (p.type ?? "").toLowerCase().includes("book")).length,
+                conferences: publications.filter(p => (p.type ?? "").toLowerCase().includes("conference")).length,
+            });
+        }
+    }, [loading, publications]);
+
+    // Process all publications
+    const allPublications = useMemo(() => {
+        return publications.map(pub => ({
+            ...pub,
+            displayYear: pub.year?.toString() || "N/A"
+        }));
+    }, [publications]);
 
     // Filter publications based on active tab and search
     const filteredPublications = useMemo(() => {
+        console.log('Filtering with activeTab:', activeTab, 'searchQuery:', searchQuery);
+
         let filtered = allPublications.filter(pub => {
             // Filter by type based on active tab
-            // Safely accessing pub.type with nullish coalescing
             let typeMatch = false;
             const pubType = (pub.type ?? "").toLowerCase();
 
             switch (activeTab) {
                 case "journals":
-                    typeMatch = pubType.includes("journal");
+                    typeMatch = pubType.includes("journal") || pubType.includes("article");
                     break;
                 case "books":
-                    typeMatch = pubType.includes("book");
+                    typeMatch = pubType.includes("book") || pubType.includes("chapter");
                     break;
                 case "conferences":
-                    typeMatch = pubType.includes("conference");
+                    typeMatch = pubType.includes("conference") || pubType.includes("proceeding");
                     break;
                 default:
                     typeMatch = true;
@@ -91,7 +135,8 @@ function App() {
             const searchMatch = searchQuery === "" ||
                 (pub.title ?? "").toLowerCase().includes(searchLower) ||
                 (pub.authors ?? "").toLowerCase().includes(searchLower) ||
-                (pub.journal ?? "").toLowerCase().includes(searchLower);
+                (pub.journal ?? "").toLowerCase().includes(searchLower) ||
+                (pub.type ?? "").toLowerCase().includes(searchLower);
 
             return typeMatch && searchMatch;
         });
@@ -111,6 +156,7 @@ function App() {
             });
         }
 
+        console.log('Filtered results:', filtered.length);
         return filtered;
     }, [allPublications, activeTab, searchQuery, sortConfig]);
 
@@ -119,6 +165,11 @@ function App() {
             key,
             direction: prevConfig.key === key && prevConfig.direction === "asc" ? "desc" : "asc"
         }));
+    };
+
+    const handleTabChange = (tab) => {
+        console.log('Changing tab to:', tab);
+        setActiveTab(tab);
     };
 
     useEffect(() => {
@@ -550,7 +601,7 @@ function App() {
                         transition={{ duration: 0.6 }}
                     >
                         <i className="fa-solid fa-book"></i>
-                        <h3>{allPublications.length}+</h3>
+                        <h3>{loading ? "..." : `${allPublications.length}+`}</h3>
                         <p>Research Publications</p>
                     </motion.div>
                 </motion.div>
@@ -578,7 +629,12 @@ function App() {
                         variants={fadeUp}
                         custom={0.2}
                     >
-                        Explore our latest research contributions and academic publications ({allPublications.length} publications spanning 2006-2025)
+                        {loading
+                            ? "Loading publications..."
+                            : error
+                                ? `Error: ${error}`
+                                : `Explore our latest research contributions and academic publications (${allPublications.length} publications)`
+                        }
                     </motion.p>
 
                     {/* Search Box */}
@@ -594,6 +650,7 @@ function App() {
                             className={styles["search-input"]}
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
+                            disabled={loading}
                         />
                     </motion.div>
 
@@ -601,103 +658,135 @@ function App() {
                     <motion.div className={styles.tabs} variants={fadeUp} custom={0.4}>
                         <button
                             className={`${styles.tab} ${activeTab === "journals" ? styles["tab-active"] : styles["tab-inactive"]}`}
-                            onClick={() => setActiveTab("journals")}
+                            onClick={() => handleTabChange("journals")}
+                            disabled={loading}
                         >
                             Journal Papers
                         </button>
                         <button
                             className={`${styles.tab} ${activeTab === "books" ? styles["tab-active"] : styles["tab-inactive"]}`}
-                            onClick={() => setActiveTab("books")}
+                            onClick={() => handleTabChange("books")}
+                            disabled={loading}
                         >
                             Books/Book Chapters
                         </button>
                         <button
                             className={`${styles.tab} ${activeTab === "conferences" ? styles["tab-active"] : styles["tab-inactive"]}`}
-                            onClick={() => setActiveTab("conferences")}
+                            onClick={() => handleTabChange("conferences")}
+                            disabled={loading}
                         >
                             Conference Papers
                         </button>
                     </motion.div>
 
                     {/* Results Count */}
-                    <motion.div
-                        className={styles["results-count"]}
-                        variants={fadeUp}
-                        custom={0.45}
-                    >
-                        Showing {filteredPublications.length} of {allPublications.length} publications
-                    </motion.div>
+                    {!loading && !error && (
+                        <motion.div
+                            className={styles["results-count"]}
+                            variants={fadeUp}
+                            custom={0.45}
+                        >
+                            Showing {filteredPublications.length} of {allPublications.length} publications
+                        </motion.div>
+                    )}
+
+                    {/* Loading State */}
+                    {loading && (
+                        <motion.div
+                            className={styles["no-results"]}
+                            variants={fadeUp}
+                            custom={0.5}
+                        >
+                            <i className="fa-solid fa-spinner fa-spin"></i>
+                            <p>Loading publications...</p>
+                        </motion.div>
+                    )}
+
+                    {/* Error State */}
+                    {error && !loading && (
+                        <motion.div
+                            className={styles["no-results"]}
+                            variants={fadeUp}
+                            custom={0.5}
+                        >
+                            <i className="fa-solid fa-exclamation-triangle"></i>
+                            <p>Failed to load publications. Please try again later.</p>
+                            <p style={{ fontSize: '0.9em', color: '#666' }}>{error}</p>
+                        </motion.div>
+                    )}
 
                     {/* Table */}
-                    <motion.div
-                        className={styles["table-wrapper"]}
-                        variants={fadeUp}
-                        custom={0.5}
-                    >
-                        <div className={styles["table-container"]}>
-                            <table>
-                                <thead>
-                                <tr>
-                                    <th
-                                        className={styles.sortable}
-                                        onClick={() => handleSort("year")}
-                                    >
-                                        <div className={styles["sort-header"]}>
-                                            <span>Year</span>
-                                            <i className={`fa-solid fa-arrow-${sortConfig.key === "year" ? (sortConfig.direction === "asc" ? "up" : "down") : "up-down"}`}></i>
-                                        </div>
-                                    </th>
-                                    <th
-                                        className={styles.sortable}
-                                        onClick={() => handleSort("title")}
-                                    >
-                                        <div className={styles["sort-header"]}>
-                                            <span>Title</span>
-                                            <i className={`fa-solid fa-arrow-${sortConfig.key === "title" ? (sortConfig.direction === "asc" ? "up" : "down") : "up-down"}`}></i>
-                                        </div>
-                                    </th>
-                                    <th
-                                        className={styles.sortable}
-                                        onClick={() => handleSort("authors")}
-                                    >
-                                        <div className={styles["sort-header"]}>
-                                            <span>Authors</span>
-                                            <i className={`fa-solid fa-arrow-${sortConfig.key === "authors" ? (sortConfig.direction === "asc" ? "up" : "down") : "up-down"}`}></i>
-                                        </div>
-                                    </th>
-                                    <th>Journal/Conference</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                {filteredPublications.map((pub, index) => (
-                                    <tr key={`${pub.year}-${index}`}>
-                                        <td>{pub.displayYear}</td>
-                                        <td>
-                                            <div className={styles["publication-title"]}>
-                                                {pub.title}
-                                                {pub.url && (
-                                                    <a href={pub.url} target="_blank" rel="noopener noreferrer" className={styles["pub-link"]}>
-                                                        <i className="fa-solid fa-external-link-alt"></i>
-                                                    </a>
-                                                )}
+                    {!loading && !error && filteredPublications.length > 0 && (
+                        <motion.div
+                            className={styles["table-wrapper"]}
+                            variants={fadeUp}
+                            custom={0.5}
+                        >
+                            <div className={styles["table-container"]}>
+                                <table>
+                                    <thead>
+                                    <tr>
+                                        <th
+                                            className={styles.sortable}
+                                            onClick={() => handleSort("year")}
+                                        >
+                                            <div className={styles["sort-header"]}>
+                                                <span>Year</span>
+                                                <i className={`fa-solid fa-arrow-${sortConfig.key === "year" ? (sortConfig.direction === "asc" ? "up" : "down") : "up-down"}`}></i>
                                             </div>
-                                        </td>
-                                        <td>{pub.authors}</td>
-                                        <td>
-                                            <div className={styles["publication-journal"]}>
-                                                {pub.journal}
-                                                <span className={styles["pub-type"]}>{pub.type}</span>
+                                        </th>
+                                        <th
+                                            className={styles.sortable}
+                                            onClick={() => handleSort("title")}
+                                        >
+                                            <div className={styles["sort-header"]}>
+                                                <span>Title</span>
+                                                <i className={`fa-solid fa-arrow-${sortConfig.key === "title" ? (sortConfig.direction === "asc" ? "up" : "down") : "up-down"}`}></i>
                                             </div>
-                                        </td>
+                                        </th>
+                                        <th
+                                            className={styles.sortable}
+                                            onClick={() => handleSort("authors")}
+                                        >
+                                            <div className={styles["sort-header"]}>
+                                                <span>Authors</span>
+                                                <i className={`fa-solid fa-arrow-${sortConfig.key === "authors" ? (sortConfig.direction === "asc" ? "up" : "down") : "up-down"}`}></i>
+                                            </div>
+                                        </th>
+                                        <th>Journal/Conference</th>
                                     </tr>
-                                ))}
-                                </tbody>
-                            </table>
-                        </div>
-                    </motion.div>
+                                    </thead>
+                                    <tbody>
+                                    {filteredPublications.map((pub, index) => (
+                                        <tr key={`${pub.id || pub.year}-${index}`}>
+                                            <td>{pub.displayYear}</td>
+                                            <td>
+                                                <div className={styles["publication-title"]}>
+                                                    {pub.title}
+                                                    {pub.url && (
+                                                        <a href={pub.url} target="_blank" rel="noopener noreferrer" className={styles["pub-link"]}>
+                                                            <i className="fa-solid fa-external-link-alt"></i>
+                                                        </a>
+                                                    )}
+                                                </div>
+                                            </td>
+                                            <td>{pub.authors}</td>
+                                            <td>
+                                                <div className={styles["publication-journal"]}>
+                                                    {pub.journal}
+                                                    {pub.type && <span className={styles["pub-type"]}>{pub.type}</span>}
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    ))}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </motion.div>
+                    )}
 
                     {/* No Results Message */}
-                    {filteredPublications.length === 0 && (
+                    {!loading && !error && filteredPublications.length === 0 && allPublications.length > 0 && (
                         <motion.div
                             className={styles["no-results"]}
                             variants={fadeUp}

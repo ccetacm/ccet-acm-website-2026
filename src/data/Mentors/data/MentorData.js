@@ -1,10 +1,8 @@
-import { Publications } from './Publications/index.js';
 import { drSunilEducation, drSudhakarEducation } from './Education.js';
 import { drSunilAchievements, drSudhakarAchievements } from './Achievements.js';
 import { drSunilProjects } from './Projects.js';
 import { drSunilPatents } from './Patents.js';
 import { drSunilSocial, drSudhakarSocial } from './Social.js';
-import { filterPublicationsForSudhakar } from './utils/publicationFilter';
 
 export const mentorsData = [
     {
@@ -17,7 +15,6 @@ export const mentorsData = [
         about: "Expert in Academic Leadership and Institutional Development.",
         skills: ["Administration", "Policy Making", "Faculty Development"],
         education: [],
-        publications: {},
         phdTeam: [],
         btechTeam: [],
         social: {
@@ -43,7 +40,6 @@ export const mentorsData = [
             "Computer Networks",
         ],
         education: drSunilEducation,
-        publications: Publications,
         phdTeam: [],
         btechTeam: [],
         social: drSunilSocial,
@@ -69,14 +65,52 @@ export const mentorsData = [
         ],
         imgSrc: "/mentors/mentor3.jpg",
         education: drSudhakarEducation,
-        publications: filterPublicationsForSudhakar(Publications),
         phdTeam: [
-            { name: "Satyam Kumar Sainy", img: "/mentors/team1.jpeg" },
-            { name: "Naveen", img: "/mentors/team 2.jpeg" },
+            {
+                name: "Satyam Kumar Sainy",
+                img: "/mentors/team1.jpeg",
+                social: {
+                }
+            },
+            {
+                name: "Naveen",
+                img: "/mentors/team 2.jpeg",
+                social: {
+                }
+            },
         ],
         btechTeam: [
-            { name: "Abhay Pratap Singh", img: "/teams/2025-26/abhay.jpeg" },
-            { name: "Bhavya Dhiman", img: "/teams/2025-26/bhavya.jpg" },
+            {
+                name: "Abhay Pratap Singh",
+                img: "/teams/2025-26/abhay.jpeg",
+                social: {
+                    github: "https://github.com/Abhay-1704"
+                }
+            },
+            {
+                name: "Bhavya Dhiman",
+                img: "/teams/2025-26/bhavya.jpg",
+                social: {
+                    linkedin: "http://linkedin.com/in/bhavya-6a9429331",
+                    github: "https://github.com/bhavyadmn05"
+                }
+            },
+            {
+                name: "Sahil Garg",
+                img: "/mentors/team3.png" ,
+                social: {
+                    linkedin: "https://www.linkedin.com/in/sahil2004",
+                    github: "https://github.com/Sahil2004"
+                }
+            },
+            {
+                name: "Japjot Singh Nanda",
+                img: "/mentors/team4.png",
+                social: {
+                    linkedin: "www.linkedin.com/in/japjot-singh-nanda-374a3a288",
+                    github: "https://github.com/CoderJap"
+                }
+            }
         ],
         social: drSudhakarSocial,
         achievements: drSudhakarAchievements,
