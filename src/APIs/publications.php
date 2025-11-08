@@ -1,5 +1,8 @@
 <?php
-include '../server.php';
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+require_once '../server.php';
 
 header("Content-Type: application/json");
 
@@ -98,7 +101,11 @@ switch ($method) {
         $result = $conn->query($query);
 
         if ($result) {
-            $publications = $result->fetch_all(MYSQLI_ASSOC);
+            // FIXED: Replace fetch_all() with while loop
+            $publications = [];
+            while ($row = $result->fetch_assoc()) {
+                $publications[] = $row;
+            }
 
             $countQuery = "SELECT COUNT(*) as total FROM publications WHERE " . implode(" AND ", $whereClauses);
             $countResult = $conn->query($countQuery);
