@@ -29,21 +29,6 @@ jobs:
       - name: 📁 Copy APIs folder to dist
         run: cp -r ./src/APIs ./dist/
 
-      - name: 📂 Create empty folder for cleanup
-        run: mkdir -p empty-folder
-
-      - name: 🧹 Clean server before upload
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./empty-folder/
-          server-dir: ./temp-backup/
-          dangerous-clean-slate: false
-          exclude: "*"
-        continue-on-error: true
-
       - name: 📂 Sync files to cPanel
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
