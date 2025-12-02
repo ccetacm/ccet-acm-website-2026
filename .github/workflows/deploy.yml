@@ -1,4 +1,5 @@
 name: 🚀 Deploy website on push
+
 on:
   push:
     branches:
@@ -27,15 +28,14 @@ jobs:
       - name: 📁 Copy APIs folder to dist
         run: cp -r ./src/APIs ./dist/
 
-      - name: 📂 Sync files to cPanel (Clean deploy)
+      - name: 📂 Sync files to cPanel
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
+          local-dir: ./dist/
+          server-dir: ./
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./dist/
-          server-dir: ./
-          dangerous-clean-slate: true
           exclude: |
             **/.git*
             **/.git*/**
