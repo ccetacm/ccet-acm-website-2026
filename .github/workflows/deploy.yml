@@ -1,26 +1,34 @@
-name: 🚀 Deploy website on push
+name: 🚀 Deploy website
+
 on:
   push:
     branches:
       - main
+
 jobs:
   web-deploy:
     name: 🎉 Deploy
     runs-on: ubuntu-latest
+
     steps:
       - name: 🚚 Get latest code
         uses: actions/checkout@v4
+
       - name: 🟢 Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
           cache: 'npm'
+
       - name: 📦 Install dependencies
         run: npm ci
+
       - name: 🔨 Build Project
         run: npm run build
+
       - name: 📁 Copy APIs folder to dist
         run: cp -r ./src/APIs ./dist/
+
       - name: 📂 Sync files to cPanel
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
