@@ -294,6 +294,29 @@ const MentorProfile = () => {
                                     {edu.dissertation && (
                                         <p className={styles.dissertation}>
                                             <strong>Dissertation:</strong> {edu.dissertation}
+                                            {edu.thesisUrl && (
+                                                <> <a
+                                                    href={edu.thesisUrl}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className={styles.thesisLink}
+                                                >
+                                                    (View Thesis)
+                                                </a></>
+                                            )}
+                                        </p>
+                                    )}
+                                    {edu.supervisor && (
+                                        <p className={styles.supervisor}>
+                                            <strong>Supervisor:</strong> {edu.supervisor}
+                                        </p>
+                                    )}
+                                    {edu.description && (
+                                        <p className={styles.description}>{edu.description}</p>
+                                    )}
+                                    {edu.projectInfo && (
+                                        <p className={styles.projectInfo}>
+                                            <em>{edu.projectInfo}</em>
                                         </p>
                                     )}
                                 </div>
