@@ -10,7 +10,7 @@ const CoreActs = () => {
       title: "Intelligent Computing and Research Labs",
       description:
           "Cross-border collaboration and funding in fostering innovation and research excellence.",
-      link: "#/icrl",
+      link: "/icrl",
       category: "Research",
     },
     {
@@ -19,7 +19,7 @@ const CoreActs = () => {
       title: "Code For Cause",
       description:
           "Code for Cause unites technology and NGOs to tackle pressing social issues.",
-      link: "#/code-for-cause",
+      link: "/code-for-cause",
       category: "Social Impact",
     },
     {
@@ -28,7 +28,7 @@ const CoreActs = () => {
       title: "Talk with Techies",
       description:
           "Engaging conversations with tech experts to inspire and inform the community.",
-      link: "#/TalkWithTechies",
+      link: "/TalkWithTechies",
       category: "Community",
     },
     {
@@ -37,7 +37,7 @@ const CoreActs = () => {
       title: "Code for Technology",
       description:
           "Empowering developers with coding skills for leading technology companies.",
-      link: "#/code-for-technology",
+      link: "/code-for-technology",
       category: "Professional Development",
     },
     {
@@ -46,7 +46,7 @@ const CoreActs = () => {
       title: "Career Pathways",
       description:
           "Exploring strategic pathways to internships and meaningful career opportunities.",
-      link: "#/career-pathways",
+      link: "/career-pathways",
       category: "Career Growth",
     },
     {
@@ -55,7 +55,7 @@ const CoreActs = () => {
       title: "Healthy Byte",
       description:
           "Empowering you with essential digital wellness skills for a healthier tomorrow.",
-      link: "#healthy-byte",
+      link: "/healthy-byte",
       category: "Wellness",
     },
   ];

@@ -237,12 +237,12 @@ function App() {
                             research initiatives
                         </p>
                         <div className={styles["hero-buttons"]}>
-                            <a href="#/events" className={`${styles.btn} ${styles["btn-primary"]}`}>
+                            <a href="/events" className={`${styles.btn} ${styles["btn-primary"]}`}>
                                 See Our Past Events{" "}
                                 <i className="fa-solid fa-arrow-right arrow-icon"></i>
                             </a>
                             <a
-                                href="#"
+                                href="/contact-section"
                                 className={`${styles.btn} ${styles["btn-outline"]} ${styles["btn-join-us"]}`}
                             >
                                 Join Us
@@ -445,14 +445,14 @@ function App() {
                         >
                             <div className={styles["faculty-card-inner"]}>
                                 <div className={styles["faculty-card-top"]}>
-                                    <div className={styles["faculty-image-wrapper"]}>
+                                    <a href="/sksingh" className={styles["faculty-image-wrapper"]}>
                                         <div className={styles["faculty-image-border"]}></div>
                                         <img
                                             src="/icrg-imgs/mentor-2.png"
                                             alt="Dr. Sunil K. Singh"
                                             className={styles["faculty-image"]}
                                         />
-                                    </div>
+                                    </a>
                                     <div className={styles["faculty-role-badge"]}>Faculty Mentor</div>
                                 </div>
 
@@ -470,7 +470,7 @@ function App() {
                                     </div>
 
                                     <div className={styles["faculty-actions"]}>
-                                        <a href="#/sksingh" className={styles["faculty-btn"]}>
+                                        <a href="/sksingh" className={styles["faculty-btn"]}>
                                             Know More <i className="fa-solid fa-arrow-right"></i>
                                         </a>
                                         <a href="https://www.linkedin.com/in/drsks/" className={styles["faculty-social-link"]} target="_blank" rel="noopener noreferrer">
@@ -491,14 +491,14 @@ function App() {
                         >
                             <div className={styles["faculty-card-inner"]}>
                                 <div className={styles["faculty-card-top"]}>
-                                    <div className={styles["faculty-image-wrapper"]}>
+                                    <a href="/sudhakar" className={styles["faculty-image-wrapper"]}>
                                         <div className={styles["faculty-image-border"]}></div>
                                         <img
                                             src="/icrg-imgs/mentor3.png"
                                             alt="Dr. Sudhakar Kumar"
                                             className={styles["faculty-image"]}
                                         />
-                                    </div>
+                                    </a>
                                     <div className={styles["faculty-role-badge"]}>Faculty Sponsor</div>
                                 </div>
 
@@ -516,7 +516,7 @@ function App() {
                                     </div>
 
                                     <div className={styles["faculty-actions"]}>
-                                        <a href="#/sudhakar" className={styles["faculty-btn"]}>
+                                        <a href="/sudhakar" className={styles["faculty-btn"]}>
                                             Know More <i className="fa-solid fa-arrow-right"></i>
                                         </a>
                                         <a href="https://www.linkedin.com/in/sudhakarkumar5/" className={styles["faculty-social-link"]} target="_blank" rel="noopener noreferrer">
@@ -889,7 +889,7 @@ function App() {
 
                     {/* Button */}
                     <motion.a
-                        href="#/contact-section"
+                        href="/contact-section"
                         className={`${styles.btn} ${styles["btn-primary"]}`}
                         variants={fadeUp}
                         custom={0.3}
