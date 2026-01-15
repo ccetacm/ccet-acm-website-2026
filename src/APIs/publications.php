@@ -2,7 +2,7 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-require_once '../server.php';
+require_once '../../server.php';
 
 header("Content-Type: application/json");
 $conn->set_charset("utf8mb4");
