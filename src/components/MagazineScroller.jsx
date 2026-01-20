@@ -1,17 +1,54 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "./MagazineScroller.module.scss";
 
 export default function MagazineScroller() {
-  const [bookStates, setBookStates] = useState({
-    book1: "cover",
-    book2: "cover",
-    book3: "cover",
-    book4: "cover",
-    book5: "cover",
-    book6: "cover",
-  });
+  const [bookStates, setBookStates] = useState({});
+  const [books, setBooks] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  // Fetch magazines from API
+  useEffect(() => {
+    const fetchMagazines = async () => {
+      try {
+        setLoading(true);
+        const response = await fetch('https://ccet.acm.org/APIs/magazines.php?sort_by=display_order&sort_order=desc');
+        const data = await response.json();
+
+        if (data.success) {
+          // Transform API data to match the component's expected format
+          const transformedBooks = data.data.map(magazine => ({
+            id: magazine.book_id,
+            title: magazine.title,
+            cover: magazine.cover_image,
+            pdf: magazine.pdf_path,
+            month: magazine.month,
+            backColor: magazine.back_color,
+            backText: magazine.back_text
+          }));
+
+          setBooks(transformedBooks);
+
+          // Initialize book states
+          const initialStates = {};
+          transformedBooks.forEach(book => {
+            initialStates[book.id] = "cover";
+          });
+          setBookStates(initialStates);
+        } else {
+          setError(data.error || 'Failed to fetch magazines');
+        }
+      } catch (err) {
+        setError('Error connecting to server: ' + err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchMagazines();
+  }, []);
 
   const handleBookAction = (bookId, action) => {
     setBookStates((prev) => {
@@ -19,7 +56,6 @@ export default function MagazineScroller() {
       let newState = "cover";
 
       if (action === "flip") {
-        // Toggle between cover and back
         newState = currentState === "back" ? "cover" : "back";
       } else if (action === "openBook") {
         newState = currentState === "open" ? "cover" : "open";
@@ -38,62 +74,31 @@ export default function MagazineScroller() {
     });
   };
 
-  const books = [
-    {
-      id: "book6",
-      title: "Post-Explainable AI",
-      cover: "/Magazine/covers/magazine26.jpg",
-      pdf: "/Magazine/pdfs/Volume 6-Issue_6_nov-dec_2025.pdf",
-      month: "NOV-DEC 2025",
-      backColor: "#1a1a2e",
-      backText: "Revolutionizing industries and transforming lives through Cyber Future, Green Tech, and Augmented Reality. Exploring how technology safeguards the digital world with cutting-edge insights into Cybersecurity 2025.",
-    },
-    {
-      id: "book5",
-      title: "Cyber Future",
-      cover: "/Magazine/covers/magzine25.jpg",
-      pdf: "/Magazine/pdfs/Volume 6-Issue_5_sept-oct_pdf.pdf",
-      month: "SEP-OCT 2025",
-      backColor: "#593aaf",
-      backText: "Distinguished talk on AI in Cybersecurity: From insight to Foresight through Critical Thinking and Generative Information",
-    },
-    {
-      id: "book4",
-      title: "Generative AI",
-      cover: "/Magazine/covers/magazine24.jpg",
-      pdf: "/Magazine/pdfs/Volume 6-Issue_4_jul-aug_pdf.pdf",
-      month: "JUL-AUG 2025",
-      backColor: "black",
-      backText: "How generative AI is transforming technology and society, covering its core concepts with real-world applications.",
-    },
-    {
-      id: "book3",
-      title: "Javascript Bootcamp",
-      cover: "/Magazine/covers/magazine23.jpg",
-      pdf: "/Magazine/pdfs/Volume 6-Issue_3_may-jun_pdf.pdf",
-      month: "MAY-JUN 2025",
-      backColor: "black",
-      backText: "The JavaScript Bootcamp introduced students to core programming concepts through interactive coding exercises, helping them build confidence and strengthen their web development skills.",
-    },
-    {
-      id: "book2",
-      title: "OOPS Workshop",
-      cover: "/Magazine/covers/magazine22.jpg",
-      pdf: "/Magazine/pdfs/Volume 6-Issue_2_mar-apr_pdf.pdf",
-      month: "MAR-APR 2025",
-      backColor: "black",
-      backText: "The OOPS Workshop provided participants with clear insights into core concepts like inheritance, polymorphism, and encapsulation, helping them understand how object-oriented programming improves code efficiency, scalability, and reusability.",
-    },
-    {
-      id: "book1",
-      title: "DSA Bootcamp",
-      cover: "/Magazine/covers/magazine21.jpg",
-      pdf: "/Magazine/pdfs/Volume 6-Issue_1_jan-feb_pdf.pdf",
-      month: "JAN-FEB 2025",
-      backColor: "#064491",
-      backText: "Through interactive discussions, coding exercises, and practical insights from speakers, the event provided a solid foundation in Data Structures and Algorithms.",
-    },
-  ];
+  if (loading) {
+    return (
+        <div className={styles.magazineContainer}>
+          <header className={styles.header}>
+            <h1 className={styles.title}>Digital Outlet</h1>
+          </header>
+          <div style={{ textAlign: 'center', padding: '50px', fontSize: '18px' }}>
+            Loading magazines...
+          </div>
+        </div>
+    );
+  }
+
+  if (error) {
+    return (
+        <div className={styles.magazineContainer}>
+          <header className={styles.header}>
+            <h1 className={styles.title}>Digital Outlet</h1>
+          </header>
+          <div style={{ textAlign: 'center', padding: '50px', color: 'red' }}>
+            Error: {error}
+          </div>
+        </div>
+    );
+  }
 
   return (
       <div className={styles.magazineContainer}>
@@ -104,7 +109,6 @@ export default function MagazineScroller() {
         <div className={styles.bookGrid}>
           {books.map((book) => (
               <div key={book.id} className={styles.bookItem}>
-
                 {/* Book 3D Element */}
                 <div className={`${styles.bookWrapper} ${
                     bookStates[book.id] === 'cover' ? styles.viewCover :
@@ -112,7 +116,6 @@ export default function MagazineScroller() {
                             bookStates[book.id] === 'open' ? styles.viewOpen : styles.viewCover
                 }`}>
                   <div className={styles.bookContent}>
-
                     {/* Front Cover */}
                     <div className={styles.bookFront}>
                       <div
