@@ -25,6 +25,7 @@ import CareerPathways from "./components/CareerPathways.jsx";
 import CodeforTechnology from "./components/CodeforTechnology.jsx";
 import HealthyByte from "./components/HealthyByte.jsx";
 import MentorProfile from "./components/MentorProfile.jsx";
+import DevTeam from "./pages/DevTeam.jsx";
 
 import "./index.css";
 
@@ -104,6 +105,7 @@ const AppWrapper = () => {
               <Route path="/magazine" element={<DigitalOutlet />} />
               <Route path="/mentors" element={<Mentors />} />
               <Route path="/teams" element={<Teams />} />
+              <Route path="/dev-team" element={<DevTeam />} />
               <Route path="/acmw" element={<ACMW />} />
               <Route path="/icrl" element={<ICRG />} />
               <Route path="/gallery" element={<Gallery />} />
