@@ -69,7 +69,15 @@ const Footer = () => {
               />
               <div className={styles.developerInfo}>
                 <h4>Developed By</h4>
-                <p>Web Development Team</p>
+                <p><Link to= "/dev-team" className="
+    relative text-blue-500 font-semibold
+    after:absolute after:left-0 after:-bottom-1
+    after:w-full after:h-[2px]
+    after:bg-blue-600
+    after:scale-x-0 hover:after:scale-x-100
+    after:origin-left after:transition-transform
+    hover:text-blue-700
+  ">Web Development Team</Link></p>
                 <div className={styles.socialLinks}>
                   <a href="#" aria-label="Facebook">
                     <FontAwesomeIcon icon={faFacebookF} />
