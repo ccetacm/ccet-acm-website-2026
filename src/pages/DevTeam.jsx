@@ -87,21 +87,6 @@ export default function DevTeam() {
       github: "https://github.com/halreynolds",
       email: "",
     },
-
-    {
-      id: 8,
-      name: "Hardik Mittal",
-      role: "MERN DEVELOPER",
-      description:
-        "Engaged in developing reliable web solutions through practical project experience.",
-      image:
-        "/DevTeam/hardik.jpg",
-      linkedin: "https://www.linkedin.com/in/hardik-mittal-38879a320",
-      github: "https://github.com/hardik-mittal12",
-      email: "",
-    },
-    
-   
   ];
 
   return (
@@ -118,7 +103,7 @@ export default function DevTeam() {
           <p className="text-base leading-relaxed mb-2" style={{ color: "#1e6cff" }}>
             A dedicated group of developers committed to building reliable, scalable, and user-focused digital solutions through collaboration and innovation.
           </p>
-          
+
         </div>
 
         {/* Team Grid */}
