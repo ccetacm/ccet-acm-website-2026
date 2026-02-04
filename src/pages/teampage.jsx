@@ -229,7 +229,7 @@ const teamData = {
           designation: "Webmaster",
           photo: abhayImg,
           github: "https://github.com/Abhay-1704",
-          linkedin: ""
+          linkedin: "https://www.linkedin.com/in/abhay-pratap-singh-964716378/"
         },
         {
           name: "Aarushi",
@@ -291,8 +291,8 @@ const teamData = {
           name: "Anshul",
           designation: "Domain Director (Android)",
           photo: anshulImg,
-          github: "",
-          linkedin: ""
+          github: "https://github.com/Anshul-Bhardwaj-21/",
+          linkedin: " https://www.linkedin.com/in/anshul-bhardwaj-63733625b/"
         },
         {
           name: "Jasvir",
