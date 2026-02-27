@@ -2,7 +2,6 @@ $book-width: 300px;
 $book-height: 450px;
 $book-depth: 50px;
 
-// Mobile variables
 $mobile-book-width: 220px;
 $mobile-book-height: 320px;
 $mobile-book-depth: 35px;
@@ -18,6 +17,7 @@ $mobile-book-depth: 35px;
   );
   padding: 2rem 1rem;
   font-family: system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
 }
 
 .header {
@@ -36,11 +36,15 @@ $mobile-book-depth: 35px;
 
 .bookGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 4rem 2rem;
   max-width: 1400px;
   margin: 0 auto;
   justify-items: center;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
 }
 
 .bookItem {
@@ -50,7 +54,8 @@ $mobile-book-depth: 35px;
   align-items: flex-start;
   gap: 2rem;
   width: 100%;
-  max-width: 600px;
+  max-width: 680px;
+  min-width: 0;
 }
 
 .rightSideContent {
@@ -62,7 +67,7 @@ $mobile-book-depth: 35px;
 }
 
 .controlPanel {
-  width: 100%;
+  width: 80%;
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -84,8 +89,8 @@ $mobile-book-depth: 35px;
   border-radius: 8px;
   font-size: 0.7rem;
   transition: all 0.3s ease;
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -119,6 +124,9 @@ $mobile-book-depth: 35px;
   perspective: 2000px;
   transition: transform 0.5s ease;
   flex-shrink: 0;
+  padding: 20px 30px 20px 40px;
+  margin: -20px -30px -20px -40px;
+  box-sizing: content-box;
 
   &:hover {
     transform: scale(1.02);
@@ -388,6 +396,7 @@ $mobile-book-depth: 35px;
   background: rgba(255, 255, 255, 0.05);
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.1);
+  width: 80%;
 
   h3 {
     font-size: 1.5rem;
@@ -847,7 +856,7 @@ $mobile-book-depth: 35px;
 
 @media (min-width: 1025px) {
   .bookGrid {
-    grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .bookItem {
@@ -911,5 +920,40 @@ $mobile-book-depth: 35px;
   .previewImage {
     width: 60px;
     height: 80px;
+  }
+}
+
+.viewMoreWrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+  padding-bottom: 2rem;
+}
+
+.viewMoreBtn {
+  font-family: "Times New Roman", -apple-system, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.9);
+  background: rgb(15, 15, 94, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 100px;
+  padding: 1rem 1.5rem;
+  cursor: pointer;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: all 0.25s ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.20);
+    border-color: rgba(255, 255, 255, 0.50);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  }
+
+  &:active {
+    transform: translateY(0);
   }
 }

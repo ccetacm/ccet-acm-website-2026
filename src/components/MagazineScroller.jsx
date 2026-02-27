@@ -9,7 +9,9 @@ export default function MagazineScroller() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // Fetch magazines from API
+  const INITIAL_COUNT = 4;
+  const visibleBooks = books.slice(0, INITIAL_COUNT);
+
   useEffect(() => {
     const fetchMagazines = async () => {
       try {
@@ -18,7 +20,6 @@ export default function MagazineScroller() {
         const data = await response.json();
 
         if (data.success) {
-          // Transform API data to match the component's expected format
           const transformedBooks = data.data.map(magazine => ({
             id: magazine.book_id,
             title: magazine.title,
@@ -31,7 +32,6 @@ export default function MagazineScroller() {
 
           setBooks(transformedBooks);
 
-          // Initialize book states
           const initialStates = {};
           transformedBooks.forEach(book => {
             initialStates[book.id] = "cover";
@@ -107,16 +107,14 @@ export default function MagazineScroller() {
         </header>
 
         <div className={styles.bookGrid}>
-          {books.map((book) => (
+          {visibleBooks.map((book) => (
               <div key={book.id} className={styles.bookItem}>
-                {/* Book 3D Element */}
                 <div className={`${styles.bookWrapper} ${
                     bookStates[book.id] === 'cover' ? styles.viewCover :
                         bookStates[book.id] === 'back' ? styles.viewBack :
                             bookStates[book.id] === 'open' ? styles.viewOpen : styles.viewCover
                 }`}>
                   <div className={styles.bookContent}>
-                    {/* Front Cover */}
                     <div className={styles.bookFront}>
                       <div
                           className={styles.bookCover}
@@ -130,7 +128,6 @@ export default function MagazineScroller() {
                       <div className={styles.bookCoverBack}></div>
                     </div>
 
-                    {/* Inside Pages */}
                     <div className={styles.bookPage}>
                       <div className={styles.insideContent}>
                         <div className={styles.pagePreview}>
@@ -143,7 +140,6 @@ export default function MagazineScroller() {
                       </div>
                     </div>
 
-                    {/* Back Cover */}
                     <div
                         className={styles.bookBack}
                         style={{ backgroundColor: book.backColor }}
@@ -154,16 +150,13 @@ export default function MagazineScroller() {
                       </div>
                     </div>
 
-                    {/* Book Edges */}
                     <div className={styles.bookTop}></div>
                     <div className={styles.bookRight}></div>
                     <div className={styles.bookBottom}></div>
                   </div>
                 </div>
 
-                {/* Right Side Content */}
                 <div className={styles.rightSideContent}>
-                  {/* Control Panel */}
                   <div className={styles.controlPanel}>
                     <div
                         className={`${styles.controlButton} ${(bookStates[book.id] === 'cover' || bookStates[book.id] === 'back') ? styles.active : ''}`}
@@ -185,7 +178,6 @@ export default function MagazineScroller() {
                     </div>
                   </div>
 
-                  {/* Book Info */}
                   <div className={styles.bookInfo}>
                     <h3>
                       <span>{book.month}</span>
@@ -196,6 +188,12 @@ export default function MagazineScroller() {
                 </div>
               </div>
           ))}
+        </div>
+
+        <div className={styles.viewMoreWrapper}>
+          <a href="/magazine" className={styles.viewMoreBtn}>
+            View Previous Magazines →
+          </a>
         </div>
       </div>
   );
