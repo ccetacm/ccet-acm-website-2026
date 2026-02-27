@@ -1,15 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;0,700;1,300;1,400&family=Outfit:wght@300;400;500;600;700&display=swap');
 
 .page {
-  --accent:       #083067;
+  --accent: #ffffff;
   --accent-2:     #1256b8;
   --accent-light: rgba(8, 48, 103, 0.07);
   --accent-mid:   rgba(8, 48, 103, 0.15);
   --electric:     #0098c8;
   --ink:          #0c1a30;
-  --ink-muted:    #4a6080;
+  --ink-muted: #1e1f22;
   --ink-faint:    rgba(12, 26, 48, 0.32);
-  --surface:      rgba(255,255,255,0.7);
+  --surface: rgba(255, 255, 255, 0.6);
   --surface-2:    rgba(255,255,255,0.5);
   --border:       rgba(8, 48, 103, 0.11);
   --border-hover: rgba(8, 48, 103, 0.32);
