@@ -1,4 +1,3 @@
-// Import all magazine cover images
 import magzine1 from "/Magazine/covers/magzine1.jpg";
 import magzine2 from "/Magazine/covers/magzine2.jpg";
 import magzine3 from "/Magazine/covers/magzine3.jpg";
@@ -29,6 +28,7 @@ const magazines = [
   {
     id: 1,
     title: "Blockchain Basics",
+    year: 2024,
     issue: "Issue 01 • Jan-Feb 2024",
     image: magzine1,
     pdf: "/Magazine/pdfs/Volume 5-Issue_1_jan-feb_pdf.pdf",
@@ -40,10 +40,10 @@ const magazines = [
   {
     id: 2,
     title: "Crypto Insights",
+    year: 2024,
     issue: "Issue 02 • Mar-Apr 2024",
     image: magzine2,
     pdf: "/Magazine/pdfs/Volume 5-Issue_2_mar-apr_pdf.pdf",
-
     tags: [
       { icon: "fa-coins", label: "Crypto" },
       { icon: "fa-globe", label: "Web3" },
@@ -52,10 +52,10 @@ const magazines = [
   {
     id: 3,
     title: "AI Horizons",
+    year: 2024,
     issue: "Issue 03 • May-Jun 2024",
     image: magzine3,
     pdf: "/Magazine/pdfs/Volume 5-Issue_3_may-jun_pdf.pdf",
-
     tags: [
       { icon: "fa-robot", label: "AI" },
       { icon: "fa-brain", label: "Machine Learning" },
@@ -64,10 +64,10 @@ const magazines = [
   {
     id: 4,
     title: "Data Science Digest",
+    year: 2024,
     issue: "Issue 04 • Jul-Aug 2024",
     image: magzine4,
     pdf: "/Magazine/pdfs/Volume 5-Issue_4_july-aug_pdf.pdf",
-
     tags: [
       { icon: "fa-database", label: "Data Science" },
       { icon: "fa-lightbulb", label: "Research" },
@@ -76,7 +76,8 @@ const magazines = [
   {
     id: 5,
     title: "Future of Web3",
-    issue: "Issue 05 • Sept-Oct 2025",
+    year: 2024,
+    issue: "Issue 05 • Sept-Oct 2024",
     image: magzine5,
     pdf: "/Magazine/pdfs/Volume 5-Issue_5_sept-oct_pdf.pdf",
     tags: [
@@ -87,6 +88,7 @@ const magazines = [
   {
     id: 6,
     title: "Cybersecurity Trends",
+    year: 2024,
     issue: "Issue 06 • Nov-Dec 2024",
     image: magzine6,
     pdf: "/Magazine/pdfs/Volume 5-Issue_6_nov-dec_pdf.pdf",
@@ -98,6 +100,7 @@ const magazines = [
   {
     id: 7,
     title: "Quantum Computing",
+    year: 2023,
     issue: "Issue 07 • Nov-Dec 2023",
     image: magzine7,
     pdf: "/Magazine/pdfs/Volume 4-Issue_3_nov-dec_pdf.pdf",
@@ -109,6 +112,7 @@ const magazines = [
   {
     id: 8,
     title: "Innovation Spotlight",
+    year: 2023,
     issue: "Issue 08 • Sept-Oct 2023",
     image: magzine8,
     pdf: "/Magazine/pdfs/Volume 4-Issue_2_sept-oct_pdf.pdf",
@@ -120,6 +124,7 @@ const magazines = [
   {
     id: 9,
     title: "Metaverse Monthly",
+    year: 2023,
     issue: "Issue 09 • Jul-Aug 2023",
     image: magzine9,
     pdf: "/Magazine/pdfs/Volume 4-Issue_1_july-aug_pdf.pdf",
@@ -131,6 +136,7 @@ const magazines = [
   {
     id: 10,
     title: "AR/VR Insights",
+    year: 2023,
     issue: "Issue 10 • May-Jun 2023",
     image: magzine10,
     pdf: "/Magazine/pdfs/Volume 3-Issue_4_may-jun_pdf.pdf",
@@ -142,6 +148,7 @@ const magazines = [
   {
     id: 11,
     title: "5G & Beyond",
+    year: 2023,
     issue: "Issue 11 • Mar-Apr 2023",
     image: magzine11,
     pdf: "/Magazine/pdfs/Volume 3-Issue_3_mar-apr_pdf.pdf",
@@ -153,6 +160,7 @@ const magazines = [
   {
     id: 12,
     title: "Edge Computing",
+    year: 2023,
     issue: "Issue 12 • Jan-Feb 2023",
     image: magzine12,
     pdf: "/Magazine/pdfs/Volume 3-Issue_2_jan-feb_pdf.pdf",
@@ -164,6 +172,7 @@ const magazines = [
   {
     id: 13,
     title: "Startups & Innovation",
+    year: 2022,
     issue: "Issue 13 • Aug-Sept 2022",
     image: magzine13,
     pdf: "/Magazine/pdfs/Volume 3-Issue_1_aug-sept_pdf.pdf",
@@ -175,6 +184,7 @@ const magazines = [
   {
     id: 14,
     title: "Cloud Chronicle",
+    year: 2022,
     issue: "Issue 14 • Apr-May 2022",
     image: magzine14,
     pdf: "/Magazine/pdfs/Volume 2-Issue_4_apr-may_pdf.pdf",
@@ -186,6 +196,7 @@ const magazines = [
   {
     id: 15,
     title: "Crypto Trends",
+    year: 2022,
     issue: "Issue 15 • Jan-Feb 2022",
     image: magzine15,
     pdf: "/Magazine/pdfs/Volume 2-Issue_3_jan-feb_pdf.pdf",
@@ -197,9 +208,10 @@ const magazines = [
   {
     id: 16,
     title: "AI Disruptors",
+    year: 2021,
     issue: "Issue 16 • Nov-Dec 2021",
     image: magzine16,
-    pdf:"/Magazine/pdfs/Volume 2-Issue_2_nov-dec_pdf.pdf",
+    pdf: "/Magazine/pdfs/Volume 2-Issue_2_nov-dec_pdf.pdf",
     tags: [
       { icon: "fa-brain", label: "Deep Learning" },
       { icon: "fa-robot", label: "AI" },
@@ -208,6 +220,7 @@ const magazines = [
   {
     id: 17,
     title: "Space Tech",
+    year: 2021,
     issue: "Issue 17 • Sep-Oct 2021",
     image: magzine17,
     pdf: "/Magazine/pdfs/Volume 2-Issue_1_sept-oct_pdf.pdf",
@@ -219,17 +232,19 @@ const magazines = [
   {
     id: 18,
     title: "Smart Data",
+    year: 2021,
     issue: "Issue 18 • Jul-Aug 2021",
     image: magzine18,
     pdf: "/Magazine/pdfs/Volume 1-Issue_3_jul-aug_pdf.pdf",
     tags: [
-      { icon: "fa-databaser", label: "Big Data" },
+      { icon: "fa-database", label: "Big Data" },
       { icon: "fa-lightbulb", label: "Analytics" },
     ],
   },
   {
     id: 19,
     title: "FinTech Future",
+    year: 2021,
     issue: "Issue 19 • May-Jun 2021",
     image: magzine19,
     pdf: "/Magazine/pdfs/Volume 1-Issue_2_may-jun_pdf.pdf",
@@ -241,6 +256,7 @@ const magazines = [
   {
     id: 20,
     title: "AI & Society",
+    year: 2021,
     issue: "Issue 20 • Mar-Apr 2021",
     image: magzine20,
     pdf: "/Magazine/pdfs/Volume 1-Issue_1_mar-apr_pdf.pdf",
@@ -252,6 +268,7 @@ const magazines = [
   {
     id: 21,
     title: "DSA",
+    year: 2025,
     issue: "Issue 21 • Jan-Feb 2025",
     image: magzine21,
     pdf: "/Magazine/pdfs/Volume 6-Issue_1_jan-feb_pdf.pdf",
@@ -263,6 +280,7 @@ const magazines = [
   {
     id: 22,
     title: "AI in Software Development",
+    year: 2025,
     issue: "Issue 22 • Mar-Apr 2025",
     image: magzine22,
     pdf: "/Magazine/pdfs/Volume 6-Issue_2_mar-apr_pdf.pdf",
@@ -274,6 +292,7 @@ const magazines = [
   {
     id: 23,
     title: "Javascript Bootcamp",
+    year: 2025,
     issue: "Issue 23 • May-Jun 2025",
     image: magzine23,
     pdf: "/Magazine/pdfs/Volume 6-Issue_3_may-jun_pdf.pdf",
@@ -282,10 +301,10 @@ const magazines = [
       { icon: "fa-lightbulb", label: "Ethics" },
     ],
   },
-  
   {
     id: 24,
     title: "Generative AI",
+    year: 2025,
     issue: "Issue 24 • Jul-Aug 2025",
     image: magzine24,
     pdf: "/Magazine/pdfs/Volume 6-Issue_4_jul-aug_pdf.pdf",
@@ -294,10 +313,10 @@ const magazines = [
       { icon: "fa-lightbulb", label: "Ethics" },
     ],
   },
-
   {
     id: 25,
     title: "Cyber Future",
+    year: 2025,
     issue: "Issue 25 • Sept-Oct 2025",
     image: magzine25,
     pdf: "/Magazine/pdfs/Volume 6-Issue_5_sept-oct_pdf.pdf",
@@ -305,8 +324,7 @@ const magazines = [
       { icon: "fa-robot", label: "AI" },
       { icon: "fa-lightbulb", label: "Ethics" },
     ],
-  }
-
+  },
 ];
 
 export default magazines;
