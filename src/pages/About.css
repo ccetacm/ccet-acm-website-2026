@@ -5,7 +5,7 @@
    - No style values changed; only format is adapted for module usage.
 */
 
-/* Scope everything to .acm-about (no style values changed). Also rename generic @keyframes to acm-about-* to avoid collisions like with loader.css. */
+/* Scope everything to .acm-about (no style values changed). Also rename generic @keyframes to acm-about-* to avoid collisions like with Loader.module.css. */
 
 /* Custom properties live on the wrapper instead of :root */
 .acm-about {
