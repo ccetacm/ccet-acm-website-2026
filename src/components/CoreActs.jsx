@@ -7,7 +7,7 @@ const CoreActs = () => {
     {
       id: 1,
       animation: "/animations/career.json",
-      title: "Intelligent Computing and Research Labs",
+      title: "Responsible AI & Sustainable Computing",
       description:
           "Cross-border collaboration and funding in fostering innovation and research excellence.",
       link: "/icrl",
