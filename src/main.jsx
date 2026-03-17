@@ -29,6 +29,7 @@ import DevTeam from "./pages/DevTeam.jsx";
 
 import "./index.css";
 
+// Define logos array
 const logos = [
   { src: "/Header_Main/logo.png", alt: "CCET ACM", link: "https://ccet.acm.org/" },
   { src: "/Header_Main/NEP_2020.png", alt: "NEP", className: "NEP1", link: "https://www.education.gov.in/en/national-education-policy" },
@@ -39,43 +40,30 @@ const logos = [
   { src: "/Header_Main/acmw.png", alt: "ACM-W", link: "#" },
 ];
 
-const MIN_DISPLAY_MS = 5000;
-
+// Main App wrapper component that handles global loader
 const AppWrapper = () => {
-  const [fadeOut, setFadeOut]         = useState(false);
-  const [hideLoader, setHideLoader]   = useState(false);
+  const [fadeOut, setFadeOut] = useState(false);
+  const [hideLoader, setHideLoader] = useState(false);
   const [hasLoadedOnce, setHasLoadedOnce] = useState(false);
 
   useEffect(() => {
-    if (hasLoadedOnce) {
+    if (!hasLoadedOnce) {
+      document.body.style.overflow = "hidden";
+      const timer1 = setTimeout(() => setFadeOut(true), 2500);
+      const timer2 = setTimeout(() => {
+        setHideLoader(true);
+        setHasLoadedOnce(true);
+        document.body.style.overflowX = "hidden";
+        document.body.style.overflowY = "auto";
+      }, 3000);
+
+      return () => {
+        clearTimeout(timer1);
+        clearTimeout(timer2);
+      };
+    } else {
       document.body.style.overflowX = "hidden";
       document.body.style.overflowY = "auto";
-      return;
-    }
-
-    document.body.style.overflow = "hidden";
-    const startTime = Date.now();
-
-    const dismiss = () => {
-      const elapsed  = Date.now() - startTime;
-      const waitMore = Math.max(0, MIN_DISPLAY_MS - elapsed);
-
-      setTimeout(() => {
-        setFadeOut(true);
-        setTimeout(() => {
-          setHideLoader(true);
-          setHasLoadedOnce(true);
-          document.body.style.overflowX = "hidden";
-          document.body.style.overflowY = "auto";
-        }, 500);
-      }, waitMore);
-    };
-
-    if (document.readyState === "complete") {
-      dismiss();
-    } else {
-      window.addEventListener("load", dismiss, { once: true });
-      return () => window.removeEventListener("load", dismiss);
     }
   }, [hasLoadedOnce]);
 
@@ -83,9 +71,11 @@ const AppWrapper = () => {
       <>
         {!hideLoader && !hasLoadedOnce && (
             <div
+                className={`loader-overlay-wrapper ${fadeOut ? "fade-out" : ""}`}
                 style={{
                   position: "fixed",
                   inset: 0,
+                  backgroundColor: "#CAF0F8",
                   zIndex: 9999,
                   display: "flex",
                   justifyContent: "center",
