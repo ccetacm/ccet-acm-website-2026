@@ -184,11 +184,6 @@ const Hero = ({ startAnimation, cards }) => {
                     </div>
                 </div>
             </div>
-
-            {/* News Ticker positioned below hero */}
-            <div className={styles.newsTickerContainer}>
-                <NewsTicker />
-            </div>
         </>
     );
 };

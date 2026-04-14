@@ -23,6 +23,8 @@ import magzine22 from "/Magazine/covers/magazine22.jpg";
 import magzine23 from "/Magazine/covers/magazine23.jpg";
 import magzine24 from "/Magazine/covers/magazine24.jpg";
 import magzine25 from "/Magazine/covers/magazine25.jpg";
+import magzine26 from "/Magazine/covers/magazine26.jpg"
+import magzine27 from "/Magazine/covers/magazine27.jpg"
 
 const magazines = [
   {
@@ -325,6 +327,32 @@ const magazines = [
       { icon: "fa-lightbulb", label: "Ethics" },
     ],
   },
+  {
+    id: 26,
+    title: "Post-Explainable AI",
+    year: 2025,
+    issue: "Issue 26 • Nov-Dec 2025",
+    image: magzine26,
+    pdf: "/Magazine/pdfs/Volume 5-Issue_6_nov-dec_pdf.pdf",
+    tags: [
+      { icon: "fa-robot", label: "AI" },
+      { icon: "fa-lightbulb", label: "Ethics" },
+    ],
+  },
+  {
+    id: 27,
+    title: "AI, Cybersecurity & Future Technologies",
+    year: 2026,
+    issue: "Issue 27 • Jan-Feb 2026",
+    image: magzine27,
+    pdf: "/Magazine/pdfs/Volume 7-Issue_1_jan-feb.pdf",
+    tags: [
+      { icon: "fa-shield-alt", label: "Cybersecurity" },
+      { icon: "fa-robot", label: "AI" },
+      { icon: "fa-network-wired", label: "Blockchain" },
+      { icon: "fa-microchip", label: "Quantum Tech" },
+    ],
+  }
 ];
 
 export default magazines;
