@@ -92,7 +92,7 @@ const ResearchLabIsolated = () => {
           background: #114183CE;
           border-radius: 16px;
           padding: 40px;
-          max-width: 1100px;
+          max-width: 1120px;
           width: 100%;
           box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
           border-top: 4px solid #00296b;
