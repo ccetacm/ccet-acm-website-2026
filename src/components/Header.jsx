@@ -115,7 +115,7 @@ const Header = ({ startAnimation, logos }) => {
                         <Link to="/events" onClick={closeDropdowns}>Events</Link>
                         <Link to="/magazine" onClick={closeDropdowns}>Digital Outlet</Link>
                         <Link to="/acmw" onClick={closeDropdowns}>ACM-W</Link>
-                        <Link to="/icrl" onClick={closeDropdowns}>ICRL</Link>
+                        <Link to="/rasc" onClick={closeDropdowns}>RASC</Link>
                     </div>
                 </div>
 
