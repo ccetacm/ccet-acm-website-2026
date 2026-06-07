@@ -62,7 +62,7 @@ const Header = ({ startAnimation, logos }) => {
         { label: 'DIGITAL OUTLET', to: '/magazine' },
         { label: 'TEAM', to: '/teams' },
         { label: 'GALLERY', to: '/gallery' },
-        { label: 'ICRL', to: '/icrl' }
+        { label: 'RASC', to: '/rasc' }
     ];
 
     return (
