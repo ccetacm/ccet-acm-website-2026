@@ -107,7 +107,7 @@ const AppWrapper = () => {
               <Route path="/teams" element={<Teams />} />
               <Route path="/dev-team" element={<DevTeam />} />
               <Route path="/acmw" element={<ACMW />} />
-              <Route path="/icrl" element={<ICRG />} />
+              <Route path="/rasc" element={<ICRG />} />
               <Route path="/gallery" element={<Gallery />} />
               <Route path="/TalkWithTechies" element={<TalkWithTechies />} />
               <Route path="/talk-with-techies" element={<TalkWithTechies />} />

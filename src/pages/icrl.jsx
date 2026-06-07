@@ -231,7 +231,7 @@ function App() {
                             <i className="fa-solid fa-globe"></i>
                             <span>Global Research Initiative</span>
                         </div>
-                        <h1>Intelligent Computing and Research Labs</h1>
+                        <h1>Responsible AI & Sustainable Computing (RASC)</h1>
                         <p>
                             Fostering Global Innovation and Collaboration through groundbreaking
                             research initiatives
@@ -291,7 +291,7 @@ function App() {
                     transition={{ duration: 0.8 }}
                     viewport={{ once: true }}
                 >
-                    Intelligent Computing and Research Labs (ICRL)
+                    Responsible AI & Sustainable Computing (RASC)
                 </motion.h2>
 
                 <div className={styles["research-card"]}>

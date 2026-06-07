@@ -23,7 +23,7 @@ const ResearchLabIsolated = () => {
           <div className="research-lab-isolated-badge">RESEARCH EXCELLENCE</div>
 
           <h1 className="research-lab-isolated-title">
-            Responsible AI & Sustainable Computing
+            Responsible AI & Sustainable Computing (RASC)
             <span className="research-lab-isolated-highlight">
               Research Laboratory
             </span>
@@ -61,7 +61,7 @@ const ResearchLabIsolated = () => {
             src="/animations/Analytical Thinking Illustration.json"
             style={{ height: "300px", width: "300px" }}
           />
-          <Link to="/research">
+          <Link to="/rasc">
             <button className="research-lab-isolated-explore-btn">
               Explore Our Research
               <ArrowRight size={18} />
