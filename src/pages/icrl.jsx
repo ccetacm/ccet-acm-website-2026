@@ -1,10 +1,11 @@
+// icrl.jsx
 import { motion } from "framer-motion";
 import "@lottiefiles/lottie-player";
 import styles from "./icrl.module.css";
 import { Player } from "@lottiefiles/react-lottie-player";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadFull } from "tsparticles";
-import React, { useEffect, useState, useMemo } from "react";
+import React, { useEffect, useState, useMemo, useRef } from "react";
 
 const fadeUp = {
     hidden: { opacity: 0, y: 40 },
@@ -50,8 +51,64 @@ function App() {
     const [publications, setPublications] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const scrollContainerRef = useRef(null);
 
     const API_BASE_URL = "https://ccet.acm.org/APIs/publications.php";
+
+    // Auto-scroll carousel
+    useEffect(() => {
+        const container = scrollContainerRef.current;
+        if (!container) return;
+
+        let animationId;
+        let scrollAmount = 0;
+
+        const autoScroll = () => {
+            if (container.scrollWidth > container.clientWidth) {
+                scrollAmount += 0.8;
+                if (scrollAmount >= container.scrollWidth - container.clientWidth) {
+                    scrollAmount = 0;
+                }
+                container.scrollLeft = scrollAmount;
+            }
+            animationId = requestAnimationFrame(autoScroll);
+        };
+
+        const startAutoScroll = () => {
+            if (container.scrollWidth > container.clientWidth) {
+                animationId = requestAnimationFrame(autoScroll);
+            }
+        };
+
+        // Start after a small delay
+        const timeoutId = setTimeout(startAutoScroll, 1000);
+
+        // Pause on hover
+        const pauseScroll = () => {
+            if (animationId) {
+                cancelAnimationFrame(animationId);
+                animationId = null;
+            }
+        };
+
+        const resumeScroll = () => {
+            if (!animationId && container.scrollWidth > container.clientWidth) {
+                animationId = requestAnimationFrame(autoScroll);
+            }
+        };
+
+        container.addEventListener('mouseenter', pauseScroll);
+        container.addEventListener('mouseleave', resumeScroll);
+
+        return () => {
+            clearTimeout(timeoutId);
+            if (animationId) {
+                cancelAnimationFrame(animationId);
+            }
+            container.removeEventListener('mouseenter', pauseScroll);
+            container.removeEventListener('mouseleave', resumeScroll);
+        };
+    }, []);
 
     // Fetch publications from backend
     useEffect(() => {
@@ -85,20 +142,6 @@ function App() {
         fetchPublications();
     }, []);
 
-    // Debug: Log publications data structure
-    useEffect(() => {
-        if (!loading && publications.length > 0) {
-            console.log('Total publications:', publications.length);
-            console.log('Sample publication:', publications[0]);
-            console.log('All unique types:', [...new Set(publications.map(p => p.type))]);
-            console.log('Types breakdown:', {
-                journals: publications.filter(p => (p.type ?? "").toLowerCase().includes("journal")).length,
-                books: publications.filter(p => (p.type ?? "").toLowerCase().includes("book")).length,
-                conferences: publications.filter(p => (p.type ?? "").toLowerCase().includes("conference")).length,
-            });
-        }
-    }, [loading, publications]);
-
     // Process all publications
     const allPublications = useMemo(() => {
         return publications.map(pub => ({
@@ -109,10 +152,7 @@ function App() {
 
     // Filter publications based on active tab and search
     const filteredPublications = useMemo(() => {
-        console.log('Filtering with activeTab:', activeTab, 'searchQuery:', searchQuery);
-
         let filtered = allPublications.filter(pub => {
-            // Filter by type based on active tab
             let typeMatch = false;
             const pubType = (pub.type ?? "").toLowerCase();
 
@@ -130,7 +170,6 @@ function App() {
                     typeMatch = true;
             }
 
-            // Filter by search query
             const searchLower = searchQuery.toLowerCase();
             const searchMatch = searchQuery === "" ||
                 (pub.title ?? "").toLowerCase().includes(searchLower) ||
@@ -141,7 +180,6 @@ function App() {
             return typeMatch && searchMatch;
         });
 
-        // Sort publications
         if (sortConfig.key) {
             filtered.sort((a, b) => {
                 if (sortConfig.key === "year") {
@@ -156,7 +194,6 @@ function App() {
             });
         }
 
-        console.log('Filtered results:', filtered.length);
         return filtered;
     }, [allPublications, activeTab, searchQuery, sortConfig]);
 
@@ -168,7 +205,6 @@ function App() {
     };
 
     const handleTabChange = (tab) => {
-        console.log('Changing tab to:', tab);
         setActiveTab(tab);
     };
 
@@ -177,6 +213,43 @@ function App() {
             await loadFull(engine);
         }).then(() => setEngineReady(true));
     }, []);
+
+    // All venue covers combined
+    const allVenues = [
+        // Books
+        { src: "rasc/c1.PNG", alt: "AI-Driven Hardware Security" },
+        { src: "rasc/c2.PNG", alt: "Internet of Things Security" },
+        { src: "rasc/c3.PNG", alt: "AI Developments for Industrial Robotics" },
+        { src: "rasc/c4.PNG", alt: "Uncertainty in Computational Intelligence" },
+        { src: "rasc/c5.PNG", alt: "Digital Forensics and Cyber Crime" },
+        { src: "rasc/c6.PNG", alt: "Critical Phishing Defense Strategies" },
+        { src: "rasc/c7.PNG", alt: "Sustainable Information Security" },
+        { src: "rasc/c8.PNG", alt: "Advanced Cyber Defense for Space Missions" },
+        { src: "rasc/c9.PNG", alt: "Unveiling Social Dynamics in the Metaverse" },
+        // Conference Proceedings
+        { src: "rasc/c10.PNG", alt: "SysCom 2022 – Springer" },
+        { src: "rasc/c11.PNG", alt: "ICSCA 2023 – Springer LNEE" },
+        { src: "rasc/c12.PNG", alt: "Ubi-Media Computing 2025 – Springer CCIS" },
+        { src: "rasc/c19.PNG", alt: "Vigyan Pragati – Science Magazine" },
+        // Journals
+        { src: "rasc/c13.PNG", alt: "Journal of Database Management" },
+        { src: "rasc/c14.PNG", alt: "Telecommunication Systems – Springer" },
+        { src: "rasc/c15.PNG", alt: "IET Networks" },
+        { src: "rasc/c16.PNG", alt: "Scientific Reports – Nature Portfolio" },
+        { src: "rasc/c17.PNG", alt: "IJIT – IGI Global" },
+        { src: "rasc/c18.PNG", alt: "ACM Transactions on Asian Language" },
+        { src: "rasc/c20.PNG", alt: "Neural Computing & Applications" },
+        { src: "rasc/c21.PNG", alt: "CMES – Computer Modeling in Engineering" },
+        { src: "rasc/c22.PNG", alt: "Indian Journal of Environmental Protection" },
+        { src: "rasc/c23.PNG", alt: "Cyber Security and Applications" },
+        { src: "rasc/c24.PNG", alt: "Journal of Supercomputing" },
+        { src: "rasc/c25.PNG", alt: "Soft Computing – Springer" },
+        { src: "rasc/c26.PNG", alt: "CMC – Computers, Materials & Continua" },
+        { src: "rasc/c27.PNG", alt: "SN Computer Science – Springer Nature" },
+        { src: "rasc/c28.PNG", alt: "IET Networks" },
+        { src: "rasc/c29.PNG", alt: "Sustainable Technology and Entrepreneurship" },
+        { src: "rasc/c30.PNG", alt: "Enterprise Information Systems" },
+    ];
 
     return (
         <div className={styles.fullSite}>
@@ -219,7 +292,6 @@ function App() {
                 <div className={styles["hero-circle"] + " " + styles.right}></div>
 
                 <div className={styles["hero-content"]}>
-                    {/* LEFT TEXT */}
                     <motion.div
                         className={styles["hero-text"]}
                         initial={{ opacity: 0, x: -50 }}
@@ -250,7 +322,6 @@ function App() {
                         </div>
                     </motion.div>
 
-                    {/* RIGHT ANIMATION */}
                     <motion.div
                         className={styles["hero-animation"]}
                         initial={{ opacity: 0, scale: 0.8 }}
@@ -295,7 +366,6 @@ function App() {
                 </motion.h2>
 
                 <div className={styles["research-card"]}>
-                    {/* LEFT SIDE */}
                     <motion.div
                         className={styles.description}
                         initial={{ opacity: 0, x: -50 }}
@@ -316,7 +386,6 @@ function App() {
                         </p>
                     </motion.div>
 
-                    {/* RIGHT SIDE */}
                     <motion.div
                         className={styles.objectives}
                         initial={{ opacity: 0, y: 40 }}
@@ -407,6 +476,7 @@ function App() {
                 />
             </section>
 
+            {/* Faculty Section */}
             <section className={styles["faculty-section-new"]}>
                 <div className={styles["faculty-bg-gradient"]}></div>
 
@@ -426,7 +496,6 @@ function App() {
                     </motion.div>
 
                     <div className={styles["faculty-cards-container"]}>
-                        {/* Faculty Card 1 */}
                         <motion.div
                             className={styles["faculty-card-new"]}
                             initial={{ opacity: 0, y: 50 }}
@@ -440,15 +509,15 @@ function App() {
                                         <div className={styles["faculty-image-border"]}></div>
                                         <img
                                             src="/icrg-imgs/mentor-2.png"
-                                            alt="Dr. Sunil K. Singh"
+                                            alt="Prof. Sunil K. Singh"
                                             className={styles["faculty-image"]}
                                         />
                                     </a>
-                                    <div className={styles["faculty-role-badge"]}>Faculty Mentor</div>
+                                    <div className={styles["faculty-role-badge"]}>Principal Investigator</div>
                                 </div>
 
                                 <div className={styles["faculty-card-content"]}>
-                                    <h3 className={styles["faculty-name"]}>Dr. Sunil K. Singh</h3>
+                                    <h3 className={styles["faculty-name"]}>Prof. Sunil K. Singh</h3>
                                     <p className={styles["faculty-position"]}>Professor & Head of Department</p>
                                     <p className={styles["faculty-dept"]}>Computer Science & Engineering</p>
                                     <p className={styles["faculty-institution"]}>CCET, Chandigarh</p>
@@ -472,7 +541,6 @@ function App() {
                             </div>
                         </motion.div>
 
-                        {/* Faculty Card 2 */}
                         <motion.div
                             className={styles["faculty-card-new"]}
                             initial={{ opacity: 0, y: 50 }}
@@ -490,7 +558,7 @@ function App() {
                                             className={styles["faculty-image"]}
                                         />
                                     </a>
-                                    <div className={styles["faculty-role-badge"]}>Faculty Sponsor</div>
+                                    <div className={styles["faculty-role-badge"]}>Co-ordinator</div>
                                 </div>
 
                                 <div className={styles["faculty-card-content"]}>
@@ -535,94 +603,33 @@ function App() {
                         visible: {
                             opacity: 1,
                             transition: {
-                                staggerChildren: 0.2,
+                                staggerChildren: 0.15,
                             },
                         },
                     }}
                 >
-                    {/* Card 1 - Journals */}
-                    <motion.div
-                        className={styles["stat-card"]}
-                        variants={{
-                            hidden: { opacity: 0, scale: 0.8 },
-                            visible: { opacity: 1, scale: 1 },
-                        }}
-                        transition={{ duration: 0.6 }}
-                    >
-                        <i className="fa-solid fa-book-open"></i>
-                        <h3>59</h3>
-                        <p>International Journals</p>
-                    </motion.div>
-
-                    {/* Card 2 - Conferences */}
-                    <motion.div
-                        className={styles["stat-card"]}
-                        variants={{
-                            hidden: { opacity: 0, scale: 0.8 },
-                            visible: { opacity: 1, scale: 1 },
-                        }}
-                        transition={{ duration: 0.6 }}
-                    >
-                        <i className="fa-solid fa-users"></i>
-                        <h3>84</h3>
-                        <p>Conference Papers</p>
-                    </motion.div>
-
-                    {/* Card 3 - Book Chapters */}
-                    <motion.div
-                        className={styles["stat-card"]}
-                        variants={{
-                            hidden: { opacity: 0, scale: 0.8 },
-                            visible: { opacity: 1, scale: 1 },
-                        }}
-                        transition={{ duration: 0.6 }}
-                    >
-                        <i className="fa-solid fa-book"></i>
-                        <h3>53</h3>
-                        <p>Book Chapters</p>
-                    </motion.div>
-
-                    {/* Card 4 - Patents */}
-                    <motion.div
-                        className={styles["stat-card"]}
-                        variants={{
-                            hidden: { opacity: 0, scale: 0.8 },
-                            visible: { opacity: 1, scale: 1 },
-                        }}
-                        transition={{ duration: 0.6 }}
-                    >
-                        <i className="fa-solid fa-award"></i>
-                        <h3>6</h3>
-                        <p>Patents</p>
-                    </motion.div>
-
-                    {/* Card 5 - Short Articles */}
-                    <motion.div
-                        className={styles["stat-card"]}
-                        variants={{
-                            hidden: { opacity: 0, scale: 0.8 },
-                            visible: { opacity: 1, scale: 1 },
-                        }}
-                        transition={{ duration: 0.6 }}
-                    >
-                        <i className="fa-solid fa-newspaper"></i>
-                        <h3>9</h3>
-                        <p>Short Research Articles</p>
-                    </motion.div>
-
-                    {/* Card 6 - Total Publications */}
-                    <motion.div
-                        className={styles["stat-card"]}
-                        variants={{
-                            hidden: { opacity: 0, scale: 0.8 },
-                            visible: { opacity: 1, scale: 1 },
-                        }}
-                        transition={{ duration: 0.6 }}
-                    >
-                        <i className="fa-solid fa-chart-bar"></i>
-                        <h3>205+</h3>
-                        <p>Total Research Outputs</p>
-                    </motion.div>
+                    {[
+                        { icon: "fa-solid fa-book-open", value: "59", label: "International Journals" },
+                        { icon: "fa-solid fa-users", value: "84", label: "Conference Papers" },
+                        { icon: "fa-solid fa-book", value: "53", label: "Book Chapters" },
+                        { icon: "fa-solid fa-award", value: "6", label: "Patents" },
+                        { icon: "fa-solid fa-newspaper", value: "9", label: "Short Research Articles" },
+                        { icon: "fa-solid fa-chart-bar", value: "205+", label: "Total Research Outputs" },
+                    ].map((stat, index) => (
+                        <motion.div
+                            key={index}
+                            className={styles["stat-card"]}
+                            variants={{
+                                hidden: { opacity: 0, scale: 0.8 },
+                                visible: { opacity: 1, scale: 1 },
+                            }}
+                            transition={{ duration: 0.5 }}
+                        >
+                            <i className={stat.icon}></i>
+                            <h3>{stat.value}</h3>
+                            <p>{stat.label}</p>
+                        </motion.div>
+                    ))}
                 </motion.div>
             </section>
 
@@ -649,7 +656,6 @@ function App() {
                     </motion.p>
 
                     <div className={styles["tig-grid"]}>
-                        {/* Left: Program Info */}
                         <motion.div className={styles["tig-info-card"]} variants={fadeRight} custom={0.3}>
                             <div className={styles["tig-info-header"]}>
                                 <i className="fa-solid fa-handshake"></i>
@@ -674,7 +680,6 @@ function App() {
                             </div>
                         </motion.div>
 
-                        {/* Right: Student Spotlight */}
                         <motion.div className={styles["tig-spotlight-card"]} variants={fadeLeft} custom={0.4}>
                             <div className={styles["spotlight-header"]}>
                                 <i className="fa-solid fa-star"></i>
@@ -719,7 +724,6 @@ function App() {
                         </motion.div>
                     </div>
 
-                    {/* NEP 2020 Progress Bar */}
                     <motion.div className={styles["progress-section"]} variants={fadeUp} custom={0.5}>
                         <h3>Five-Year Research Impact (July 2020 – June 2026)</h3>
                         <div className={styles["progress-grid"]}>
@@ -751,7 +755,7 @@ function App() {
                 </div>
             </motion.section>
 
-            {/* Publication Venues Gallery */}
+            {/* Publication Venues Gallery - Single Carousel */}
             <motion.section
                 className={styles["venues-section"]}
                 initial="hidden"
@@ -767,23 +771,13 @@ function App() {
                         and books published by Springer, Elsevier, IGI Global, Nature, IEEE, and ACM
                     </motion.p>
 
-                    {/* Books Row */}
-                    <motion.div className={styles["venues-category"]} variants={fadeUp} custom={0.2}>
-                        <h4 className={styles["venues-cat-label"]}>
-                            <i className="fa-solid fa-book"></i> Edited Books &amp; Book Chapters
-                        </h4>
-                        <div className={styles["venues-scroll"]}>
-                            {[
-                                { src: "rasc/c1.PNG", alt: "AI-Driven Hardware Security" },
-                                { src: "rasc/c2.PNG", alt: "Internet of Things Security" },
-                                { src: "rasc/c3.PNG", alt: "AI Developments for Industrial Robotics" },
-                                { src: "rasc/c4.PNG", alt: "Uncertainty in Computational Intelligence" },
-                                { src: "rasc/c5.PNG", alt: "Digital Forensics and Cyber Crime" },
-                                { src: "rasc/c6.PNG", alt: "Critical Phishing Defense Strategies" },
-                                { src: "rasc/c7.PNG", alt: "Sustainable Information Security" },
-                                { src: "rasc/c8.PNG", alt: "Advanced Cyber Defense for Space Missions" },
-                                { src: "rasc/c9.PNG", alt: "Unveiling Social Dynamics in the Metaverse" },
-                            ].map((cover, i) => (
+                    <motion.div
+                        className={styles["venues-carousel-wrapper"]}
+                        variants={fadeUp}
+                        custom={0.2}
+                    >
+                        <div className={styles["venues-scroll"]} ref={scrollContainerRef}>
+                            {allVenues.map((cover, i) => (
                                 <motion.div
                                     key={i}
                                     className={styles["venue-cover"]}
@@ -797,72 +791,10 @@ function App() {
                                 </motion.div>
                             ))}
                         </div>
-                    </motion.div>
-
-                    {/* Conference Proceedings Row */}
-                    <motion.div className={styles["venues-category"]} variants={fadeUp} custom={0.3}>
-                        <h4 className={styles["venues-cat-label"]}>
-                            <i className="fa-solid fa-users"></i> Conference Proceedings
-                        </h4>
-                        <div className={styles["venues-scroll"]}>
-                            {[
-                                { src: "rasc/c10.PNG", alt: "SysCom 2022 – Springer" },
-                                { src: "rasc/c11.PNG", alt: "ICSCA 2023 – Springer LNEE" },
-                                { src: "rasc/c12.PNG", alt: "Ubi-Media Computing 2025 – Springer CCIS" },
-                                { src: "rasc/c19.PNG", alt: "Vigyan Pragati – Science Magazine" },
-                            ].map((cover, i) => (
-                                <motion.div
-                                    key={i}
-                                    className={styles["venue-cover"]}
-                                    whileHover={{ y: -8, scale: 1.05 }}
-                                    transition={{ duration: 0.3 }}
-                                >
-                                    <img src={cover.src} alt={cover.alt} />
-                                    <div className={styles["venue-cover-overlay"]}>
-                                        <span>{cover.alt}</span>
-                                    </div>
-                                </motion.div>
-                            ))}
-                        </div>
-                    </motion.div>
-
-                    {/* Journals Row */}
-                    <motion.div className={styles["venues-category"]} variants={fadeUp} custom={0.4}>
-                        <h4 className={styles["venues-cat-label"]}>
-                            <i className="fa-solid fa-journal-whills"></i> Journals
-                        </h4>
-                        <div className={styles["venues-scroll"]}>
-                            {[
-                                { src: "rasc/c13.PNG", alt: "Journal of Database Management" },
-                                { src: "rasc/c14.PNG", alt: "Telecommunication Systems – Springer" },
-                                { src: "rasc/c15.PNG", alt: "IET Networks" },
-                                { src: "rasc/c16.PNG", alt: "Scientific Reports – Nature Portfolio" },
-                                { src: "rasc/c17.PNG", alt: "IJIT – IGI Global" },
-                                { src: "rasc/c18.PNG", alt: "ACM Transactions on Asian Language" },
-                                { src: "rasc/c20.PNG", alt: "Neural Computing & Applications" },
-                                { src: "rasc/c21.PNG", alt: "CMES – Computer Modeling in Engineering" },
-                                { src: "rasc/c22.PNG", alt: "Indian Journal of Environmental Protection" },
-                                { src: "rasc/c23.PNG", alt: "Cyber Security and Applications" },
-                                { src: "rasc/c24.PNG", alt: "Journal of Supercomputing" },
-                                { src: "rasc/c25.PNG", alt: "Soft Computing – Springer" },
-                                { src: "rasc/c26.PNG", alt: "CMC – Computers, Materials & Continua" },
-                                { src: "rasc/c27.PNG", alt: "SN Computer Science – Springer Nature" },
-                                { src: "rasc/c28.PNG", alt: "IET Networks" },
-                                { src: "rasc/c29.PNG", alt: "Sustainable Technology and Entrepreneurship" },
-                                { src: "rasc/c30.PNG", alt: "Enterprise Information Systems" },
-                            ].map((cover, i) => (
-                                <motion.div
-                                    key={i}
-                                    className={styles["venue-cover"]}
-                                    whileHover={{ y: -8, scale: 1.05 }}
-                                    transition={{ duration: 0.3 }}
-                                >
-                                    <img src={cover.src} alt={cover.alt} />
-                                    <div className={styles["venue-cover-overlay"]}>
-                                        <span>{cover.alt}</span>
-                                    </div>
-                                </motion.div>
-                            ))}
+                        <div className={styles["carousel-indicators"]}>
+                            <span className={styles["carousel-hint"]}>
+                                <i className="fa-solid fa-arrows-left-right"></i> Hover to pause
+                            </span>
                         </div>
                     </motion.div>
                 </div>
@@ -902,7 +834,6 @@ function App() {
                 viewport={{ once: true, amount: 0.2 }}
             >
                 <div className={styles["publications-container"]}>
-                    {/* Header */}
                     <motion.div
                         className={styles["section-header"]}
                         variants={fadeUp}
@@ -924,7 +855,6 @@ function App() {
                         }
                     </motion.p>
 
-                    {/* Search Box */}
                     <motion.div
                         className={styles["search-box"]}
                         variants={fadeUp}
@@ -941,7 +871,6 @@ function App() {
                         />
                     </motion.div>
 
-                    {/* Tabs */}
                     <motion.div className={styles.tabs} variants={fadeUp} custom={0.4}>
                         <button
                             className={`${styles.tab} ${activeTab === "journals" ? styles["tab-active"] : styles["tab-inactive"]}`}
@@ -966,7 +895,6 @@ function App() {
                         </button>
                     </motion.div>
 
-                    {/* Results Count */}
                     {!loading && !error && (
                         <motion.div
                             className={styles["results-count"]}
@@ -977,7 +905,6 @@ function App() {
                         </motion.div>
                     )}
 
-                    {/* Loading State */}
                     {loading && (
                         <motion.div
                             className={styles["no-results"]}
@@ -989,7 +916,6 @@ function App() {
                         </motion.div>
                     )}
 
-                    {/* Error State */}
                     {error && !loading && (
                         <motion.div
                             className={styles["no-results"]}
@@ -1002,7 +928,6 @@ function App() {
                         </motion.div>
                     )}
 
-                    {/* Table */}
                     {!loading && !error && filteredPublications.length > 0 && (
                         <motion.div
                             className={styles["table-wrapper"]}
@@ -1072,7 +997,6 @@ function App() {
                         </motion.div>
                     )}
 
-                    {/* No Results Message */}
                     {!loading && !error && filteredPublications.length === 0 && allPublications.length > 0 && (
                         <motion.div
                             className={styles["no-results"]}
@@ -1093,7 +1017,6 @@ function App() {
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.2 }}
             >
-                {/* Title */}
                 <motion.h2
                     className={styles["section-title"]}
                     variants={zoomIn}
@@ -1102,9 +1025,7 @@ function App() {
                     Events Organized By The Team
                 </motion.h2>
 
-                {/* Events */}
                 <div className={styles.events}>
-                    {/* Event 1 */}
                     <motion.div
                         className={styles["event-card"]}
                         variants={fadeRight}
@@ -1118,7 +1039,6 @@ function App() {
                         </p>
                     </motion.div>
 
-                    {/* Event 2 */}
                     <motion.div
                         className={styles["event-card"]}
                         variants={fadeUp}
@@ -1132,7 +1052,6 @@ function App() {
                         </p>
                     </motion.div>
 
-                    {/* Event 3 */}
                     <motion.div
                         className={styles["event-card"]}
                         variants={fadeLeft}
@@ -1155,7 +1074,6 @@ function App() {
                 viewport={{ once: true, amount: 0.2 }}
             >
                 <motion.div className={styles.cta} variants={fadeUp} custom={0}>
-                    {/* Title */}
                     <motion.h2
                         className={styles["section-title"]}
                         variants={zoomIn}
@@ -1164,7 +1082,6 @@ function App() {
                         Join Our Research Community
                     </motion.h2>
 
-                    {/* Subtitle */}
                     <motion.p
                         className={styles["section-subtitle"]}
                         variants={fadeUp}
@@ -1174,7 +1091,6 @@ function App() {
                         innovations.
                     </motion.p>
 
-                    {/* Button */}
                     <motion.a
                         href="/contact-section"
                         className={`${styles.btn} ${styles["btn-primary"]}`}
