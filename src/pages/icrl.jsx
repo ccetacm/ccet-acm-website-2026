@@ -303,17 +303,16 @@ function App() {
                         transition={{ duration: 0.8 }}
                         viewport={{ once: true }}
                     >
-                        <h3 className={styles["gradient-title"]}>CCET ACM Student</h3>
+                        <h3 className={styles["gradient-title"]}>An Initiative of ACM CCET Student Chapter</h3>
                         <p>
-                            There is a wide range of topics we investigate, including data mining,
-                            neural networks, fuzzy systems, evolutionary optimization, machine
-                            learning, pattern recognition, user-adaptive systems, computer graphics,
-                            computer vision, and bioinformatics, all under the common denominator of
-                            intelligent, nature-inspired methods and approaches to studying,
-                            modeling, and simulating complex systems that improve learnability,
-                            adaptability, and efficiency, these develop capabilities to study,
-                            model, and simulate complex systems that enhance their efficiency,
-                            adaptability, and learnability.
+                            Established in September 2020, the Responsible AI and Sustainable Computing
+                            Research Lab was founded to bridge the critical gap between static academic
+                            curricula and rapidly advancing industry demands. The lab provides a
+                            structured platform for students to explore, innovate, and apply the latest
+                            advancements in Artificial Intelligence, Machine Learning, Sustainability,
+                            and Ethical Computing — empowering undergraduates with real-world
+                            problem-solving skills aligned with NEP 2020 and the vision of Viksit
+                            Bharat 2047.
                         </p>
                     </motion.div>
 
@@ -336,56 +335,48 @@ function App() {
                         </motion.h3>
 
                         <div className={styles["objectives-list"]}>
-                            {/* Objective 1 */}
-                            <motion.div
-                                className={styles["objective-card"]}
-                                initial={{ opacity: 0, y: 30 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.6, delay: 0.1 }}
-                                viewport={{ once: true }}
-                            >
-                                <div className={styles["card-glow"]}></div>
-                                <div className={styles["card-content"]}>
-                                    <div className={styles.number}>1</div>
-                                    <p>
-                                        Conducting research of global acclaim and world-class quality in
-                                        the analysis, design, and application of CI techniques.
-                                    </p>
-                                </div>
-                            </motion.div>
-
-                            {/* Objective 2 */}
-                            <motion.div
-                                className={styles["objective-card"]}
-                                initial={{ opacity: 0, y: 30 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.6, delay: 0.2 }}
-                                viewport={{ once: true }}
-                            >
-                                <div className={styles["card-glow"]}></div>
-                                <div className={styles["card-content"]}>
-                                    <div className={styles.number}>2</div>
-                                    <p>To provide excellent instruction in CI disciplines.</p>
-                                </div>
-                            </motion.div>
-
-                            {/* Objective 3 */}
-                            <motion.div
-                                className={styles["objective-card"]}
-                                initial={{ opacity: 0, y: 30 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.6, delay: 0.3 }}
-                                viewport={{ once: true }}
-                            >
-                                <div className={styles["card-glow"]}></div>
-                                <div className={styles["card-content"]}>
-                                    <div className={styles.number}>3</div>
-                                    <p>
-                                        Bringing our knowledge and experience to the industry, and raising
-                                        funds through research initiatives.
-                                    </p>
-                                </div>
-                            </motion.div>
+                            {[
+                                {
+                                    num: 1,
+                                    icon: "fa-solid fa-bridge-water",
+                                    text: "Bridging Syllabus–Technology Gap: Encouraging students to align learning with current industry trends through research, skill-gap analysis, and practical project development."
+                                },
+                                {
+                                    num: 2,
+                                    icon: "fa-solid fa-robot",
+                                    text: "Responsible AI Focus: Fostering ethical, transparent, and sustainable AI applications that address real-world challenges."
+                                },
+                                {
+                                    num: 3,
+                                    icon: "fa-solid fa-microscope",
+                                    text: "Promoting Undergraduate Research: Providing mentorship and a platform for students to lead research, publish in reputed international journals, and participate in international conferences."
+                                },
+                                {
+                                    num: 4,
+                                    icon: "fa-solid fa-globe",
+                                    text: "Global Collaboration: Enabling joint research and knowledge exchange with international institutions like Asia University, Taiwan, fostering cross-border collaborations and publication opportunities."
+                                },
+                                {
+                                    num: 5,
+                                    icon: "fa-solid fa-lightbulb",
+                                    text: "Mentorship & Innovation Ecosystem: Fostering a culture of innovation where students take ownership of their ideas, backed by expert mentorship and links to funding and grant opportunities."
+                                }
+                            ].map((obj, i) => (
+                                <motion.div
+                                    key={obj.num}
+                                    className={styles["objective-card"]}
+                                    initial={{ opacity: 0, y: 30 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.6, delay: 0.1 * (i + 1) }}
+                                    viewport={{ once: true }}
+                                >
+                                    <div className={styles["card-glow"]}></div>
+                                    <div className={styles["card-content"]}>
+                                        <div className={styles.number}>{obj.num}</div>
+                                        <p>{obj.text}</p>
+                                    </div>
+                                </motion.div>
+                            ))}
                         </div>
                     </motion.div>
                 </div>
@@ -549,7 +540,7 @@ function App() {
                         },
                     }}
                 >
-                    {/* Card 1 */}
+                    {/* Card 1 - Journals */}
                     <motion.div
                         className={styles["stat-card"]}
                         variants={{
@@ -558,12 +549,12 @@ function App() {
                         }}
                         transition={{ duration: 0.6 }}
                     >
-                        <i className="fa-solid fa-bullseye"></i>
-                        <h3>100+</h3>
-                        <p>Active Projects</p>
+                        <i className="fa-solid fa-book-open"></i>
+                        <h3>59</h3>
+                        <p>International Journals</p>
                     </motion.div>
 
-                    {/* Card 2 */}
+                    {/* Card 2 - Conferences */}
                     <motion.div
                         className={styles["stat-card"]}
                         variants={{
@@ -572,26 +563,12 @@ function App() {
                         }}
                         transition={{ duration: 0.6 }}
                     >
-                        <i className="fa-solid fa-globe"></i>
-                        <h3>10+</h3>
-                        <p>Partner Countries</p>
+                        <i className="fa-solid fa-users"></i>
+                        <h3>84</h3>
+                        <p>Conference Papers</p>
                     </motion.div>
 
-                    {/* Card 3 */}
-                    <motion.div
-                        className={styles["stat-card"]}
-                        variants={{
-                            hidden: { opacity: 0, scale: 0.8 },
-                            visible: { opacity: 1, scale: 1 },
-                        }}
-                        transition={{ duration: 0.6 }}
-                    >
-                        <i className="fa-solid fa-award"></i>
-                        <h3>$25M+</h3>
-                        <p>Research Funding</p>
-                    </motion.div>
-
-                    {/* Card 4 - Publications Count */}
+                    {/* Card 3 - Book Chapters */}
                     <motion.div
                         className={styles["stat-card"]}
                         variants={{
@@ -601,11 +578,321 @@ function App() {
                         transition={{ duration: 0.6 }}
                     >
                         <i className="fa-solid fa-book"></i>
-                        <h3>{loading ? "..." : `${allPublications.length}+`}</h3>
-                        <p>Research Publications</p>
+                        <h3>53</h3>
+                        <p>Book Chapters</p>
+                    </motion.div>
+
+                    {/* Card 4 - Patents */}
+                    <motion.div
+                        className={styles["stat-card"]}
+                        variants={{
+                            hidden: { opacity: 0, scale: 0.8 },
+                            visible: { opacity: 1, scale: 1 },
+                        }}
+                        transition={{ duration: 0.6 }}
+                    >
+                        <i className="fa-solid fa-award"></i>
+                        <h3>6</h3>
+                        <p>Patents</p>
+                    </motion.div>
+
+                    {/* Card 5 - Short Articles */}
+                    <motion.div
+                        className={styles["stat-card"]}
+                        variants={{
+                            hidden: { opacity: 0, scale: 0.8 },
+                            visible: { opacity: 1, scale: 1 },
+                        }}
+                        transition={{ duration: 0.6 }}
+                    >
+                        <i className="fa-solid fa-newspaper"></i>
+                        <h3>9</h3>
+                        <p>Short Research Articles</p>
+                    </motion.div>
+
+                    {/* Card 6 - Total Publications */}
+                    <motion.div
+                        className={styles["stat-card"]}
+                        variants={{
+                            hidden: { opacity: 0, scale: 0.8 },
+                            visible: { opacity: 1, scale: 1 },
+                        }}
+                        transition={{ duration: 0.6 }}
+                    >
+                        <i className="fa-solid fa-chart-bar"></i>
+                        <h3>205+</h3>
+                        <p>Total Research Outputs</p>
                     </motion.div>
                 </motion.div>
             </section>
+
+            {/* TIG-CRP-IPS Program Section */}
+            <motion.section
+                className={`${styles["tig-section"]} ${styles["container-padding-vertical"]}`}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.2 }}
+            >
+                <div className={styles["tig-inner"]}>
+                    <motion.div className={styles["tig-badge"]} variants={fadeUp} custom={0}>
+                        <i className="fa-solid fa-globe"></i>
+                        <span>Taiwan-India Global Initiative</span>
+                    </motion.div>
+
+                    <motion.h2 className={styles["section-title"]} variants={zoomIn} custom={0.1}>
+                        TIG Collaborative Research Project
+                    </motion.h2>
+                    <motion.p className={styles["section-subtitle"]} variants={fadeUp} custom={0.2}>
+                        Taiwan-India Global (TIG) Collaborative Research Project and International
+                        Publication Support Program — aligned with NEP 2020's vision of undergraduate
+                        research excellence
+                    </motion.p>
+
+                    <div className={styles["tig-grid"]}>
+                        {/* Left: Program Info */}
+                        <motion.div className={styles["tig-info-card"]} variants={fadeRight} custom={0.3}>
+                            <div className={styles["tig-info-header"]}>
+                                <i className="fa-solid fa-handshake"></i>
+                                <h3>Global Academic Collaboration</h3>
+                            </div>
+                            <p>
+                                A landmark academic partnership between <strong>Prof. Sunil K. Singh</strong>,
+                                Founder Faculty Mentor of RASC Lab, CCET (Degree Wing), Panjab University,
+                                Chandigarh, India and <strong>Prof. Brij B. Gupta</strong>, Founder Director,
+                                International Center for AI and Cyber Security Research and Innovations,
+                                Asia University, Taiwan.
+                            </p>
+                            <p>
+                                This program promotes undergraduate research and international publications
+                                under the Promotion of Undergraduate Research initiative, directly aligning
+                                with NEP 2020 (Page 37, Para 11.9) which envisions 4-year programmes
+                                leading to degrees <em>"with Research."</em>
+                            </p>
+                            <div className={styles["tig-nep-badge"]}>
+                                <i className="fa-solid fa-flag"></i>
+                                <span>Aligned with NEP 2020 &amp; Viksit Bharat 2047</span>
+                            </div>
+                        </motion.div>
+
+                        {/* Right: Student Spotlight */}
+                        <motion.div className={styles["tig-spotlight-card"]} variants={fadeLeft} custom={0.4}>
+                            <div className={styles["spotlight-header"]}>
+                                <i className="fa-solid fa-star"></i>
+                                <h3>Student Achievement Spotlight</h3>
+                            </div>
+                            <div className={styles["spotlight-content"]}>
+                                <p className={styles["spotlight-intro"]}>
+                                    A remarkable milestone in undergraduate research:
+                                </p>
+                                <div className={styles["student-cards"]}>
+                                    <div className={styles["student-chip"]}>
+                                        <i className="fa-solid fa-user-graduate"></i>
+                                        <div>
+                                            <strong>Saket Sarin</strong>
+                                            <span>LCO21383 · Batch 2021–2025</span>
+                                        </div>
+                                    </div>
+                                    <div className={styles["student-chip"]}>
+                                        <i className="fa-solid fa-user-graduate"></i>
+                                        <div>
+                                            <strong>Shivam Goyal</strong>
+                                            <span>LCO21384 · Batch 2021–2025</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className={styles["achievement-stats"]}>
+                                    <div className={styles["achievement-stat"]}>
+                                        <span className={styles["achievement-num"]}>12</span>
+                                        <span className={styles["achievement-label"]}>Co-authored Research Papers</span>
+                                    </div>
+                                    <div className={styles["achievement-stat"]}>
+                                        <span className={styles["achievement-num"]}>5</span>
+                                        <span className={styles["achievement-label"]}>SCI-Indexed Journal Publications</span>
+                                    </div>
+                                </div>
+                                <p className={styles["spotlight-note"]}>
+                                    Such research contributions at the undergraduate level are rare and
+                                    commendable, representing a distinguished milestone of academic
+                                    excellence and international engagement.
+                                </p>
+                            </div>
+                        </motion.div>
+                    </div>
+
+                    {/* NEP 2020 Progress Bar */}
+                    <motion.div className={styles["progress-section"]} variants={fadeUp} custom={0.5}>
+                        <h3>Five-Year Research Impact (July 2020 – June 2026)</h3>
+                        <div className={styles["progress-grid"]}>
+                            {[
+                                { label: "International Journals", value: 59, max: 75, color: "#3498db" },
+                                { label: "Conference Papers", value: 84, max: 100, color: "#00b8d4" },
+                                { label: "Book Chapters", value: 53, max: 65, color: "#5dade2" },
+                                { label: "Patents", value: 6, max: 10, color: "#74b9ff" },
+                            ].map((item, i) => (
+                                <div key={item.label} className={styles["progress-item"]}>
+                                    <div className={styles["progress-label"]}>
+                                        <span>{item.label}</span>
+                                        <span className={styles["progress-value"]}>{item.value}</span>
+                                    </div>
+                                    <div className={styles["progress-bar-bg"]}>
+                                        <motion.div
+                                            className={styles["progress-bar-fill"]}
+                                            style={{ background: item.color }}
+                                            initial={{ width: 0 }}
+                                            whileInView={{ width: `${(item.value / item.max) * 100}%` }}
+                                            transition={{ duration: 1.2, delay: 0.1 * i, ease: "easeOut" }}
+                                            viewport={{ once: true }}
+                                        />
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </motion.div>
+                </div>
+            </motion.section>
+
+            {/* Publication Venues Gallery */}
+            <motion.section
+                className={styles["venues-section"]}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.2 }}
+            >
+                <div className={styles["venues-inner"]}>
+                    <motion.h2 className={styles["section-title"]} variants={zoomIn} custom={0}>
+                        Where We Publish
+                    </motion.h2>
+                    <motion.p className={styles["section-subtitle"]} variants={fadeUp} custom={0.1}>
+                        Our research appears in leading international journals, conference proceedings,
+                        and books published by Springer, Elsevier, IGI Global, Nature, IEEE, and ACM
+                    </motion.p>
+
+                    {/* Books Row */}
+                    <motion.div className={styles["venues-category"]} variants={fadeUp} custom={0.2}>
+                        <h4 className={styles["venues-cat-label"]}>
+                            <i className="fa-solid fa-book"></i> Edited Books &amp; Book Chapters
+                        </h4>
+                        <div className={styles["venues-scroll"]}>
+                            {[
+                                { src: "rasc/c1.PNG", alt: "AI-Driven Hardware Security" },
+                                { src: "rasc/c2.PNG", alt: "Internet of Things Security" },
+                                { src: "rasc/c3.PNG", alt: "AI Developments for Industrial Robotics" },
+                                { src: "rasc/c4.PNG", alt: "Uncertainty in Computational Intelligence" },
+                                { src: "rasc/c5.PNG", alt: "Digital Forensics and Cyber Crime" },
+                                { src: "rasc/c6.PNG", alt: "Critical Phishing Defense Strategies" },
+                                { src: "rasc/c7.PNG", alt: "Sustainable Information Security" },
+                                { src: "rasc/c8.PNG", alt: "Advanced Cyber Defense for Space Missions" },
+                                { src: "rasc/c9.PNG", alt: "Unveiling Social Dynamics in the Metaverse" },
+                            ].map((cover, i) => (
+                                <motion.div
+                                    key={i}
+                                    className={styles["venue-cover"]}
+                                    whileHover={{ y: -8, scale: 1.05 }}
+                                    transition={{ duration: 0.3 }}
+                                >
+                                    <img src={cover.src} alt={cover.alt} />
+                                    <div className={styles["venue-cover-overlay"]}>
+                                        <span>{cover.alt}</span>
+                                    </div>
+                                </motion.div>
+                            ))}
+                        </div>
+                    </motion.div>
+
+                    {/* Conference Proceedings Row */}
+                    <motion.div className={styles["venues-category"]} variants={fadeUp} custom={0.3}>
+                        <h4 className={styles["venues-cat-label"]}>
+                            <i className="fa-solid fa-users"></i> Conference Proceedings
+                        </h4>
+                        <div className={styles["venues-scroll"]}>
+                            {[
+                                { src: "rasc/c10.PNG", alt: "SysCom 2022 – Springer" },
+                                { src: "rasc/c11.PNG", alt: "ICSCA 2023 – Springer LNEE" },
+                                { src: "rasc/c12.PNG", alt: "Ubi-Media Computing 2025 – Springer CCIS" },
+                                { src: "rasc/c19.PNG", alt: "Vigyan Pragati – Science Magazine" },
+                            ].map((cover, i) => (
+                                <motion.div
+                                    key={i}
+                                    className={styles["venue-cover"]}
+                                    whileHover={{ y: -8, scale: 1.05 }}
+                                    transition={{ duration: 0.3 }}
+                                >
+                                    <img src={cover.src} alt={cover.alt} />
+                                    <div className={styles["venue-cover-overlay"]}>
+                                        <span>{cover.alt}</span>
+                                    </div>
+                                </motion.div>
+                            ))}
+                        </div>
+                    </motion.div>
+
+                    {/* Journals Row */}
+                    <motion.div className={styles["venues-category"]} variants={fadeUp} custom={0.4}>
+                        <h4 className={styles["venues-cat-label"]}>
+                            <i className="fa-solid fa-journal-whills"></i> Journals
+                        </h4>
+                        <div className={styles["venues-scroll"]}>
+                            {[
+                                { src: "rasc/c13.PNG", alt: "Journal of Database Management" },
+                                { src: "rasc/c14.PNG", alt: "Telecommunication Systems – Springer" },
+                                { src: "rasc/c15.PNG", alt: "IET Networks" },
+                                { src: "rasc/c16.PNG", alt: "Scientific Reports – Nature Portfolio" },
+                                { src: "rasc/c17.PNG", alt: "IJIT – IGI Global" },
+                                { src: "rasc/c18.PNG", alt: "ACM Transactions on Asian Language" },
+                                { src: "rasc/c20.PNG", alt: "Neural Computing & Applications" },
+                                { src: "rasc/c21.PNG", alt: "CMES – Computer Modeling in Engineering" },
+                                { src: "rasc/c22.PNG", alt: "Indian Journal of Environmental Protection" },
+                                { src: "rasc/c23.PNG", alt: "Cyber Security and Applications" },
+                                { src: "rasc/c24.PNG", alt: "Journal of Supercomputing" },
+                                { src: "rasc/c25.PNG", alt: "Soft Computing – Springer" },
+                                { src: "rasc/c26.PNG", alt: "CMC – Computers, Materials & Continua" },
+                                { src: "rasc/c27.PNG", alt: "SN Computer Science – Springer Nature" },
+                                { src: "rasc/c28.PNG", alt: "IET Networks" },
+                                { src: "rasc/c29.PNG", alt: "Sustainable Technology and Entrepreneurship" },
+                                { src: "rasc/c30.PNG", alt: "Enterprise Information Systems" },
+                            ].map((cover, i) => (
+                                <motion.div
+                                    key={i}
+                                    className={styles["venue-cover"]}
+                                    whileHover={{ y: -8, scale: 1.05 }}
+                                    transition={{ duration: 0.3 }}
+                                >
+                                    <img src={cover.src} alt={cover.alt} />
+                                    <div className={styles["venue-cover-overlay"]}>
+                                        <span>{cover.alt}</span>
+                                    </div>
+                                </motion.div>
+                            ))}
+                        </div>
+                    </motion.div>
+                </div>
+            </motion.section>
+
+            {/* Collaboration Photo */}
+            <motion.section
+                className={`${styles.container} ${styles["container-padding-vertical"]}`}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.2 }}
+            >
+                <motion.h2 className={styles["section-title"]} variants={zoomIn} custom={0}>
+                    International Collaboration
+                </motion.h2>
+                <motion.p className={styles["section-subtitle"]} variants={fadeUp} custom={0.1}>
+                    Building bridges across borders through academic excellence and shared vision
+                </motion.p>
+                <motion.div className={styles["collab-photo-wrapper"]} variants={fadeUp} custom={0.2}>
+                    <img
+                        src="rasc/main1.PNG"
+                        alt="Faculty collaboration meeting"
+                        className={styles["collab-photo"]}
+                    />
+                    <div className={styles["collab-caption"]}>
+                        <i className="fa-solid fa-location-dot"></i>
+                        CCET, Chandigarh — Faculty & International Collaborators
+                    </div>
+                </motion.div>
+            </motion.section>
 
             {/* Publications Section */}
             <motion.section
