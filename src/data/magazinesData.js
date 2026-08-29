@@ -25,7 +25,7 @@ import magzine24 from "/Magazine/covers/magazine24.jpg";
 import magzine25 from "/Magazine/covers/magazine25.jpg";
 import magzine26 from "/Magazine/covers/magazine26.jpg"
 import magzine27 from "/Magazine/covers/magazine27.jpg"
-
+import magzine28 from "/Magazine/covers/magazine28.jpg"
 const magazines = [
   {
     id: 1,
@@ -352,7 +352,22 @@ const magazines = [
       { icon: "fa-network-wired", label: "Blockchain" },
       { icon: "fa-microchip", label: "Quantum Tech" },
     ],
+  },
+  {
+    id: 28,
+    title: "AI, Cybersecurity & Future Technologies",
+    year: 2026,
+    issue: "Issue 28 • Mar-Apr 2026",
+    image: magzine28,
+    pdf: "/Magazine/pdfs/Volume 7-Issue_2_mar-apr.pdf",
+    tags: [
+      { icon: "fa-shield-alt", label: "Cybersecurity" },
+      { icon: "fa-robot", label: "AI" },
+      { icon: "fa-network-wired", label: "Blockchain" },
+      { icon: "fa-microchip", label: "Quantum Tech" },
+    ],
   }
+
 ];
 
 export default magazines;
