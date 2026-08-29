@@ -353,20 +353,20 @@ const magazines = [
       { icon: "fa-microchip", label: "Quantum Tech" },
     ],
   },
-  {
-    id: 28,
-    title: "AI, Cybersecurity & Future Technologies",
-    year: 2026,
-    issue: "Issue 28 • Mar-Apr 2026",
-    image: magzine28,
-    pdf: "/Magazine/pdfs/Volume 7-issue_2_mar-apr_pdf.pdf",
-    tags: [
-      { icon: "fa-shield-alt", label: "Cybersecurity" },
-      { icon: "fa-robot", label: "AI" },
-      { icon: "fa-network-wired", label: "Blockchain" },
-      { icon: "fa-microchip", label: "Quantum Tech" },
-    ],
-  }
+ {
+  id: 28,
+  title: "AI, Quantum & Photonic Computing",
+  year: 2026,
+  issue: "Issue 28 • Mar-Apr 2026",
+  image: magzine28,
+  pdf: "/Magazine/pdfs/Volume 7-issue_2_mar-apr_pdf.pdf",
+  tags: [
+    { icon: "fa-robot", label: "AI" },
+    { icon: "fa-atom", label: "Quantum Computing" },
+    { icon: "fa-microchip", label: "Photonic Computing" },
+    { icon: "fa-brain", label: "Deep Learning" },
+  ],
+},
 
 ];
 
