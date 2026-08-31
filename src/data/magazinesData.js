@@ -23,9 +23,10 @@ import magzine22 from "/Magazine/covers/magazine22.jpg";
 import magzine23 from "/Magazine/covers/magazine23.jpg";
 import magzine24 from "/Magazine/covers/magazine24.jpg";
 import magzine25 from "/Magazine/covers/magazine25.jpg";
-import magzine26 from "/Magazine/covers/magazine26.jpg"
-import magzine27 from "/Magazine/covers/magazine27.jpg"
-import magzine28 from "/Magazine/covers/magazine28.jpg"
+import magzine26 from "/Magazine/covers/magazine26.jpg";
+import magzine27 from "/Magazine/covers/magazine27.jpg";
+import magzine28 from "/Magazine/covers/magazine28.jpg";
+import magzine29 from "/Magazine/covers/magazine29.jpg";
 const magazines = [
   {
     id: 1,
@@ -366,7 +367,20 @@ const magazines = [
     { icon: "fa-microchip", label: "Photonic Computing" },
     { icon: "fa-brain", label: "Deep Learning" },
   ],
-},
+}
+// {
+//   id: 29,
+//   title: "Neural Interfaces, Affective AI & Security",
+//   year: 2026,
+//   issue: "Issue 29 • May-Jun 2026",
+//   image: magzine29,
+//   pdf: "/Magazine/pdfs/Volume 7-issue_3_may-jun_pdf.pdf",
+//   tags: [
+//     { icon: "fa-robot", label: "Affective AI" },
+//     { icon: "fa-atom", label: "Neural Interfaces" },
+//     { icon: "fa-microchip", label: "Privacy & Security" }
+//   ],
+//}
 
 ];
 

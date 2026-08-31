@@ -2,6 +2,33 @@ import React, { useState, useEffect } from "react";
 import styles from "./teampage.module.css";
 
 import orcidIcon from "/teams/orcid.png";
+import avigatImg from "/teams/2026-27/avigat.JPG";
+import himenderImg from "/teams/2026-27/himender.JPG";
+import vansshImg from "/teams/2026-27/vanssh.JPG";
+import chiragImg from "/teams/2026-27/chirag.JPG";
+import shrutiImg from "/teams/2026-27/shruti.JPG";
+
+import ayush26Img from "/teams/2026-27/ayush.JPG";
+import ginishaImg from "/teams/2026-27/ginisha.JPG";
+import meharImg from "/teams/2026-27/mehar.JPG";
+import deveshImg from "/teams/2026-27/devesh.JPG";
+import bhavya26Img from "/teams/2026-27/bhavya.JPG";
+import mishaImg from "/teams/2026-27/misha.JPG";
+import manavImg from "/teams/2026-27/manav.JPG";
+import sundaramImg from "/teams/2026-27/sundaram.JPG";
+import leishaImg from "/teams/2026-27/leisha.JPG";
+import anshika26Img from "/teams/2026-27/anshika.JPG";
+import harmanImg from "/teams/2026-27/harman.JPG";
+import namanImg from "/teams/2026-27/naman.JPG";
+import naushadImg from "/teams/2026-27/naushad.JPG";
+import nispandImg from "/teams/2026-27/nispand.JPG";
+import vineetImg from "/teams/2026-27/vineet.JPG";
+import palakImg from "/teams/2026-27/palak.JPG";
+import ishmeetImg from "/teams/2026-27/ishmeet.JPG";
+import snehaImg from "/teams/2026-27/sneha.JPG";
+import saffranImg from "/teams/2026-27/saffran.JPG";
+import cgroup26 from "/teams/2026-27/cgroup2026.JPG";
+import wgroup26 from "/teams/2026-27/wgroup2026.JPG";
 
 import jaiveerImg from "/teams/2025-26/jaiveer.jpg";
 import satvikImg from "/teams/2025-26/satvik.jpg";
@@ -173,6 +200,7 @@ const teamTypes = ["ACM", "ACMW"];
 
 // 2. Define allYears at top
 const allYears = [
+  "2026 - 2027",
   "2025 - 2026",
   "2024 - 2025",
   "2023 - 2024",
@@ -187,6 +215,123 @@ const allYears = [
 // Your nested teamData (add all your real years and members as needed)
 const teamData = {
   ACM: {
+    "2026 - 2027": {
+  members: [
+    {
+      name: "Chirag Kalra",
+      designation: "Chairperson",
+      photo: chiragImg,
+      github: "",
+      linkedin: "",
+      orcid: "",
+    },
+    {
+      name: "Devesh Vaidya",
+      designation: "Vice Chairperson",
+      photo: deveshImg,
+      github: "https://github.com/deveshvaidyaofficial",
+      linkedin: "http://linkedin.com/in/deveshvaidya",
+      orcid: "",
+    },
+    {
+      name: "Avigat Mahajan",
+      designation: "Secretary",
+      photo: avigatImg,
+      github: "https://github.com/Avigat123",
+      linkedin: "https://www.linkedin.com/in/avigatmahajan",
+      orcid: "",
+    },
+    {
+      name: "Harman Singh",
+      designation: "Membership Chair",
+      photo: harmanImg,
+      github: "",
+      linkedin: "",
+      orcid: "",
+    },
+    {
+      name: "Naman Gupta",
+      designation: "Treasurer, Domain Director (Competitive Programming)",
+      photo: namanImg,
+      github: "",
+      linkedin: "",
+      orcid: "",
+    },
+    {
+      name: "Vanssh Bhargav",
+      designation: "Webmaster",
+      photo: vansshImg,
+      github: "https://github.com/vansshb5",
+      linkedin: "https://www.linkedin.com/in/vanssh-bhargav-5bb51a319/",
+      orcid: "",
+    },
+    {
+      name: "Gaurav Chahal",
+      designation: "Design Head",
+      photo:null,
+      github: "https://github.com/gauravchahal20",
+      linkedin: "https://www.linkedin.com/in/gauravchahal-gvvvchhl/",
+      orcid: "",
+    },
+    {
+      name: "Himender Sharma",
+      designation: "Executive Member Head, Domain Director (Android)",
+      photo: himenderImg,
+      github: "https://github.com/himendersharma0712",
+      linkedin: "https://www.linkedin.com/in/himendersharma0712",
+      orcid: "",
+    },
+    {
+      name: "Manav Jalali",
+      designation: "Editorial Head",
+      photo: manavImg,
+      github: "https://github.com/Manav-0511",
+      linkedin: "https://www.linkedin.com/in/manav-jalali-37738325/",
+      orcid: "",
+    },
+    {
+      name: "Naushad Ali",
+      designation: "Social Media, Domain Director (Web & DevOps)",
+      photo: naushadImg,
+      github: "",
+      linkedin: "",
+      orcid: "",
+    },
+    {
+      name: "Nispand",
+      designation: "PR Head",
+      photo: nispandImg,
+      github: "",
+      linkedin: "",
+      orcid: "",
+    },
+    {
+      name: "Sundaram Tiwari",
+      designation: "Event Manager",
+      photo: sundaramImg,
+      github: "https://github.com/tiwariii2007",
+      linkedin: "https://www.linkedin.com/in/sundram-tiwari-595541328/",
+      orcid: "",
+    },
+    {
+      name: "Vineet",
+      designation: "Marketing Head",
+      photo: vineetImg,
+      github: "",
+      linkedin: "",
+      orcid: "",
+    },
+    {
+      name: "Misha Sharma",
+      designation: "Domain Director (AI & ML)",
+      photo: mishaImg,
+      github: "",
+      linkedin: "",
+      orcid: "",
+    },
+  ],
+},
+    
     "2025 - 2026": {
       members: [
         {
@@ -887,6 +1032,114 @@ const teamData = {
       ], },
   },
   ACMW: {
+    "2026 - 2027": {
+  members: [
+    {
+      name: "Anshika Goyal",
+      designation: "Chairperson",
+      photo: anshika26Img,
+      github: "",
+      linkedin: "",
+      orcid: "",
+    },
+    {
+      name: "Leisha Gupta",
+      designation: "Vice Chairperson",
+      photo: leishaImg,
+      github: "https://github.com/Leisha-05",
+      linkedin: "https://www.linkedin.com/in/leisha-gupta-847b88330",
+      orcid: "",
+    },
+    {
+      name: "Mehar Juneja",
+      designation: "Secretary",
+      photo: meharImg,
+      github: "https://github.com/meharjuneja",
+      linkedin: "https://www.linkedin.com/in/meharjuneja/",
+      orcid: "",
+    },
+    {
+      name: "Membership Chair",
+      designation: "Membership Chair",
+      photo: null,
+      github: "",
+      linkedin: "",
+      orcid: "",
+    },
+    {
+      name: "Ginisha Miglani",
+      designation: "Treasurer",
+      photo: ginishaImg,
+      github: "https://github.com/ginisha27",
+      linkedin: "https://www.linkedin.com/in/ginisha-miglani",
+      orcid: "",
+    },
+    {
+      name: "Palak",
+      designation: "Webmaster",
+      photo: palakImg,
+      github: "",
+      linkedin: "",
+      orcid: "",
+    },
+    {
+      name: "Misha Sharma",
+      designation: "Design Head",
+      photo: mishaImg,
+      github: "",
+      linkedin: "",
+      orcid: "",
+    },
+    {
+      name: "Ishmeet Kaur",
+      designation: "Executive Member Head, Domain Director (Android)",
+      photo: ishmeetImg,
+      github: "",
+      linkedin: "",
+      orcid: "",
+    },
+    {
+      name: "Sneha Thakur",
+      designation: "Editorial Head",
+      photo: snehaImg,
+      github: "",
+      linkedin: "",
+      orcid: "",
+    },
+    {
+      name: "Ayush Ahuja",
+      designation: "Social Media",
+      photo: ayush26Img,
+      github: "",
+      linkedin: "",
+      orcid: "",
+    },
+    {
+      name: "Bhavya",
+      designation: "PR Head",
+      photo: bhavya26Img,
+      github: "",
+      linkedin: "https://www.linkedin.com/in/bhavya-b83b55336",
+      orcid: "",
+    },
+    {
+      name: "Saffran Kaur",
+      designation: "Event Manager, Domain Director (Competitive Programming)",
+      photo: saffranImg,
+      github: "",
+      linkedin: "",
+      orcid: "",
+    },
+    {
+      name: "Shruti Shukla",
+      designation: "Marketing Head, Domain Director (AI & ML)",
+      photo: shrutiImg,
+      github: "https://github.com/shruti636",
+      linkedin: "https://www.linkedin.com/in/shrutishukla05/",
+      orcid: "",
+    },
+  ],
+},
     "2025 - 2026": {
       members: [
         {
@@ -1406,6 +1659,9 @@ const teamData = {
 };
 
 const groupPhotos = {
+  "2026 - 2027": {
+    combined: cgroup26,
+  },
   "2025 - 2026": {
     combined: cgroup25,
   },
@@ -1425,7 +1681,7 @@ export default function TeamPage() {
   const filteredYears =
       selectedTeamType === "ACMW"
           ? allYears.filter((y) =>
-              ["2025 - 2026", "2024 - 2025", "2023 - 2024", "2022 - 2023", "2021 - 2022"].includes(y)
+              ["2026 - 2027", "2025 - 2026", "2024 - 2025", "2023 - 2024", "2022 - 2023", "2021 - 2022"].includes(y)
           )
           : allYears;
   const [selectedYear, setSelectedYear] = useState(filteredYears[0]);
