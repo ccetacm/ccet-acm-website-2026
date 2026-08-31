@@ -216,122 +216,122 @@ const allYears = [
 const teamData = {
   ACM: {
     "2026 - 2027": {
-  members: [
-    {
-      name: "Chirag Kalra",
-      designation: "Chairperson",
-      photo: chiragImg,
-      github: "",
-      linkedin: "",
-      orcid: "",
+      members: [
+        {
+          name: "Chirag Kalra",
+          designation: "Chairperson",
+          photo: chiragImg,
+          github: "https://github.com/Chiragkalra31",
+          linkedin: "https://www.linkedin.com/in/chirag-kalra-84b174325/?skipRedirect=true",
+          orcid: "",
+        },
+        {
+          name: "Devesh Vaidya",
+          designation: "Vice Chairperson",
+          photo: deveshImg,
+          github: "https://github.com/deveshvaidyaofficial",
+          linkedin: "http://linkedin.com/in/deveshvaidya",
+          orcid: "",
+        },
+        {
+          name: "Avigat Mahajan",
+          designation: "Secretary",
+          photo: avigatImg,
+          github: "https://github.com/Avigat123",
+          linkedin: "https://www.linkedin.com/in/avigatmahajan",
+          orcid: "",
+        },
+        {
+          name: "Harman Singh",
+          designation: "Membership Chair",
+          photo: harmanImg,
+          github: "https://github.com/harmanxdev07",
+          linkedin: "https://www.linkedin.com/in/harman-singh-negi-273236305/",
+          orcid: "",
+        },
+        {
+          name: "Naman Gupta",
+          designation: "Treasurer, Domain Director (Competitive Programming)",
+          photo: namanImg,
+          github: "https://github.com/NamanGupta3552",
+          linkedin: "https://www.linkedin.com/in/naman-gupta-000102322/",
+          orcid: "",
+        },
+        {
+          name: "Vanssh Bhargav",
+          designation: "Webmaster",
+          photo: vansshImg,
+          github: "https://github.com/vansshb5",
+          linkedin: "https://www.linkedin.com/in/vanssh-bhargav-5bb51a319/",
+          orcid: "",
+        },
+        {
+          name: "Gaurav Chahal",
+          designation: "Design Head",
+          photo: null,
+          github: "https://github.com/gauravchahal20",
+          linkedin: "https://www.linkedin.com/in/gauravchahal-grvvvchhl/",
+          orcid: "",
+        },
+        {
+          name: "Himender Sharma",
+          designation: "Executive Member Head, Domain Director (Android)",
+          photo: himenderImg,
+          github: "https://github.com/himendersharma0712",
+          linkedin: "https://www.linkedin.com/in/himendersharma0712",
+          orcid: "",
+        },
+        {
+          name: "Manav Jalali",
+          designation: "Editorial Head",
+          photo: manavImg,
+          github: "https://github.com/Manav-0511",
+          linkedin: "https://www.linkedin.com/in/manav-jalali-37738325/",
+          orcid: "",
+        },
+        {
+          name: "Naushad Ali",
+          designation: "Social Media, Domain Director (Web & DevOps)",
+          photo: naushadImg,
+          github: "",
+          linkedin: "",
+          orcid: "",
+        },
+        {
+          name: "Nispand",
+          designation: "PR Head",
+          photo: nispandImg,
+          github: "https://github.com/Nispand-Tech",
+          linkedin: "https://www.linkedin.com/in/nispand/",
+          orcid: "",
+        },
+        {
+          name: "Sundaram Tiwari",
+          designation: "Event Manager",
+          photo: sundaramImg,
+          github: "https://github.com/tiwariji2007",
+          linkedin: "https://www.linkedin.com/in/sundram-tiwari-595541328/",
+          orcid: "",
+        },
+        {
+          name: "Vineet",
+          designation: "Marketing Head",
+          photo: vineetImg,
+          github: "",
+          linkedin: "https://www.linkedin.com/in/vineet-jakhar-34b8a88323/",
+          orcid: "",
+        },
+        {
+          name: "Misha Sharma",
+          designation: "Domain Director (AI & ML)",
+          photo: mishaImg,
+          github: "",
+          linkedin: "https://www.linkedin.com/in/misha-sharma-746667330/",
+          orcid: "",
+        },
+      ],
     },
-    {
-      name: "Devesh Vaidya",
-      designation: "Vice Chairperson",
-      photo: deveshImg,
-      github: "https://github.com/deveshvaidyaofficial",
-      linkedin: "http://linkedin.com/in/deveshvaidya",
-      orcid: "",
-    },
-    {
-      name: "Avigat Mahajan",
-      designation: "Secretary",
-      photo: avigatImg,
-      github: "https://github.com/Avigat123",
-      linkedin: "https://www.linkedin.com/in/avigatmahajan",
-      orcid: "",
-    },
-    {
-      name: "Harman Singh",
-      designation: "Membership Chair",
-      photo: harmanImg,
-      github: "",
-      linkedin: "",
-      orcid: "",
-    },
-    {
-      name: "Naman Gupta",
-      designation: "Treasurer, Domain Director (Competitive Programming)",
-      photo: namanImg,
-      github: "",
-      linkedin: "",
-      orcid: "",
-    },
-    {
-      name: "Vanssh Bhargav",
-      designation: "Webmaster",
-      photo: vansshImg,
-      github: "https://github.com/vansshb5",
-      linkedin: "https://www.linkedin.com/in/vanssh-bhargav-5bb51a319/",
-      orcid: "",
-    },
-    {
-      name: "Gaurav Chahal",
-      designation: "Design Head",
-      photo:null,
-      github: "https://github.com/gauravchahal20",
-      linkedin: "https://www.linkedin.com/in/gauravchahal-gvvvchhl/",
-      orcid: "",
-    },
-    {
-      name: "Himender Sharma",
-      designation: "Executive Member Head, Domain Director (Android)",
-      photo: himenderImg,
-      github: "https://github.com/himendersharma0712",
-      linkedin: "https://www.linkedin.com/in/himendersharma0712",
-      orcid: "",
-    },
-    {
-      name: "Manav Jalali",
-      designation: "Editorial Head",
-      photo: manavImg,
-      github: "https://github.com/Manav-0511",
-      linkedin: "https://www.linkedin.com/in/manav-jalali-37738325/",
-      orcid: "",
-    },
-    {
-      name: "Naushad Ali",
-      designation: "Social Media, Domain Director (Web & DevOps)",
-      photo: naushadImg,
-      github: "",
-      linkedin: "",
-      orcid: "",
-    },
-    {
-      name: "Nispand",
-      designation: "PR Head",
-      photo: nispandImg,
-      github: "",
-      linkedin: "",
-      orcid: "",
-    },
-    {
-      name: "Sundaram Tiwari",
-      designation: "Event Manager",
-      photo: sundaramImg,
-      github: "https://github.com/tiwariii2007",
-      linkedin: "https://www.linkedin.com/in/sundram-tiwari-595541328/",
-      orcid: "",
-    },
-    {
-      name: "Vineet",
-      designation: "Marketing Head",
-      photo: vineetImg,
-      github: "",
-      linkedin: "",
-      orcid: "",
-    },
-    {
-      name: "Misha Sharma",
-      designation: "Domain Director (AI & ML)",
-      photo: mishaImg,
-      github: "",
-      linkedin: "",
-      orcid: "",
-    },
-  ],
-},
-    
+
     "2025 - 2026": {
       members: [
         {
@@ -772,7 +772,8 @@ const teamData = {
         },
       ],
     },
-    "2021 - 2022": { members: [
+    "2021 - 2022": {
+      members: [
         {
           name: "Muskaan Chopra",
           designation: "Chairperson",
@@ -790,10 +791,11 @@ const teamData = {
           orcid: "https://orcid.org/0000-0002-7415-0103",
 
         },
-        {name: "Anureet Chhabra",
+        {
+          name: "Anureet Chhabra",
           designation: "Secretary",
           photo: anureet2Img,
-          github:"https://github.com/anureetchhabra",
+          github: "https://github.com/anureetchhabra",
           linkedin: "https://www.linkedin.com/in/anureet-chhabra-bb86271bb/",
           orcid: "https://orcid.org/0000-0001-8123-4359"
         },
@@ -887,8 +889,10 @@ const teamData = {
           linkedin: "https://www.linkedin.com/in/shivam-kumar2003/",
           orcid: "",
         },
-      ], },
-    "2020 - 2021": { members: [
+      ],
+    },
+    "2020 - 2021": {
+      members: [
         {
           name: "Anshul Vashisth",
           designation: "President",
@@ -969,8 +973,10 @@ const teamData = {
           linkedin: "https://www.linkedin.com/in/sonam-garg-4b4a0619a/"
         },
 
-      ], },
-    "2019 - 2020": { members: [
+      ],
+    },
+    "2019 - 2020": {
+      members: [
         {
           name: "Ritika Dhiman",
           designation: "Chairperson",
@@ -1029,117 +1035,118 @@ const teamData = {
           linkedin: "https://www.linkedin.com/in/aarushi-sood-b2b11b154/"
         },
 
-      ], },
+      ],
+    },
   },
   ACMW: {
     "2026 - 2027": {
-  members: [
-    {
-      name: "Anshika Goyal",
-      designation: "Chairperson",
-      photo: anshika26Img,
-      github: "",
-      linkedin: "",
-      orcid: "",
+      members: [
+        {
+          name: "Anshika Goyal",
+          designation: "Chairperson",
+          photo: anshika26Img,
+          github: "",
+          linkedin: "",
+          orcid: "",
+        },
+        {
+          name: "Leisha Gupta",
+          designation: "Vice Chairperson",
+          photo: leishaImg,
+          github: "https://github.com/Leisha-05",
+          linkedin: "https://www.linkedin.com/in/leisha-gupta-847b88330",
+          orcid: "",
+        },
+        {
+          name: "Mehar Juneja",
+          designation: "Secretary",
+          photo: meharImg,
+          github: "https://github.com/meharjuneja",
+          linkedin: "https://www.linkedin.com/in/meharjuneja/",
+          orcid: "",
+        },
+        {
+          name: "Membership Chair",
+          designation: "Membership Chair",
+          photo: null,
+          github: "",
+          linkedin: "",
+          orcid: "",
+        },
+        {
+          name: "Ginisha Miglani",
+          designation: "Treasurer",
+          photo: ginishaImg,
+          github: "https://github.com/ginisha27",
+          linkedin: "https://www.linkedin.com/in/ginisha-miglani",
+          orcid: "",
+        },
+        {
+          name: "Palak",
+          designation: "Webmaster",
+          photo: palakImg,
+          github: "",
+          linkedin: "",
+          orcid: "",
+        },
+        {
+          name: "Misha Sharma",
+          designation: "Design Head",
+          photo: mishaImg,
+          github: "",
+          linkedin: "",
+          orcid: "",
+        },
+        {
+          name: "Ishmeet Kaur",
+          designation: "Executive Member Head, Domain Director (Android)",
+          photo: ishmeetImg,
+          github: "",
+          linkedin: "",
+          orcid: "",
+        },
+        {
+          name: "Sneha Thakur",
+          designation: "Editorial Head",
+          photo: snehaImg,
+          github: "",
+          linkedin: "",
+          orcid: "",
+        },
+        {
+          name: "Ayush Ahuja",
+          designation: "Social Media",
+          photo: ayush26Img,
+          github: "",
+          linkedin: "",
+          orcid: "",
+        },
+        {
+          name: "Bhavya",
+          designation: "PR Head",
+          photo: bhavya26Img,
+          github: "",
+          linkedin: "https://www.linkedin.com/in/bhavya-b83b55336",
+          orcid: "",
+        },
+        {
+          name: "Saffran Kaur",
+          designation: "Event Manager, Domain Director (Competitive Programming)",
+          photo: saffranImg,
+          github: "",
+          linkedin: "",
+          orcid: "",
+        },
+        {
+          name: "Shruti Shukla",
+          designation: "Marketing Head, Domain Director (AI & ML)",
+          photo: shrutiImg,
+          github: "https://github.com/shruti636",
+          linkedin: "https://www.linkedin.com/in/shrutishukla05/",
+          orcid: "",
+        },
+      ],
     },
-    {
-      name: "Leisha Gupta",
-      designation: "Vice Chairperson",
-      photo: leishaImg,
-      github: "https://github.com/Leisha-05",
-      linkedin: "https://www.linkedin.com/in/leisha-gupta-847b88330",
-      orcid: "",
-    },
-    {
-      name: "Mehar Juneja",
-      designation: "Secretary",
-      photo: meharImg,
-      github: "https://github.com/meharjuneja",
-      linkedin: "https://www.linkedin.com/in/meharjuneja/",
-      orcid: "",
-    },
-    {
-      name: "Membership Chair",
-      designation: "Membership Chair",
-      photo: null,
-      github: "",
-      linkedin: "",
-      orcid: "",
-    },
-    {
-      name: "Ginisha Miglani",
-      designation: "Treasurer",
-      photo: ginishaImg,
-      github: "https://github.com/ginisha27",
-      linkedin: "https://www.linkedin.com/in/ginisha-miglani",
-      orcid: "",
-    },
-    {
-      name: "Palak",
-      designation: "Webmaster",
-      photo: palakImg,
-      github: "",
-      linkedin: "",
-      orcid: "",
-    },
-    {
-      name: "Misha Sharma",
-      designation: "Design Head",
-      photo: mishaImg,
-      github: "",
-      linkedin: "",
-      orcid: "",
-    },
-    {
-      name: "Ishmeet Kaur",
-      designation: "Executive Member Head, Domain Director (Android)",
-      photo: ishmeetImg,
-      github: "",
-      linkedin: "",
-      orcid: "",
-    },
-    {
-      name: "Sneha Thakur",
-      designation: "Editorial Head",
-      photo: snehaImg,
-      github: "",
-      linkedin: "",
-      orcid: "",
-    },
-    {
-      name: "Ayush Ahuja",
-      designation: "Social Media",
-      photo: ayush26Img,
-      github: "",
-      linkedin: "",
-      orcid: "",
-    },
-    {
-      name: "Bhavya",
-      designation: "PR Head",
-      photo: bhavya26Img,
-      github: "",
-      linkedin: "https://www.linkedin.com/in/bhavya-b83b55336",
-      orcid: "",
-    },
-    {
-      name: "Saffran Kaur",
-      designation: "Event Manager, Domain Director (Competitive Programming)",
-      photo: saffranImg,
-      github: "",
-      linkedin: "",
-      orcid: "",
-    },
-    {
-      name: "Shruti Shukla",
-      designation: "Marketing Head, Domain Director (AI & ML)",
-      photo: shrutiImg,
-      github: "https://github.com/shruti636",
-      linkedin: "https://www.linkedin.com/in/shrutishukla05/",
-      orcid: "",
-    },
-  ],
-},
     "2025 - 2026": {
       members: [
         {
@@ -1679,11 +1686,11 @@ const groupPhotos = {
 export default function TeamPage() {
   const [selectedTeamType, setSelectedTeamType] = useState("ACM");
   const filteredYears =
-      selectedTeamType === "ACMW"
-          ? allYears.filter((y) =>
-              ["2026 - 2027", "2025 - 2026", "2024 - 2025", "2023 - 2024", "2022 - 2023", "2021 - 2022"].includes(y)
-          )
-          : allYears;
+    selectedTeamType === "ACMW"
+      ? allYears.filter((y) =>
+        ["2026 - 2027", "2025 - 2026", "2024 - 2025", "2023 - 2024", "2022 - 2023", "2021 - 2022"].includes(y)
+      )
+      : allYears;
   const [selectedYear, setSelectedYear] = useState(filteredYears[0]);
   const [fade, setFade] = useState(true);
 
@@ -1702,163 +1709,161 @@ export default function TeamPage() {
   const currentTeam = teamData[selectedTeamType]?.[selectedYear] || null;
 
   return (
-      <div className={styles["team-page"]}>
-        <div className={styles["title-container"]}>
-          <h1 className={styles["main-title"]}>Our Team</h1>
-          <p className={styles["subtitle"]}>Meet the talented individuals behind our success</p>
-        </div>
+    <div className={styles["team-page"]}>
+      <div className={styles["title-container"]}>
+        <h1 className={styles["main-title"]}>Our Team</h1>
+        <p className={styles["subtitle"]}>Meet the talented individuals behind our success</p>
+      </div>
 
-        {/* Year Selection */}
-        <div className={styles["selection-container"]}>
-          <div className={styles["selection-group"]}>
-            <h3 className={styles["selection-label"]}>Select Year</h3>
-            <div className={styles["year-tabs"]}>
-              {filteredYears.map((year) => (
-                  <button
-                      key={year}
-                      className={`${styles["selection-tab"]} ${
-                          selectedYear === year ? styles["active-tab"] : ""
-                      }`}
-                      onClick={() => setSelectedYear(year)}
-                      type="button"
-                  >
-                    {year}
-                  </button>
-              ))}
-            </div>
-          </div>
-
-          {/* Team Type Selection */}
-          <div className={styles["selection-group"]}>
-            <h3 className={styles["selection-label"]}>Select Team</h3>
-            <div className={styles["team-type-tabs"]}>
-              {teamTypes.map((type) => (
-                  <button
-                      key={type}
-                      className={`${styles["selection-tab"]} ${
-                          selectedTeamType === type ? styles["active-tab"] : ""
-                      }`}
-                      onClick={() => setSelectedTeamType(type)}
-                      type="button"
-                  >
-                    {type}
-                  </button>
-              ))}
-            </div>
+      {/* Year Selection */}
+      <div className={styles["selection-container"]}>
+        <div className={styles["selection-group"]}>
+          <h3 className={styles["selection-label"]}>Select Year</h3>
+          <div className={styles["year-tabs"]}>
+            {filteredYears.map((year) => (
+              <button
+                key={year}
+                className={`${styles["selection-tab"]} ${selectedYear === year ? styles["active-tab"] : ""
+                  }`}
+                onClick={() => setSelectedYear(year)}
+                type="button"
+              >
+                {year}
+              </button>
+            ))}
           </div>
         </div>
 
-        {/* Combined Group Photo */}
-        {groupPhotos[selectedYear]?.combined && (
-            <div className={`${styles["group-photo-container"]} ${fade ? styles.visible : styles.hidden}`}>
-              <div className={styles["photo-label"]}>Combined Team Photo</div>
-              <div className={styles["group-photo"]}>
-                <img src={groupPhotos[selectedYear].combined} alt={`${selectedYear} Combined Group`} />
-              </div>
-            </div>
-        )}
-
-        {/* Individual Team Group Photo */}
-        {selectedTeamType === "ACM" && groupPhotos[selectedYear]?.acm && (
-            <div className={`${styles["group-photo-container"]} ${fade ? styles.visible : styles.hidden}`}>
-              <div className={styles["photo-label"]}>ACM Team Photo</div>
-              <div className={styles["group-photo"]}>
-                <img src={groupPhotos[selectedYear].acm} alt={`${selectedYear} ACM Group`} />
-              </div>
-            </div>
-        )}
-
-        {selectedTeamType === "ACMW" && groupPhotos[selectedYear]?.acmw && (
-            <div className={`${styles["group-photo-container"]} ${fade ? styles.visible : styles.hidden}`}>
-              <div className={styles["photo-label"]}>ACMW Team Photo</div>
-              <div className={styles["group-photo"]}>
-                <img src={groupPhotos[selectedYear].acmw} alt={`${selectedYear} ACMW Group`} />
-              </div>
-            </div>
-        )}
-
-        {/* Members Grid */}
-        <div className={styles["members-container"]}>
-          <h2 className={styles["members-title"]}>
-            {selectedTeamType} Team Members ({selectedYear})
-          </h2>
-
-          {currentTeam?.members?.length > 0 ? (
-              <div className={styles["members-grid"]}>
-                {currentTeam.members.map((member, idx) => (
-                    <div
-                        className={`${styles["member-card"]} ${fade ? styles.visible : styles.hidden}`}
-                        key={idx}
-                        style={{ animationDelay: `${0.1 + idx * 0.05}s` }}
-                    >
-                      <div className={styles["card-inner"]}>
-                        <div className={styles["member-image-container"]}>
-                          <img
-                              src={member.photo || "/default-avatar.png"}
-                              alt={member.name}
-                              className={styles["member-image"]}
-                              onError={(e) => {
-                                e.target.src = "/default-avatar.png";
-                              }}
-                          />
-                        </div>
-
-                        <div className={styles["member-info"]}>
-                          <h3 className={styles["member-name"]}>{member.name}</h3>
-                          <p className={styles["member-role"]}>{member.designation}</p>
-
-                          <div className={styles["social-links"]}>
-                            {member.github && (
-                                <a
-                                    href={member.github}
-                                    className={styles["social-link"]}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    title="GitHub"
-                                >
-                                  <svg viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.2.8-.5v-1.7c-3.3.7-4-1.5-4-1.5-.5-1.1-1.3-1.4-1.3-1.4-1-.7.1-.7.1-.7 1.1.1 1.7 1.1 1.7 1.1 1 .1.6-1.1.6-1.1-.6-1-.9-1.2-1.7-1.2-.4 0-.2-.2-.1-.2 1.8 0 2.6 1.6 2.6 1.6.6 1.3 1.6 1 2.1.8.1-.4.4-.7.7-.9-2.7-.3-5.6-1.3-5.6-5.7 0-1.3.5-2.3 1.3-3.1-.2-.3-.6-1.4.1-2.8 0 0 1-.3 3.3 1.2l.9-.2c.9-.2 1.8-.2 2.7 0l.9.2c2.3-1.5 3.3-1.2 3.3-1.2.7 1.4.3 2.5.1 2.8.8.8 1.3 1.8 1.3 3.1 0 4.4-2.9 5.4-5.6 5.7.4.3.8.9.8 1.8v2.7c0 .3.2.6.7.5A12 12 0 0 0 12 .3"/>
-                                  </svg>
-                                </a>
-                            )}
-
-                            {member.linkedin && (
-                                <a
-                                    href={member.linkedin}
-                                    className={styles["social-link"]}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    title="LinkedIn"
-                                >
-                                  <svg viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M22.23 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.72V1.72c0-.95-.79-1.72-1.77-1.72zM7.1 20.45H3.56V9H7.1v11.45zM5.33 7.59a2.08 2.08 0 1 1 0-4.16 2.08 2.08 0 0 1 0 4.16zM20.45 20.45h-3.53v-5.61c0-1.34-.03-3.07-1.87-3.07-1.87 0-2.16 1.46-2.16 2.97v5.71h-3.51V9h3.37v1.56h.05c.47-.89 1.62-1.82 3.34-1.82 3.58 0 4.24 2.36 4.24 5.44v6.27z"/>
-                                  </svg>
-                                </a>
-                            )}
-
-                            {member.orcid && (
-                                <a
-                                    href={member.orcid}
-                                    className={styles["social-link"]}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    title="ORCID"
-                                >
-                                  <img src={orcidIcon} alt="ORCID" />
-                                </a>
-                            )}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                ))}
-              </div>
-          ) : (
-              <div className={styles["no-members"]}>
-                <p>No team data available for this selection.</p>
-              </div>
-          )}
+        {/* Team Type Selection */}
+        <div className={styles["selection-group"]}>
+          <h3 className={styles["selection-label"]}>Select Team</h3>
+          <div className={styles["team-type-tabs"]}>
+            {teamTypes.map((type) => (
+              <button
+                key={type}
+                className={`${styles["selection-tab"]} ${selectedTeamType === type ? styles["active-tab"] : ""
+                  }`}
+                onClick={() => setSelectedTeamType(type)}
+                type="button"
+              >
+                {type}
+              </button>
+            ))}
+          </div>
         </div>
       </div>
+
+      {/* Combined Group Photo */}
+      {groupPhotos[selectedYear]?.combined && (
+        <div className={`${styles["group-photo-container"]} ${fade ? styles.visible : styles.hidden}`}>
+          <div className={styles["photo-label"]}>Combined Team Photo</div>
+          <div className={styles["group-photo"]}>
+            <img src={groupPhotos[selectedYear].combined} alt={`${selectedYear} Combined Group`} />
+          </div>
+        </div>
+      )}
+
+      {/* Individual Team Group Photo */}
+      {selectedTeamType === "ACM" && groupPhotos[selectedYear]?.acm && (
+        <div className={`${styles["group-photo-container"]} ${fade ? styles.visible : styles.hidden}`}>
+          <div className={styles["photo-label"]}>ACM Team Photo</div>
+          <div className={styles["group-photo"]}>
+            <img src={groupPhotos[selectedYear].acm} alt={`${selectedYear} ACM Group`} />
+          </div>
+        </div>
+      )}
+
+      {selectedTeamType === "ACMW" && groupPhotos[selectedYear]?.acmw && (
+        <div className={`${styles["group-photo-container"]} ${fade ? styles.visible : styles.hidden}`}>
+          <div className={styles["photo-label"]}>ACMW Team Photo</div>
+          <div className={styles["group-photo"]}>
+            <img src={groupPhotos[selectedYear].acmw} alt={`${selectedYear} ACMW Group`} />
+          </div>
+        </div>
+      )}
+
+      {/* Members Grid */}
+      <div className={styles["members-container"]}>
+        <h2 className={styles["members-title"]}>
+          {selectedTeamType} Team Members ({selectedYear})
+        </h2>
+
+        {currentTeam?.members?.length > 0 ? (
+          <div className={styles["members-grid"]}>
+            {currentTeam.members.map((member, idx) => (
+              <div
+                className={`${styles["member-card"]} ${fade ? styles.visible : styles.hidden}`}
+                key={idx}
+                style={{ animationDelay: `${0.1 + idx * 0.05}s` }}
+              >
+                <div className={styles["card-inner"]}>
+                  <div className={styles["member-image-container"]}>
+                    <img
+                      src={member.photo || "/default-avatar.png"}
+                      alt={member.name}
+                      className={styles["member-image"]}
+                      onError={(e) => {
+                        e.target.src = "/default-avatar.png";
+                      }}
+                    />
+                  </div>
+
+                  <div className={styles["member-info"]}>
+                    <h3 className={styles["member-name"]}>{member.name}</h3>
+                    <p className={styles["member-role"]}>{member.designation}</p>
+
+                    <div className={styles["social-links"]}>
+                      {member.github && (
+                        <a
+                          href={member.github}
+                          className={styles["social-link"]}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          title="GitHub"
+                        >
+                          <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.2.8-.5v-1.7c-3.3.7-4-1.5-4-1.5-.5-1.1-1.3-1.4-1.3-1.4-1-.7.1-.7.1-.7 1.1.1 1.7 1.1 1.7 1.1 1 .1.6-1.1.6-1.1-.6-1-.9-1.2-1.7-1.2-.4 0-.2-.2-.1-.2 1.8 0 2.6 1.6 2.6 1.6.6 1.3 1.6 1 2.1.8.1-.4.4-.7.7-.9-2.7-.3-5.6-1.3-5.6-5.7 0-1.3.5-2.3 1.3-3.1-.2-.3-.6-1.4.1-2.8 0 0 1-.3 3.3 1.2l.9-.2c.9-.2 1.8-.2 2.7 0l.9.2c2.3-1.5 3.3-1.2 3.3-1.2.7 1.4.3 2.5.1 2.8.8.8 1.3 1.8 1.3 3.1 0 4.4-2.9 5.4-5.6 5.7.4.3.8.9.8 1.8v2.7c0 .3.2.6.7.5A12 12 0 0 0 12 .3" />
+                          </svg>
+                        </a>
+                      )}
+
+                      {member.linkedin && (
+                        <a
+                          href={member.linkedin}
+                          className={styles["social-link"]}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          title="LinkedIn"
+                        >
+                          <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M22.23 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.72V1.72c0-.95-.79-1.72-1.77-1.72zM7.1 20.45H3.56V9H7.1v11.45zM5.33 7.59a2.08 2.08 0 1 1 0-4.16 2.08 2.08 0 0 1 0 4.16zM20.45 20.45h-3.53v-5.61c0-1.34-.03-3.07-1.87-3.07-1.87 0-2.16 1.46-2.16 2.97v5.71h-3.51V9h3.37v1.56h.05c.47-.89 1.62-1.82 3.34-1.82 3.58 0 4.24 2.36 4.24 5.44v6.27z" />
+                          </svg>
+                        </a>
+                      )}
+
+                      {member.orcid && (
+                        <a
+                          href={member.orcid}
+                          className={styles["social-link"]}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          title="ORCID"
+                        >
+                          <img src={orcidIcon} alt="ORCID" />
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div className={styles["no-members"]}>
+            <p>No team data available for this selection.</p>
+          </div>
+        )}
+      </div>
+    </div>
   );
 }
