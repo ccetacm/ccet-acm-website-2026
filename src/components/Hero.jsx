@@ -96,96 +96,102 @@ const Hero = ({ startAnimation, cards }) => {
         setCurrentSlide((prev) => (prev - 1 + carouselData.length) % carouselData.length);
     };
 
-    return (
-        <>
-            <div className={`${styles.heroContainer} ${heroAnimated ? styles.animate : ""}`}>
-                {/* Background Video */}
-                <video className={styles.backgroundVideo} autoPlay muted loop>
-                    <source src="/Header_Main/Video.mp4" type="video/mp4" />
-                    Your browser does not support the video tag.
-                </video>
+  return (
+    <>
+        <div className={`${styles.heroContainer} ${heroAnimated ? styles.animate : ""}`}>
+            
+            {/* Background Image */}
+            <img
+                className={styles.backgroundVideo}
+                src="/Header_Main/frontpage.png"
+                alt="Front Page"
+            />
 
-                <div className={styles.hero}>
-                    <div className={styles.textContainer}>
-                        <HeroText />
-                        {/* Added subtitle under hero text */}
-                        <p className={styles.heroSubtitle}>
-                            Empowering next generation of computer scientists and technologists
-                        </p>
-                    </div>
-                </div>
+            <div className={styles.hero}>
+                <div className={styles.textContainer}>
+                    <HeroText />
 
-                {/* Stats Counter */}
-                <div className={styles.statsContainer}>
-                    <div className={styles.statItem}>
-                        <span className={styles.statNumber}>{stats.members}+</span>
-                        <span className={styles.statLabel}>Members</span>
-                    </div>
-                    <div className={styles.statItem}>
-                        <span className={styles.statNumber}>{stats.events}+</span>
-                        <span className={styles.statLabel}>Events</span>
-                    </div>
-                    <div className={styles.statItem}>
-                        <span className={styles.statNumber}>{stats.projects}+</span>
-                        <span className={styles.statLabel}>Projects</span>
-                    </div>
-                </div>
-
-                {/* ENHANCED TECH CAROUSEL */}
-                <div className={styles.techCarousel}>
-                    <div className={styles.carouselFrame}>
-                        {/* Tech Border Effect */}
-                        <div className={styles.techBorder}>
-                            <div className={styles.cornerTL}></div>
-                            <div className={styles.cornerTR}></div>
-                            <div className={styles.cornerBL}></div>
-                            <div className={styles.cornerBR}></div>
-                        </div>
-
-                        {/* Holographic Overlay */}
-                        <div className={styles.holoOverlay}></div>
-
-                        {/* Main Image */}
-                        <img
-                            src={carouselData[currentSlide].image}
-                            alt={carouselData[currentSlide].title}
-                            className={styles.carouselImage}
-                        />
-
-                        {/* Navigation Buttons */}
-                        <button
-                            className={`${styles.techBtn} ${styles.prevBtn}`}
-                            onClick={prevSlide}
-                        >
-                            <div className={styles.btnInner}>
-                                <span>◀</span>
-                            </div>
-                        </button>
-                        <button
-                            className={`${styles.techBtn} ${styles.nextBtn}`}
-                            onClick={nextSlide}
-                        >
-                            <div className={styles.btnInner}>
-                                <span>▶</span>
-                            </div>
-                        </button>
-
-                        {/* Enhanced Dots Indicator */}
-                        <div className={styles.techDots}>
-                            {carouselData.map((_, index) => (
-                                <button
-                                    key={index}
-                                    className={`${styles.techDot} ${index === currentSlide ? styles.activeTechDot : ''}`}
-                                    onClick={() => goToSlide(index)}
-                                >
-                                </button>
-                            ))}
-                        </div>
-                    </div>
+                    <p className={styles.heroSubtitle}>
+                        Empowering next generation of computer scientists and technologists
+                    </p>
                 </div>
             </div>
-        </>
-    );
+
+            {/* Stats Counter */}
+            <div className={styles.statsContainer}>
+                <div className={styles.statItem}>
+                    <span className={styles.statNumber}>{stats.members}+</span>
+                    <span className={styles.statLabel}>Members</span>
+                </div>
+
+                <div className={styles.statItem}>
+                    <span className={styles.statNumber}>{stats.events}+</span>
+                    <span className={styles.statLabel}>Events</span>
+                </div>
+
+                <div className={styles.statItem}>
+                    <span className={styles.statNumber}>{stats.projects}+</span>
+                    <span className={styles.statLabel}>Projects</span>
+                </div>
+            </div>
+
+            {/* ENHANCED TECH CAROUSEL */}
+            <div className={styles.techCarousel}>
+                <div className={styles.carouselFrame}>
+
+                    <div className={styles.techBorder}>
+                        <div className={styles.cornerTL}></div>
+                        <div className={styles.cornerTR}></div>
+                        <div className={styles.cornerBL}></div>
+                        <div className={styles.cornerBR}></div>
+                    </div>
+
+                    <div className={styles.holoOverlay}></div>
+
+                    <img
+                        src={carouselData[currentSlide].image}
+                        alt={carouselData[currentSlide].title}
+                        className={styles.carouselImage}
+                    />
+
+                    <button
+                        className={`${styles.techBtn} ${styles.prevBtn}`}
+                        onClick={prevSlide}
+                    >
+                        <div className={styles.btnInner}>
+                            <span>◀</span>
+                        </div>
+                    </button>
+
+                    <button
+                        className={`${styles.techBtn} ${styles.nextBtn}`}
+                        onClick={nextSlide}
+                    >
+                        <div className={styles.btnInner}>
+                            <span>▶</span>
+                        </div>
+                    </button>
+
+                    <div className={styles.techDots}>
+                        {carouselData.map((_, index) => (
+                            <button
+                                key={index}
+                                className={`${styles.techDot} ${
+                                    index === currentSlide
+                                        ? styles.activeTechDot
+                                        : ""
+                                }`}
+                                onClick={() => goToSlide(index)}
+                            />
+                        ))}
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </>
+);
 };
 
 export default Hero;
