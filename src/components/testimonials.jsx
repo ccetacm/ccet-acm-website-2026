@@ -17,7 +17,7 @@ const ArrowRight = () => (
 );
 
 const Team = () => {
-  const defaultYear = "2025-26";
+  const defaultYear = "2026-2027"; // Default year for team members
   const [currentACMIndex, setCurrentACMIndex] = useState(0);
   const [currentACMWIndex, setCurrentACMWIndex] = useState(0);
   const [isACMAutoPlaying, setIsACMAutoPlaying] = useState(true);
@@ -40,7 +40,7 @@ const Team = () => {
       interval = setInterval(() => {
         setCurrentACMIndex((prevIndex) =>
             prevIndex === acmMembers.length - 1 ? 0 : prevIndex + 1
-        );
+        ); 
       }, 3000);
     }
     return () => clearInterval(interval);
