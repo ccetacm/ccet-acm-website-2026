@@ -2,33 +2,33 @@ import React, { useState, useEffect } from "react";
 import styles from "./teampage.module.css";
 
 import orcidIcon from "/teams/orcid.png";
-import avigatImg from "/teams/2026-27/avigat.jpg";
-import himenderImg from "/teams/2026-27/himender.jpg";
-import vansshImg from "/teams/2026-27/vanssh.jpg";
-import chiragImg from "/teams/2026-27/chirag.jpg";
-import shrutiImg from "/teams/2026-27/shruti.jpg";
+// import avigatImg from "/teams/2026-27/avigat.jpg";
+// import himenderImg from "/teams/2026-27/himender.jpg";
+// import vansshImg from "/teams/2026-27/vanssh.jpg";
+// import chiragImg from "/teams/2026-27/chirag.jpg";
+// import shrutiImg from "/teams/2026-27/shruti.jpg";
 
-import ayush26Img from "/teams/2026-27/ayush.jpg";
-import ginishaImg from "/teams/2026-27/ginisha.jpg";
-import meharImg from "/teams/2026-27/mehar.jpg";
-import deveshImg from "/teams/2026-27/devesh.jpg";
-import bhavya26Img from "/teams/2026-27/bhavya.jpg";
-import mishaImg from "/teams/2026-27/misha.jpg";
-import manavImg from "/teams/2026-27/manav.jpg";
-import sundaramImg from "/teams/2026-27/sundaram.jpg";
-import leishaImg from "/teams/2026-27/leisha.jpg";
-import anshika26Img from "/teams/2026-27/anshika.jpg";
-import harmanImg from "/teams/2026-27/harman.jpg";
-import namanImg from "/teams/2026-27/naman.jpg";
-import naushadImg from "/teams/2026-27/naushad.jpg";
-import nispandImg from "/teams/2026-27/nispand.jpg";
-import vineetImg from "/teams/2026-27/vineet.jpg";
-import palakImg from "/teams/2026-27/palak.jpg";
-import ishmeetImg from "/teams/2026-27/ishmeet.jpg";
-import snehaImg from "/teams/2026-27/sneha.jpg";
-import saffranImg from "/teams/2026-27/saffran.jpg";
-import cgroup26 from "/teams/2026-27/cgroup2026.jpg";
-import wgroup26 from "/teams/2026-27/wgroup2026.jpg";
+// import ayush26Img from "/teams/2026-27/ayush.jpg";
+// import ginishaImg from "/teams/2026-27/ginisha.jpg";
+// import meharImg from "/teams/2026-27/mehar.jpg";
+// import deveshImg from "/teams/2026-27/devesh.jpg";
+// import bhavya26Img from "/teams/2026-27/bhavya.jpg";
+// import mishaImg from "/teams/2026-27/misha.jpg";
+// import manavImg from "/teams/2026-27/manav.jpg";
+// import sundaramImg from "/teams/2026-27/sundaram.jpg";
+// import leishaImg from "/teams/2026-27/leisha.jpg";
+// import anshika26Img from "/teams/2026-27/anshika.jpg";
+// import harmanImg from "/teams/2026-27/harman.jpg";
+// import namanImg from "/teams/2026-27/naman.jpg";
+// import naushadImg from "/teams/2026-27/naushad.jpg";
+// import nispandImg from "/teams/2026-27/nispand.jpg";
+// import vineetImg from "/teams/2026-27/vineet.jpg";
+// import palakImg from "/teams/2026-27/palak.jpg";
+// import ishmeetImg from "/teams/2026-27/ishmeet.jpg";
+// import snehaImg from "/teams/2026-27/sneha.jpg";
+// import saffranImg from "/teams/2026-27/saffran.jpg";
+// import cgroup26 from "/teams/2026-27/cgroup2026.jpg";
+// import wgroup26 from "/teams/2026-27/wgroup2026.jpg";
 
 import jaiveerImg from "/teams/2025-26/jaiveer.jpg";
 import satvikImg from "/teams/2025-26/satvik.jpg";
@@ -215,12 +215,12 @@ const allYears = [
 // Your nested teamData (add all your real years and members as needed)
 const teamData = {
   ACM: {
-    "2026 - 2027": {
+   "2026 - 2027": {
   members: [
     {
       name: "Chirag Kalra",
       designation: "Chairperson",
-      photo: chiragImg,
+      photo: "/teams/2026-27/chirag.jpg",
       github: "",
       linkedin: "",
       orcid: "",
@@ -228,7 +228,7 @@ const teamData = {
     {
       name: "Devesh Vaidya",
       designation: "Vice Chairperson",
-      photo: deveshImg,
+      photo: "/teams/2026-27/devesh.jpg",
       github: "https://github.com/deveshvaidyaofficial",
       linkedin: "http://linkedin.com/in/deveshvaidya",
       orcid: "",
@@ -236,7 +236,7 @@ const teamData = {
     {
       name: "Avigat Mahajan",
       designation: "Secretary",
-      photo: avigatImg,
+      photo: "/teams/2026-27/avigat.jpg",
       github: "https://github.com/Avigat123",
       linkedin: "https://www.linkedin.com/in/avigatmahajan",
       orcid: "",
@@ -244,7 +244,7 @@ const teamData = {
     {
       name: "Harman Singh",
       designation: "Membership Chair",
-      photo: harmanImg,
+      photo: "/teams/2026-27/harman.jpg",
       github: "",
       linkedin: "",
       orcid: "",
@@ -252,7 +252,7 @@ const teamData = {
     {
       name: "Naman Gupta",
       designation: "Treasurer, Domain Director (Competitive Programming)",
-      photo: namanImg,
+      photo: "/teams/2026-27/naman.jpg",
       github: "",
       linkedin: "",
       orcid: "",
@@ -260,7 +260,7 @@ const teamData = {
     {
       name: "Vanssh Bhargav",
       designation: "Webmaster",
-      photo: vansshImg,
+      photo: "/teams/2026-27/vanssh.jpg",
       github: "https://github.com/vansshb5",
       linkedin: "https://www.linkedin.com/in/vanssh-bhargav-5bb51a319/",
       orcid: "",
@@ -268,7 +268,7 @@ const teamData = {
     {
       name: "Gaurav Chahal",
       designation: "Design Head",
-      photo:null,
+      photo: null,
       github: "https://github.com/gauravchahal20",
       linkedin: "https://www.linkedin.com/in/gauravchahal-gvvvchhl/",
       orcid: "",
@@ -276,7 +276,7 @@ const teamData = {
     {
       name: "Himender Sharma",
       designation: "Executive Member Head, Domain Director (Android)",
-      photo: himenderImg,
+      photo: "/teams/2026-27/himender.jpg",
       github: "https://github.com/himendersharma0712",
       linkedin: "https://www.linkedin.com/in/himendersharma0712",
       orcid: "",
@@ -284,7 +284,7 @@ const teamData = {
     {
       name: "Manav Jalali",
       designation: "Editorial Head",
-      photo: manavImg,
+      photo: "/teams/2026-27/manav.jpg",
       github: "https://github.com/Manav-0511",
       linkedin: "https://www.linkedin.com/in/manav-jalali-37738325/",
       orcid: "",
@@ -292,7 +292,7 @@ const teamData = {
     {
       name: "Naushad Ali",
       designation: "Social Media, Domain Director (Web & DevOps)",
-      photo: naushadImg,
+      photo: "/teams/2026-27/naushad.jpg",
       github: "",
       linkedin: "",
       orcid: "",
@@ -300,7 +300,7 @@ const teamData = {
     {
       name: "Nispand",
       designation: "PR Head",
-      photo: nispandImg,
+      photo: "/teams/2026-27/nispand.jpg",
       github: "",
       linkedin: "",
       orcid: "",
@@ -308,7 +308,7 @@ const teamData = {
     {
       name: "Sundaram Tiwari",
       designation: "Event Manager",
-      photo: sundaramImg,
+      photo: "/teams/2026-27/sundaram.jpg",
       github: "https://github.com/tiwariii2007",
       linkedin: "https://www.linkedin.com/in/sundram-tiwari-595541328/",
       orcid: "",
@@ -316,7 +316,7 @@ const teamData = {
     {
       name: "Vineet",
       designation: "Marketing Head",
-      photo: vineetImg,
+      photo: "/teams/2026-27/vineet.jpg",
       github: "",
       linkedin: "",
       orcid: "",
@@ -324,7 +324,7 @@ const teamData = {
     {
       name: "Misha Sharma",
       designation: "Domain Director (AI & ML)",
-      photo: mishaImg,
+      photo: "/teams/2026-27/misha.jpg",
       github: "",
       linkedin: "",
       orcid: "",
@@ -1032,12 +1032,12 @@ const teamData = {
       ], },
   },
   ACMW: {
-    "2026 - 2027": {
+   "2026 - 2027": {
   members: [
     {
       name: "Anshika Goyal",
       designation: "Chairperson",
-      photo: anshika26Img,
+      photo: "/teams/2026-27/anshika.jpg",
       github: "",
       linkedin: "",
       orcid: "",
@@ -1045,7 +1045,7 @@ const teamData = {
     {
       name: "Leisha Gupta",
       designation: "Vice Chairperson",
-      photo: leishaImg,
+      photo: "/teams/2026-27/leisha.jpg",
       github: "https://github.com/Leisha-05",
       linkedin: "https://www.linkedin.com/in/leisha-gupta-847b88330",
       orcid: "",
@@ -1053,7 +1053,7 @@ const teamData = {
     {
       name: "Mehar Juneja",
       designation: "Secretary",
-      photo: meharImg,
+      photo: "/teams/2026-27/mehar.jpg",
       github: "https://github.com/meharjuneja",
       linkedin: "https://www.linkedin.com/in/meharjuneja/",
       orcid: "",
@@ -1069,7 +1069,7 @@ const teamData = {
     {
       name: "Ginisha Miglani",
       designation: "Treasurer",
-      photo: ginishaImg,
+      photo: "/teams/2026-27/ginisha.jpg",
       github: "https://github.com/ginisha27",
       linkedin: "https://www.linkedin.com/in/ginisha-miglani",
       orcid: "",
@@ -1077,7 +1077,7 @@ const teamData = {
     {
       name: "Palak",
       designation: "Webmaster",
-      photo: palakImg,
+      photo: "/teams/2026-27/palak.jpg",
       github: "",
       linkedin: "",
       orcid: "",
@@ -1085,7 +1085,7 @@ const teamData = {
     {
       name: "Misha Sharma",
       designation: "Design Head",
-      photo: mishaImg,
+      photo: "/teams/2026-27/misha.jpg",
       github: "",
       linkedin: "",
       orcid: "",
@@ -1093,7 +1093,7 @@ const teamData = {
     {
       name: "Ishmeet Kaur",
       designation: "Executive Member Head, Domain Director (Android)",
-      photo: ishmeetImg,
+      photo: "/teams/2026-27/ishmeet.jpg",
       github: "",
       linkedin: "",
       orcid: "",
@@ -1101,7 +1101,7 @@ const teamData = {
     {
       name: "Sneha Thakur",
       designation: "Editorial Head",
-      photo: snehaImg,
+      photo: "/teams/2026-27/sneha.jpg",
       github: "",
       linkedin: "",
       orcid: "",
@@ -1109,7 +1109,7 @@ const teamData = {
     {
       name: "Ayush Ahuja",
       designation: "Social Media",
-      photo: ayush26Img,
+      photo: "/teams/2026-27/ayush.jpg",
       github: "",
       linkedin: "",
       orcid: "",
@@ -1117,7 +1117,7 @@ const teamData = {
     {
       name: "Bhavya",
       designation: "PR Head",
-      photo: bhavya26Img,
+      photo: "/teams/2026-27/bhavya.jpg",
       github: "",
       linkedin: "https://www.linkedin.com/in/bhavya-b83b55336",
       orcid: "",
@@ -1125,7 +1125,7 @@ const teamData = {
     {
       name: "Saffran Kaur",
       designation: "Event Manager, Domain Director (Competitive Programming)",
-      photo: saffranImg,
+      photo: "/teams/2026-27/saffran.jpg",
       github: "",
       linkedin: "",
       orcid: "",
@@ -1133,7 +1133,7 @@ const teamData = {
     {
       name: "Shruti Shukla",
       designation: "Marketing Head, Domain Director (AI & ML)",
-      photo: shrutiImg,
+      photo: "/teams/2026-27/shruti.jpg",
       github: "https://github.com/shruti636",
       linkedin: "https://www.linkedin.com/in/shrutishukla05/",
       orcid: "",
@@ -1660,7 +1660,7 @@ const teamData = {
 
 const groupPhotos = {
   "2026 - 2027": {
-    combined: cgroup26,
+    combined: "/teams/2026-27/cgroup2026.jpg",
   },
   "2025 - 2026": {
     combined: cgroup25,
