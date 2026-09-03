@@ -1583,7 +1583,7 @@ export const teamMembers = {
     name: "Gaurav Chahal",
     role: "Design Head",
     category: "ACM",
-    image: "",
+    image: "./images/team-pics/CASC 2026-27/gaurav.jpg",
     github: "https://github.com/gauravchahal20",
     linkedin: "https://www.linkedin.com/in/gauravchahal-gvvvchhl/",
   },

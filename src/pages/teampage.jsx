@@ -7,7 +7,7 @@ import himenderImg from "/teams/2026-27/himender.JPG";
 import vansshImg from "/teams/2026-27/vanssh.JPG";
 import chiragImg from "/teams/2026-27/chirag.JPG";
 import shrutiImg from "/teams/2026-27/shruti.JPG";
-
+import gauravImg from "/teams/2026-27/gaurav.jpg";
 import ayush26Img from "/teams/2026-27/ayush.JPG";
 import ginishaImg from "/teams/2026-27/ginisha.JPG";
 import meharImg from "/teams/2026-27/mehar.JPG";
@@ -268,7 +268,7 @@ const teamData = {
         {
           name: "Gaurav Chahal",
           designation: "Design Head",
-          photo: null,
+          photo: gauravImg,
           github: "https://github.com/gauravchahal20",
           linkedin: "https://www.linkedin.com/in/gauravchahal-grvvvchhl/",
           orcid: "",

@@ -25,7 +25,7 @@ export const mentorsData = [
         name: "Prof. Sunil K. Singh",
         route: "SKSingh",
         title: "Faculty Mentor ACM, Professor and Head of CSE Department, CCET CHD",
-        imgSrc: "/mentors/mentor2.jpeg",
+        imgSrc: "/mentors/mentor-2.png",
         additionalImg: "/mentors/additionalimage.jpg",
         description: "The basic objective of CSE department is to provide students with a learning environment keeping the changing landscape of the field in mind with the objective to enable the outgoing students to take the lead role in steady and rapid advances in computing technologies. At CSE Department, students are subjected to continuous challenges by providing a flexible yet thought-provoking curriculum and learned guidance from extremely talented and experienced faculty members who are experts in their respective areas. The courses in the Computer Sc. & Engineering department are organized meticulously to provide a wide spectrum of choices to the students. I am confident that students of this college will emerge as core technological resources to the society at large. All the Best!!",
         about: "Senior Member - IEEE | Senior Member - ACM | Member - IEI | Life Member - ISTE | ISOC",

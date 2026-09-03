@@ -164,7 +164,7 @@ const Team = () => {
             </div>
             <div className="team-group-image-container">
               <img
-                src="/testimonials/acm-team.JPG"
+                src="/testimonials/acm-team.jpg"
                 alt="ACM Team Group"
                 className="team-group-image"
               />
