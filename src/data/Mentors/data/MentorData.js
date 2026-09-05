@@ -63,7 +63,7 @@ export const mentorsData = [
             "Data Analytics",
             "Cybersecurity",
         ],
-        imgSrc: "/mentors/mentor3.jpg",
+        imgSrc: "/mentors/mentor3.png",
         education: drSudhakarEducation,
         phdTeam: [
             {
