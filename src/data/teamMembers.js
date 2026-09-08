@@ -1728,8 +1728,8 @@ export const teamMembers = {
     role: "Webmaster",
     category: "ACM W",
     image: "./images/team-pics/CASC 2026-27/palak.JPG",
-    github: "",
-    linkedin: "",
+    github: "https://github.com/Palak123454321",
+    linkedin: "https://www.linkedin.com/in/palak-786276337",
   },
   {
     id: 142,

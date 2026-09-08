@@ -81,34 +81,35 @@ export const mentorsData = [
         ],
         btechTeam: [
             {
-                name: "Abhay Pratap Singh",
-                img: "/teams/2025-26/abhay.jpeg",
+                name: "Vanssh Bhargav",
+                img: "/teams/2026-27/vanssh.JPG",
                 social: {
-                    github: "https://github.com/Abhay-1704"
+                    github: "https://github.com/vansshb5",
+                    linkedin: "https://www.linkedin.com/in/vanssh-bhargav-5bb51a319/"
                 }
             },
             {
-                name: "Bhavya Dhiman",
-                img: "/teams/2025-26/bhavya.jpg",
+                name: "Palak",
+                img: "/teams/2026-27/palak.JPG",
                 social: {
-                    linkedin: "http://linkedin.com/in/bhavya-6a9429331",
-                    github: "https://github.com/bhavyadmn05"
+                    linkedin: "https://www.linkedin.com/in/palak-786276337",
+                    github: "https://github.com/Palak123454321"
                 }
             },
             {
-                name: "Sahil Garg",
-                img: "/mentors/team3.png" ,
+                name: "Chirag Kalra",
+                img: "/teams/2026-27/chirag.JPG",
                 social: {
-                    linkedin: "https://www.linkedin.com/in/sahil2004",
-                    github: "https://github.com/Sahil2004"
+                    linkedin: "https://www.linkedin.com/in/chirag-kalra-84b174325",
+                    github: "https://github.com/ChiragKalra31"
                 }
             },
             {
-                name: "Japjot Singh Nanda",
-                img: "/mentors/team4.png",
+                name: "Avigat Mahajan",
+                img: "/teams/2026-27/avigat.JPG",
                 social: {
-                    linkedin: "www.linkedin.com/in/japjot-singh-nanda-374a3a288",
-                    github: "https://github.com/CoderJap"
+                    linkedin: "https://www.linkedin.com/in/avigatmahajan/",
+                    github: "https://github.com/Avigat123"
                 }
             }
         ],
