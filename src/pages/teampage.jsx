@@ -1045,8 +1045,8 @@ const teamData = {
           name: "Anshika Goyal",
           designation: "Chairperson",
           photo: anshika26Img,
-          github: "",
-          linkedin: "",
+          github: "https://github.com/Anshika2006-7",
+          linkedin: "https://www.linkedin.com/in/anshika-goyal-21a267331/",
           orcid: "",
         },
         {

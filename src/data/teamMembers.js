@@ -1674,8 +1674,8 @@ export const teamMembers = {
     role: "Chairperson",
     category: "ACM W",
     image: "./images/team-pics/CASC 2026-27/anshika.JPG",
-    github: "",
-    linkedin: "",
+    github: "https://github.com/Anshika2006-7",
+    linkedin: "https://www.linkedin.com/in/anshika-goyal-21a267331/",
   },
   {
     id: 136,

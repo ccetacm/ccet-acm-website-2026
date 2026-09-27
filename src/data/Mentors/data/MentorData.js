@@ -105,11 +105,11 @@ export const mentorsData = [
                 }
             },
             {
-                name: "Avigat Mahajan",
-                img: "/teams/2026-27/avigat.JPG",
+                name: "Anshika Goyal",
+                img: "/teams/2026-27/anshika.JPG",
                 social: {
-                    linkedin: "https://www.linkedin.com/in/avigatmahajan/",
-                    github: "https://github.com/Avigat123"
+                    linkedin: "https://www.linkedin.com/in/anshika-goyal-21a267331/",
+                    github: "https://github.com/Anshika2006-7"
                 }
             }
         ],
