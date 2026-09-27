@@ -1758,7 +1758,7 @@ export default function TeamPage() {
         <div className={`${styles["group-photo-container"]} ${fade ? styles.visible : styles.hidden}`}>
           <div className={styles["photo-label"]}>Combined Team Photo</div>
           <div className={styles["group-photo"]}>
-            <img src={groupPhotos[selectedYear].combined} alt={`${selectedYear} Combined Group`} />
+            <img src={groupPhotos[selectedYear].combined} alt={`${selectedYear} Combined Group`} decoding="async" />
           </div>
         </div>
       )}
@@ -1768,7 +1768,7 @@ export default function TeamPage() {
         <div className={`${styles["group-photo-container"]} ${fade ? styles.visible : styles.hidden}`}>
           <div className={styles["photo-label"]}>ACM Team Photo</div>
           <div className={styles["group-photo"]}>
-            <img src={groupPhotos[selectedYear].acm} alt={`${selectedYear} ACM Group`} />
+            <img src={groupPhotos[selectedYear].acm} alt={`${selectedYear} ACM Group`} loading="lazy" decoding="async" />
           </div>
         </div>
       )}
@@ -1777,7 +1777,7 @@ export default function TeamPage() {
         <div className={`${styles["group-photo-container"]} ${fade ? styles.visible : styles.hidden}`}>
           <div className={styles["photo-label"]}>ACMW Team Photo</div>
           <div className={styles["group-photo"]}>
-            <img src={groupPhotos[selectedYear].acmw} alt={`${selectedYear} ACMW Group`} />
+            <img src={groupPhotos[selectedYear].acmw} alt={`${selectedYear} ACMW Group`} loading="lazy" decoding="async" />
           </div>
         </div>
       )}
@@ -1802,6 +1802,8 @@ export default function TeamPage() {
                       src={member.photo || "/default-avatar.png"}
                       alt={member.name}
                       className={styles["member-image"]}
+                      loading="lazy"
+                      decoding="async"
                       onError={(e) => {
                         e.target.src = "/default-avatar.png";
                       }}
@@ -1849,7 +1851,7 @@ export default function TeamPage() {
                           rel="noopener noreferrer"
                           title="ORCID"
                         >
-                          <img src={orcidIcon} alt="ORCID" />
+                          <img src={orcidIcon} alt="ORCID" loading="lazy" decoding="async" />
                         </a>
                       )}
                     </div>
