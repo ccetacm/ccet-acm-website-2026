@@ -367,20 +367,20 @@ const magazines = [
     { icon: "fa-microchip", label: "Photonic Computing" },
     { icon: "fa-brain", label: "Deep Learning" },
   ],
+},
+{
+  id: 29,
+  title: "Neural Interfaces, Affective AI & Security",
+  year: 2026,
+  issue: "Issue 29 • May-Jun 2026",
+  image: magzine29,
+  pdf: "/Magazine/pdfs/Volume 7-issue_3_may-jun_pdf.pdf",
+  tags: [
+    { icon: "fa-robot", label: "Affective AI" },
+    { icon: "fa-atom", label: "Neural Interfaces" },
+    { icon: "fa-microchip", label: "Privacy & Security" }
+  ],
 }
-// {
-//   id: 29,
-//   title: "Neural Interfaces, Affective AI & Security",
-//   year: 2026,
-//   issue: "Issue 29 • May-Jun 2026",
-//   image: magzine29,
-//   pdf: "/Magazine/pdfs/Volume 7-issue_3_may-jun_pdf.pdf",
-//   tags: [
-//     { icon: "fa-robot", label: "Affective AI" },
-//     { icon: "fa-atom", label: "Neural Interfaces" },
-//     { icon: "fa-microchip", label: "Privacy & Security" }
-//   ],
-//}
 
 ];
 
