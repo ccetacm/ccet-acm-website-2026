@@ -182,7 +182,14 @@ const MentorProfile = () => {
                                                 <strong>Authors:</strong> {pub.authors}
                                             </p>
                                             <p className={styles.journal}>
-                                                <strong>Journal/Conference:</strong> {pub.journal}
+                                                <strong>
+                                                    {pub.type?.toLowerCase() === "conference paper"
+                                                        ? "Conference:"
+                                                        : pub.type?.toLowerCase() === "book chapter"
+                                                            ? "Book Chapter:"
+                                                            : "Journal:"}
+                                                </strong>{" "}
+                                                {pub.journal}
                                             </p>
 
                                             {pub.doi && (
@@ -275,8 +282,8 @@ const MentorProfile = () => {
                             <div className={styles.skillsContainer}>
                                 {mentor.skills.map((skill, index) => (
                                     <span key={index} className={styles.skillTag}>
-                                    {skill}
-                                </span>
+                                        {skill}
+                                    </span>
                                 ))}
                             </div>
                         </section>
