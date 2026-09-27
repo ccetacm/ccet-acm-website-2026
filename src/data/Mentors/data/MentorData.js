@@ -82,7 +82,7 @@ export const mentorsData = [
         btechTeam: [
             {
                 name: "Vanssh Bhargav",
-                img: "/teams/2026-27/vanssh.JPG",
+                img: "/teams/2026-27/vanssh.webp",
                 social: {
                     github: "https://github.com/vansshb5",
                     linkedin: "https://www.linkedin.com/in/vanssh-bhargav-5bb51a319/"
@@ -90,7 +90,7 @@ export const mentorsData = [
             },
             {
                 name: "Palak",
-                img: "/teams/2026-27/palak.JPG",
+                img: "/teams/2026-27/palak.webp",
                 social: {
                     linkedin: "https://www.linkedin.com/in/palak-786276337",
                     github: "https://github.com/Palak123454321"
@@ -98,7 +98,7 @@ export const mentorsData = [
             },
             {
                 name: "Chirag Kalra",
-                img: "/teams/2026-27/chirag.JPG",
+                img: "/teams/2026-27/chirag.webp",
                 social: {
                     linkedin: "https://www.linkedin.com/in/chirag-kalra-84b174325",
                     github: "https://github.com/ChiragKalra31"
@@ -106,7 +106,7 @@ export const mentorsData = [
             },
             {
                 name: "Anshika Goyal",
-                img: "/teams/2026-27/anshika.JPG",
+                img: "/teams/2026-27/anshika.webp",
                 social: {
                     linkedin: "https://www.linkedin.com/in/anshika-goyal-21a267331/",
                     github: "https://github.com/Anshika2006-7"

@@ -41,6 +41,18 @@ export default function DevTeam() {
     },
     {
       id: 4,
+      name: "Piyush Sakhuja",
+      role: "FRONTEND DEVELOPER",
+      description:
+        "Specializes in creating responsive, accessible, and user-focused interface designs.",
+      image:
+        "/DevTeam/piyush.jpg",
+      linkedin: "https://www.linkedin.com/in/piyush-sakhuja/",
+      github: "https://github.com/PiyushSakhuja",
+      email: "co24345@ccet.ac.in",
+    },
+    {
+      id: 5,
       name: "Lovish Tanwar",
       role: "MERN DEVELOPER",
       description:
@@ -52,7 +64,7 @@ export default function DevTeam() {
       email: "co23341@ccet.ac.in",
     },
     {
-      id: 5,
+      id: 6,
       name: "Leisha Gupta",
       role: "MERN DEVELOPER",
       description:
@@ -64,7 +76,7 @@ export default function DevTeam() {
       email: "",
     },
     {
-      id: 6,
+      id: 7,
       name: "Saffranpreet Kaur",
       role: "MERN DEVELOPER",
       description:
@@ -76,7 +88,7 @@ export default function DevTeam() {
       email: "",
     },
     {
-      id: 7,
+      id: 8,
       name: "Shruti",
       role: "MERN DEVELOPER",
       description:
@@ -86,7 +98,7 @@ export default function DevTeam() {
       linkedin: "https://www.linkedin.com/in/shruti-garg-415970330/",
       github: "https://github.com/halreynolds",
       email: "",
-    },
+    }
   ];
 
   return (
