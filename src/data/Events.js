@@ -1,6 +1,31 @@
 // Events Data
 export const events = [
     {
+
+    title: "INSIDE THE BLACK BOX",
+    location: "September 28, 2026",
+    description: "CCET ACM and ACM-W Student Chapters hosted “Inside the Black Box”, an introductory workshop on Artificial Intelligence and Machine Learning designed especially for beginners. The session provided students with an engaging introduction to the fundamentals of AI and ML, helping them understand what really happens inside the black box of Artificial Intelligence. With a beginner-friendly approach, the workshop encouraged students to explore AI concepts and build a strong foundation for further learning.",
+    duration: "1.5 Hours",
+    difficulty: "Beginner",
+    groupSize: "Students",
+    background: "/Events/InsideTheBlackBox/ITBB1.png",
+    cardImage: "/Events/InsideTheBlackBox/ITBB3.png",
+    images: [
+        "/Events/InsideTheBlackBox/ITBB6.png",
+        "/Events/InsideTheBlackBox/ITBB2.png",
+        "/Events/InsideTheBlackBox/ITBB4.png",
+        "/Events/InsideTheBlackBox/ITBB5.png"
+    ],
+    reactions: {
+        "❤️": { count: 60, text: "participants loved the AI workshop" },
+        "😊": { count: 52, text: "people enjoyed the beginner-friendly session" },
+        "👍": { count: 68, text: "found the workshop highly informative" },
+        "😢": { count: 5, text: "people regretted missing the session" },
+        "🎯": { count: 58, text: "participants gained valuable AI & ML insights" }
+    }
+
+    },
+    {
         title: "CYBER WELLNESS CLINIC (CWC)",
         location: "October 14, 2025",
         description: "As part of Cyber Awareness Week 2025, CCET ACM and ACM-W Student Chapters, in collaboration with the CSE Department and NITTTR Chandigarh, hosted the Cyber Wellness Clinic (CWC) Workshop. Led by Cybersecurity Expert Mr. Tarun Malhotra, the session focused on practical strategies for digital safety, covering phishing, scams, deepfakes, email security, data protection, cyber laws, and more. Students and faculty actively engaged in discussions, gaining actionable insights to strengthen their cybersecurity awareness.",

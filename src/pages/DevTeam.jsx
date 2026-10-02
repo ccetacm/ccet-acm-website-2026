@@ -38,9 +38,21 @@ export default function DevTeam() {
       linkedin: "https://www.linkedin.com/in/anmol-deep-singh-9687b2395/",
       github: "https://github.com/Anmol-Deep-Singh-Coding",
       email: "co23312@ccet.ac.in",
-    },
+    }, 
     {
       id: 4,
+      name: "Vanssh Bhargav",
+      role: "MERN DEVELOPER",
+      description:
+        "Skilled in applying modern web technologies to build efficient and maintainable solutions.",
+      image:
+        "/DevTeam/vanssh.png",
+      linkedin: "https://www.linkedin.com/in/vanssh-bhargav-5bb51a319/?isSelfProfile=true",
+      github: "https://github.com/vansshb5",
+      email: "co24372@ccet.ac.in",
+    },
+    {
+      id: 5,
       name: "Piyush Sakhuja",
       role: "FRONTEND DEVELOPER",
       description:
@@ -52,7 +64,7 @@ export default function DevTeam() {
       email: "co24345@ccet.ac.in",
     },
     {
-      id: 5,
+      id: 6,
       name: "Lovish Tanwar",
       role: "MERN DEVELOPER",
       description:
@@ -64,7 +76,7 @@ export default function DevTeam() {
       email: "co23341@ccet.ac.in",
     },
     {
-      id: 6,
+      id: 7,
       name: "Leisha Gupta",
       role: "MERN DEVELOPER",
       description:
@@ -76,7 +88,7 @@ export default function DevTeam() {
       email: "",
     },
     {
-      id: 7,
+      id: 8,
       name: "Saffranpreet Kaur",
       role: "MERN DEVELOPER",
       description:
@@ -88,7 +100,7 @@ export default function DevTeam() {
       email: "",
     },
     {
-      id: 8,
+      id: 9,
       name: "Shruti",
       role: "MERN DEVELOPER",
       description:
