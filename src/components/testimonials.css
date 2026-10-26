@@ -378,3 +378,23 @@
     right: -15px;
   }
 }
+@media (max-width: 960px) {
+  .team-group-image {
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    max-height: none;
+    object-fit: contain;
+  }
+
+  .team-card-avatar,
+  .team-card-avatar-image {
+    width: min(280px, 75vw);
+    height: min(280px, 75vw);
+  }
+
+  .team-card-avatar-image {
+      object-fit: cover;
+    object-position: center 30%;
+  }
+}
