@@ -1066,7 +1066,7 @@ const teamData = {
           orcid: "",
         },
         {
-          name: "Membership Chair",
+          name: "Hardik Sharma",
           designation: "Membership Chair",
           photo: null,
           github: "",
@@ -1683,6 +1683,64 @@ const groupPhotos = {
   },
 };
 
+function MemberImage({ src, name, className }) {
+  const [loaded, setLoaded] = useState(false);
+  const [error, setError] = useState(false);
+
+  const imageSrc = error || !src ? "/default-avatar.png" : src;
+
+  return (
+    <div
+      style={{
+        position: "relative",
+        width: "100%",
+        height: "100%",
+        minHeight: "180px",
+        overflow: "hidden",
+      }}
+    >
+      {!loaded && (
+        <div
+          aria-hidden="true"
+          style={{
+            position: "absolute",
+            inset: 0,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            background: "rgba(128, 128, 128, 0.12)",
+            zIndex: 1,
+          }}
+        >
+          <span style={{ fontSize: "14px", opacity: 0.65 }}>Loading image…</span>
+        </div>
+      )}
+
+      <img
+        src={imageSrc}
+        alt={name}
+        className={className}
+        loading="lazy"
+        decoding="async"
+        style={{
+          width: "100%",
+          height: "100%",
+          opacity: loaded ? 1 : 0,
+          transition: "opacity 180ms ease",
+        }}
+        onLoad={() => setLoaded(true)}
+        onError={() => {
+          if (!error) {
+            setError(true);
+          } else {
+            setLoaded(true);
+          }
+        }}
+      />
+    </div>
+  );
+}
+
 export default function TeamPage() {
   const [selectedTeamType, setSelectedTeamType] = useState("ACM");
   const filteredYears =
@@ -1702,7 +1760,7 @@ export default function TeamPage() {
 
   useEffect(() => {
     setFade(false);
-    const timer = setTimeout(() => setFade(true), 180);
+    const timer = setTimeout(() => setFade(true), 50);
     return () => clearTimeout(timer);
   }, [selectedTeamType, selectedYear]);
 
@@ -1758,7 +1816,13 @@ export default function TeamPage() {
         <div className={`${styles["group-photo-container"]} ${fade ? styles.visible : styles.hidden}`}>
           <div className={styles["photo-label"]}>Combined Team Photo</div>
           <div className={styles["group-photo"]}>
-            <img src={groupPhotos[selectedYear].combined} alt={`${selectedYear} Combined Group`} decoding="async" />
+            <img
+              key={`combined-${selectedYear}`}
+              src={groupPhotos[selectedYear].combined}
+              alt={`${selectedYear} Combined Group`}
+              loading="lazy"
+              decoding="async"
+            />
           </div>
         </div>
       )}
@@ -1768,7 +1832,13 @@ export default function TeamPage() {
         <div className={`${styles["group-photo-container"]} ${fade ? styles.visible : styles.hidden}`}>
           <div className={styles["photo-label"]}>ACM Team Photo</div>
           <div className={styles["group-photo"]}>
-            <img src={groupPhotos[selectedYear].acm} alt={`${selectedYear} ACM Group`} loading="lazy" decoding="async" />
+            <img
+              key={`acm-${selectedYear}`}
+              src={groupPhotos[selectedYear].acm}
+              alt={`${selectedYear} ACM Group`}
+              loading="lazy"
+              decoding="async"
+            />
           </div>
         </div>
       )}
@@ -1777,7 +1847,13 @@ export default function TeamPage() {
         <div className={`${styles["group-photo-container"]} ${fade ? styles.visible : styles.hidden}`}>
           <div className={styles["photo-label"]}>ACMW Team Photo</div>
           <div className={styles["group-photo"]}>
-            <img src={groupPhotos[selectedYear].acmw} alt={`${selectedYear} ACMW Group`} loading="lazy" decoding="async" />
+            <img
+              key={`acmw-${selectedYear}`}
+              src={groupPhotos[selectedYear].acmw}
+              alt={`${selectedYear} ACMW Group`}
+              loading="lazy"
+              decoding="async"
+            />
           </div>
         </div>
       )}
@@ -1793,20 +1869,16 @@ export default function TeamPage() {
             {currentTeam.members.map((member, idx) => (
               <div
                 className={`${styles["member-card"]} ${fade ? styles.visible : styles.hidden}`}
-                key={idx}
+                key={`${selectedTeamType}-${selectedYear}-${member.name}`}
                 style={{ animationDelay: `${0.1 + idx * 0.05}s` }}
               >
                 <div className={styles["card-inner"]}>
                   <div className={styles["member-image-container"]}>
-                    <img
-                      src={member.photo || "/default-avatar.png"}
-                      alt={member.name}
+                    <MemberImage
+                      key={`${selectedTeamType}-${selectedYear}-${member.name}-image`}
+                      src={member.photo}
+                      name={member.name}
                       className={styles["member-image"]}
-                      loading="lazy"
-                      decoding="async"
-                      onError={(e) => {
-                        e.target.src = "/default-avatar.png";
-                      }}
                     />
                   </div>
 
