@@ -68,67 +68,68 @@ const AppWrapper = () => {
   }, [hasLoadedOnce]);
 
   return (
-      <>
-        {!hideLoader && !hasLoadedOnce && (
-            <div
-                className={`loader-overlay-wrapper ${fadeOut ? "fade-out" : ""}`}
-                style={{
-                  position: "fixed",
-                  inset: 0,
-                  backgroundColor: "#CAF0F8",
-                  zIndex: 9999,
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  opacity: fadeOut ? 0 : 1,
-                  pointerEvents: fadeOut ? "none" : "auto",
-                  transition: "opacity 0.5s ease-out",
-                }}
-            >
-              <Loader />
-            </div>
-        )}
+    <>
+      {!hideLoader && !hasLoadedOnce && (
+        <div
+          className={`loader-overlay-wrapper ${fadeOut ? "fade-out" : ""}`}
+          style={{
+            position: "fixed",
+            inset: 0,
+            backgroundColor: "#CAF0F8",
+            zIndex: 9999,
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            opacity: fadeOut ? 0 : 1,
+            pointerEvents: fadeOut ? "none" : "auto",
+            transition: "opacity 0.5s ease-out",
+          }}
+        >
+          <Loader />
+        </div>
+      )}
 
-        <Router>
-          <Header startAnimation={true} logos={logos} />
+      <Router>
+        <Header startAnimation={true} logos={logos} />
 
-          <ScrollToTop />
+        <ScrollToTop />
 
-          <main style={{ paddingTop: "95px" }}>
-            <Routes>
-              <Route path="/" element={<App />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/initiatives" element={<Initiatives />} />
-              <Route path="/vision" element={<Vision />} />
-              <Route path="/events" element={<Event />} />
-              <Route path="/research" element={<Resources />} />
-              <Route path="/magazine" element={<DigitalOutlet />} />
-              <Route path="/mentors" element={<Mentors />} />
-              <Route path="/teams" element={<Teams />} />
-              <Route path="/dev-team" element={<DevTeam />} />
-              <Route path="/acmw" element={<ACMW />} />
-              <Route path="/rasc" element={<ICRG />} />
-              <Route path="/gallery" element={<Gallery />} />
-              <Route path="/TalkWithTechies" element={<TalkWithTechies />} />
-              <Route path="/talk-with-techies" element={<TalkWithTechies />} />
-              <Route path="/contact-section" element={<ContactSection />} />
-              <Route path="/code-for-cause" element={<CodeforCause />} />
-              <Route path="/career-pathways" element={<CareerPathways />} />
-              <Route path="/code-for-technology" element={<CodeforTechnology />} />
-              <Route path="/healthy-byte" element={<HealthyByte />} />
-              <Route path="/:mentorName" element={<MentorProfile />} />
-              <Route path="*" element={<h2>404 - Page Not Found</h2>} />
-            </Routes>
-          </main>
+        <main style={{ paddingTop: "95px" }}>
+          <Routes>
+            <Route path="/" element={<App />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/initiatives" element={<Initiatives />} />
+            <Route path="/vision" element={<Vision />} />
+            <Route path="/events" element={<Event />} />
+            <Route path="/research" element={<Resources />} />
+            <Route path="/magazine" element={<DigitalOutlet />} />
+            <Route path="/mentors" element={<Mentors />} />
+            <Route path="/teams" element={<Teams />} />
+            <Route path="/dev-team" element={<DevTeam />} />
+            <Route path="/acmw" element={<ACMW />} />
+            <Route path="/rasc" element={<ICRG />} />
+            <Route path="/icrl" element={<ICRG />} />
+            <Route path="/gallery" element={<Gallery />} />
+            <Route path="/TalkWithTechies" element={<TalkWithTechies />} />
+            <Route path="/talk-with-techies" element={<TalkWithTechies />} />
+            <Route path="/contact-section" element={<ContactSection />} />
+            <Route path="/code-for-cause" element={<CodeforCause />} />
+            <Route path="/career-pathways" element={<CareerPathways />} />
+            <Route path="/code-for-technology" element={<CodeforTechnology />} />
+            <Route path="/healthy-byte" element={<HealthyByte />} />
+            <Route path="/:mentorName" element={<MentorProfile />} />
+            <Route path="*" element={<h2>404 - Page Not Found</h2>} />
+          </Routes>
+        </main>
 
-          <Footer />
-        </Router>
-      </>
+        <Footer />
+      </Router>
+    </>
   );
 };
 
 createRoot(document.getElementById("root")).render(
-    <StrictMode>
-      <AppWrapper />
-    </StrictMode>
+  <StrictMode>
+    <AppWrapper />
+  </StrictMode>
 );
