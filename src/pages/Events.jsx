@@ -16,7 +16,7 @@ const loadStorage = () => {
 const saveStorage = (data) => {
     try {
         localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
-    } catch {}
+    } catch { }
 };
 
 const initEventReactions = (item) => {
@@ -127,6 +127,8 @@ const Events = () => {
                                         src={image}
                                         alt={`${selectedEvent.title} ${index + 1}`}
                                         className={styles.detailImage}
+                                        loading="lazy"
+                                        decoding="async"
                                     />
                                     <figcaption className={styles.imageCaption}>
                                         Photo {index + 1} — {selectedEvent.title}
@@ -225,10 +227,9 @@ const Events = () => {
                             return (
                                 <article
                                     key={index}
-                                    className={`${styles.newsCard} ${
-                                        isFeature ? styles.featureCard :
-                                            isLarge    ? styles.largeCard  : styles.regularCard
-                                    }`}
+                                    className={`${styles.newsCard} ${isFeature ? styles.featureCard :
+                                        isLarge ? styles.largeCard : styles.regularCard
+                                        }`}
                                     onClick={() => setSelectedEvent(item)}
                                 >
                                     <div className={styles.cardImageContainer}>
@@ -237,6 +238,7 @@ const Events = () => {
                                             alt={item.title}
                                             className={styles.cardImage}
                                             loading="lazy"
+                                            decoding="async"
                                         />
                                         <div className={styles.imageOverlay}>
                                             <span className={styles.categoryTag}>

@@ -937,60 +937,60 @@ function App() {
                             <div className={styles["table-container"]}>
                                 <table>
                                     <thead>
-                                    <tr>
-                                        <th
-                                            className={styles.sortable}
-                                            onClick={() => handleSort("year")}
-                                        >
-                                            <div className={styles["sort-header"]}>
-                                                <span>Year</span>
-                                                <i className={`fa-solid fa-arrow-${sortConfig.key === "year" ? (sortConfig.direction === "asc" ? "up" : "down") : "up-down"}`}></i>
-                                            </div>
-                                        </th>
-                                        <th
-                                            className={styles.sortable}
-                                            onClick={() => handleSort("title")}
-                                        >
-                                            <div className={styles["sort-header"]}>
-                                                <span>Title</span>
-                                                <i className={`fa-solid fa-arrow-${sortConfig.key === "title" ? (sortConfig.direction === "asc" ? "up" : "down") : "up-down"}`}></i>
-                                            </div>
-                                        </th>
-                                        <th
-                                            className={styles.sortable}
-                                            onClick={() => handleSort("authors")}
-                                        >
-                                            <div className={styles["sort-header"]}>
-                                                <span>Authors</span>
-                                                <i className={`fa-solid fa-arrow-${sortConfig.key === "authors" ? (sortConfig.direction === "asc" ? "up" : "down") : "up-down"}`}></i>
-                                            </div>
-                                        </th>
-                                        <th>Journal/Conference</th>
-                                    </tr>
+                                        <tr>
+                                            <th
+                                                className={styles.sortable}
+                                                onClick={() => handleSort("year")}
+                                            >
+                                                <div className={styles["sort-header"]}>
+                                                    <span>Year</span>
+                                                    <i className={`fa-solid fa-arrow-${sortConfig.key === "year" ? (sortConfig.direction === "asc" ? "up" : "down") : "up-down"}`}></i>
+                                                </div>
+                                            </th>
+                                            <th
+                                                className={styles.sortable}
+                                                onClick={() => handleSort("title")}
+                                            >
+                                                <div className={styles["sort-header"]}>
+                                                    <span>Title</span>
+                                                    <i className={`fa-solid fa-arrow-${sortConfig.key === "title" ? (sortConfig.direction === "asc" ? "up" : "down") : "up-down"}`}></i>
+                                                </div>
+                                            </th>
+                                            <th
+                                                className={styles.sortable}
+                                                onClick={() => handleSort("authors")}
+                                            >
+                                                <div className={styles["sort-header"]}>
+                                                    <span>Authors</span>
+                                                    <i className={`fa-solid fa-arrow-${sortConfig.key === "authors" ? (sortConfig.direction === "asc" ? "up" : "down") : "up-down"}`}></i>
+                                                </div>
+                                            </th>
+                                            <th>Journal/Conference</th>
+                                        </tr>
                                     </thead>
                                     <tbody>
-                                    {filteredPublications.map((pub, index) => (
-                                        <tr key={`${pub.id || pub.year}-${index}`}>
-                                            <td>{pub.displayYear}</td>
-                                            <td>
-                                                <div className={styles["publication-title"]}>
-                                                    {pub.title}
-                                                    {pub.url && (
-                                                        <a href={pub.url} target="_blank" rel="noopener noreferrer" className={styles["pub-link"]}>
-                                                            <i className="fa-solid fa-external-link-alt"></i>
-                                                        </a>
-                                                    )}
-                                                </div>
-                                            </td>
-                                            <td>{pub.authors}</td>
-                                            <td>
-                                                <div className={styles["publication-journal"]}>
-                                                    {pub.journal}
-                                                    {pub.type && <span className={styles["pub-type"]}>{pub.type}</span>}
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    ))}
+                                        {filteredPublications.map((pub, index) => (
+                                            <tr key={`${pub.id || pub.year}-${index}`}>
+                                                <td>{pub.displayYear}</td>
+                                                <td>
+                                                    <div className={styles["publication-title"]}>
+                                                        {pub.title}
+                                                        {pub.url && (
+                                                            <a href={pub.url} target="_blank" rel="noopener noreferrer" className={styles["pub-link"]}>
+                                                                <i className="fa-solid fa-external-link-alt"></i>
+                                                            </a>
+                                                        )}
+                                                    </div>
+                                                </td>
+                                                <td>{pub.authors}</td>
+                                                <td>
+                                                    <div className={styles["publication-journal"]}>
+                                                        {pub.journal}
+                                                        {pub.type && <span className={styles["pub-type"]}>{pub.type}</span>}
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        ))}
                                     </tbody>
                                 </table>
                             </div>
