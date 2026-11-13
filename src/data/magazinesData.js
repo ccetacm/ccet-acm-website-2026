@@ -27,7 +27,7 @@ import magzine26 from "/Magazine/covers/magazine26.jpg";
 import magzine27 from "/Magazine/covers/magazine27.jpg";
 import magzine28 from "/Magazine/covers/magazine28.jpg";
 import magzine29 from "/Magazine/covers/magazine29.jpg";
-import magzine30 from "/Magazine/covers/magazine30.png";
+import magzine30 from "/Magazine/covers/magazine30.jpg";
 const magazines = [
   {
     id: 1,
@@ -388,7 +388,7 @@ const magazines = [
   year: 2026,
   issue: "Issue 30 • Jul-Aug 2026",
   image: magzine30,
-  pdf: "/Magazine/pdfs/Volume 7-issue_4_jul-aug_pdf.pdf",
+  pdf: "/Magazine/pdfs/Volume 7-issue_4_july-aug_pdf.pdf",
   tags: [
     { icon: "fa-shield-halved", label: "Cybersecurity 2026" },
     { icon: "fa-leaf", label: "Green Tech" },
